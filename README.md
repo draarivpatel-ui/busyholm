@@ -1,5 +1,10 @@
 # Busyholm
 
+[![Busyholm trailer](docs/demo.gif)](https://github.com/draarivpatel-ui/busyholm/releases/tag/v0.1.0)
+
+**[Watch the full demo video](https://github.com/draarivpatel-ui/busyholm/releases/tag/v0.1.0)**
+
+
 A cozy papercut river island that lives along the bottom of your screen and grows from the activity of your AI coding agents. Each agent session becomes a small resident (a beaver, an otter, a hare, a hedgehog) that works on the island while the agent works. When an agent needs you, a resident rings the bell and raises a flag. Finished work becomes buildings, so a few weeks of coding leaves you with a village.
 
 ![The Busyholm strip](docs/screenshots/strip.png)

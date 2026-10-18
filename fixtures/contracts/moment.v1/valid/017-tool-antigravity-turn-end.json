@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "kind": "turn_end",
+  "t": 1791806400000,
+  "agent": "23355960b0239a15fd4af3eea0564b8f",
+  "tool": "antigravity"
+}

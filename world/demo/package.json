@@ -1,0 +1,15 @@
+{
+  "name": "@busyholm/demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test \"test/*.test.ts\"",
+    "typecheck": "tsc --noEmit -p .",
+    "build": "node tools/build.mjs",
+    "demo": "node tools/run-demo.mjs",
+    "capture": "node tools/capture.mjs",
+    "end-card": "node tools/end-card.mjs"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Busyholm",
+  "mainBinaryName": "busyholm",
+  "version": "0.1.0",
+  "identifier": "dev.busyholm.desktop",
+  "build": {
+    "frontendDist": "../dist",
+    "beforeDevCommand": "node scripts/assemble-frontend.mjs",
+    "beforeBuildCommand": "node scripts/assemble-frontend.mjs --build-real"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "macOSPrivateApi": true,
+    "windows": [],
+    "security": {
+      "csp": {
+        "default-src": "'self'",
+        "script-src": "'self'",
+        "style-src": "'self' 'unsafe-inline'",
+        "img-src": "'self' data: blob:",
+        "font-src": "'self' data:",
+        "worker-src": "'self' blob:",
+        "connect-src": "ipc: http://ipc.localhost"
+      },
+      "freezePrototype": false
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+    "macOS": { "minimumSystemVersion": "11.0" },
+    "windows": {
+      "webviewInstallMode": { "type": "downloadBootstrapper" },
+      "nsis": { "installMode": "currentUser" }
+    },
+    "linux": { "deb": { "depends": [] } }
+  }
+}

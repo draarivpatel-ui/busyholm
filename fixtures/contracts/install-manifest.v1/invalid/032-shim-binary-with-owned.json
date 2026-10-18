@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "shim",
+      "tool": null,
+      "target": "shim_binary",
+      "path": "/usr/local/bin/busyholm-shim",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "e04b8c22ed7390b2c21e4a39f86878e245fb4ecc277df7ff6c09994cdb94e2e7",
+        "bytes": 640
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "8e6a31f1963b8f518c5a039360519af54515265e72fa5eb111dd8faa5972905b",
+          "replaced_sha256": null
+        }
+      ]
+    }
+  ]
+}

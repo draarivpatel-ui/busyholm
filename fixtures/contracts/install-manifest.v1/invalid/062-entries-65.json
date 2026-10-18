@@ -1,0 +1,1177 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "plugin-0",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-0.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "23d9723a752e60f0a010a2430487b15c49c394945fff274d8d990275e96ff019",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-1",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-1.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "50dff36d2d50d1ab1c5930a1e1c186fbc2748af270deb2a7dddb725ad5ed7c7d",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-2",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-2.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "54f51b0048dc7e9a45dc973dd072fb6a13d29ee169eeeb234a8b084dbff6f89e",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-3",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-3.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "09f55c30538d0c78bca04c6986c9d2756bcf63298e6b55a2cdeffdddb647944d",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-4",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-4.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "23e3c98e204a360231cb9d76baca5a5685b384808d04cf1f48dcadb582fad648",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-5",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-5.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "e6f2c7b205b0ba729e7bdb0897d05e46fb237c43ca9271f39b02f881522da53a",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-6",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-6.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "eae7a614a68c13a4cf49c87a88810efb147737bb0287fb8c21500bfe57cc8498",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-7",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-7.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "d2f7898e2d032e8ca6357e5b30e073bae50cc67df8b57454086fa2a5aec33688",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-8",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-8.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "31dff701230c4e0ba037b05e1e65add40b826208c452e8c6008651ed4475d967",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-9",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-9.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "6274ee02dd95b971d97b368d0975c756ae1f0ba62ddab767ddf3dedfec4edb72",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-10",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-10.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "b2fef778c8962584ea670a9f2d3b7b54cf2ffc81fba8369b079b1ac1fd61204f",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-11",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-11.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "6bc18d253ae2bcef4397bf2a3929d191f830a9ba3ff2052956de7fe464072a80",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-12",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-12.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "31f08fae563637d2c6eee360817aafd2fbd292b295c36c7d0e4c72611cc1e1db",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-13",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-13.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "a24c767050bf801d7bbdfb1e5a2e97b2e72a028d8a2f39a8aa9035b137f6bbcc",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-14",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-14.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "068193246d4fa1fe826d88f80b445dd08079768dba5a58bffbf81e92b3798fce",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-15",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-15.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "05e0e2218bdc03cabba53f21640f11903a5f874e76a85a5d397964bda8b0c7e9",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-16",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-16.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "b4dc2806f5e564822cb113f4228e0296d391890c253ee3218a37d349d6f1d99b",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-17",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-17.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "dfe82921e9cc82f73f1a92963560610173a4ec92c5ef96e7731ba3db7dc8d89c",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-18",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-18.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "3095ad19683a524f1503cc785b1dbb34cd819553b81188145702e183fde51a6a",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-19",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-19.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "c8c860aa849baac8340d336ac39d3ed837739ec5b8eee4524dc5c9fafcd7bf18",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-20",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-20.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "a70f1f8a0533ed37c3b548424c721d308c958051dfd23e950c50fe59d4e9bfac",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-21",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-21.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "b68b2e76e54935d7a1df0971819f0c63b9fbfef853956810edd3caf71cf71e1d",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-22",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-22.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "f16e90fb531828bade51009805e8f6571249723f3866602f5742d018a7adeb1c",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-23",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-23.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "e7a28a3955397f92c71baaa30e4c72efb40b27b761861247757c5687e4b6e770",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-24",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-24.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "7a26eb68367ef0073fa2cc77683f654ddcd1033ef996fddf36d5fdb7be58dff6",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-25",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-25.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "b0a1640a93f37852bb9d04c0e0aa746f75803fe4db194a0053d5ca069f512345",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-26",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-26.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "06e9b31a1e6e9c47e8e2563989e0dab03fdfd3136c5a89f720d20bbe09879ada",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-27",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-27.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "3a7a4cf6e6a3bab3014d014db44e7dd4b24da4c82efe467712613b07143e63f8",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-28",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-28.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "447b38fb4ce58ccca917e1cbec0cd2bfa254c2a72cd9eb107872efabb74a165a",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-29",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-29.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "72ae7db66484af73f0ac79e1272fcea749bf8f1a23f099395eca1d6dac5a8380",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-30",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-30.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "257e6b1716848c97e7ff76d3d81a6284c7ad594d77ed9c687276c1eb9a6b9141",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-31",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-31.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "94bf99d8ff80210f52cd3d99fd198a2444a9f72e4bbce9b57071573b392ebd3f",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-32",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-32.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "fb18d5b7bda1c1008ef0af16675dabafbd24c8743842bd5871392f8fe3ba8319",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-33",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-33.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "f827e5bfa0c771ae4e7973822bb73ba01f75bf4084f16e6a61d5d51ab5a4c469",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-34",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-34.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "7dd257a1ef21f705140641feb56cd0c9d20d0263fc80603604f2114f8d6237a5",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-35",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-35.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "7b581f9ed432af51309a13639557954d327defa6b9ebe0109550fb2d1a115e26",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-36",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-36.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "59aca6d3c5f721096dc5d2631dd3fdf4f5e7623137991a0bdba0006e8a965edb",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-37",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-37.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "72450aafbbab7bceb8b27517509a2bcc1ac27450b8d29162bf6147fe48112ca6",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-38",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-38.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "b6d666cd3ed03a18429b94e7ef275cbc0ac7b66203fdd5fe5e9a57f67a4da616",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-39",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-39.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "a4fc416b0752e04c4da339e2712f351056e6c56387d6a48089f5893674e718ac",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-40",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-40.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "4f0c4540443302fd961b189b31cf3e4275d1606dfc4f5ba7316762cb0ba766c0",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-41",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-41.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "3df45acd0b9fe95b97afb082146b57382eb49e3e38bfc0c139540b0d162ccdb0",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-42",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-42.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "1f734805e170e797382c076d022ec58abf0f19bc22abf870207bfc609b9e714a",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-43",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-43.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "9c0ab729f5aca323dc31f971ea5b4db28b6972440465dc031d7a5c1ff53889c5",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-44",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-44.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "81337d57ddc4b6ec896f88259a2b44602050fcd1d577417742927fe0cd6228bb",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-45",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-45.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "aa2f3353e80f1eea9ea19d6db16fa6430a4dc8287fc8d16c3c0f2a3bb55d6c18",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-46",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-46.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "044400005e4b66a7946cc5de3169bba1224ccf09df93d88c690b5a6110cfc2ad",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-47",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-47.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "de4c98b693d38f2fa466fd001b691eb445654bc61cf865b14edcec64cc93108b",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-48",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-48.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "241cc425d99b2991ec4def83c4c75dc83f01910180b5ec86a971d919dd9f7cd2",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-49",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-49.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "836eaf30dcca5a4f94d48ca6073047526621fc16e6a4bda3307fc18340a101ef",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-50",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-50.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "94a69ce724f2ba7bbc9eee98be642ea75d46d5c643d5810283430b19a3278906",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-51",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-51.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "9334cc952497922b24a520c28c8d0a1ba452106340c120c3fd2e2d86879106cb",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-52",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-52.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "b704a5c17b10480caaec5e18c28ac636862d93c417094b1c45632b050bea65a2",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-53",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-53.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "186aaf69339b95bc99023aa21eff0972e016cfbf74bbfc7308bf0fbd0690ebe8",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-54",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-54.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "0f768b4a7225c5f3b9b7a71511dba6c8529773bc03145141d9a51203262862da",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-55",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-55.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "4ba25342c2fa5ab395c32f311f5b65831d23a06fcdb7f9f6f3e935d275fc8d2a",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-56",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-56.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "2af094c2bfde0cdea5d8990033404285be1ddbf18cd6b5a006c85419a5c6d4af",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-57",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-57.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "8d662906518cffeb52c3c7a121bd2330b3bcf4e0e0e69c0d405263e7c432625b",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-58",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-58.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "6f52a4b37d02085ebc9d8df4a6a083411a42c060b830f52a410a6ce84f77847b",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-59",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-59.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "18f48856c48d63ee0fba69e2147ea0060816052090625ae6a677fe382ed64902",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-60",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-60.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "ee5a552a643b727f75bf2b29d415f0248691fd441e4db17416b649c3b4ccf365",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-61",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-61.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "0377750fe1c86ea90b2f51f9d53a47dfe0c376d2fe6839b9a65e55d881b7a611",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-62",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-62.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "0ee20def410dc012691264420078efb1bc1db8a812b3dd7a3adaf46d2f5c79f8",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-63",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-63.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "8efb02803c178d069ec5f8f5c45c17ac9dbb0d1750327fe8e7b66eb5b4f2ebe4",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "plugin-64",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm-64.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "a7f50d0d188de86587f32f804ccd7ca4280a62d0662e91a3a2d82ef407c2ad13",
+        "bytes": 640
+      }
+    }
+  ]
+}

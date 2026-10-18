@@ -1,0 +1,581 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/agent-event.v1.schema.json",
+  "title": "AgentEvent v1",
+  "description": "The collector's internal, normalised event (SPEC 5.3). Every adapter maps one raw payload (hook body, registry file, log record, process change, plugin event, poll result) to at most one AgentEvent in a single allowlist function and discards everything else there. It carries no free text at all: every string is an enum or a salted hash. Revision 1 adds the identity fields (root_id, account_id, session_id, turn_id, request_id) that dedup, per-account limits and alert recovery key on. See contracts/CHANGES.md for where this departs from or fills gaps in the spec.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "v",
+    "agent",
+    "instance",
+    "parent",
+    "root_id",
+    "account_id",
+    "session_id",
+    "turn_id",
+    "request_id",
+    "host",
+    "kind",
+    "source",
+    "confidence",
+    "t"
+  ],
+  "properties": {
+    "v": {
+      "const": 1
+    },
+    "agent": {
+      "$ref": "#/$defs/tool"
+    },
+    "instance": {
+      "$ref": "#/$defs/instance"
+    },
+    "parent": {
+      "description": "The parent session's instance for a subagent, otherwise null. Required (never omitted).",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/instance"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "root_id": {
+      "$ref": "#/$defs/instance",
+      "description": "The connector (agent data root) that produced the event: salted hash of agent + ':' + the canonical root path. One connector per root; extra roots are explicit."
+    },
+    "account_id": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/instance"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Salted hash of the provider account, or null when the source does not say. Usage limits are kept per account and never merged across accounts. The raw account id is dropped at the edge."
+    },
+    "session_id": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/instance"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Salted hash of the agent's session or thread id, or null when not known yet (for example process_up). A subagent carries its parent session's id here; its own id is instance."
+    },
+    "turn_id": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/instance"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Salted hash of the turn (prompt) id, or null when the source cannot supply it. With session_id it lets the collector deduplicate hook and log copies of the same turn."
+    },
+    "request_id": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/instance"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Salted hash of the permission or question request id (for example a tool use id), or null. Alerts are keyed by it, and a late notification for an answered request is ignored. Non-null only on needs_permission, needs_answer, answered and tool_end."
+    },
+    "host": {
+      "$ref": "#/$defs/host"
+    },
+    "kind": {
+      "enum": [
+        "session_start",
+        "session_end",
+        "turn_start",
+        "tool_end",
+        "needs_permission",
+        "needs_answer",
+        "answered",
+        "turn_end",
+        "turn_interrupted",
+        "error",
+        "limit_hit",
+        "usage_sample",
+        "process_up",
+        "process_down",
+        "heartbeat"
+      ]
+    },
+    "source": {
+      "enum": [
+        "hook",
+        "registry",
+        "log",
+        "process",
+        "plugin",
+        "poll"
+      ]
+    },
+    "confidence": {
+      "$ref": "#/$defs/confidence"
+    },
+    "t": {
+      "$ref": "#/$defs/ms",
+      "description": "Collector clock when the event was observed."
+    },
+    "et": {
+      "$ref": "#/$defs/ms",
+      "description": "Source time, only when the source states one. Omitted otherwise (never null)."
+    },
+    "detail": {
+      "$ref": "#/$defs/detail"
+    },
+    "usage": {
+      "$ref": "#/$defs/usage"
+    },
+    "limit": {
+      "$ref": "#/$defs/limit"
+    },
+    "tokens_delta": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000000,
+      "description": "Tokens since the previous sample for this instance. Only animates the river and the mill; never buys anything."
+    }
+  },
+  "allOf": [
+    {
+      "description": "usage is present exactly when kind is usage_sample.",
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "usage_sample"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "usage"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "usage"
+          ]
+        }
+      }
+    },
+    {
+      "description": "limit is present exactly when kind is limit_hit.",
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "limit_hit"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "limit"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "limit"
+          ]
+        }
+      }
+    },
+    {
+      "description": "Only Claude and Codex report limits in v0.1, and a sample's provider is the reporting agent.",
+      "if": {
+        "properties": {
+          "agent": {
+            "const": "claude"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "usage": {
+            "properties": {
+              "provider": {
+                "const": "claude"
+              }
+            }
+          },
+          "limit": {
+            "properties": {
+              "provider": {
+                "const": "claude"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "if": {
+          "properties": {
+            "agent": {
+              "const": "codex"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "usage": {
+              "properties": {
+                "provider": {
+                  "const": "codex"
+                }
+              }
+            },
+            "limit": {
+              "properties": {
+                "provider": {
+                  "const": "codex"
+                }
+              }
+            }
+          }
+        },
+        "else": {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "usage"
+                ]
+              },
+              {
+                "required": [
+                  "limit"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "description": "detail.activity only on tool_end and heartbeat.",
+      "if": {
+        "not": {
+          "properties": {
+            "kind": {
+              "enum": [
+                "tool_end",
+                "heartbeat"
+              ]
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "detail": {
+            "not": {
+              "required": [
+                "activity"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "detail.error_class only on error.",
+      "if": {
+        "not": {
+          "properties": {
+            "kind": {
+              "const": "error"
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "detail": {
+            "not": {
+              "required": [
+                "error_class"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "detail.stop_reason only on turn_end and turn_interrupted.",
+      "if": {
+        "not": {
+          "properties": {
+            "kind": {
+              "enum": [
+                "turn_end",
+                "turn_interrupted"
+              ]
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "detail": {
+            "not": {
+              "required": [
+                "stop_reason"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "detail.end_reason only on session_end.",
+      "if": {
+        "not": {
+          "properties": {
+            "kind": {
+              "const": "session_end"
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "detail": {
+            "not": {
+              "required": [
+                "end_reason"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "request_id only on the kinds that open or close a request.",
+      "if": {
+        "not": {
+          "properties": {
+            "kind": {
+              "enum": [
+                "needs_permission",
+                "needs_answer",
+                "answered",
+                "tool_end"
+              ]
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "request_id": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "ms": {
+      "type": "integer",
+      "minimum": 946684800000,
+      "maximum": 4102444800000,
+      "description": "Milliseconds since the Unix epoch (UTC), always an integer. The range (2000-01-01 to 2100-01-01) rejects a seconds value passed by mistake."
+    },
+    "tool": {
+      "enum": [
+        "claude",
+        "codex",
+        "opencode",
+        "antigravity",
+        "gemini",
+        "cursor",
+        "aider",
+        "other"
+      ]
+    },
+    "host": {
+      "enum": [
+        "cli",
+        "desktop",
+        "vscode",
+        "sdk",
+        "ide",
+        "other"
+      ]
+    },
+    "instance": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$",
+      "description": "A salted hash, never a raw id: 32 lowercase hex characters. Recommended derivation: the first 16 bytes of HMAC-SHA256(per-install salt, a domain prefix such as 'session:', 'turn:', 'request:', 'account:' or 'root:', then agent + ':' + raw value). A raw UUID cannot match this pattern."
+    },
+    "confidence": {
+      "enum": [
+        "exact",
+        "inferred"
+      ]
+    },
+    "provider": {
+      "enum": [
+        "claude",
+        "codex"
+      ]
+    },
+    "window": {
+      "enum": [
+        "5h",
+        "weekly"
+      ]
+    },
+    "pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "activity": {
+      "enum": [
+        "shell",
+        "edit",
+        "read",
+        "web",
+        "delegate",
+        "other"
+      ]
+    },
+    "detail": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "Closed enums only. Omit detail entirely when there is nothing to say.",
+      "properties": {
+        "activity": {
+          "$ref": "#/$defs/activity",
+          "description": "From the tool NAME only (Bash means shell; Edit, Write, apply_patch mean edit; Read, Grep, search mean read; web fetch or search means web; Task or subagent launch means delegate)."
+        },
+        "error_class": {
+          "enum": [
+            "overloaded",
+            "server_error",
+            "network",
+            "auth",
+            "billing",
+            "invalid_request",
+            "model_not_found",
+            "max_output_tokens",
+            "unknown"
+          ]
+        },
+        "notification": {
+          "enum": [
+            "permission_prompt",
+            "elicitation_dialog",
+            "elicitation_url_dialog",
+            "agent_needs_input",
+            "elicitation_response",
+            "elicitation_complete",
+            "idle_prompt",
+            "quota_auto_resume_fired",
+            "quota_auto_resume_stale",
+            "quota_auto_resume_disabled",
+            "other"
+          ],
+          "description": "The notification type that produced this event, when the source was a notification."
+        },
+        "stop_reason": {
+          "enum": [
+            "end_turn",
+            "interrupted",
+            "max_tokens",
+            "refusal",
+            "other"
+          ]
+        },
+        "end_reason": {
+          "enum": [
+            "clear",
+            "resume",
+            "logout",
+            "exit",
+            "process_gone",
+            "other"
+          ]
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "window",
+        "used_pct",
+        "resets_at",
+        "observed_at"
+      ],
+      "description": "One usage-window sample. A source without a value for a window yields no sample (never 0%).",
+      "properties": {
+        "provider": {
+          "$ref": "#/$defs/provider"
+        },
+        "window": {
+          "$ref": "#/$defs/window"
+        },
+        "used_pct": {
+          "$ref": "#/$defs/pct"
+        },
+        "resets_at": {
+          "$ref": "#/$defs/ms",
+          "description": "Milliseconds, converted at the edge from the sources' epoch seconds."
+        },
+        "observed_at": {
+          "$ref": "#/$defs/ms"
+        }
+      }
+    },
+    "limit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "window",
+        "resets_at"
+      ],
+      "description": "A limit was hit. The window and reset time are often unknown at the source (Claude StopFailure rate_limit states neither).",
+      "properties": {
+        "provider": {
+          "$ref": "#/$defs/provider"
+        },
+        "window": {
+          "enum": [
+            "5h",
+            "weekly",
+            "unknown"
+          ]
+        },
+        "resets_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ms"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "kind": "turn_end",
+  "t": 1791806400000,
+  "agent": "a4518266c5577ff25f9ef8ae16574998",
+  "tool": "cursor"
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Busyholm settings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+<div id="nocore" class="nocore" hidden>no core connected: changes are kept in this page only</div>
+<main class="page">
+  <h1>Settings</h1>
+  <form id="form" novalidate>
+    <fieldset>
+      <legend>Strip</legend>
+      <div class="choice"><input type="checkbox" id="strip-enabled"><label for="strip-enabled">Show the strip</label></div>
+      <div class="field" role="radiogroup" aria-labelledby="layer-label">
+        <span class="label" id="layer-label">Layer</span>
+        <div class="choice"><input type="radio" name="layer" id="layer-on_top" value="on_top"><label for="layer-on_top">On top</label></div>
+        <div class="choice"><input type="radio" name="layer" id="layer-behind_windows" value="behind_windows"><label for="layer-behind_windows">Behind windows (experimental)</label></div>
+        <div class="choice"><input type="radio" name="layer" id="layer-reserve_space" value="reserve_space"><label for="layer-reserve_space">Reserve space (experimental; Windows and Linux X11 only)</label></div>
+      </div>
+      <div class="field">
+        <label for="strip-height">Height (72 to 160)</label>
+        <input type="number" id="strip-height" min="72" max="160" step="1">
+      </div>
+      <div class="choice"><input type="checkbox" id="strip-hover-fade"><label for="strip-hover-fade">Fade the scenery when the pointer is near</label></div>
+      <div class="choice"><input type="checkbox" id="strip-fullscreen"><label for="strip-fullscreen">Show over fullscreen apps</label></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ambient</legend>
+      <div class="field">
+        <label for="ambient-idle">Start after being idle for</label>
+        <select id="ambient-idle">
+          <option value="">Off</option>
+          <option value="5">5 minutes</option>
+          <option value="10">10 minutes</option>
+          <option value="15">15 minutes</option>
+          <option value="30">30 minutes</option>
+          <option value="60">60 minutes</option>
+        </select>
+        <p class="note" id="ambient-note">Ambient mode is manual by default; the idle trigger stays off until fullscreen detection is verified on this system.</p>
+      </div>
+      <div class="field">
+        <label for="ambient-shortcut">Shortcut (leave empty for none)</label>
+        <input type="text" id="ambient-shortcut" maxlength="64" placeholder="CommandOrControl+Shift+B" aria-describedby="shortcut-note" autocomplete="off" spellcheck="false">
+        <p class="note" id="shortcut-note">Letters, digits and plus signs, for example CommandOrControl+Shift+B.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Other</legend>
+      <div class="choice"><input type="checkbox" id="other-login"><label for="other-login">Start Busyholm when I log in</label></div>
+    </fieldset>
+
+    <p id="error" class="error" role="alert" hidden></p>
+    <p id="status" class="status" role="status"></p>
+    <div class="actions">
+      <button type="submit" class="primary" id="save">Save</button>
+    </div>
+  </form>
+</main>
+<script type="module" src="settings.js"></script>
+</body>
+</html>

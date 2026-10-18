@@ -1,0 +1,14 @@
+{
+  "name": "@busyholm/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Busyholm contract types and runtime validators, generated from and tested against contracts/schemas.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "ajv": "8.20.0"
+  }
+}

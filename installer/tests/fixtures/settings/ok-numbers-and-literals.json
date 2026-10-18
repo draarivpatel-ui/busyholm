@@ -1,0 +1,9 @@
+{
+  "float": 1.5e10,
+  "negzero": -0,
+  "fraction": -3.25E-2,
+  "int": 42,
+  "yes": true,
+  "no": false,
+  "nothing": null
+}

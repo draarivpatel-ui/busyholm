@@ -1,0 +1,26 @@
+[package]
+name = "busyholm-installer"
+description = "Busyholm hook installer and uninstaller: targeted JSON span edits, per-entry ownership (WP-07)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+name = "busyholm_installer"
+path = "src/lib.rs"
+
+[dependencies]
+busyholm-contracts.workspace = true
+serde = "1"
+serde_json = "1"
+sha2 = "0.10"
+getrandom = "0.2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[[bin]]
+name = "busyholm-installer"
+path = "src/bin/busyholm-installer.rs"

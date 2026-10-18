@@ -1,0 +1,22 @@
+{
+  "name": "@busyholm/art",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Busyholm WP-09: code-drawn papercut art kit (tokens, sky LUT, paper grain, shadows, shapes, atlas builder, gallery).",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "lint:palette": "node tools/lint-palette.ts",
+    "lint:contrast": "node tools/lint-contrast.ts",
+    "test:browser": "node tools/build.mjs && node tools/browser-tests.mjs",
+    "goldens": "node tools/build.mjs && node tools/render-goldens.mjs",
+    "lint:dashes": "node tools/lint-dashes.ts",
+    "test:worldmap": "node tools/test-worldmap.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "test": "npm run lint:palette && npm run lint:contrast && npm run lint:dashes && npm run test:worldmap && npm run test:browser"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/local/bin/x.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+
+  },
+  "model": "claude-sonnet-5",
+  "env": {
+    "DEBUG_LEVEL": "2"
+  }
+}

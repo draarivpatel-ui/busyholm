@@ -1,0 +1,8 @@
+{
+  "name": "@busyholm/world",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "grow(), the PixiJS renderer and the papercut art kit (WP-08 to WP-10, WP-13). Placeholder until those packages start."
+}

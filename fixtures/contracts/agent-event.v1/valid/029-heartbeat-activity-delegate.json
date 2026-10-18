@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "agent": "claude",
+  "instance": "2bc96fdf6398c8a01838dec3a2e1c9a7",
+  "parent": null,
+  "root_id": "1cef6db41044f552cd6c91d2060b7477",
+  "account_id": null,
+  "session_id": "2bc96fdf6398c8a01838dec3a2e1c9a7",
+  "turn_id": null,
+  "request_id": null,
+  "host": "cli",
+  "kind": "heartbeat",
+  "source": "hook",
+  "confidence": "exact",
+  "t": 1791806400000,
+  "detail": {
+    "activity": "delegate"
+  }
+}

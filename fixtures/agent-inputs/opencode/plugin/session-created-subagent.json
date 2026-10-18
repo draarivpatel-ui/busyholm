@@ -1,0 +1,17 @@
+{
+  "type": "session.created",
+  "properties": {
+    "info": {
+      "id": "bca1a700-0000-4000-8000-000000000080",
+      "projectID": "bca1a700-0000-4000-8000-000000000082",
+      "directory": "/Users/someone/code/BHCANARY_opencode_cwd_2",
+      "title": "BHCANARY_opencode_title_2",
+      "version": "1.18.35",
+      "time": {
+        "created": 1791806400000,
+        "updated": 1791806400000
+      },
+      "parentID": "bca1a700-0000-4000-8000-00000000007f"
+    }
+  }
+}

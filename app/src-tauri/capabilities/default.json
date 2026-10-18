@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "busyholm-pages",
+  "description": "Every Busyholm page may listen to core events. Commands are the app's own bh_* commands; each checks the calling window's label itself.",
+  "windows": ["strip", "ambient", "popover", "settings", "details"],
+  "permissions": ["core:event:default"]
+}

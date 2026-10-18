@@ -1,0 +1,3 @@
+spdx: MIT
+https://raw.githubusercontent.com/madsmtm/objc2/objc2-0.6.5/LICENSE.md  (LICENSE.md at the crate's release tag; it points to licences but holds no verbatim text)
+https://raw.githubusercontent.com/madsmtm/objc2/ee9a7ada2131f5944b8750428e265c15632f2a19/LICENSE-MIT.txt  (the repository added verbatim licence texts after this release, in commit ee9a7ad of 2026-03-18; the copyright year is the repository's)

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome to Busyholm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="ui/base.css">
+<link rel="stylesheet" href="ui/onboarding.css">
+</head>
+<body class="onboarding">
+<div class="ob">
+  <div class="ob-hero" aria-hidden="true">
+    <svg viewBox="0 0 560 150" preserveAspectRatio="none" focusable="false">
+      <defs>
+        <linearGradient id="ob-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color: var(--hero-sky-top)"/>
+          <stop offset="1" style="stop-color: var(--hero-sky-bottom)"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="560" height="150" fill="url(#ob-sky)"/>
+      <circle class="sun" cx="452" cy="46" r="18"/>
+      <path class="h1" d="M0 92 C60 70 120 74 180 84 S300 62 380 74 S500 92 560 70 L560 150 L0 150Z"/>
+      <path class="h2" d="M0 108 C50 98 110 96 170 104 S270 116 340 102 S470 90 560 100 L560 150 L0 150Z"/>
+      <path class="river" d="M0 128 C90 122 200 132 290 126 S470 124 560 130 L560 136 C470 131 380 134 290 133 S90 129 0 136Z"/>
+      <path class="h3" d="M0 134 C70 128 150 133 230 130 S380 126 450 131 S530 135 560 132 L560 150 L0 150Z"/>
+    </svg>
+    <div class="ob-residents" id="ob-residents"></div>
+  </div>
+
+  <main class="ob-main" id="ob-main">
+    <section data-step="welcome" aria-labelledby="h-welcome">
+      <h1 id="h-welcome" class="ob-title wordmark" tabindex="-1">Welcome to Busyholm</h1>
+      <p class="ob-lede">A small papercut island lives along the bottom of your screen. Each coding agent you run becomes a resident that works at its own workshop. Once its hooks are connected, a resident rings the bell and raises a flag when your agent needs you. Busyholm ships for macOS at launch, with Windows and Linux later.</p>
+      <div class="ob-promise">
+        <span class="ob-promise-mark" aria-hidden="true"></span>
+        <div>
+          <strong>What Busyholm sees</strong>
+          <p>Busyholm reads your agents' activity logs and transcripts to count events and never keeps, shows or sends their text, prompts, replies, code or file paths. No outbound network connections; loopback only.</p>
+        </div>
+      </div>
+      <p class="ob-small">Setup takes about a minute. You can change everything later in Settings.</p>
+    </section>
+
+    <section data-step="choose" aria-labelledby="h-choose" hidden>
+      <h1 id="h-choose" class="ob-title" tabindex="-1">Connect your agents</h1>
+      <p class="ob-lede">Hooks let a resident ring the bell and raise a flag when your agent needs you. Only event types, ids, timings and counts ever leave the agent process; content is discarded inside the shim, and Busyholm makes no outbound network connections; loopback only.</p>
+      <fieldset class="ob-parts" id="ob-parts">
+        <legend class="sr-only">Choose what to connect</legend>
+      </fieldset>
+      <p class="ob-small" id="ob-choose-note">You will see the exact changes before anything is written. Busyholm keeps only what restoring needs (the exact entries it adds and any status line command it replaces) in <code>install-manifest.json</code> and <code>backups/install/</code> inside its app data folder, readable only by your user account (<code>0600</code>). Disconnect removes them.</p>
+      <p class="ob-error" id="ob-choose-error" role="alert" hidden></p>
+    </section>
+
+    <section data-step="preview" aria-labelledby="h-preview" hidden>
+      <h1 id="h-preview" class="ob-title" tabindex="-1">Here is exactly what changes</h1>
+      <p class="ob-lede">Nothing is written until you choose Connect. Busyholm marks every entry it adds and saves only what restoring needs in <code>install-manifest.json</code> and <code>backups/install/</code> (owner-only, mode <code>0600</code>), so Disconnect in Settings removes those entries and deletes those restore records.</p>
+      <div class="ob-files" id="ob-files"></div>
+      <p class="ob-error" id="ob-preview-error" role="alert" hidden></p>
+    </section>
+
+    <section data-step="codex" aria-labelledby="h-codex" hidden>
+      <h1 id="h-codex" class="ob-title" tabindex="-1">One more step for Codex</h1>
+      <p class="ob-lede">Codex asks you to review new hooks before it runs them. This is Codex keeping you in charge of what runs on your computer.</p>
+      <ol class="ob-steps">
+        <li>Open Codex in a terminal.</li>
+        <li>Type <kbd>/hooks</kbd> and press <kbd>Return</kbd>.</li>
+        <li>Look over the Busyholm entries and approve them.</li>
+      </ol>
+      <p class="ob-status" id="ob-codex-status" role="status"></p>
+      <p class="ob-small">Until you approve them, Codex residents still show their work on the island, but cannot ring the bell.</p>
+    </section>
+
+    <section data-step="backfill" aria-labelledby="h-backfill" hidden>
+      <h1 id="h-backfill" class="ob-title" tabindex="-1">Start from your past activity?</h1>
+      <p class="ob-lede">Busyholm can read your agents' recent activity logs and transcripts to count sessions and finished turns and give the island a head start. It never keeps, shows or sends their text, prompts, replies or code.</p>
+      <label class="ob-check"><input type="checkbox" id="ob-backfill"><span><strong>Import past counts</strong><small>A small, capped head start. You can turn it off later.</small></span></label>
+    </section>
+
+    <section data-step="strip" aria-labelledby="h-strip" hidden>
+      <h1 id="h-strip" class="ob-title" tabindex="-1">Where the island lives</h1>
+      <p class="ob-lede" id="ob-strip-lede">The island sits in a thin strip along the bottom of your screen, just above the Dock or taskbar. It never takes keyboard focus; the Busyholm window and the tray menu are there for keyboard use.</p>
+      <fieldset class="ob-choice" id="ob-layer">
+        <legend>Layer</legend>
+        <label><input type="radio" name="layer" value="on_top"><span><strong>On top of windows</strong><small>Recommended. Clicks pass through everywhere except the residents.</small></span></label>
+        <label><input type="radio" name="layer" value="behind_windows"><span><strong>Behind windows (experimental)</strong><small>Sits under your windows and comes up when an agent needs you.</small></span></label>
+      </fieldset>
+      <fieldset class="ob-choice ob-sizes" id="ob-height">
+        <legend>Size</legend>
+        <label><input type="radio" name="height" value="88"><span><strong>Compact</strong></span></label>
+        <label><input type="radio" name="height" value="112"><span><strong>Standard</strong></span></label>
+        <label><input type="radio" name="height" value="136"><span><strong>Tall</strong></span></label>
+      </fieldset>
+      <p class="ob-error" id="ob-strip-error" role="alert" hidden></p>
+    </section>
+
+    <section data-step="done" aria-labelledby="h-done" hidden>
+      <h1 id="h-done" class="ob-title wordmark" tabindex="-1">You're set</h1>
+      <p class="ob-lede" id="ob-done-lede">Start a session in your terminal or editor and its resident steps out onto the island.</p>
+      <ul class="ob-coverage" id="ob-coverage"></ul>
+      <p class="ob-small">The tray icon shows the same status at any time. Each tool reads "Alerts on" once Busyholm has confirmed its hooks deliver.</p>
+    </section>
+  </main>
+
+  <footer class="ob-foot">
+    <div class="ob-dots" id="ob-dots" aria-hidden="true"></div>
+    <p class="sr-only" id="ob-progress" aria-live="polite"></p>
+    <div class="ob-actions">
+      <button type="button" class="btn quiet" id="ob-skip">Skip setup</button>
+      <button type="button" class="btn" id="ob-back">Back</button>
+      <button type="button" class="btn primary" id="ob-next">Get started</button>
+    </div>
+  </footer>
+</div>
+<script type="module" src="ui/onboarding.js"></script>
+</body>
+</html>

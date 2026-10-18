@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "strip": {
+    "enabled": true,
+    "display": {
+      "mode": "auto"
+    },
+    "height": 112,
+    "layer_mode": "on_top",
+    "hover_fade": true,
+    "show_over_fullscreen": false
+  },
+  "sky": {
+    "mode": "usage_and_clock",
+    "hemisphere": "north"
+  },
+  "sound": {
+    "bell": true,
+    "volume": 1,
+    "quiet_hours": null
+  },
+  "notifications": {
+    "needs_you": true,
+    "renotify": true,
+    "long_turn": true,
+    "errors": true
+  },
+  "ambient": {
+    "idle_minutes": 15,
+    "shortcut": null
+  },
+  "agents": {
+    "species": {}
+  },
+  "privacy": {
+    "project_names": false,
+    "history_backfill": false
+  },
+  "other": {
+    "launch_at_login": false,
+    "reduced_motion": "follow_os"
+  },
+  "updates": {
+    "check": false
+  }
+}

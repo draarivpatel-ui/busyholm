@@ -1,0 +1,3 @@
+spdx: MIT OR Apache-2.0
+https://raw.githubusercontent.com/knurling-rs/defmt/defmt-v1.0.0/LICENSE-APACHE
+https://raw.githubusercontent.com/knurling-rs/defmt/defmt-v1.0.0/LICENSE-MIT

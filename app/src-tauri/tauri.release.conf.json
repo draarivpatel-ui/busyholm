@@ -1,0 +1,10 @@
+{
+  "bundle": {
+    "externalBin": ["binaries/busyholm-hook"],
+    "resources": {
+      "../../packaging/out/notices/THIRD-PARTY-NOTICES.txt": "THIRD-PARTY-NOTICES.txt",
+      "../../packaging/out/notices/OFL.txt": "OFL.txt",
+      "../../packaging/out/notices/third-party-sources.tar.gz": "third-party-sources.tar.gz"
+    }
+  }
+}

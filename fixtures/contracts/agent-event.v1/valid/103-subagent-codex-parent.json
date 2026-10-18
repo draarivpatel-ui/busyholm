@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "agent": "codex",
+  "instance": "e5337648be0acb037ed6bb110bb4ac1e",
+  "parent": "a0ee54effc6dafca2e673114be16d038",
+  "root_id": "1cef6db41044f552cd6c91d2060b7477",
+  "account_id": null,
+  "session_id": "a0ee54effc6dafca2e673114be16d038",
+  "turn_id": null,
+  "request_id": null,
+  "host": "cli",
+  "kind": "turn_start",
+  "source": "hook",
+  "confidence": "exact",
+  "t": 1791806400000
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "kind": "turn_end",
+  "t": 946684800000,
+  "agent": "ad3226769d04da2686514cea325f41fc",
+  "tool": "claude"
+}

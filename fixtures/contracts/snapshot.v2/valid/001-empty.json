@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "t": 1791806400000,
+  "demo": false,
+  "agents": [],
+  "tools": [],
+  "limits": [],
+  "attention": {
+    "needs_you": 0,
+    "oldest_since": null
+  }
+}

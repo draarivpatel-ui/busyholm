@@ -1,0 +1,6 @@
+{
+  "note": "// not a comment",
+  "block": "/* nope */",
+  "url": "https://example.com/*",
+  "hooksText": "// comment at end"
+}

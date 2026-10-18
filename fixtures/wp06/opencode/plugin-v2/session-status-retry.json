@@ -1,0 +1,7 @@
+{
+  "type": "session.status",
+  "properties": {
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "status": { "type": "retry", "attempt": 2, "message": "BHCANARY_opencode_message_4", "next": 1791806410000 }
+  }
+}

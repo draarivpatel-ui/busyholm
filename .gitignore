@@ -1,0 +1,17 @@
+# OS and editor files
+.DS_Store
+__pycache__/
+node_modules/
+target/
+dist/
+*.log
+
+# TypeScript fixture type-check scratch output
+contracts/ts/.typecheck/
+
+# captures and renders
+world/demo/captures/
+world/renderer/captures/
+packaging/out/
+tools/verify/output/
+app/tests/out/

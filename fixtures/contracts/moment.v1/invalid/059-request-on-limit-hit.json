@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "kind": "limit_hit",
+  "t": 1791806400000,
+  "provider": "claude",
+  "request_id": "ddcddad2129e89c74d07a9fafa35d74b"
+}

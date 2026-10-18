@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "seed": 20261012,
+  "as_of_day": "2026-10-12",
+  "tier": "camp",
+  "resources": {
+    "planks": 4.5,
+    "stone": 0,
+    "seeds": 2
+  },
+  "earned": {
+    "planks": 12,
+    "stone": 1,
+    "seeds": 3
+  },
+  "structures": [
+    {
+      "id": "well",
+      "status": "planned",
+      "stage": 0,
+      "progress": 0
+    }
+  ],
+  "decorations": [],
+  "milestones": [],
+  "stats": {
+    "lifetime_turns": 42,
+    "active_days": 5,
+    "streak_days": 3,
+    "tools_seen": [
+      "claude"
+    ]
+  },
+  "founders_stone": null,
+  "demo_capped": false
+}

@@ -1,0 +1,19 @@
+
+
+
+{
+  "model": "claude-sonnet-5",
+  "env": {
+    "DEBUG_LEVEL": "2",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm test)",
+      "Read(./src/**)"
+    ]
+  }
+}
+
+
+  	 

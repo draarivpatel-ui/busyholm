@@ -1,0 +1,24 @@
+{
+  "session_id": "bca1a700-0000-4000-8000-000000000001",
+  "prompt_id": "bca1a700-0000-4000-8000-00000000002e",
+  "transcript_path": "/Users/someone/.claude/projects/BHCANARY_claude_transcript_path_35/bca1a700-0000-4000-8000-000000000001.jsonl",
+  "cwd": "/Users/someone/code/BHCANARY_claude_cwd_35",
+  "permission_mode": "default",
+  "hook_event_name": "PostToolUse",
+  "effort": {
+    "level": "high"
+  },
+  "tool_name": "Grep",
+  "tool_input": {
+    "pattern": "BHCANARY_claude_pattern_1",
+    "path": "/Users/someone/code/BHCANARY_claude_cwd_34"
+  },
+  "tool_response": {
+    "mode": "content",
+    "content": "BHCANARY_claude_tool_response_5",
+    "numLines": 3
+  },
+  "tool_use_id": "bca1a700-0000-4000-8000-00000000002d",
+  "agent_id": "bca1a700-0000-4000-8000-000000000002",
+  "agent_type": "general-purpose"
+}

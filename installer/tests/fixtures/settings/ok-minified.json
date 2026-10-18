@@ -1,0 +1,1 @@
+{"model":"claude-sonnet-5","env":{"DEBUG_LEVEL":"2"},"permissions":{"allow":["Bash(npm test)"]},"theme":"dark","includeCoAuthoredBy":false}

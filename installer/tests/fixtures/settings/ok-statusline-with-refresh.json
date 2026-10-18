@@ -1,0 +1,8 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/someone/.local/bin/othertool-statusline",
+    "refreshInterval": 5,
+    "padding": 1
+  }
+}

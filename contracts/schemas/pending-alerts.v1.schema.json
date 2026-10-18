@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/pending-alerts.v1.schema.json",
+  "title": "PendingAlerts v1",
+  "description": "pending-alerts.json in the app data folder (SPEC Revision 1, item 3): the minimal record that lets a waiting-for-you alert survive an app restart. Written only by the core, atomically, whenever the set of needs_you agents changes. On start the collector restores each record as a needs_you agent with confidence inferred, shows that it is unconfirmed, and clears it on the first fresh signal for that agent or request (an answer, a new turn, a session end) or when the agent's session is gone. Ids and enums only: no text, no paths. The keyword x-unique-by lists item keys that must be unique across an array (see contracts/CHANGES.md).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "privacy", "saved_at", "alerts"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["containsText"],
+      "properties": { "containsText": { "const": false } }
+    },
+    "saved_at": { "$ref": "#/$defs/ms" },
+    "alerts": {
+      "type": "array",
+      "maxItems": 64,
+      "description": "One record per agent waiting on the user; empty when nobody waits.",
+      "items": { "$ref": "#/$defs/alert" },
+      "x-unique-by": [["agent"]]
+    }
+  },
+  "$defs": {
+    "ms": {
+      "type": "integer",
+      "minimum": 946684800000,
+      "maximum": 4102444800000,
+      "description": "Milliseconds since the Unix epoch (UTC), always an integer. The range (2000-01-01 to 2100-01-01) rejects a seconds value passed by mistake."
+    },
+    "tool": { "enum": ["claude", "codex", "opencode", "antigravity", "gemini", "cursor", "aider", "other"] },
+    "host": { "enum": ["cli", "desktop", "vscode", "sdk", "ide", "other"] },
+    "instance": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$",
+      "description": "A salted hash, never a raw id: 32 lowercase hex characters. A raw UUID cannot match this pattern."
+    },
+    "reason": { "enum": ["permission", "question"] },
+    "alert": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agent", "tool", "host", "root_id", "account_id", "session_id", "request_id", "reason", "since", "last_confirmed_at"],
+      "properties": {
+        "agent": { "$ref": "#/$defs/instance", "description": "Snapshot agent id (the AgentEvent instance)." },
+        "tool": { "$ref": "#/$defs/tool" },
+        "host": { "$ref": "#/$defs/host" },
+        "root_id": { "$ref": "#/$defs/instance" },
+        "account_id": { "anyOf": [{ "$ref": "#/$defs/instance" }, { "type": "null" }] },
+        "session_id": { "anyOf": [{ "$ref": "#/$defs/instance" }, { "type": "null" }] },
+        "request_id": {
+          "anyOf": [{ "$ref": "#/$defs/instance" }, { "type": "null" }],
+          "description": "The request the alert is keyed by, or null when the source gave none (then the agent is the key)."
+        },
+        "reason": { "$ref": "#/$defs/reason" },
+        "since": { "$ref": "#/$defs/ms", "description": "When the agent started waiting." },
+        "last_confirmed_at": { "$ref": "#/$defs/ms", "description": "The last time a fresh signal confirmed the wait (at least since)." }
+      }
+    }
+  }
+}

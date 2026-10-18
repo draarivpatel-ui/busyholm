@@ -1,0 +1,2 @@
+spdx: MIT
+https://raw.githubusercontent.com/evanw/esbuild/v0.28.2/LICENSE.md

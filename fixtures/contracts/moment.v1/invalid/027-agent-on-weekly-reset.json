@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "kind": "weekly_reset",
+  "t": 1791806400000,
+  "provider": "codex",
+  "agent": "574477e499ff9f123bb6e1bc8fb8e56d",
+  "tool": "codex"
+}

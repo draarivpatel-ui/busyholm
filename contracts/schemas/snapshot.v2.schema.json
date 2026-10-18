@@ -1,0 +1,556 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/snapshot.v2.schema.json",
+  "title": "Snapshot v2",
+  "description": "The full live state, sent by the core to every window, coalesced to at most 4 per second (SPEC 5.4). Replaces Relay's v1 contract. A consumer validates the whole snapshot atomically: an invalid snapshot is dropped and the last accepted state stays. The keyword x-unique-by lists item keys that must be unique across an array (see contracts/CHANGES.md). Revision 1 adds identity (root_id, account_id, session_id, turn_id, request_id) to agents, per-connector coverage to tools, and per-account limits.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "t",
+    "demo",
+    "agents",
+    "tools",
+    "limits",
+    "attention"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "t": {
+      "$ref": "#/$defs/ms"
+    },
+    "demo": {
+      "type": "boolean",
+      "description": "True while demo mode drives the snapshot. Surfaces show the Demo sign and send no OS notifications."
+    },
+    "agents": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "$ref": "#/$defs/agent"
+      },
+      "x-unique-by": [
+        [
+          "id"
+        ],
+        [
+          "tool",
+          "ordinal"
+        ]
+      ]
+    },
+    "tools": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "$ref": "#/$defs/toolStatus"
+      },
+      "x-unique-by": [
+        [
+          "tool",
+          "root_id"
+        ]
+      ],
+      "description": "One entry per connector (tool and agent data root)."
+    },
+    "limits": {
+      "type": "array",
+      "maxItems": 16,
+      "description": "One entry per provider, window and account (or per root when the account is unknown). Limits of different accounts are never merged. A missing entry means no data; never infer 0%.",
+      "items": {
+        "$ref": "#/$defs/limit"
+      },
+      "x-unique-by": [
+        [
+          "provider",
+          "window",
+          "account_id",
+          "root_id"
+        ]
+      ]
+    },
+    "attention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "needs_you",
+        "oldest_since"
+      ],
+      "properties": {
+        "needs_you": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64,
+          "description": "Number of agents in state needs_you."
+        },
+        "oldest_since": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ms"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "since of the longest-waiting needs_you agent; null exactly when needs_you is 0."
+        }
+      },
+      "if": {
+        "properties": {
+          "needs_you": {
+            "const": 0
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "oldest_since": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "oldest_since": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "ms": {
+      "type": "integer",
+      "minimum": 946684800000,
+      "maximum": 4102444800000,
+      "description": "Milliseconds since the Unix epoch (UTC), always an integer. The range (2000-01-01 to 2100-01-01) rejects a seconds value passed by mistake."
+    },
+    "tool": {
+      "enum": [
+        "claude",
+        "codex",
+        "opencode",
+        "antigravity",
+        "gemini",
+        "cursor",
+        "aider",
+        "other"
+      ]
+    },
+    "host": {
+      "enum": [
+        "cli",
+        "desktop",
+        "vscode",
+        "sdk",
+        "ide",
+        "other"
+      ]
+    },
+    "instance": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$",
+      "description": "Salted hash of a session or thread id, never the raw id: 32 lowercase hex characters. A raw UUID cannot match this pattern."
+    },
+    "confidence": {
+      "enum": [
+        "exact",
+        "inferred"
+      ]
+    },
+    "provider": {
+      "enum": [
+        "claude",
+        "codex"
+      ]
+    },
+    "window": {
+      "enum": [
+        "5h",
+        "weekly"
+      ]
+    },
+    "pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "activity": {
+      "enum": [
+        "shell",
+        "edit",
+        "read",
+        "web",
+        "delegate",
+        "other"
+      ]
+    },
+    "reason": {
+      "enum": [
+        "permission",
+        "question"
+      ]
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "tool",
+        "host",
+        "ordinal",
+        "parent",
+        "root_id",
+        "account_id",
+        "session_id",
+        "turn_id",
+        "request_id",
+        "state",
+        "confidence",
+        "since",
+        "started_at"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/instance",
+          "description": "Opaque to every consumer; equal to the AgentEvent instance."
+        },
+        "tool": {
+          "$ref": "#/$defs/tool"
+        },
+        "host": {
+          "$ref": "#/$defs/host"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999,
+          "description": "1.. per tool, stable for the session; picks the scarf colour."
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/instance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Parent agent id for a subagent helper, otherwise null."
+        },
+        "root_id": {
+          "$ref": "#/$defs/instance",
+          "description": "The connector (agent data root) this agent was seen through."
+        },
+        "account_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/instance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Salted account hash, or null when unknown."
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/instance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Salted session hash, or null when not known yet. A subagent carries its parent session's id."
+        },
+        "turn_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/instance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Salted hash of the current or last turn, or null."
+        },
+        "request_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/instance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Salted hash of the pending permission or question request; non-null only when state is needs_you (and null there when the source gave no request id). Notifications are keyed by it."
+        },
+        "state": {
+          "enum": [
+            "starting",
+            "working",
+            "needs_you",
+            "your_turn",
+            "error",
+            "limited",
+            "idle",
+            "unknown"
+          ]
+        },
+        "reason": {
+          "$ref": "#/$defs/reason",
+          "description": "Present exactly when state is needs_you."
+        },
+        "activity": {
+          "$ref": "#/$defs/activity",
+          "description": "Optional, and only when state is working."
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence",
+          "description": "inferred when the state is not confirmed by a fresh signal, for example a needs_you restored from the pending-alert record after a restart."
+        },
+        "since": {
+          "$ref": "#/$defs/ms",
+          "description": "When the current state began."
+        },
+        "started_at": {
+          "$ref": "#/$defs/ms",
+          "description": "When the session began."
+        },
+        "limited_until": {
+          "$ref": "#/$defs/ms",
+          "description": "Optional, and only when state is limited: the expected reset. The state does not clear on the clock alone, only on a fresh good signal."
+        },
+        "project_label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[^/\\\\\\u0000-\\u001F\\u007F]+$",
+          "description": "ONLY when the user opted in to project names: the last folder segment, never a path. Never written to the ledger."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "needs_you"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "reason"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "reason"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "properties": {
+                "state": {
+                  "const": "working"
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "activity"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "properties": {
+                "state": {
+                  "const": "limited"
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "limited_until"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "properties": {
+                "state": {
+                  "const": "needs_you"
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "request_id": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "toolStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tool",
+        "root_id",
+        "presence",
+        "hooks",
+        "coverage",
+        "coverage_reason"
+      ],
+      "properties": {
+        "tool": {
+          "$ref": "#/$defs/tool"
+        },
+        "root_id": {
+          "$ref": "#/$defs/instance"
+        },
+        "presence": {
+          "enum": [
+            "present",
+            "offline"
+          ]
+        },
+        "hooks": {
+          "enum": [
+            "installed",
+            "missing",
+            "pending_review",
+            "unsupported"
+          ],
+          "description": "pending_review: installed but not yet trusted inside the agent (Codex /hooks)."
+        },
+        "coverage": {
+          "enum": [
+            "verified",
+            "degraded",
+            "unsupported"
+          ],
+          "description": "verified: an onboarding round trip proved hook delivery, so alerts are live. degraded: states work but alerts do not (yet). unsupported: this tool, host or OS cannot raise alerts in v0.1. The tray shows it; the 1-second flag is claimed only for verified."
+        },
+        "coverage_reason": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/coverageReason"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Why coverage is not verified; null exactly when coverage is verified."
+        }
+      },
+      "description": "One connector: a tool seen through one agent data root.",
+      "if": {
+        "properties": {
+          "coverage": {
+            "const": "verified"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "coverage_reason": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "coverage_reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "limit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "window",
+        "account_id",
+        "root_id",
+        "used_pct",
+        "resets_at",
+        "observed_at",
+        "stale"
+      ],
+      "properties": {
+        "provider": {
+          "$ref": "#/$defs/provider"
+        },
+        "window": {
+          "$ref": "#/$defs/window"
+        },
+        "account_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/instance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Salted account hash; null when the source does not identify the account, in which case the entry is per root."
+        },
+        "root_id": {
+          "$ref": "#/$defs/instance",
+          "description": "The connector the newest sample came through."
+        },
+        "used_pct": {
+          "$ref": "#/$defs/pct"
+        },
+        "resets_at": {
+          "$ref": "#/$defs/ms"
+        },
+        "observed_at": {
+          "$ref": "#/$defs/ms"
+        },
+        "stale": {
+          "type": "boolean",
+          "description": "True when no fresh sample arrived for 30 min (SPEC 4.4); the value is the last good one."
+        }
+      }
+    },
+    "coverageReason": {
+      "enum": [
+        "hooks_missing",
+        "hooks_pending_review",
+        "round_trip_pending",
+        "round_trip_failed",
+        "receiver_unreachable",
+        "bare_session",
+        "no_permission_event",
+        "experimental_adapter",
+        "remote_session",
+        "os_unsupported",
+        "other"
+      ],
+      "description": "hooks_missing: not installed. hooks_pending_review: installed, waiting for the user to trust them (Codex /hooks). round_trip_pending: installed, delivery not proven yet. round_trip_failed: the onboarding test event never arrived. receiver_unreachable: the shim cannot reach the app. bare_session: a session started with claude --bare skips hooks. no_permission_event: the agent exposes no permission event (Antigravity). experimental_adapter: an unverified adapter behind the experimental switch. remote_session: SSH or WSL sessions. os_unsupported: this OS or compositor fails the delivery tests."
+    }
+  }
+}

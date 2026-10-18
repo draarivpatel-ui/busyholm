@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "codex-hooks",
+      "tool": "codex",
+      "target": "codex_hooks",
+      "path": "/Users/alex/.codex/hooks.json",
+      "action": "create_file",
+      "state": "pending_review",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "b0df5679bb553dfd06e9f8039e049d1703924d1706d5129fc4badb4d6b99da7d",
+        "bytes": 640
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "046ebad41253e862bc0a3ae1e80a18a4a53e1d516d0a70655afe8266dd73438a",
+          "replaced_sha256": null
+        }
+      ]
+    }
+  ]
+}

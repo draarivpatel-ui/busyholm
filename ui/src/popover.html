@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Busyholm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="ui/base.css">
+<link rel="stylesheet" href="ui/components.css">
+<link rel="stylesheet" href="ui/popover.css">
+</head>
+<body class="popover">
+<main class="pop" aria-labelledby="pop-title">
+  <header class="pop-head">
+    <div class="hills" aria-hidden="true">
+      <svg viewBox="0 0 360 74" preserveAspectRatio="none" focusable="false">
+        <defs>
+          <linearGradient id="bh-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" style="stop-color: var(--river-light); stop-opacity: .55"/>
+            <stop offset="1" style="stop-color: var(--surface-solid); stop-opacity: 0"/>
+          </linearGradient>
+          <linearGradient id="bh-fade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset=".35" style="stop-color: var(--surface-solid); stop-opacity: 0"/>
+            <stop offset="1" style="stop-color: var(--surface-solid); stop-opacity: 1"/>
+          </linearGradient>
+        </defs>
+        <rect class="sky" x="0" y="0" width="360" height="74"/>
+        <path class="layer l1" d="M0 44 C40 30 70 34 104 40 S170 26 212 34 S290 44 320 30 L360 26 L360 74 L0 74Z"/>
+        <path class="layer l2" d="M0 54 C30 46 62 44 96 50 S150 58 188 48 S256 38 292 46 S340 52 360 46 L360 74 L0 74Z"/>
+        <path class="river" d="M0 63 C60 59 120 66 180 62 S300 60 360 64 L360 68 C300 65 240 67 180 66 S60 64 0 68Z"/>
+        <path class="layer l3" d="M0 66 C50 62 90 66 140 64 S230 60 280 64 S340 67 360 64 L360 74 L0 74Z"/>
+        <rect class="fade" x="0" y="0" width="360" height="74"/>
+      </svg>
+    </div>
+    <div class="head-row">
+      <h1 id="pop-title" class="wordmark">Busyholm</h1>
+      <span id="demo-badge" class="demo-badge" hidden>Demo</span>
+      <span class="spacer"></span>
+      <button type="button" class="icon-button" id="btn-settings" aria-label="Settings"></button>
+    </div>
+    <p class="head-summary" id="summary">
+      <span class="count tabular" id="sum-count">0</span>
+      <span class="count-text" id="sum-text">residents</span>
+      <span class="attention" id="attention" role="status"></span>
+    </p>
+  </header>
+  <div class="pop-body" id="body" tabindex="0" role="region" aria-label="Agents, usage and island">
+    <section class="section" aria-labelledby="agents-h">
+      <h2 class="caption" id="agents-h"><span>Agents</span><span class="aside" id="agents-aside"></span></h2>
+      <ul class="agent-list" id="agent-list"></ul>
+    </section>
+    <section class="section" aria-labelledby="limits-h" id="limits-section" hidden>
+      <h2 class="caption" id="limits-h"><span>Usage</span></h2>
+      <div class="limit-grid" id="limit-grid"></div>
+    </section>
+    <section class="section" aria-labelledby="holm-h" id="holm-section">
+      <h2 class="caption" id="holm-h"><span>On the holm</span><span class="aside" id="holm-aside"></span></h2>
+      <div class="holm" id="holm"></div>
+    </section>
+    <section class="section" aria-labelledby="cov-h" id="cov-section" hidden>
+      <h2 class="caption" id="cov-h"><span>Alerts</span><span class="aside" id="cov-aside"></span></h2>
+      <ul class="cov-list" id="cov-list"></ul>
+    </section>
+  </div>
+  <footer class="pop-foot">
+    <button type="button" class="foot-btn" id="btn-details"></button>
+    <button type="button" class="foot-btn" id="btn-ambient"></button>
+    <button type="button" class="foot-btn" id="btn-strip" aria-pressed="true"></button>
+  </footer>
+</main>
+<script type="module" src="ui/popover.js"></script>
+</body>
+</html>

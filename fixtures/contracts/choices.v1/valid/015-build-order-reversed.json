@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1791633600000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "market_hall",
+        "bakery",
+        "bell_tower",
+        "cottage_2",
+        "workshop_2",
+        "watermill",
+        "crossing",
+        "garden_plots",
+        "cottage_1",
+        "well",
+        "workshop_1",
+        "noticeboard"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "evt-2",
+  "type": "permission.replied",
+  "properties": {
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "requestID": "bca1a700-0000-4000-8000-0000000000a1",
+    "reply": "once"
+  }
+}

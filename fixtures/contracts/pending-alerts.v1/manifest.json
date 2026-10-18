@@ -1,0 +1,344 @@
+{
+  "contract": "pendingAlerts",
+  "schema": "contracts/schemas/pending-alerts.v1.schema.json",
+  "valid": {
+    "001-empty-alerts.json": {
+      "note": "No agent waits on the user, so the alerts array is empty."
+    },
+    "002-one-alert-permission.json": {
+      "note": "One alert with reason permission and every optional id set."
+    },
+    "003-one-alert-question.json": {
+      "note": "One alert with reason question and every optional id set."
+    },
+    "004-one-of-each-reason.json": {
+      "note": "Two alerts for two agents, one permission and one question."
+    },
+    "005-tool-claude.json": {
+      "note": "One alert from the claude tool."
+    },
+    "006-tool-codex.json": {
+      "note": "One alert from the codex tool."
+    },
+    "007-tool-opencode.json": {
+      "note": "One alert from the opencode tool."
+    },
+    "008-tool-antigravity.json": {
+      "note": "One alert from the antigravity tool."
+    },
+    "009-tool-gemini.json": {
+      "note": "One alert from the gemini tool."
+    },
+    "010-tool-cursor.json": {
+      "note": "One alert from the cursor tool."
+    },
+    "011-tool-aider.json": {
+      "note": "One alert from the aider tool."
+    },
+    "012-tool-other.json": {
+      "note": "One alert from the other tool."
+    },
+    "013-host-cli.json": {
+      "note": "One alert from the cli host."
+    },
+    "014-host-desktop.json": {
+      "note": "One alert from the desktop host."
+    },
+    "015-host-vscode.json": {
+      "note": "One alert from the vscode host."
+    },
+    "016-host-sdk.json": {
+      "note": "One alert from the sdk host."
+    },
+    "017-host-ide.json": {
+      "note": "One alert from the ide host."
+    },
+    "018-host-other.json": {
+      "note": "One alert from the other host."
+    },
+    "019-account-id-null.json": {
+      "note": "account_id is null when the source gave no account."
+    },
+    "020-session-id-null.json": {
+      "note": "session_id is null when the source gave no session."
+    },
+    "021-request-id-null.json": {
+      "note": "request_id is null, so the agent itself is the key."
+    },
+    "022-all-optional-ids-null.json": {
+      "note": "account_id, session_id and request_id are all null on a question alert."
+    },
+    "023-max-alerts-64.json": {
+      "note": "64 alerts for distinct agents, the maximum array length."
+    },
+    "024-shared-root-id.json": {
+      "note": "Two agents under one root_id, since root_id is not a uniqueness key."
+    },
+    "025-shared-session-id.json": {
+      "note": "Two agents sharing a session_id, which is allowed because only agent must be unique."
+    },
+    "026-shared-request-id.json": {
+      "note": "Two agents sharing a request_id, which is allowed because only agent must be unique."
+    },
+    "027-shared-account-id.json": {
+      "note": "Two agents sharing an account_id under different roots, which is allowed because only agent must be unique."
+    },
+    "028-identical-except-agent.json": {
+      "note": "Two alerts identical in every field except agent, which is the only key."
+    },
+    "029-since-equals-last-confirmed.json": {
+      "note": "since equal to last_confirmed_at is allowed."
+    },
+    "030-since-earlier-than-confirmed.json": {
+      "note": "since is an hour before last_confirmed_at, the usual case after a fresh confirmation."
+    },
+    "031-timestamps-at-ms-min.json": {
+      "note": "saved_at, since and last_confirmed_at all exactly at the legal minimum."
+    },
+    "032-timestamps-at-ms-max.json": {
+      "note": "saved_at, since and last_confirmed_at all exactly at the legal maximum."
+    },
+    "033-since-at-ms-min.json": {
+      "note": "since alone at the legal minimum."
+    },
+    "034-last-confirmed-at-ms-max.json": {
+      "note": "last_confirmed_at alone at the legal maximum."
+    },
+    "035-saved-at-ms-max.json": {
+      "note": "saved_at alone at the legal maximum."
+    },
+    "036-other-tool-and-host.json": {
+      "note": "One alert using the other tool and the other host together."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-root-string.json": {
+      "note": "The root must be an object, not a string.",
+      "path": ""
+    },
+    "004-missing-schema-version.json": {
+      "note": "schema_version is required.",
+      "path": ""
+    },
+    "005-missing-privacy.json": {
+      "note": "privacy is required.",
+      "path": ""
+    },
+    "006-missing-saved-at.json": {
+      "note": "saved_at is required.",
+      "path": ""
+    },
+    "007-missing-alerts.json": {
+      "note": "alerts is required, even when it is empty.",
+      "path": ""
+    },
+    "008-unknown-top-level-field.json": {
+      "note": "An unknown top-level field is rejected.",
+      "path": ""
+    },
+    "009-schema-version-2.json": {
+      "note": "schema_version must be 1, so version 2 is rejected.",
+      "path": "/schema_version"
+    },
+    "010-schema-version-string.json": {
+      "note": "schema_version must be the number 1, not the string 1.",
+      "path": "/schema_version"
+    },
+    "011-privacy-contains-text-true.json": {
+      "note": "privacy.containsText must be false because the file holds no text.",
+      "path": "/privacy/containsText"
+    },
+    "012-privacy-missing-contains-text.json": {
+      "note": "privacy requires containsText.",
+      "path": "/privacy"
+    },
+    "013-privacy-unknown-field.json": {
+      "note": "privacy allows only containsText.",
+      "path": "/privacy"
+    },
+    "014-saved-at-seconds.json": {
+      "note": "saved_at in seconds is below the millisecond range.",
+      "path": "/saved_at"
+    },
+    "015-saved-at-string.json": {
+      "note": "saved_at must be an integer, not an ISO date string.",
+      "path": "/saved_at"
+    },
+    "016-saved-at-below-min.json": {
+      "note": "saved_at one millisecond below 2000-01-01 UTC is rejected.",
+      "path": "/saved_at"
+    },
+    "017-saved-at-above-max.json": {
+      "note": "saved_at one millisecond above 2100-01-01 UTC is rejected.",
+      "path": "/saved_at"
+    },
+    "018-alerts-not-array.json": {
+      "note": "alerts must be an array.",
+      "path": "/alerts"
+    },
+    "019-too-many-alerts.json": {
+      "note": "At most 64 alerts, so 65 is rejected.",
+      "path": "/alerts"
+    },
+    "020-alert-null-entry.json": {
+      "note": "Each alert must be an object, not null.",
+      "path": "/alerts/0"
+    },
+    "021-alert-missing-agent.json": {
+      "note": "agent is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "022-alert-missing-tool.json": {
+      "note": "tool is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "023-alert-missing-host.json": {
+      "note": "host is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "024-alert-missing-root-id.json": {
+      "note": "root_id is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "025-alert-missing-account-id.json": {
+      "note": "account_id is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "026-alert-missing-session-id.json": {
+      "note": "session_id is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "027-alert-missing-request-id.json": {
+      "note": "request_id is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "028-alert-missing-reason.json": {
+      "note": "reason is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "029-alert-missing-since.json": {
+      "note": "since is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "030-alert-missing-last-confirmed-at.json": {
+      "note": "last_confirmed_at is required on every alert.",
+      "path": "/alerts/0"
+    },
+    "031-alert-leaked-prompt.json": {
+      "note": "A prompt field is rejected as unknown on an alert.",
+      "path": "/alerts/0"
+    },
+    "032-alert-leaked-cwd.json": {
+      "note": "A cwd field is rejected as unknown on an alert.",
+      "path": "/alerts/0"
+    },
+    "033-alert-leaked-title.json": {
+      "note": "A title field is rejected as unknown on an alert.",
+      "path": "/alerts/0"
+    },
+    "034-tool-gemini-cli.json": {
+      "note": "tool must be one of the listed values, and gemini-cli is not one.",
+      "path": "/alerts/0/tool"
+    },
+    "035-host-terminal.json": {
+      "note": "host must be one of the listed values, and terminal is not one.",
+      "path": "/alerts/0/host"
+    },
+    "036-reason-waiting.json": {
+      "note": "reason is permission or question, and waiting is not a reason.",
+      "path": "/alerts/0/reason"
+    },
+    "037-agent-raw-uuid.json": {
+      "note": "A raw UUID is not a salted 32-character hex id.",
+      "path": "/alerts/0/agent"
+    },
+    "038-agent-uppercase.json": {
+      "note": "Ids are lowercase hex, so an uppercase agent is rejected.",
+      "path": "/alerts/0/agent"
+    },
+    "039-root-id-raw-uuid.json": {
+      "note": "A raw UUID is not a salted 32-character hex id.",
+      "path": "/alerts/0/root_id"
+    },
+    "040-root-id-uppercase.json": {
+      "note": "Ids are lowercase hex, so an uppercase root_id is rejected.",
+      "path": "/alerts/0/root_id"
+    },
+    "041-root-id-null.json": {
+      "note": "root_id is not nullable.",
+      "path": "/alerts/0/root_id"
+    },
+    "042-account-id-raw-uuid.json": {
+      "note": "A raw UUID is not a salted 32-character hex id.",
+      "path": "/alerts/0/account_id"
+    },
+    "043-account-id-uppercase.json": {
+      "note": "Ids are lowercase hex, so an uppercase account_id is rejected.",
+      "path": "/alerts/0/account_id"
+    },
+    "044-session-id-raw-uuid.json": {
+      "note": "A raw UUID is not a salted 32-character hex id.",
+      "path": "/alerts/0/session_id"
+    },
+    "045-session-id-uppercase.json": {
+      "note": "Ids are lowercase hex, so an uppercase session_id is rejected.",
+      "path": "/alerts/0/session_id"
+    },
+    "046-request-id-raw-uuid.json": {
+      "note": "A raw UUID is not a salted 32-character hex id.",
+      "path": "/alerts/0/request_id"
+    },
+    "047-request-id-uppercase.json": {
+      "note": "Ids are lowercase hex, so an uppercase request_id is rejected.",
+      "path": "/alerts/0/request_id"
+    },
+    "048-request-id-too-short.json": {
+      "note": "An id must be exactly 32 hex characters, and this one has 31.",
+      "path": "/alerts/0/request_id"
+    },
+    "049-since-seconds.json": {
+      "note": "since in seconds is below the millisecond range.",
+      "path": "/alerts/0/since"
+    },
+    "050-last-confirmed-seconds.json": {
+      "note": "last_confirmed_at in seconds is below the millisecond range.",
+      "path": "/alerts/0/last_confirmed_at"
+    },
+    "051-since-string.json": {
+      "note": "since must be an integer, not an ISO date string.",
+      "path": "/alerts/0/since"
+    },
+    "052-since-below-min.json": {
+      "note": "since one millisecond below 2000-01-01 UTC is rejected.",
+      "path": "/alerts/0/since"
+    },
+    "053-since-above-max.json": {
+      "note": "since one millisecond above 2100-01-01 UTC is rejected.",
+      "path": "/alerts/0/since"
+    },
+    "054-last-confirmed-below-min.json": {
+      "note": "last_confirmed_at one millisecond below 2000-01-01 UTC is rejected.",
+      "path": "/alerts/0/last_confirmed_at"
+    },
+    "055-last-confirmed-above-max.json": {
+      "note": "last_confirmed_at one millisecond above 2100-01-01 UTC is rejected.",
+      "path": "/alerts/0/last_confirmed_at"
+    },
+    "056-duplicate-agent.json": {
+      "note": "Two alerts for the same agent break the agent uniqueness rule.",
+      "path": "/alerts/1"
+    },
+    "057-duplicate-agent-other-tool.json": {
+      "note": "The same agent under a different tool and host is still a duplicate.",
+      "path": "/alerts/1"
+    }
+  }
+}

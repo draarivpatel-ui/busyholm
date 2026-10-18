@@ -1,0 +1,2 @@
+spdx: MPL-2.0
+https://www.mozilla.org/media/MPL/2.0/index.txt  (canonical MPL-2.0 text: the crate archive and its repository at commit 572ecba2d1600e7c3d490586692a209faf703baa ship no licence file for selectors)

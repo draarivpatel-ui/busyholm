@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "seed": 20261012,
+  "as_of_day": "2026-10-12",
+  "tier": "camp",
+  "resources": {
+    "planks": 0,
+    "stone": 0,
+    "seeds": 0
+  },
+  "earned": {
+    "planks": 0,
+    "stone": 0,
+    "seeds": 0
+  },
+  "structures": [],
+  "decorations": [],
+  "milestones": [],
+  "stats": {
+    "lifetime_turns": 0,
+    "active_days": 0,
+    "streak_days": 0,
+    "tools_seen": []
+  },
+  "founders_stone": null,
+  "demo_capped": false
+}

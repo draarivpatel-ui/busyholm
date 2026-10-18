@@ -1,0 +1,14 @@
+{
+  "session_id": "bca1a700-0000-4000-8000-000000000001",
+  "prompt_id": "bca1a700-0000-4000-8000-000000000024",
+  "transcript_path": "/Users/someone/.claude/projects/BHCANARY_claude_transcript_path_25/bca1a700-0000-4000-8000-000000000001.jsonl",
+  "cwd": "/Users/someone/code/BHCANARY_claude_cwd_25",
+  "permission_mode": "default",
+  "hook_event_name": "Notification",
+  "effort": {
+    "level": "high"
+  },
+  "notification_type": "idle_prompt",
+  "message": "BHCANARY_claude_message_7",
+  "title": "BHCANARY_claude_title_7"
+}

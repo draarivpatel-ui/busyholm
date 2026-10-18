@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "t": 1791806400000,
+  "demo": false,
+  "agents": [],
+  "tools": [
+    {
+      "tool": "claude",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "codex",
+      "root_id": "5e1805de3c344b54fb9b24e1e1b20045",
+      "presence": "offline",
+      "hooks": "pending_review",
+      "coverage": "degraded",
+      "coverage_reason": "hooks_pending_review"
+    },
+    {
+      "tool": "opencode",
+      "root_id": "624a3e0c45f720611ded12bbac46716b",
+      "presence": "present",
+      "hooks": "missing",
+      "coverage": "degraded",
+      "coverage_reason": "hooks_missing"
+    },
+    {
+      "tool": "antigravity",
+      "root_id": "87d90dbd0633ba91a87993b20337a7d3",
+      "presence": "offline",
+      "hooks": "unsupported",
+      "coverage": "unsupported",
+      "coverage_reason": "no_permission_event"
+    }
+  ],
+  "limits": [],
+  "attention": {
+    "needs_you": 0,
+    "oldest_since": null
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 4102444800000,
+      "day": "2026-10-11",
+      "kind": "decoration",
+      "decoration": "lamp",
+      "on": true
+    }
+  ]
+}

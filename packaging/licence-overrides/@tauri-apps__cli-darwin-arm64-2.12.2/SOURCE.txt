@@ -1,0 +1,3 @@
+spdx: Apache-2.0 OR MIT
+https://raw.githubusercontent.com/tauri-apps/tauri/@tauri-apps/cli-v2.12.2/LICENSE-APACHE-2.0
+https://raw.githubusercontent.com/tauri-apps/tauri/@tauri-apps/cli-v2.12.2/LICENSE-MIT

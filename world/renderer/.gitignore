@@ -1,0 +1,3 @@
+# per-frame capture PNGs and their info logs are large; key frames and videos are kept
+captures/*/frame-*.png
+captures/*/info.jsonl

@@ -1,0 +1,16 @@
+{
+  "description": "Existing user hooks",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/local/bin/codex-stop.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Busyholm details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+<div id="nocore" class="nocore" hidden>no core connected: showing sample data</div>
+<main class="page">
+  <h1 id="heading">Busyholm details</h1>
+  <p id="summary" class="muted">Loading agents.</p>
+  <div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <section aria-labelledby="agents-heading">
+    <h2 id="agents-heading">Agents</h2>
+    <p id="agents-empty" class="muted" hidden>No agents running.</p>
+    <table id="agents-table" hidden>
+      <caption class="sr-only">Agents and what they are doing</caption>
+      <thead>
+        <tr><th scope="col">Tool</th><th scope="col">Number</th><th scope="col">State</th><th scope="col">Waiting for</th></tr>
+      </thead>
+      <tbody id="agents-body"></tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="limits-heading">
+    <h2 id="limits-heading">Limits</h2>
+    <p id="limits-empty" class="muted" hidden>No limit data yet.</p>
+    <div id="limits" class="limits"></div>
+  </section>
+
+  <div class="actions">
+    <button type="button" id="btn-settings">Settings</button>
+    <button type="button" id="btn-ambient">Ambient scene</button>
+  </div>
+</main>
+<script type="module" src="details.js"></script>
+</body>
+</html>

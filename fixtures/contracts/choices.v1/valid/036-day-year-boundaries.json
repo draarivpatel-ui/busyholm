@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1767268800000,
+      "day": "2026-01-01",
+      "kind": "build_order",
+      "order": [
+        "noticeboard"
+      ]
+    },
+    {
+      "t": 1798718400000,
+      "day": "2026-12-31",
+      "kind": "decoration",
+      "decoration": "lamp",
+      "on": false
+    }
+  ]
+}

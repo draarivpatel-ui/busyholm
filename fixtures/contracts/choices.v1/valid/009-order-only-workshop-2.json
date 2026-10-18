@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1791633600000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "workshop_2"
+      ]
+    }
+  ]
+}

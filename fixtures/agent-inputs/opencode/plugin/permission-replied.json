@@ -1,0 +1,8 @@
+{
+  "type": "permission.replied",
+  "properties": {
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "permissionID": "bca1a700-0000-4000-8000-000000000089",
+    "response": "once"
+  }
+}

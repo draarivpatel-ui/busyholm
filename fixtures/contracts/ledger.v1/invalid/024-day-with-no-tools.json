@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "seed": 20261012,
+  "founded_day": "2026-10-07",
+  "hooks_first_connected_day": "2026-10-08",
+  "days": {
+    "2026-10-08": {}
+  },
+  "backfill": null
+}

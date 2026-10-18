@@ -1,0 +1,440 @@
+{
+  "contract": "settings",
+  "schema": "contracts/schemas/settings.v1.schema.json",
+  "valid": {
+    "001-defaults-full.json": {
+      "note": "Every documented default at once, which is what the app writes on first run."
+    },
+    "002-display-named-one-char.json": {
+      "note": "A named display whose name is a single character."
+    },
+    "003-display-named-128-chars.json": {
+      "note": "A named display whose name is exactly 128 characters, with non-ASCII letters."
+    },
+    "004-display-named-spaces.json": {
+      "note": "A named display with spaces and non-ASCII letters in a shorter name."
+    },
+    "005-strip-disabled.json": {
+      "note": "The strip turned off, with its other settings kept."
+    },
+    "006-strip-height-72.json": {
+      "note": "The smallest strip height."
+    },
+    "007-strip-height-160.json": {
+      "note": "The largest strip height."
+    },
+    "008-layer-mode-behind-windows.json": {
+      "note": "layer_mode set to behind_windows."
+    },
+    "009-layer-mode-reserve-space.json": {
+      "note": "layer_mode set to reserve_space."
+    },
+    "010-hover-fade-off.json": {
+      "note": "hover_fade turned off."
+    },
+    "011-show-over-fullscreen-on.json": {
+      "note": "show_over_fullscreen turned on."
+    },
+    "012-sky-clock-only.json": {
+      "note": "The sky shows only the clock."
+    },
+    "013-sky-hemisphere-south.json": {
+      "note": "The southern hemisphere for the sky."
+    },
+    "014-volume-zero.json": {
+      "note": "Volume at 0, the quietest bell."
+    },
+    "015-volume-one-bell-off.json": {
+      "note": "Volume at 1 with the bell turned off."
+    },
+    "016-volume-fractional.json": {
+      "note": "A fractional volume of 0.25."
+    },
+    "017-quiet-hours-daytime.json": {
+      "note": "A quiet range inside one day."
+    },
+    "018-quiet-hours-cross-midnight.json": {
+      "note": "A quiet range that crosses midnight."
+    },
+    "019-quiet-hours-full-day-bounds.json": {
+      "note": "The widest clock values, 00:00 to 23:59."
+    },
+    "020-idle-minutes-5.json": {
+      "note": "Ambient mode after 5 idle minutes, the minimum."
+    },
+    "021-idle-minutes-60.json": {
+      "note": "Ambient mode after 60 idle minutes, the maximum."
+    },
+    "022-idle-minutes-off.json": {
+      "note": "Ambient mode off, with idle_minutes null."
+    },
+    "023-shortcut-cmd-shift-b.json": {
+      "note": "A three-part accelerator with CommandOrControl."
+    },
+    "024-shortcut-alt-f12.json": {
+      "note": "A two-part accelerator with a function key."
+    },
+    "025-shortcut-f9.json": {
+      "note": "A single-key accelerator."
+    },
+    "026-shortcut-64-chars.json": {
+      "note": "An accelerator of exactly 64 characters."
+    },
+    "027-species-full-map.json": {
+      "note": "Every tool has a species override."
+    },
+    "028-species-value-beaver.json": {
+      "note": "The species beaver is used as an override for claude and gemini."
+    },
+    "029-species-value-otter.json": {
+      "note": "The species otter is used as an override for claude and gemini."
+    },
+    "030-species-value-frog.json": {
+      "note": "The species frog is used as an override for claude and gemini."
+    },
+    "031-species-value-hare.json": {
+      "note": "The species hare is used as an override for claude and gemini."
+    },
+    "032-species-value-mole.json": {
+      "note": "The species mole is used as an override for claude and gemini."
+    },
+    "033-species-value-heron.json": {
+      "note": "The species heron is used as an override for claude and gemini."
+    },
+    "034-species-value-hedgehog.json": {
+      "note": "The species hedgehog is used as an override for claude and gemini."
+    },
+    "035-species-key-claude.json": {
+      "note": "A single species override keyed by the tool claude."
+    },
+    "036-species-key-codex.json": {
+      "note": "A single species override keyed by the tool codex."
+    },
+    "037-species-key-opencode.json": {
+      "note": "A single species override keyed by the tool opencode."
+    },
+    "038-species-key-antigravity.json": {
+      "note": "A single species override keyed by the tool antigravity."
+    },
+    "039-species-key-gemini.json": {
+      "note": "A single species override keyed by the tool gemini."
+    },
+    "040-species-key-cursor.json": {
+      "note": "A single species override keyed by the tool cursor."
+    },
+    "041-species-key-aider.json": {
+      "note": "A single species override keyed by the tool aider."
+    },
+    "042-species-key-other.json": {
+      "note": "A single species override keyed by the tool other."
+    },
+    "043-notifications-needs-you-off.json": {
+      "note": "The needs_you notification turned off."
+    },
+    "044-notifications-renotify-off.json": {
+      "note": "The re-notify reminder turned off."
+    },
+    "045-notifications-long-turn-off.json": {
+      "note": "The long turn notification turned off."
+    },
+    "046-notifications-errors-off.json": {
+      "note": "The error notification turned off."
+    },
+    "047-notifications-all-off.json": {
+      "note": "All four notification flags off."
+    },
+    "048-privacy-project-names-on.json": {
+      "note": "Project names shown as the last folder segment only."
+    },
+    "049-privacy-history-backfill-on.json": {
+      "note": "History backfill turned on."
+    },
+    "050-launch-at-login-on.json": {
+      "note": "Launch at login turned on."
+    },
+    "051-reduced-motion-always.json": {
+      "note": "Reduced motion forced on regardless of the OS setting."
+    },
+    "052-updates-check-on.json": {
+      "note": "The direct-download update check turned on."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-root-string.json": {
+      "note": "The root must be an object, not a string.",
+      "path": ""
+    },
+    "004-missing-schema-version.json": {
+      "note": "The top-level group schema_version is required.",
+      "path": ""
+    },
+    "005-missing-strip.json": {
+      "note": "The top-level group strip is required.",
+      "path": ""
+    },
+    "006-missing-sky.json": {
+      "note": "The top-level group sky is required.",
+      "path": ""
+    },
+    "007-missing-sound.json": {
+      "note": "The top-level group sound is required.",
+      "path": ""
+    },
+    "008-missing-notifications.json": {
+      "note": "The top-level group notifications is required.",
+      "path": ""
+    },
+    "009-missing-ambient.json": {
+      "note": "The top-level group ambient is required.",
+      "path": ""
+    },
+    "010-missing-agents.json": {
+      "note": "The top-level group agents is required.",
+      "path": ""
+    },
+    "011-missing-privacy.json": {
+      "note": "The top-level group privacy is required.",
+      "path": ""
+    },
+    "012-missing-other.json": {
+      "note": "The top-level group other is required.",
+      "path": ""
+    },
+    "013-missing-updates.json": {
+      "note": "The top-level group updates is required.",
+      "path": ""
+    },
+    "014-unknown-root-field.json": {
+      "note": "An unknown top-level field is rejected.",
+      "path": ""
+    },
+    "015-unknown-strip-field.json": {
+      "note": "An unknown field in strip is rejected.",
+      "path": "/strip"
+    },
+    "016-unknown-display-field.json": {
+      "note": "An unknown field in the auto display object is rejected.",
+      "path": "/strip/display"
+    },
+    "017-unknown-sky-field.json": {
+      "note": "An unknown field in sky is rejected.",
+      "path": "/sky"
+    },
+    "018-unknown-sound-field.json": {
+      "note": "An unknown field in sound is rejected.",
+      "path": "/sound"
+    },
+    "019-unknown-quiet-hours-field.json": {
+      "note": "An unknown field inside a quiet_hours range is rejected.",
+      "path": "/sound/quiet_hours"
+    },
+    "020-unknown-notifications-field.json": {
+      "note": "An unknown field in notifications is rejected.",
+      "path": "/notifications"
+    },
+    "021-unknown-ambient-field.json": {
+      "note": "An unknown field in ambient is rejected.",
+      "path": "/ambient"
+    },
+    "022-unknown-agents-field.json": {
+      "note": "An unknown field in agents is rejected.",
+      "path": "/agents"
+    },
+    "023-unknown-privacy-field.json": {
+      "note": "An unknown field in privacy is rejected.",
+      "path": "/privacy"
+    },
+    "024-unknown-other-field.json": {
+      "note": "An unknown field in other is rejected.",
+      "path": "/other"
+    },
+    "025-unknown-updates-field.json": {
+      "note": "An unknown field in updates is rejected.",
+      "path": "/updates"
+    },
+    "026-height-71.json": {
+      "note": "A strip height of 71 is below the minimum of 72.",
+      "path": "/strip/height"
+    },
+    "027-height-161.json": {
+      "note": "A strip height of 161 is above the maximum of 160.",
+      "path": "/strip/height"
+    },
+    "028-height-fractional.json": {
+      "note": "A strip height must be a whole number.",
+      "path": "/strip/height"
+    },
+    "029-height-string.json": {
+      "note": "A strip height must be a number, not a string.",
+      "path": "/strip/height"
+    },
+    "030-volume-minus-tenth.json": {
+      "note": "A volume below 0 is rejected.",
+      "path": "/sound/volume"
+    },
+    "031-volume-one-and-half.json": {
+      "note": "A volume above 1 is rejected.",
+      "path": "/sound/volume"
+    },
+    "032-quiet-hours-start-24-00.json": {
+      "note": "The hour 24 is not a valid start time.",
+      "path": "/sound/quiet_hours/start"
+    },
+    "033-quiet-hours-start-no-leading-zero.json": {
+      "note": "A start time must have two digits for the hour (7:30 is rejected).",
+      "path": "/sound/quiet_hours/start"
+    },
+    "034-quiet-hours-end-minute-60.json": {
+      "note": "The minute 60 is not a valid end time.",
+      "path": "/sound/quiet_hours/end"
+    },
+    "035-quiet-hours-missing-end.json": {
+      "note": "A quiet range needs both start and end.",
+      "path": "/sound/quiet_hours"
+    },
+    "036-idle-minutes-4.json": {
+      "note": "Idle minutes of 4 is below the minimum of 5.",
+      "path": "/ambient/idle_minutes"
+    },
+    "037-idle-minutes-61.json": {
+      "note": "Idle minutes of 61 is above the maximum of 60.",
+      "path": "/ambient/idle_minutes"
+    },
+    "038-idle-minutes-zero.json": {
+      "note": "Idle minutes of 0 is not an allowed value (use null for off).",
+      "path": "/ambient/idle_minutes"
+    },
+    "039-idle-minutes-fractional.json": {
+      "note": "Idle minutes must be a whole number.",
+      "path": "/ambient/idle_minutes"
+    },
+    "040-shortcut-with-space.json": {
+      "note": "A shortcut may not contain a space.",
+      "path": "/ambient/shortcut"
+    },
+    "041-shortcut-empty-string.json": {
+      "note": "An empty shortcut string is rejected (use null for none).",
+      "path": "/ambient/shortcut"
+    },
+    "042-shortcut-trailing-plus.json": {
+      "note": "A shortcut may not end with a plus sign.",
+      "path": "/ambient/shortcut"
+    },
+    "043-shortcut-over-64-chars.json": {
+      "note": "A shortcut of 65 characters is over the limit.",
+      "path": "/ambient/shortcut"
+    },
+    "044-display-named-without-name.json": {
+      "note": "A named display must carry a name.",
+      "path": "/strip/display"
+    },
+    "045-display-auto-with-name.json": {
+      "note": "An auto display may not carry a name.",
+      "path": "/strip/display"
+    },
+    "046-display-unknown-mode.json": {
+      "note": "The display mode must be auto or named.",
+      "path": "/strip/display"
+    },
+    "047-display-name-empty.json": {
+      "note": "A display name may not be empty.",
+      "path": "/strip/display/name"
+    },
+    "048-display-name-newline.json": {
+      "note": "A display name may not contain a control character.",
+      "path": "/strip/display/name"
+    },
+    "049-display-name-129-chars.json": {
+      "note": "A display name over 128 characters is rejected.",
+      "path": "/strip/display/name"
+    },
+    "050-species-unknown-value.json": {
+      "note": "A species must be one of the seven known species.",
+      "path": "/agents/species/claude"
+    },
+    "051-species-unknown-tool-key.json": {
+      "note": "A species key must be a known tool.",
+      "path": "/agents/species"
+    },
+    "052-species-key-wrong-case.json": {
+      "note": "Tool keys are lowercase, so Claude is rejected.",
+      "path": "/agents/species"
+    },
+    "053-layer-mode-always-on-top.json": {
+      "note": "layer_mode has no always_on_top value; on_top is the name.",
+      "path": "/strip/layer_mode"
+    },
+    "054-reduced-motion-never.json": {
+      "note": "reduced_motion allows only follow_os or always.",
+      "path": "/other/reduced_motion"
+    },
+    "055-sky-mode-unknown.json": {
+      "note": "The sky mode must be usage_and_clock or clock_only.",
+      "path": "/sky/mode"
+    },
+    "056-hemisphere-unknown.json": {
+      "note": "The hemisphere must be north or south.",
+      "path": "/sky/hemisphere"
+    },
+    "057-schema-version-2.json": {
+      "note": "schema_version must be 1 for this contract.",
+      "path": "/schema_version"
+    },
+    "058-strip-enabled-string.json": {
+      "note": "The enabled flag must be a boolean.",
+      "path": "/strip/enabled"
+    },
+    "059-bell-null.json": {
+      "note": "The bell flag may not be null.",
+      "path": "/sound/bell"
+    },
+    "060-project-names-number.json": {
+      "note": "The project_names flag must be a boolean, not 0 or 1.",
+      "path": "/privacy/project_names"
+    },
+    "061-updates-check-string.json": {
+      "note": "The update check flag must be a boolean.",
+      "path": "/updates/check"
+    },
+    "062-strip-missing-height.json": {
+      "note": "height is required in strip.",
+      "path": "/strip"
+    },
+    "063-sky-missing-hemisphere.json": {
+      "note": "hemisphere is required in sky.",
+      "path": "/sky"
+    },
+    "064-sound-missing-bell.json": {
+      "note": "bell is required in sound.",
+      "path": "/sound"
+    },
+    "065-notifications-missing-errors.json": {
+      "note": "errors is required in notifications.",
+      "path": "/notifications"
+    },
+    "066-ambient-missing-shortcut.json": {
+      "note": "shortcut is required in ambient (null when none).",
+      "path": "/ambient"
+    },
+    "067-agents-missing-species.json": {
+      "note": "species is required in agents.",
+      "path": "/agents"
+    },
+    "068-privacy-missing-history-backfill.json": {
+      "note": "history_backfill is required in privacy.",
+      "path": "/privacy"
+    },
+    "069-other-missing-reduced-motion.json": {
+      "note": "reduced_motion is required in other.",
+      "path": "/other"
+    }
+  }
+}

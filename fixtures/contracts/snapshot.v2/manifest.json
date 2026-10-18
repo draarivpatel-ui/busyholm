@@ -1,0 +1,441 @@
+{
+  "contract": "snapshot",
+  "schema": "contracts/schemas/snapshot.v2.schema.json",
+  "valid": {
+    "001-empty.json": {
+      "note": "No agents, no tools, no limits: a fresh install before anything is seen."
+    },
+    "002-one-working-shell.json": {
+      "note": "One Claude CLI resident working with the shell activity."
+    },
+    "003-starting.json": {
+      "note": "A new session in state starting."
+    },
+    "004-working-no-activity.json": {
+      "note": "Working with no activity known (activity is optional)."
+    },
+    "005-needs-you-permission.json": {
+      "note": "needs_you with reason permission and attention counted."
+    },
+    "006-needs-you-question.json": {
+      "note": "needs_you with reason question."
+    },
+    "007-your-turn.json": {
+      "note": "A finished turn waiting for the next prompt."
+    },
+    "008-error.json": {
+      "note": "An agent in the error state."
+    },
+    "009-limited-with-reset.json": {
+      "note": "limited with a known reset time."
+    },
+    "010-limited-unknown-reset.json": {
+      "note": "limited with the reset time unknown (limited_until omitted)."
+    },
+    "011-idle.json": {
+      "note": "An idle agent."
+    },
+    "012-unknown-inferred.json": {
+      "note": "A stale agent shown as unknown with inferred confidence."
+    },
+    "013-activity-edit.json": {
+      "note": "Working with activity edit."
+    },
+    "014-activity-read.json": {
+      "note": "Working with activity read."
+    },
+    "015-activity-web.json": {
+      "note": "Working with activity web."
+    },
+    "016-activity-delegate.json": {
+      "note": "Working with activity delegate."
+    },
+    "017-activity-other.json": {
+      "note": "Working with activity other."
+    },
+    "018-host-desktop.json": {
+      "note": "An agent hosted in desktop."
+    },
+    "019-host-vscode.json": {
+      "note": "An agent hosted in vscode."
+    },
+    "020-host-sdk.json": {
+      "note": "An agent hosted in sdk."
+    },
+    "021-host-ide.json": {
+      "note": "An agent hosted in ide."
+    },
+    "022-host-other.json": {
+      "note": "An agent hosted in other."
+    },
+    "023-tool-codex.json": {
+      "note": "A resident for tool codex."
+    },
+    "024-tool-opencode.json": {
+      "note": "A resident for tool opencode."
+    },
+    "025-tool-antigravity.json": {
+      "note": "A resident for tool antigravity."
+    },
+    "026-tool-gemini.json": {
+      "note": "A resident for tool gemini."
+    },
+    "027-tool-cursor.json": {
+      "note": "A resident for tool cursor."
+    },
+    "028-tool-aider.json": {
+      "note": "A resident for tool aider."
+    },
+    "029-tool-other.json": {
+      "note": "A resident for tool other."
+    },
+    "030-subagent-helper.json": {
+      "note": "A subagent helper linked to its parent."
+    },
+    "031-two-sessions-same-tool.json": {
+      "note": "Two concurrent Codex sessions with ordinals 1 and 2."
+    },
+    "032-project-label-opt-in.json": {
+      "note": "Project label present because the user opted in."
+    },
+    "033-project-label-unicode-spaces.json": {
+      "note": "Project label with spaces and non-ASCII letters."
+    },
+    "034-project-label-max-length.json": {
+      "note": "Project label at the 128 character maximum."
+    },
+    "035-demo-mode.json": {
+      "note": "A demo-mode snapshot (Demo sign shown, no OS notifications)."
+    },
+    "036-tools-every-hook-state.json": {
+      "note": "One connector per hook state, offline and present."
+    },
+    "037-all-four-limits.json": {
+      "note": "Both providers with both windows, one stale."
+    },
+    "038-coverage-reason-hooks-missing.json": {
+      "note": "A connector whose coverage is not verified, because hooks_missing."
+    },
+    "039-coverage-reason-hooks-pending-review.json": {
+      "note": "A connector whose coverage is not verified, because hooks_pending_review."
+    },
+    "040-coverage-reason-round-trip-pending.json": {
+      "note": "A connector whose coverage is not verified, because round_trip_pending."
+    },
+    "041-coverage-reason-round-trip-failed.json": {
+      "note": "A connector whose coverage is not verified, because round_trip_failed."
+    },
+    "042-coverage-reason-receiver-unreachable.json": {
+      "note": "A connector whose coverage is not verified, because receiver_unreachable."
+    },
+    "043-coverage-reason-bare-session.json": {
+      "note": "A connector whose coverage is not verified, because bare_session."
+    },
+    "044-coverage-reason-no-permission-event.json": {
+      "note": "A connector whose coverage is not verified, because no_permission_event."
+    },
+    "045-coverage-reason-experimental-adapter.json": {
+      "note": "A connector whose coverage is not verified, because experimental_adapter."
+    },
+    "046-coverage-reason-remote-session.json": {
+      "note": "A connector whose coverage is not verified, because remote_session."
+    },
+    "047-coverage-reason-os-unsupported.json": {
+      "note": "A connector whose coverage is not verified, because os_unsupported."
+    },
+    "048-coverage-reason-other.json": {
+      "note": "A connector whose coverage is not verified, because other."
+    },
+    "049-two-roots-same-tool.json": {
+      "note": "Two Claude connectors (two data roots), each with its own coverage."
+    },
+    "050-limits-per-account.json": {
+      "note": "Two Claude accounts keep separate 5h limits; they are never merged."
+    },
+    "051-limits-unknown-account-per-root.json": {
+      "note": "Unknown accounts are kept per root."
+    },
+    "052-identity-all-null.json": {
+      "note": "Account, session and turn unknown (for example a process seen before its first hook)."
+    },
+    "053-needs-you-with-request.json": {
+      "note": "needs_you keyed by its request id."
+    },
+    "054-needs-you-restored-inferred.json": {
+      "note": "A needs_you restored after a restart is shown as inferred until confirmed."
+    },
+    "055-max-tools-and-limits.json": {
+      "note": "16 connectors and 16 limit entries, the maxima."
+    },
+    "056-two-waiting.json": {
+      "note": "Two agents waiting; attention counts both and names the oldest."
+    },
+    "057-max-agents.json": {
+      "note": "64 agents, the maximum."
+    },
+    "058-ordinal-999.json": {
+      "note": "The largest ordinal."
+    },
+    "059-timestamps-at-bounds.json": {
+      "note": "Timestamps at the legal minimum and maximum."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object.",
+      "path": ""
+    },
+    "003-schema-version-1.json": {
+      "note": "schema_version must be 2 (Relay v1 is not accepted).",
+      "path": "/schema_version"
+    },
+    "004-missing-demo.json": {
+      "note": "demo is required.",
+      "path": ""
+    },
+    "005-extra-top-level.json": {
+      "note": "Unknown top-level fields are rejected.",
+      "path": ""
+    },
+    "006-t-in-seconds.json": {
+      "note": "t in seconds is below the ms range.",
+      "path": "/t"
+    },
+    "007-t-string.json": {
+      "note": "t must be an integer, not an ISO string.",
+      "path": "/t"
+    },
+    "008-agents-not-array.json": {
+      "note": "agents must be an array.",
+      "path": "/agents"
+    },
+    "009-agent-missing-id.json": {
+      "note": "id is required.",
+      "path": "/agents/0"
+    },
+    "010-agent-id-raw-uuid.json": {
+      "note": "A raw UUID is not a salted 32-hex id.",
+      "path": "/agents/0/id"
+    },
+    "011-agent-id-uppercase.json": {
+      "note": "Ids are lowercase hex.",
+      "path": "/agents/0/id"
+    },
+    "012-agent-leaked-prompt.json": {
+      "note": "A content field such as prompt is rejected as unknown.",
+      "path": "/agents/0"
+    },
+    "013-agent-tool-unknown.json": {
+      "note": "tool must be one of the known tools.",
+      "path": "/agents/0/tool"
+    },
+    "014-agent-host-unknown.json": {
+      "note": "host must be one of the known hosts.",
+      "path": "/agents/0/host"
+    },
+    "015-ordinal-zero.json": {
+      "note": "ordinal starts at 1.",
+      "path": "/agents/0/ordinal"
+    },
+    "016-ordinal-1000.json": {
+      "note": "ordinal is at most 999.",
+      "path": "/agents/0/ordinal"
+    },
+    "017-state-waiting-v1.json": {
+      "note": "Relay v1 state waiting is split into needs_you and your_turn.",
+      "path": "/agents/0/state"
+    },
+    "018-state-finished-v1.json": {
+      "note": "finished is a Moment, not a state.",
+      "path": "/agents/0/state"
+    },
+    "019-state-offline.json": {
+      "note": "offline is per tool, not an agent state.",
+      "path": "/agents/0/state"
+    },
+    "020-needs-you-without-reason.json": {
+      "note": "needs_you requires a reason.",
+      "path": "/agents/0"
+    },
+    "021-reason-on-working.json": {
+      "note": "reason is only allowed with needs_you.",
+      "path": "/agents/0"
+    },
+    "022-activity-on-idle.json": {
+      "note": "activity is only allowed while working.",
+      "path": "/agents/0"
+    },
+    "023-activity-unknown.json": {
+      "note": "activity must be a known value.",
+      "path": "/agents/0/activity"
+    },
+    "024-limited-until-on-working.json": {
+      "note": "limited_until is only allowed with limited.",
+      "path": "/agents/0"
+    },
+    "025-reason-null.json": {
+      "note": "Optional fields are omitted, never null.",
+      "path": "/agents/0"
+    },
+    "026-parent-missing.json": {
+      "note": "parent is required (null when there is none).",
+      "path": "/agents/0"
+    },
+    "027-project-label-slash.json": {
+      "note": "A project label is a last folder segment, never a path.",
+      "path": "/agents/0/project_label"
+    },
+    "028-project-label-backslash.json": {
+      "note": "Windows separators are rejected too.",
+      "path": "/agents/0/project_label"
+    },
+    "029-project-label-empty.json": {
+      "note": "An empty project label is rejected.",
+      "path": "/agents/0/project_label"
+    },
+    "030-project-label-too-long.json": {
+      "note": "A project label over 128 characters is rejected.",
+      "path": "/agents/0/project_label"
+    },
+    "031-project-label-newline.json": {
+      "note": "Control characters are rejected.",
+      "path": "/agents/0/project_label"
+    },
+    "032-duplicate-agent-id.json": {
+      "note": "Agent ids are unique.",
+      "path": "/agents/1"
+    },
+    "033-duplicate-tool-ordinal.json": {
+      "note": "The pair tool and ordinal is unique.",
+      "path": "/agents/1"
+    },
+    "034-duplicate-tool-status.json": {
+      "note": "One tools entry per tool and root.",
+      "path": "/tools/1"
+    },
+    "035-presence-online.json": {
+      "note": "presence is present or offline.",
+      "path": "/tools/0/presence"
+    },
+    "036-hooks-connected.json": {
+      "note": "hooks uses the four defined states.",
+      "path": "/tools/0/hooks"
+    },
+    "037-duplicate-limit-window.json": {
+      "note": "One limits entry per provider, window, account and root.",
+      "path": "/limits/1"
+    },
+    "038-duplicate-limit-null-account.json": {
+      "note": "Two unknown-account entries for the same root collide.",
+      "path": "/limits/1"
+    },
+    "039-agent-root-missing.json": {
+      "note": "root_id is required.",
+      "path": "/agents/0"
+    },
+    "040-agent-root-null.json": {
+      "note": "root_id is never null.",
+      "path": "/agents/0/root_id"
+    },
+    "041-agent-account-missing.json": {
+      "note": "account_id is required (null when unknown).",
+      "path": "/agents/0"
+    },
+    "042-agent-session-missing.json": {
+      "note": "session_id is required (null when unknown).",
+      "path": "/agents/0"
+    },
+    "043-agent-turn-missing.json": {
+      "note": "turn_id is required (null when unknown).",
+      "path": "/agents/0"
+    },
+    "044-agent-request-missing.json": {
+      "note": "request_id is required (null when there is none).",
+      "path": "/agents/0"
+    },
+    "045-agent-session-raw-uuid.json": {
+      "note": "session_id is a salted hash, never a raw id.",
+      "path": "/agents/0/session_id"
+    },
+    "046-request-on-working.json": {
+      "note": "request_id is only set while waiting on the user.",
+      "path": "/agents/0/request_id"
+    },
+    "047-tool-root-missing.json": {
+      "note": "A connector names its data root.",
+      "path": "/tools/0"
+    },
+    "048-coverage-missing.json": {
+      "note": "coverage is required.",
+      "path": "/tools/0"
+    },
+    "049-coverage-unknown.json": {
+      "note": "coverage is verified, degraded or unsupported.",
+      "path": "/tools/0/coverage"
+    },
+    "050-verified-with-reason.json": {
+      "note": "A verified connector has no reason.",
+      "path": "/tools/0/coverage_reason"
+    },
+    "051-degraded-without-reason.json": {
+      "note": "A degraded connector says why.",
+      "path": "/tools/0/coverage_reason"
+    },
+    "052-coverage-reason-unknown.json": {
+      "note": "coverage_reason is a known code.",
+      "path": "/tools/0/coverage_reason"
+    },
+    "053-limit-account-missing.json": {
+      "note": "A limit names its account (null when unknown).",
+      "path": "/limits/0"
+    },
+    "054-limit-root-missing.json": {
+      "note": "A limit names the root of its newest sample.",
+      "path": "/limits/0"
+    },
+    "055-too-many-tools.json": {
+      "note": "At most 16 connectors.",
+      "path": "/tools"
+    },
+    "056-limit-provider-gemini.json": {
+      "note": "Only claude and codex report limits in v0.1.",
+      "path": "/limits/0/provider"
+    },
+    "057-used-pct-over-100.json": {
+      "note": "used_pct is at most 100.",
+      "path": "/limits/0/used_pct"
+    },
+    "058-used-pct-negative.json": {
+      "note": "used_pct is at least 0.",
+      "path": "/limits/0/used_pct"
+    },
+    "059-limit-window-five-hour.json": {
+      "note": "window is 5h or weekly.",
+      "path": "/limits/0/window"
+    },
+    "060-limit-missing-stale.json": {
+      "note": "stale is required.",
+      "path": "/limits/0"
+    },
+    "061-attention-zero-with-time.json": {
+      "note": "oldest_since must be null when nobody is waiting.",
+      "path": "/attention"
+    },
+    "062-attention-one-without-time.json": {
+      "note": "oldest_since must be set when someone is waiting.",
+      "path": "/attention"
+    },
+    "063-too-many-agents.json": {
+      "note": "At most 64 agents.",
+      "path": "/agents"
+    },
+    "064-confidence-unknown.json": {
+      "note": "confidence is exact or inferred.",
+      "path": "/agents/0/confidence"
+    }
+  }
+}

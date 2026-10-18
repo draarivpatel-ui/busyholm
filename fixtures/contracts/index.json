@@ -1,0 +1,42 @@
+{
+  "agent-event.v1": {
+    "valid": 117,
+    "invalid": 98
+  },
+  "snapshot.v2": {
+    "valid": 59,
+    "invalid": 64
+  },
+  "moment.v1": {
+    "valid": 55,
+    "invalid": 61
+  },
+  "ledger.v1": {
+    "valid": 42,
+    "invalid": 59
+  },
+  "choices.v1": {
+    "valid": 37,
+    "invalid": 42
+  },
+  "world.v1": {
+    "valid": 75,
+    "invalid": 83
+  },
+  "hit-rects.v1": {
+    "valid": 39,
+    "invalid": 46
+  },
+  "settings.v1": {
+    "valid": 52,
+    "invalid": 69
+  },
+  "install-manifest.v1": {
+    "valid": 46,
+    "invalid": 68
+  },
+  "pending-alerts.v1": {
+    "valid": 36,
+    "invalid": 57
+  }
+}

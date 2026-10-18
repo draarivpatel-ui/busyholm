@@ -1,0 +1,13 @@
+{
+  "type": "session.deleted",
+  "properties": {
+    "info": {
+      "id": "bca1a700-0000-4000-8000-00000000007f",
+      "projectID": "bca1a700-0000-4000-8000-000000000081",
+      "directory": "/Users/someone/code/BHCANARY_opencode_cwd_5",
+      "title": "BHCANARY_opencode_title_7",
+      "version": "1.18.35",
+      "time": { "created": 1791806400000, "updated": 1791806400000 }
+    }
+  }
+}

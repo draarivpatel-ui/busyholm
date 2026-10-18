@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "t": 1791806400000,
+  "demo": false,
+  "agents": {},
+  "tools": [
+    {
+      "tool": "claude",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    }
+  ],
+  "limits": [
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "2f7339c66415277e5b58670b67b979a9",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    }
+  ],
+  "attention": {
+    "needs_you": 0,
+    "oldest_since": null
+  }
+}

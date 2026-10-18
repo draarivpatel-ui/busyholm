@@ -1,0 +1,38 @@
+[package]
+name = "busyholm-collector-wp06"
+description = "Busyholm WP-06: OpenCode and Antigravity (agy) adapters and the cross-platform process scanner, producing AgentEvent v1."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+name = "collector_wp06"
+
+[features]
+default = ["opencode-poll"]
+# Read-only SQLite poll of OpenCode's session table. Off for cross-target checks that
+# should not build the bundled C library.
+opencode-poll = ["dep:rusqlite"]
+
+[dependencies]
+busyholm-contracts.workspace = true
+busyholm-collector = { path = "../collector" }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+sha2 = "0.10.9"
+rusqlite = { version = "0.40.2", optional = true, features = ["bundled", "hooks"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.190"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = [
+    "Win32_Foundation",
+    "Win32_System_Diagnostics_ToolHelp",
+    "Win32_System_Threading",
+] }
+
+[dev-dependencies]
+tempfile = "3.27.0"
+rusqlite = { version = "0.40.2", features = ["bundled", "hooks"] }

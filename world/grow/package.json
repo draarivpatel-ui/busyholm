@@ -1,0 +1,20 @@
+{
+  "name": "@busyholm/grow",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Busyholm WP-08: the pure progression engine world = grow(seed, ledger, choices), the economy config and the pacing simulation.",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.ts\"",
+    "test:nodes": "node test/cross-node.ts",
+    "test:webview": "node test/webview/run.ts",
+    "test:jsc": "node test/jsc/run.ts",
+    "sim": "node sim/sim.ts",
+    "spread": "node sim/spread.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

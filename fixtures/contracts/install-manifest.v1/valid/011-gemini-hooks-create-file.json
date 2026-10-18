@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "gemini-hooks",
+      "tool": "gemini",
+      "target": "gemini_hooks",
+      "path": "/Users/alex/.gemini/settings.json",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "2cf7ee5f3aa6ba3f67f4eff402d93ea2e5916815921b9469d9196763130c3ebb",
+        "bytes": 640
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "a45abda27c0e6707a49296acd7d9d3464d6dea547e3a2e68825b815fead9ed6c",
+          "replaced_sha256": null
+        }
+      ]
+    }
+  ]
+}

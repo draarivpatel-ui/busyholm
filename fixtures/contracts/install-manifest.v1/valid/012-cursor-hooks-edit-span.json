@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "cursor-hooks",
+      "tool": "cursor",
+      "target": "cursor_hooks",
+      "path": "/Users/alex/.cursor/hooks.json",
+      "action": "edit_span",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": true,
+        "sha256": "39033ee999ac7acbc98274edbb5e40e1bc6f9594eabbae42f911687f87ba7ae1",
+        "bytes": 2048
+      },
+      "after": {
+        "sha256": "d1fac0f214ec2b0f33cef09d27b96a46f6c72a6e9c6cbe951aea3bb0f86b0e1c",
+        "bytes": 2310
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "32f7a86d23b3fb643cc7eed04f6cbb7577cc623e11c6cf87001770575e9f429f",
+          "replaced_sha256": null
+        }
+      ]
+    }
+  ]
+}

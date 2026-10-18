@@ -1,0 +1,18 @@
+{
+  "type": "permission.asked",
+  "properties": {
+    "id": "bca1a700-0000-4000-8000-000000000086",
+    "type": "bash",
+    "pattern": "BHCANARY_opencode_pattern_1",
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "messageID": "bca1a700-0000-4000-8000-000000000087",
+    "callID": "bca1a700-0000-4000-8000-000000000088",
+    "title": "BHCANARY_opencode_title_6",
+    "metadata": {
+      "command": "BHCANARY_opencode_command_3"
+    },
+    "time": {
+      "created": 1791806400000
+    }
+  }
+}

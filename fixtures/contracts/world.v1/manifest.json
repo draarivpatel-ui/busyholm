@@ -1,0 +1,565 @@
+{
+  "contract": "world",
+  "schema": "contracts/schemas/world.v1.schema.json",
+  "valid": {
+    "001-empty-world.json": {
+      "note": "A fresh install with no structures, decorations, milestones or backfill, and all balances at zero."
+    },
+    "002-mixed-statuses-camp.json": {
+      "note": "Camp tier with complete, building and planned structures and a claude workshop."
+    },
+    "003-tier-hamlet.json": {
+      "note": "The hamlet tier."
+    },
+    "004-tier-village.json": {
+      "note": "The village tier."
+    },
+    "005-waiting-bell-tower.json": {
+      "note": "A waiting bell tower still needing five active days."
+    },
+    "006-waiting-active-days-min.json": {
+      "note": "waiting_for at the minimum of one active day still to come."
+    },
+    "007-waiting-active-days-max.json": {
+      "note": "waiting_for at the 3650 maximum of active days."
+    },
+    "008-building-stage-zero.json": {
+      "note": "Building at stage 0 with no progress yet."
+    },
+    "009-building-stage-one.json": {
+      "note": "Building at stage 1 with a quarter of the cost delivered."
+    },
+    "010-building-stage-two-just-under-one.json": {
+      "note": "Building at stage 2 with progress just under 1."
+    },
+    "011-complete-stage-three.json": {
+      "note": "Complete at stage 3 with progress 1 and a completed day."
+    },
+    "012-complete-completed-today.json": {
+      "note": "Complete on the reference day itself."
+    },
+    "013-structure-id-campfire.json": {
+      "note": "A planned campfire slot, one of the legal structure ids."
+    },
+    "014-structure-id-tent.json": {
+      "note": "A planned tent slot, one of the legal structure ids."
+    },
+    "015-structure-id-bell-post.json": {
+      "note": "A planned bell_post slot, one of the legal structure ids."
+    },
+    "016-structure-id-noticeboard.json": {
+      "note": "A planned noticeboard slot, one of the legal structure ids."
+    },
+    "017-structure-id-workshop-1.json": {
+      "note": "A planned workshop_1 slot, one of the legal structure ids."
+    },
+    "018-structure-id-well.json": {
+      "note": "A planned well slot, one of the legal structure ids."
+    },
+    "019-structure-id-cottage-1.json": {
+      "note": "A planned cottage_1 slot, one of the legal structure ids."
+    },
+    "020-structure-id-garden-plots.json": {
+      "note": "A planned garden_plots slot, one of the legal structure ids."
+    },
+    "021-structure-id-crossing.json": {
+      "note": "A planned crossing slot, one of the legal structure ids."
+    },
+    "022-structure-id-watermill.json": {
+      "note": "A planned watermill slot, one of the legal structure ids."
+    },
+    "023-structure-id-workshop-2.json": {
+      "note": "A planned workshop_2 slot, one of the legal structure ids."
+    },
+    "024-structure-id-cottage-2.json": {
+      "note": "A planned cottage_2 slot, one of the legal structure ids."
+    },
+    "025-structure-id-bell-tower.json": {
+      "note": "A planned bell_tower slot, one of the legal structure ids."
+    },
+    "026-structure-id-bakery.json": {
+      "note": "A planned bakery slot, one of the legal structure ids."
+    },
+    "027-structure-id-market-hall.json": {
+      "note": "A planned market_hall slot, one of the legal structure ids."
+    },
+    "028-structure-id-founders-stone.json": {
+      "note": "A planned founders_stone slot, one of the legal structure ids."
+    },
+    "029-workshop-1-variant-claude.json": {
+      "note": "workshop_1 is the claude workshop, so its variant is that tool."
+    },
+    "030-workshop-1-variant-codex.json": {
+      "note": "workshop_1 is the codex workshop, so its variant is that tool."
+    },
+    "031-workshop-1-variant-opencode.json": {
+      "note": "workshop_1 is the opencode workshop, so its variant is that tool."
+    },
+    "032-workshop-1-variant-antigravity.json": {
+      "note": "workshop_1 is the antigravity workshop, so its variant is that tool."
+    },
+    "033-workshop-1-variant-gemini.json": {
+      "note": "workshop_1 is the gemini workshop, so its variant is that tool."
+    },
+    "034-workshop-1-variant-cursor.json": {
+      "note": "workshop_1 is the cursor workshop, so its variant is that tool."
+    },
+    "035-workshop-1-variant-aider.json": {
+      "note": "workshop_1 is the aider workshop, so its variant is that tool."
+    },
+    "036-workshop-1-variant-other.json": {
+      "note": "workshop_1 is the other workshop, so its variant is that tool."
+    },
+    "037-workshop-1-undecided.json": {
+      "note": "workshop_1 with no variant yet, which is allowed while undecided."
+    },
+    "038-workshop-2-variant-claude.json": {
+      "note": "workshop_2 with variant claude, which is allowed for a second workshop."
+    },
+    "039-workshop-2-variant-codex.json": {
+      "note": "workshop_2 with variant codex, which is allowed for a second workshop."
+    },
+    "040-workshop-2-variant-opencode.json": {
+      "note": "workshop_2 with variant opencode, which is allowed for a second workshop."
+    },
+    "041-workshop-2-variant-antigravity.json": {
+      "note": "workshop_2 with variant antigravity, which is allowed for a second workshop."
+    },
+    "042-workshop-2-variant-gemini.json": {
+      "note": "workshop_2 with variant gemini, which is allowed for a second workshop."
+    },
+    "043-workshop-2-variant-cursor.json": {
+      "note": "workshop_2 with variant cursor, which is allowed for a second workshop."
+    },
+    "044-workshop-2-variant-aider.json": {
+      "note": "workshop_2 with variant aider, which is allowed for a second workshop."
+    },
+    "045-workshop-2-variant-other.json": {
+      "note": "workshop_2 with variant other, which is allowed for a second workshop."
+    },
+    "046-workshop-2-variant-guest-house.json": {
+      "note": "workshop_2 with variant guest_house, which is allowed for a second workshop."
+    },
+    "047-crossing-footbridge.json": {
+      "note": "crossing is a footbridge."
+    },
+    "048-crossing-jetty.json": {
+      "note": "crossing is a jetty."
+    },
+    "049-milestones-all-seven.json": {
+      "note": "All seven milestones reached, on distinct days."
+    },
+    "050-milestone-first-turn.json": {
+      "note": "The first_turn milestone reached on its own."
+    },
+    "051-milestone-first-answer.json": {
+      "note": "The first_answer milestone reached on its own."
+    },
+    "052-milestone-first-subagent.json": {
+      "note": "The first_subagent milestone reached on its own."
+    },
+    "053-milestone-two-tools-day.json": {
+      "note": "The two_tools_day milestone reached on its own."
+    },
+    "054-milestone-turns-100.json": {
+      "note": "The turns_100 milestone reached on its own."
+    },
+    "055-milestone-streak-7.json": {
+      "note": "The streak_7 milestone reached on its own."
+    },
+    "056-milestone-turns-1000.json": {
+      "note": "The turns_1000 milestone reached on its own."
+    },
+    "057-decoration-shown.json": {
+      "note": "One shown decoration in slot 0."
+    },
+    "058-decoration-put-away.json": {
+      "note": "One owned decoration that is put away."
+    },
+    "059-decoration-slot-max.json": {
+      "note": "A decoration in the highest seeded slot, 255."
+    },
+    "060-decoration-id-min-length.json": {
+      "note": "A two-character decoration id."
+    },
+    "061-decoration-id-max-length.json": {
+      "note": "A 32-character decoration id."
+    },
+    "062-decorations-shown-and-put-away.json": {
+      "note": "Two decorations, one shown and one put away, in different slots."
+    },
+    "063-decorations-sixty-four.json": {
+      "note": "64 decorations, the maximum, with unique ids and slots."
+    },
+    "064-counts-at-max.json": {
+      "note": "Lifetime counts at the 1000000000 maximum."
+    },
+    "065-tools-seen-all-eight.json": {
+      "note": "All eight tools seen, the largest allowed list."
+    },
+    "066-resources-fractional.json": {
+      "note": "Planks and stone may be fractional."
+    },
+    "067-resources-at-max.json": {
+      "note": "Balances at the 1000000000 maximum."
+    },
+    "068-founders-stone-one-day.json": {
+      "note": "A founders stone from a backfill of one day with no counts."
+    },
+    "069-founders-stone-thirty-one-days.json": {
+      "note": "A founders stone at the 31 day maximum with the largest counts."
+    },
+    "070-founders-stone-fractional-hours.json": {
+      "note": "working_hours may be fractional."
+    },
+    "071-founders-stone-structure-complete.json": {
+      "note": "The founders_stone structure is complete alongside the engraved counts."
+    },
+    "072-demo-capped-true.json": {
+      "note": "The demo cap stopped building, so demo_capped is true."
+    },
+    "073-seed-zero.json": {
+      "note": "The lowest legal seed, 0."
+    },
+    "074-seed-max.json": {
+      "note": "The largest legal seed, 4294967295."
+    },
+    "075-as-of-day-year-end.json": {
+      "note": "The last local day of 2026 as the fold day."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-root-string.json": {
+      "note": "The root must be an object, not a string.",
+      "path": ""
+    },
+    "004-missing-schema-version.json": {
+      "note": "schema_version is required.",
+      "path": ""
+    },
+    "005-missing-seed.json": {
+      "note": "seed is required.",
+      "path": ""
+    },
+    "006-missing-as-of-day.json": {
+      "note": "as_of_day is required.",
+      "path": ""
+    },
+    "007-missing-tier.json": {
+      "note": "tier is required.",
+      "path": ""
+    },
+    "008-missing-resources.json": {
+      "note": "resources is required.",
+      "path": ""
+    },
+    "009-missing-earned.json": {
+      "note": "earned is required.",
+      "path": ""
+    },
+    "010-missing-structures.json": {
+      "note": "structures is required, even when empty.",
+      "path": ""
+    },
+    "011-missing-decorations.json": {
+      "note": "decorations is required, even when empty.",
+      "path": ""
+    },
+    "012-missing-milestones.json": {
+      "note": "milestones is required, even when empty.",
+      "path": ""
+    },
+    "013-missing-stats.json": {
+      "note": "stats is required.",
+      "path": ""
+    },
+    "014-missing-founders-stone.json": {
+      "note": "founders_stone is required even though it may be null.",
+      "path": ""
+    },
+    "015-missing-demo-capped.json": {
+      "note": "demo_capped is required.",
+      "path": ""
+    },
+    "016-schema-version-2.json": {
+      "note": "schema_version must be the constant 1.",
+      "path": "/schema_version"
+    },
+    "017-root-extra-field.json": {
+      "note": "Unknown top-level fields are rejected.",
+      "path": ""
+    },
+    "018-seed-negative.json": {
+      "note": "seed is an unsigned integer, so a negative value is rejected.",
+      "path": "/seed"
+    },
+    "019-seed-over-u32.json": {
+      "note": "seed may not exceed 4294967295.",
+      "path": "/seed"
+    },
+    "020-as-of-day-unpadded.json": {
+      "note": "as_of_day must be YYYY-MM-DD.",
+      "path": "/as_of_day"
+    },
+    "021-tier-town.json": {
+      "note": "tier must be camp, hamlet or village.",
+      "path": "/tier"
+    },
+    "022-resources-negative-planks.json": {
+      "note": "A resource balance may not be negative.",
+      "path": "/resources/planks"
+    },
+    "023-resources-missing-stone.json": {
+      "note": "resources needs all three balances.",
+      "path": "/resources"
+    },
+    "024-resources-extra-field.json": {
+      "note": "The resources object is closed, so a gold balance is rejected.",
+      "path": "/resources"
+    },
+    "025-earned-negative-seeds.json": {
+      "note": "Lifetime earned may not be negative.",
+      "path": "/earned/seeds"
+    },
+    "026-amount-over-max.json": {
+      "note": "A balance may not exceed 1000000000.",
+      "path": "/resources/stone"
+    },
+    "027-structures-not-array.json": {
+      "note": "structures must be an array.",
+      "path": "/structures"
+    },
+    "028-structure-missing-id.json": {
+      "note": "A structure needs an id.",
+      "path": "/structures/0"
+    },
+    "029-structure-unknown-id.json": {
+      "note": "A structure id must be one of the legal ids.",
+      "path": "/structures/4/id"
+    },
+    "030-structure-extra-field.json": {
+      "note": "The structure object is closed, so a display name is rejected.",
+      "path": "/structures/0"
+    },
+    "031-status-unknown.json": {
+      "note": "status must be planned, waiting, building or complete.",
+      "path": "/structures/4/status"
+    },
+    "032-stage-four.json": {
+      "note": "stage may not exceed 3.",
+      "path": "/structures/3/stage"
+    },
+    "033-stage-negative.json": {
+      "note": "stage may not be negative.",
+      "path": "/structures/3/stage"
+    },
+    "034-progress-over-one.json": {
+      "note": "progress may not exceed 1.",
+      "path": "/structures/3/progress"
+    },
+    "035-complete-without-completed-day.json": {
+      "note": "A complete structure needs its completed_day.",
+      "path": "/structures/0"
+    },
+    "036-complete-stage-two.json": {
+      "note": "A complete structure must be at stage 3.",
+      "path": "/structures/0/stage"
+    },
+    "037-complete-progress-below-one.json": {
+      "note": "A complete structure must have progress 1.",
+      "path": "/structures/0/progress"
+    },
+    "038-complete-bad-completed-day.json": {
+      "note": "completed_day must be a valid day.",
+      "path": "/structures/0/completed_day"
+    },
+    "039-planned-with-completed-day.json": {
+      "note": "completed_day is present only on a complete structure.",
+      "path": "/structures/4"
+    },
+    "040-building-stage-three.json": {
+      "note": "A building structure may not be at stage 3, which is reserved for complete.",
+      "path": "/structures/3/stage"
+    },
+    "041-building-progress-one.json": {
+      "note": "A building structure may not have progress 1, which is reserved for complete.",
+      "path": "/structures/3/progress"
+    },
+    "042-waiting-without-waiting-for.json": {
+      "note": "A waiting structure needs waiting_for.",
+      "path": "/structures/4"
+    },
+    "043-waiting-for-on-building.json": {
+      "note": "waiting_for is present only while the status is waiting.",
+      "path": "/structures/3"
+    },
+    "044-waiting-active-days-zero.json": {
+      "note": "waiting_for.active_days must be at least 1, so 0 is rejected.",
+      "path": "/structures/4/waiting_for/active_days"
+    },
+    "045-waiting-active-days-over-max.json": {
+      "note": "waiting_for.active_days may not exceed 3650, so 3651 is rejected.",
+      "path": "/structures/4/waiting_for/active_days"
+    },
+    "046-waiting-active-days-fractional.json": {
+      "note": "waiting_for.active_days is an integer, so 1.5 is rejected.",
+      "path": "/structures/4/waiting_for/active_days"
+    },
+    "047-waiting-for-missing-active-days.json": {
+      "note": "waiting_for needs active_days.",
+      "path": "/structures/4/waiting_for"
+    },
+    "048-waiting-for-quick-answers-only.json": {
+      "note": "waiting_for must be exactly { active_days }, so { quick_answers: 5 } fails both the missing active_days and the closed-object rule at the same pointer.",
+      "path": "/structures/4/waiting_for"
+    },
+    "049-waiting-for-active-days-and-quick-answers.json": {
+      "note": "waiting_for carrying the removed quick_answers key next to a valid active_days breaks only the closed-object rule.",
+      "path": "/structures/4/waiting_for"
+    },
+    "050-waiting-for-extra-field.json": {
+      "note": "waiting_for is closed, so an extra hours field is rejected alongside a valid active_days.",
+      "path": "/structures/4/waiting_for"
+    },
+    "051-variant-on-well.json": {
+      "note": "A well has no variant.",
+      "path": "/structures/4"
+    },
+    "052-variant-on-campfire.json": {
+      "note": "A campfire has no variant.",
+      "path": "/structures/0"
+    },
+    "053-crossing-variant-on-workshop-1.json": {
+      "note": "workshop_1 takes a tool variant, so footbridge is not allowed there.",
+      "path": "/structures/3/variant"
+    },
+    "054-guest-house-on-workshop-1.json": {
+      "note": "guest_house is only allowed on workshop_2.",
+      "path": "/structures/3/variant"
+    },
+    "055-guest-house-on-crossing.json": {
+      "note": "crossing takes footbridge or jetty, not guest_house.",
+      "path": "/structures/4/variant"
+    },
+    "056-footbridge-on-workshop-2.json": {
+      "note": "workshop_2 takes a tool or guest_house, not footbridge.",
+      "path": "/structures/4/variant"
+    },
+    "057-variant-not-in-enum.json": {
+      "note": "A variant must be one of the known variant values.",
+      "path": "/structures/3/variant"
+    },
+    "058-duplicate-structure-id.json": {
+      "note": "Structure ids are unique across the structures array.",
+      "path": "/structures/1"
+    },
+    "059-decoration-duplicate-id.json": {
+      "note": "Decoration ids are unique.",
+      "path": "/decorations/1"
+    },
+    "060-decoration-duplicate-slot.json": {
+      "note": "Decoration slots are unique.",
+      "path": "/decorations/1"
+    },
+    "061-decoration-slot-256.json": {
+      "note": "A decoration slot may not exceed 255.",
+      "path": "/decorations/0/slot"
+    },
+    "062-decoration-slot-negative.json": {
+      "note": "A decoration slot may not be negative.",
+      "path": "/decorations/0/slot"
+    },
+    "063-decorations-sixty-five.json": {
+      "note": "At most 64 decorations, so 65 is rejected.",
+      "path": "/decorations"
+    },
+    "064-decoration-extra-field.json": {
+      "note": "The decoration object is closed, so a display name is rejected.",
+      "path": "/decorations/0"
+    },
+    "065-decoration-missing-shown.json": {
+      "note": "A decoration needs its shown flag.",
+      "path": "/decorations/0"
+    },
+    "066-decoration-id-uppercase.json": {
+      "note": "Decoration ids are lowercase slugs.",
+      "path": "/decorations/0/id"
+    },
+    "067-milestone-duplicate.json": {
+      "note": "Each milestone id appears at most once.",
+      "path": "/milestones/1"
+    },
+    "068-milestone-unknown-id.json": {
+      "note": "A milestone id must be one of the seven.",
+      "path": "/milestones/0/id"
+    },
+    "069-milestone-day-unpadded.json": {
+      "note": "A milestone day must be YYYY-MM-DD.",
+      "path": "/milestones/0/day"
+    },
+    "070-milestone-extra-field.json": {
+      "note": "The milestone object is closed.",
+      "path": "/milestones/0"
+    },
+    "071-tools-seen-duplicate.json": {
+      "note": "tools_seen lists each tool at most once.",
+      "path": "/stats/tools_seen"
+    },
+    "072-tools-seen-unknown-tool.json": {
+      "note": "tools_seen items must be known tools.",
+      "path": "/stats/tools_seen/1"
+    },
+    "073-stats-missing-streak.json": {
+      "note": "stats needs streak_days.",
+      "path": "/stats"
+    },
+    "074-stats-negative-turns.json": {
+      "note": "A lifetime count may not be negative.",
+      "path": "/stats/lifetime_turns"
+    },
+    "075-stats-count-over-max.json": {
+      "note": "A lifetime count may not exceed 1000000000.",
+      "path": "/stats/active_days"
+    },
+    "076-stats-extra-field.json": {
+      "note": "The stats object is closed, so a level field is rejected.",
+      "path": "/stats"
+    },
+    "077-stats-lifetime-quick-answers-present.json": {
+      "note": "lifetime_quick_answers was removed by SPEC Revision 1, so the closed stats object rejects it.",
+      "path": "/stats"
+    },
+    "078-founders-stone-days-zero.json": {
+      "note": "A founders stone needs at least one day.",
+      "path": "/founders_stone/days"
+    },
+    "079-founders-stone-days-32.json": {
+      "note": "A founders stone may cover at most 31 days.",
+      "path": "/founders_stone/days"
+    },
+    "080-founders-stone-missing-working-hours.json": {
+      "note": "A founders stone needs working_hours.",
+      "path": "/founders_stone"
+    },
+    "081-founders-stone-turns-fractional.json": {
+      "note": "A founders stone count is a whole number.",
+      "path": "/founders_stone/turns"
+    },
+    "082-founders-stone-hours-over-max.json": {
+      "note": "working_hours may not exceed 1000000.",
+      "path": "/founders_stone/working_hours"
+    },
+    "083-demo-capped-string.json": {
+      "note": "demo_capped must be a boolean.",
+      "path": "/demo_capped"
+    }
+  }
+}

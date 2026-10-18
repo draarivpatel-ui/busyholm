@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "claude-hooks",
+      "tool": "claude",
+      "target": "claude_hooks",
+      "path": "/Users/alex/.claude/settings.json",
+      "action": "edit_span",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": true,
+        "sha256": "41d46e8ee17c3ea21256e5e144229363905fbd76e65034433835d4a95d973975",
+        "bytes": 2048
+      },
+      "after": {
+        "sha256": "46dbfb3c881d7028188a43021fe52e0e43f8f5b6f81f12b420a947cf1dcaad16",
+        "bytes": 2310
+      },
+      "owned": [
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/0",
+          "sha256": "a469a43bc73b1b9dafc559f2c2c06ecd16c5c2d496243f16582dbbfb68e7b20c",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/1",
+          "sha256": "798de51f7a8e307d518131366ea2d5f74cc4a5327813b31e7a5a8c5402f4edad",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/2",
+          "sha256": "7a25feb328ce6e3c6f02fa124b4184458413273535832e543a2f62252ca27665",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/3",
+          "sha256": "403894e57d262529eb534e1f41f748943b7df256bdad97d4bfb6c67edbd74c20",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/4",
+          "sha256": "6da7dd72ce6e79c2289c4514f03ac2d48ee7182f34a51879a015007e03af10f5",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/5",
+          "sha256": "92f008370b06b2d01174236ecde5f20394ccd08847a69bf7b7f46844c20d7ee3",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/6",
+          "sha256": "90beea4612b600a34a6eab4d334a93136da4c4b160ed96a5512d6688ae18a888",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/7",
+          "sha256": "53474a4c0b71162644917b4a19c0fdbbcdaf382e63e2d78258201ad2be6e4f38",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/8",
+          "sha256": "d17d61f04ad1e50a6880681daa2bf87732749f329cabe64b5ee67c02437c1493",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/9",
+          "sha256": "cf957e1bfc973f1122a432ee93e71bb950d6b76a2cbbb116e80afceeb021fda6",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/10",
+          "sha256": "650ed051be3a64476a109d400dab35abcd899983a947c2fefd7cb300c67bb491",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/11",
+          "sha256": "3106e1a4baf569585b5c33a0cd681f80ed3ae3485a7feada08891de7254f5a4d",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/12",
+          "sha256": "d31321a9b32a112c874883ff11216055f853c640c6f8a2962c523e1237e795f9",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/13",
+          "sha256": "05d5ddee33557346b58b8966e0ab6c206987b98e10130bad7d207e6e94232def",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/14",
+          "sha256": "1807aeb68cf5056605254f4d6b3cdbf472d220f476392d89ab4fba02884aef93",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/15",
+          "sha256": "e5e357f76dc02cd704ee04a1074d771995cc93002845f150c072cc52bb9a2349",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/16",
+          "sha256": "a2d1020e63b99144c6b1a66f12d5e443e1a1c53925e65107327ebb282a968e8c",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/17",
+          "sha256": "09421655dc0db8c9d958a28de3bdc3e43325fe652f14aa7f11d0de3a3a39b431",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/18",
+          "sha256": "530e7a7583626958e75f53e592f330f2a49ac33d427eaeca876651d46bd08ce6",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/19",
+          "sha256": "e39e81a67e717b48ec78bb39a97b6b09c4d0f221c679353a839fab64523e2ea8",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/20",
+          "sha256": "2b4ec2a7d5a90fb33f2c721f69111a4b7e426e2809213a5fdb5bace38f93f887",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/21",
+          "sha256": "e2f627a6f1401a5484dc42ed6d9c03d8091ad6dd9b79f0e8bfbcfe67963f3c7f",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/22",
+          "sha256": "4aaf87c615557216dab4bc059e74145d02a3e99e1a75285f6cdf8561c23968c5",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/23",
+          "sha256": "5c825bd8a149b983a687c3adcda5236138b6b3abfcf3cb09187550520c3e6ee5",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/24",
+          "sha256": "dfb6cdcc8d54fa4ea1ad733d9777c006292b4c3983ba2cc22ab78576360af58d",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/25",
+          "sha256": "424507d27cd9c50a6152b687c08e9335db6000d58690a6e1008660cfb70601d0",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/26",
+          "sha256": "86b7de5513152ab01d16d17f0cd69fd110fca6a660369c37360acfdbce80cc7a",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/27",
+          "sha256": "9fffc12370d628b8302fdc31137b21d2390279eb4939db9e665e71b81352aa25",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/28",
+          "sha256": "cf1cc2485789bda6511570e7a8fc4cc308fb06afea1bc4e2768f620e12f2f4a2",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/29",
+          "sha256": "6b8e8557c9e4eec28e7cce25f41ea47e1691778e8ae4d70505814e12b7547a3a",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/30",
+          "sha256": "c5c3b2bd849010ce5465df3f7d9527d75c7a80171e97b157faad2dd45adaf790",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/31",
+          "sha256": "323fbd95743555c0666ef566f1b64891520a9588e5eb86130941ee5296676640",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/32",
+          "sha256": "94e8bdd6ef7a47f6080d65c03d706505f6e7332c61658474ff8c28549e10514f",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/33",
+          "sha256": "32efca033b09eb2909f01e1adf8df6dd3d769030a14a8e12cb0bb3c8ae921b4a",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/34",
+          "sha256": "137c79effa3844b56380664074b44084b8313849dfdddd21afb6c489f2c1bc4b",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/35",
+          "sha256": "c13f081e6d52827cf279a5fcfd11ee4c62bb737780f41290be37f6398ff967ee",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/36",
+          "sha256": "17f562b9b1d9e6e298bca01b9f4fac1f8be905bb30aa8db584d2531e7fce8e19",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/37",
+          "sha256": "3a7652da8321b5f049f3d87474abaaac836d52b93459e3dbac7f9691cf994498",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/38",
+          "sha256": "b101f287e34f9f115d7c00771123ce2c531ac03e1b637958e3d3dc24490a2686",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/39",
+          "sha256": "78f8ffcdac02e00b8e50b9d53729c7a272c9d193faa0ad01fd7494740f6e968f",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/40",
+          "sha256": "8fa29604088b080472c641740ea258e6da86e1cad1f4315fa274995b5d2e0e2a",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/41",
+          "sha256": "1956b548295b9837c35f382bb33d3807df706563a78e177176928aefc6867b37",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/42",
+          "sha256": "f2cc1f6ac36d564ae4b0742412f453aff862d639d16ff21f468738c41d191ad6",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/43",
+          "sha256": "362bf3baeedde54aba452fdc719e6dc24d6baceb7ae84c007c8fe7ae93a21f0d",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/44",
+          "sha256": "6f3fb783b432ac813fcb6d6102253c39ddc34969f00b5351a8bb74bd0f1dca9b",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/45",
+          "sha256": "1c0e360e584dfa9b2ae74c7fcfaea21d99be2c585ba66d3c978a4c57037826b9",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/46",
+          "sha256": "9d047a093adbb32b1d5864869875dbe64cad4f39ba41932044de7f91d4185507",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/47",
+          "sha256": "e20651b204da2f9d3e5a10dfa722f3dc15acff5326f8a29f98d42c75a69f5b18",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/48",
+          "sha256": "e82dd49a9247111caf4c3d64bab52a49e0a6fc9572087c13db117de75c2c4704",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/49",
+          "sha256": "18fbcff02a20b8022bba7a66ccfea5b13cb431306067255fd2390088f5d32133",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/50",
+          "sha256": "156b9c4d6f2c66d67f2bfcac927b487ab9a3329bc850fe2d208a469837b23cb7",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/51",
+          "sha256": "8c67d23f347a7da4b3d38326d144f2805805ce66edd4445224fa0bc28aabd001",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/52",
+          "sha256": "41ad4cd902308ffb370115e458e173e6062ed360310e576e0d27c21b0d2bff06",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/53",
+          "sha256": "c98c50df2b9cb4acd00b9c8f4083be2b47830aa60fb6b05c1f329f060c0e7a61",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/54",
+          "sha256": "9cd101f8f0b53676b5f631dd35f7b350d676cd9b8c869b1344e68d7e64ee5a7b",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/55",
+          "sha256": "bb89eaae90aad814c4e52f0f331f256f9adc259666ca7eb9525a95fa03782b8e",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/56",
+          "sha256": "7b3be94abb331a0916ce0fb32f9f27482b236dd07645a15185d6808cadcc41d5",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/57",
+          "sha256": "0c1b7d3bc470be915144ec6ad31f08d72b1eeeef1c476b0d6c2bb16658415478",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/58",
+          "sha256": "ef34079c5f7009836425cd1707bfd49074a024909816c31240713e22e8d25c33",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/59",
+          "sha256": "643eedfd44fe220148d93068632f0d39f87b0b83051b2926de41dbd4dc44b9e3",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/60",
+          "sha256": "916ad259557cd42fae2a99a80ba5144ff12dda3a29b07346fd044c70b528335e",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/61",
+          "sha256": "f6f66bc7f39331618d90872f977ad685f412a09590c31c168d600d5ab063b50d",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/62",
+          "sha256": "20978122c73429a274893c274cd5412c14978b2d9415532776f24786761dae6c",
+          "replaced_sha256": null
+        },
+        {
+          "event": "PostToolUse",
+          "pointer": "/hooks/PostToolUse/63",
+          "sha256": "6fee5524b45a1f371d74247fb1b28f8d34f67456d29b9b248a32ee703458bee4",
+          "replaced_sha256": null
+        }
+      ]
+    }
+  ]
+}

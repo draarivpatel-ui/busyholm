@@ -1,0 +1,370 @@
+{
+  "contract": "ledger",
+  "schema": "contracts/schemas/ledger.v1.schema.json",
+  "valid": {
+    "001-empty-days.json": {
+      "note": "No day has been counted yet, so days is an empty object and hooks are not connected."
+    },
+    "002-one-claude-day.json": {
+      "note": "One live day with one tool and the hooks connected a day after the founding crate."
+    },
+    "003-hooks-not-yet-connected.json": {
+      "note": "hooks_first_connected_day is null, so the bell post has not arrived yet."
+    },
+    "004-hooks-on-founding-day.json": {
+      "note": "The hooks connected on the same local day the founding crate arrived."
+    },
+    "005-tool-claude.json": {
+      "note": "A single live day with counts recorded for the claude tool."
+    },
+    "006-tool-codex.json": {
+      "note": "A single live day with counts recorded for the codex tool."
+    },
+    "007-tool-opencode.json": {
+      "note": "A single live day with counts recorded for the opencode tool."
+    },
+    "008-tool-antigravity.json": {
+      "note": "A single live day with counts recorded for the antigravity tool."
+    },
+    "009-tool-gemini.json": {
+      "note": "A single live day with counts recorded for the gemini tool."
+    },
+    "010-tool-cursor.json": {
+      "note": "A single live day with counts recorded for the cursor tool."
+    },
+    "011-tool-aider.json": {
+      "note": "A single live day with counts recorded for the aider tool."
+    },
+    "012-tool-other.json": {
+      "note": "A single live day with counts recorded for the other tool."
+    },
+    "013-all-tools-one-day.json": {
+      "note": "All eight tool keys present on one day."
+    },
+    "014-two-tools-same-day.json": {
+      "note": "Two tools counted on the same day."
+    },
+    "015-zero-counters.json": {
+      "note": "Every counter at zero on a day that still exists."
+    },
+    "016-counters-at-max.json": {
+      "note": "Every counter at its 1000000 maximum, and working_seconds at its 90000 cap."
+    },
+    "017-working-seconds-max.json": {
+      "note": "working_seconds at exactly 90000, the wall-clock cap that allows a 25-hour daylight-saving day."
+    },
+    "018-working-seconds-one-day.json": {
+      "note": "working_seconds at 86400, one full 24-hour day of wall-clock time."
+    },
+    "019-working-seconds-zero.json": {
+      "note": "working_seconds at zero with no sessions or turns started."
+    },
+    "020-error-counters-nonzero.json": {
+      "note": "Error, recovery and limit counters all non-zero on one day."
+    },
+    "021-mixed-tools-many-days.json": {
+      "note": "Several days with different tool sets, including a day with only zero-valued counts for gemini."
+    },
+    "022-many-days.json": {
+      "note": "Thirty consecutive live days of Claude activity."
+    },
+    "023-month-boundary-days.json": {
+      "note": "Days on either side of the month boundary, 2026-09-30 and 2026-10-01."
+    },
+    "024-leap-day-key.json": {
+      "note": "A day key on 2028-02-29, which the day pattern accepts."
+    },
+    "025-founded-day-year-start.json": {
+      "note": "founded_day on 2026-01-01."
+    },
+    "026-founded-day-year-end.json": {
+      "note": "founded_day on 2026-12-31."
+    },
+    "027-seed-zero.json": {
+      "note": "The lowest legal seed, 0."
+    },
+    "028-seed-max.json": {
+      "note": "The largest legal seed, 4294967295."
+    },
+    "029-backfill-one-day.json": {
+      "note": "A backfill holding a single imported day."
+    },
+    "030-backfill-31-days.json": {
+      "note": "A backfill with exactly 31 days, the maximum."
+    },
+    "031-backfill-empty-days.json": {
+      "note": "A backfill that was imported but holds no days."
+    },
+    "032-backfill-imported-at-min.json": {
+      "note": "imported_at at the legal minimum, 2000-01-01 UTC."
+    },
+    "033-backfill-imported-at-max.json": {
+      "note": "imported_at at the legal maximum, 2100-01-01 UTC."
+    },
+    "034-backfill-and-live-days.json": {
+      "note": "A backfill alongside two live days on different tools."
+    },
+    "035-subagent-turns-only.json": {
+      "note": "A day whose only activity is subagent turns with no main-session turns."
+    },
+    "036-interrupted-turns-at-max.json": {
+      "note": "interrupted_turns at its 1000000 maximum with everything else ordinary."
+    },
+    "037-backfill-imported-at-mid-range.json": {
+      "note": "A backfill imported at an ordinary mid-range timestamp, 400 days before the reference day."
+    },
+    "038-day-totals-union.json": {
+      "note": "Optional day_totals holds the wall-clock union across tools for a day, which can be less than the per-tool sum."
+    },
+    "039-day-totals-max.json": {
+      "note": "day_totals working_seconds may be 90000 (a 25-hour daylight-saving day)."
+    },
+    "040-day-totals-zero.json": {
+      "note": "day_totals working_seconds may be 0."
+    },
+    "041-day-totals-empty.json": {
+      "note": "day_totals may be an empty object."
+    },
+    "042-day-totals-extra-day.json": {
+      "note": "day_totals is independent of days: it may list a day that has no per-tool counts (no cross-field rule)."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-root-string.json": {
+      "note": "The root must be an object, not a string.",
+      "path": ""
+    },
+    "004-missing-schema-version.json": {
+      "note": "schema_version is required.",
+      "path": ""
+    },
+    "005-missing-privacy.json": {
+      "note": "privacy is required.",
+      "path": ""
+    },
+    "006-missing-seed.json": {
+      "note": "seed is required.",
+      "path": ""
+    },
+    "007-missing-founded-day.json": {
+      "note": "founded_day is required.",
+      "path": ""
+    },
+    "008-missing-hooks-first-connected-day.json": {
+      "note": "hooks_first_connected_day is required even though it may be null.",
+      "path": ""
+    },
+    "009-missing-days.json": {
+      "note": "days is required, even when empty.",
+      "path": ""
+    },
+    "010-missing-backfill.json": {
+      "note": "backfill is required even though it may be null.",
+      "path": ""
+    },
+    "011-schema-version-2.json": {
+      "note": "schema_version must be the constant 1.",
+      "path": "/schema_version"
+    },
+    "012-root-extra-field.json": {
+      "note": "Unknown top-level fields are rejected.",
+      "path": ""
+    },
+    "013-privacy-contains-text-true.json": {
+      "note": "privacy.containsText must be false.",
+      "path": "/privacy/containsText"
+    },
+    "014-privacy-missing-contains-text.json": {
+      "note": "privacy.containsText is required.",
+      "path": "/privacy"
+    },
+    "015-privacy-extra-field.json": {
+      "note": "privacy is closed, so a project field is rejected.",
+      "path": "/privacy"
+    },
+    "016-seed-negative.json": {
+      "note": "seed is an unsigned integer, so a negative value is rejected.",
+      "path": "/seed"
+    },
+    "017-seed-over-u32.json": {
+      "note": "seed may not exceed 4294967295.",
+      "path": "/seed"
+    },
+    "018-seed-string.json": {
+      "note": "seed must be a JSON integer, not a string.",
+      "path": "/seed"
+    },
+    "019-founded-day-month-13.json": {
+      "note": "founded_day must be a valid YYYY-MM-DD day.",
+      "path": "/founded_day"
+    },
+    "020-hooks-day-today.json": {
+      "note": "hooks_first_connected_day must be a day or null, not a relative word.",
+      "path": "/hooks_first_connected_day"
+    },
+    "021-days-key-month-13.json": {
+      "note": "A day key with month 13 breaks the day pattern.",
+      "path": "/days"
+    },
+    "022-days-key-unpadded.json": {
+      "note": "A day key with an unpadded month and day breaks the day pattern.",
+      "path": "/days"
+    },
+    "023-days-key-today.json": {
+      "note": "The word today is not a day key.",
+      "path": "/days"
+    },
+    "024-day-with-no-tools.json": {
+      "note": "A listed day needs at least one tool.",
+      "path": "/days/2026-10-08"
+    },
+    "025-unknown-tool-key.json": {
+      "note": "Tool keys come from the closed list of eight tools.",
+      "path": "/days/2026-10-08"
+    },
+    "026-tool-key-uppercase.json": {
+      "note": "Tool keys are lowercase.",
+      "path": "/days/2026-10-08"
+    },
+    "027-counter-negative.json": {
+      "note": "A counter may not be negative.",
+      "path": "/days/2026-10-08/claude/turns"
+    },
+    "028-counter-fractional.json": {
+      "note": "A counter is a whole number, so 1.5 is rejected.",
+      "path": "/days/2026-10-08/claude/errors"
+    },
+    "029-counter-string.json": {
+      "note": "A counter is a JSON number, not a string.",
+      "path": "/days/2026-10-08/claude/turns"
+    },
+    "030-counter-over-max.json": {
+      "note": "A counter may not exceed 1000000.",
+      "path": "/days/2026-10-08/claude/sessions"
+    },
+    "031-working-seconds-over-max.json": {
+      "note": "working_seconds may not exceed 90000, so 90001 is rejected.",
+      "path": "/days/2026-10-08/claude/working_seconds"
+    },
+    "032-working-seconds-old-max.json": {
+      "note": "working_seconds at the pre-r1 value 5529600 is now above the 90000 maximum.",
+      "path": "/days/2026-10-08/claude/working_seconds"
+    },
+    "033-counts-quick-answers-present.json": {
+      "note": "quick_answers was removed by SPEC Revision 1, so the closed counts object rejects it as an unknown property.",
+      "path": "/days/2026-10-08/claude"
+    },
+    "034-working-seconds-negative.json": {
+      "note": "working_seconds may not be negative.",
+      "path": "/days/2026-10-08/claude/working_seconds"
+    },
+    "035-counts-missing-field.json": {
+      "note": "Every counter is required, and errors is missing here.",
+      "path": "/days/2026-10-08/claude"
+    },
+    "036-counts-extra-field.json": {
+      "note": "The counts object is closed, so a project field is rejected.",
+      "path": "/days/2026-10-08/claude"
+    },
+    "037-counts-not-object.json": {
+      "note": "A tool's counts must be an object.",
+      "path": "/days/2026-10-08/claude"
+    },
+    "038-day-value-not-object.json": {
+      "note": "A day's value must be an object keyed by tool.",
+      "path": "/days/2026-10-08"
+    },
+    "039-days-is-array.json": {
+      "note": "days must be an object keyed by day, not an array.",
+      "path": "/days"
+    },
+    "040-backfill-32-days.json": {
+      "note": "A backfill may hold at most 31 days.",
+      "path": "/backfill/days"
+    },
+    "041-backfill-missing-imported-at.json": {
+      "note": "A backfill needs imported_at.",
+      "path": "/backfill"
+    },
+    "042-backfill-missing-days.json": {
+      "note": "A backfill needs its days object.",
+      "path": "/backfill"
+    },
+    "043-backfill-imported-at-seconds.json": {
+      "note": "imported_at in seconds is below the millisecond range.",
+      "path": "/backfill/imported_at"
+    },
+    "044-backfill-imported-at-fractional.json": {
+      "note": "imported_at must be a whole number of milliseconds.",
+      "path": "/backfill/imported_at"
+    },
+    "045-backfill-imported-at-after-2100.json": {
+      "note": "imported_at may not pass 2100-01-01 UTC.",
+      "path": "/backfill/imported_at"
+    },
+    "046-backfill-extra-field.json": {
+      "note": "The backfill object is closed, so a source field is rejected.",
+      "path": "/backfill"
+    },
+    "047-backfill-bad-day-key.json": {
+      "note": "Backfill day keys follow the same day pattern as live days.",
+      "path": "/backfill/days"
+    },
+    "048-backfill-counter-over-max.json": {
+      "note": "Backfill counters obey the same 1000000 maximum.",
+      "path": "/backfill/days/2026-09-02/claude/turns"
+    },
+    "049-backfill-not-object.json": {
+      "note": "backfill is an object or null, not a string.",
+      "path": "/backfill"
+    },
+    "050-day-totals-over-max.json": {
+      "note": "day_totals working_seconds may not exceed 90000, so 90001 is rejected.",
+      "path": "/day_totals/2026-10-11/working_seconds"
+    },
+    "051-day-totals-key-month-13.json": {
+      "note": "A day_totals key with month 13 breaks the day pattern.",
+      "path": "/day_totals"
+    },
+    "052-day-totals-extra-property.json": {
+      "note": "The day_totals value is closed: only working_seconds is allowed.",
+      "path": "/day_totals/2026-10-11"
+    },
+    "053-day-totals-negative.json": {
+      "note": "day_totals working_seconds may not be negative.",
+      "path": "/day_totals/2026-10-11/working_seconds"
+    },
+    "054-day-totals-fractional.json": {
+      "note": "day_totals working_seconds is a whole number, so 1.5 is rejected.",
+      "path": "/day_totals/2026-10-11/working_seconds"
+    },
+    "055-day-totals-missing-working-seconds.json": {
+      "note": "day_totals working_seconds is required.",
+      "path": "/day_totals/2026-10-11"
+    },
+    "056-day-totals-value-not-object.json": {
+      "note": "A day_totals value must be an object, not a number.",
+      "path": "/day_totals/2026-10-11"
+    },
+    "057-day-totals-is-array.json": {
+      "note": "day_totals must be an object keyed by day, not an array.",
+      "path": "/day_totals"
+    },
+    "058-day-totals-null.json": {
+      "note": "day_totals is optional but never null: leave it out instead.",
+      "path": "/day_totals"
+    },
+    "059-day-totals-string-seconds.json": {
+      "note": "day_totals working_seconds is a number, not a string.",
+      "path": "/day_totals/2026-10-11/working_seconds"
+    }
+  }
+}

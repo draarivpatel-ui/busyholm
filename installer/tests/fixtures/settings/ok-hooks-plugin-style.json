@@ -1,0 +1,30 @@
+{
+  "enabledPlugins": {
+    "x@y": true
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/run.sh",
+            "timeout": 5,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/run.sh stop"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "question.asked",
+  "properties": {
+    "id": "bca1a700-0000-4000-8000-0000000000b1",
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "questions": [{ "question": "BHCANARY_opencode_question_1", "header": "BHCANARY_opencode_header_1", "options": [{ "label": "BHCANARY_opencode_label_1", "description": "BHCANARY_opencode_description_3" }] }]
+  }
+}

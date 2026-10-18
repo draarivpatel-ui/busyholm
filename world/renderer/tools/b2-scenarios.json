@@ -1,0 +1,10 @@
+[
+  { "label": "default (strip)", "url": "world/dist/capture.html?view=strip1440&mode=live&scenario=demo&variant=default", "width": 1440, "height": 120, "dpr": 2, "settle": 5, "seconds": 10 },
+  { "label": "deeper_papercut (strip)", "url": "world/dist/capture.html?view=strip1440&mode=live&scenario=demo&variant=deeper_papercut", "width": 1440, "height": 120, "dpr": 2, "settle": 5, "seconds": 10 },
+  { "label": "seasonal_richness (strip)", "url": "world/dist/capture.html?view=strip1440&mode=live&scenario=demo&variant=seasonal_richness", "width": 1440, "height": 120, "dpr": 2, "settle": 5, "seconds": 10 },
+  { "label": "evening_warmth (strip)", "url": "world/dist/capture.html?view=strip1440&mode=live&scenario=demo&variant=evening_warmth", "width": 1440, "height": 120, "dpr": 2, "settle": 5, "seconds": 10 },
+  { "label": "default (ambient)", "url": "world/dist/capture.html?view=ambient&mode=live&scenario=demo&variant=default", "width": 1920, "height": 1080, "dpr": 1, "settle": 5, "seconds": 10 },
+  { "label": "deeper_papercut (ambient)", "url": "world/dist/capture.html?view=ambient&mode=live&scenario=demo&variant=deeper_papercut", "width": 1920, "height": 1080, "dpr": 1, "settle": 5, "seconds": 10 },
+  { "label": "seasonal_richness (ambient)", "url": "world/dist/capture.html?view=ambient&mode=live&scenario=demo&variant=seasonal_richness", "width": 1920, "height": 1080, "dpr": 1, "settle": 5, "seconds": 10 },
+  { "label": "evening_warmth (ambient)", "url": "world/dist/capture.html?view=ambient&mode=live&scenario=demo&variant=evening_warmth", "width": 1920, "height": 1080, "dpr": 1, "settle": 5, "seconds": 10 }
+]

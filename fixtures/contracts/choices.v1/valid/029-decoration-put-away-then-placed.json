@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1791547200000,
+      "day": "2026-10-09",
+      "kind": "decoration",
+      "decoration": "lamp",
+      "on": true
+    },
+    {
+      "t": 1791633600000,
+      "day": "2026-10-10",
+      "kind": "decoration",
+      "decoration": "lamp",
+      "on": false
+    },
+    {
+      "t": 1791720000000,
+      "day": "2026-10-11",
+      "kind": "decoration",
+      "decoration": "lamp",
+      "on": true
+    }
+  ]
+}

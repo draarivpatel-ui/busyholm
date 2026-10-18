@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "shim",
+      "tool": null,
+      "target": "shim_binary",
+      "path": "C:\\Program Files\\Busyholm\\busyholm-shim.exe",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "e07b3b77d6f7f0800aa5eca92f12f2e6603458aeb448b90db93b60868fde230a",
+        "bytes": 640
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "note": "SHA-256 over the newline-joined SHA-256 hashes of canonical JSON of grow() for the determinism corpus (test/cases.ts). Regenerate only when the economy config or the engine changes on purpose, and say so in the commit.",
+  "master": 1592590344,
+  "count": 1000,
+  "digest": "b692e212ca7e706054e7e16666c9d4f4985a3292c39201f98e35b2295873d7fa",
+  "recorded_with": "v26.8.1"
+}

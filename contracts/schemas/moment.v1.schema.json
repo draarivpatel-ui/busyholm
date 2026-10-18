@@ -1,0 +1,345 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/moment.v1.schema.json",
+  "title": "Moment v1",
+  "description": "A one-off happening, sent immediately (not coalesced) to every window (SPEC 5.4). Because a Moment can arrive before the next coalesced Snapshot, it carries what a surface needs to react on its own: the tool and reason for a needs_you notification, the provider for limit moments, the structure and stage for a build, the milestone id.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "t"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "enum": [
+        "turn_end",
+        "needs_you",
+        "answered",
+        "error",
+        "recovered",
+        "limit_hit",
+        "limit_reset",
+        "weekly_reset",
+        "build_complete",
+        "milestone"
+      ]
+    },
+    "t": {
+      "$ref": "#/$defs/ms"
+    },
+    "agent": {
+      "$ref": "#/$defs/instance",
+      "description": "Snapshot agent id. Always paired with tool."
+    },
+    "tool": {
+      "$ref": "#/$defs/tool",
+      "description": "Always paired with agent."
+    },
+    "reason": {
+      "$ref": "#/$defs/reason",
+      "description": "Present exactly when kind is needs_you."
+    },
+    "request_id": {
+      "$ref": "#/$defs/instance",
+      "description": "Optional, needs_you and answered only: the request the alert is keyed by, so a notification is raised once per request and withdrawn when that request is answered."
+    },
+    "turn_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 604800000,
+      "description": "Optional, turn_end only: how long the turn ran (drives the long-turn notification)."
+    },
+    "provider": {
+      "$ref": "#/$defs/provider",
+      "description": "Present exactly when kind is limit_hit, limit_reset or weekly_reset."
+    },
+    "structure": {
+      "$ref": "#/$defs/structure",
+      "description": "Present exactly when kind is build_complete."
+    },
+    "stage": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3,
+      "description": "Present exactly when kind is build_complete: the stage just completed (3 means the structure is finished)."
+    },
+    "milestone": {
+      "$ref": "#/$defs/milestone",
+      "description": "Present exactly when kind is milestone."
+    }
+  },
+  "dependentRequired": {
+    "agent": [
+      "tool"
+    ],
+    "tool": [
+      "agent"
+    ]
+  },
+  "allOf": [
+    {
+      "description": "Agent moments name their agent.",
+      "if": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "turn_end",
+              "needs_you",
+              "answered",
+              "error",
+              "recovered"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "agent",
+          "tool"
+        ]
+      }
+    },
+    {
+      "description": "Island moments are not tied to an agent.",
+      "if": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "limit_reset",
+              "weekly_reset",
+              "build_complete",
+              "milestone"
+            ]
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "agent"
+              ]
+            },
+            {
+              "required": [
+                "tool"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "needs_you"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "reason"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "reason"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "not": {
+          "properties": {
+            "kind": {
+              "const": "turn_end"
+            }
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "turn_ms"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "limit_hit",
+              "limit_reset",
+              "weekly_reset"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "provider"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "provider"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "build_complete"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "structure",
+          "stage"
+        ]
+      },
+      "else": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "structure"
+              ]
+            },
+            {
+              "required": [
+                "stage"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "milestone"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "milestone"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "milestone"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "not": {
+          "properties": {
+            "kind": {
+              "enum": [
+                "needs_you",
+                "answered"
+              ]
+            }
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "request_id"
+          ]
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "ms": {
+      "type": "integer",
+      "minimum": 946684800000,
+      "maximum": 4102444800000,
+      "description": "Milliseconds since the Unix epoch (UTC), always an integer. The range (2000-01-01 to 2100-01-01) rejects a seconds value passed by mistake."
+    },
+    "tool": {
+      "enum": [
+        "claude",
+        "codex",
+        "opencode",
+        "antigravity",
+        "gemini",
+        "cursor",
+        "aider",
+        "other"
+      ]
+    },
+    "instance": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$",
+      "description": "Salted hash of a session or thread id, never the raw id: 32 lowercase hex characters. A raw UUID cannot match this pattern."
+    },
+    "provider": {
+      "enum": [
+        "claude",
+        "codex"
+      ]
+    },
+    "reason": {
+      "enum": [
+        "permission",
+        "question"
+      ]
+    },
+    "structure": {
+      "enum": [
+        "campfire",
+        "tent",
+        "bell_post",
+        "noticeboard",
+        "workshop_1",
+        "well",
+        "cottage_1",
+        "garden_plots",
+        "crossing",
+        "watermill",
+        "workshop_2",
+        "cottage_2",
+        "bell_tower",
+        "bakery",
+        "market_hall",
+        "founders_stone"
+      ],
+      "description": "Structure slots (SPEC 4.5). The 12 progression structures are noticeboard through market_hall; campfire and tent are free on day 1; bell_post arrives with the hooks; founders_stone comes from the history backfill."
+    },
+    "milestone": {
+      "enum": [
+        "first_turn",
+        "first_answer",
+        "first_subagent",
+        "two_tools_day",
+        "turns_100",
+        "streak_7",
+        "turns_1000"
+      ],
+      "description": "SPEC 4.5 milestones: first plank ceremony, ribbon on the bell, helpers appear, bridge festival, fireworks, kite day, statue."
+    }
+  }
+}

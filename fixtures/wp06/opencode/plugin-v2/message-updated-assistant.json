@@ -1,0 +1,15 @@
+{
+  "type": "message.updated",
+  "properties": {
+    "info": {
+      "id": "bca1a700-0000-4000-8000-0000000000c1",
+      "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+      "role": "assistant",
+      "modelID": "BHCANARY_opencode_model_1",
+      "path": { "cwd": "/Users/someone/code/BHCANARY_opencode_cwd_4", "root": "/Users/someone/code/BHCANARY_opencode_cwd_4" },
+      "cost": 0.5,
+      "tokens": { "input": 1000, "output": 200, "reasoning": 50, "cache": { "read": 300, "write": 40 } },
+      "time": { "created": 1791806400000, "completed": 1791806405000 }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+[package]
+name = "busyholm-app"
+description = "Busyholm shell (WP-02): windows, tray, layer modes, click-through, display follow, IPC hub."
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.90"
+license = "MIT"
+publish = false
+default-run = "busyholm"
+
+# Its own workspace: the root workspace (contracts, collector, shim, installer) must build and
+# test without WebKit, so the Tauri shell stays outside it and links those crates by path.
+[workspace]
+
+[lib]
+name = "busyholm_app"
+path = "src/lib.rs"
+
+[[bin]]
+name = "busyholm"
+path = "src/main.rs"
+
+[features]
+default = []
+# Link the real collector service (WP-03) with its Claude and Codex hook adapters (the sidecar crate)
+# behind the shell's Collector trait, instead of the mock.
+collector = ["dep:busyholm-collector", "dep:busyholm-sidecar"]
+
+[build-dependencies]
+tauri-build = { version = "2.7", features = [] }
+
+[dependencies]
+tauri = { version = "=2.12.3", features = ["tray-icon", "macos-private-api", "image-png"] }
+tauri-plugin-autostart = "2.7"
+tauri-plugin-global-shortcut = "2"
+# WP-11: OS notifications for needs-you, decided in src/notify.rs.
+tauri-plugin-notification = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+busyholm-contracts = { path = "../../contracts/rust" }
+busyholm-collector = { path = "../../collector", optional = true }
+busyholm-sidecar = { path = "../../sidecar", optional = true }
+busyholm-installer = { path = "../../installer" }
+tauri-plugin-single-instance = "2"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSString", "NSObject"] }
+block2 = "0.6"
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.62", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Dwm",
+    "Win32_Graphics_Gdi",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_Shell",
+    "Win32_UI_Accessibility",
+    "Win32_System_SystemInformation",
+] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+gtk = "0.18"
+
+[dev-dependencies]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
+# Unwind, not abort: SPEC 6.11 restarts a panicked collector thread with backoff,
+# which an abort-on-panic build cannot do (the spike used abort).
+panic = "unwind"

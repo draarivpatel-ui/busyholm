@@ -1,0 +1,2 @@
+BHCANARY_claude_tool_result_body_1
+BHCANARY_claude_tool_result_body_2

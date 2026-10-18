@@ -1,0 +1,1847 @@
+[
+  {
+    "name": "session_start_floor",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "starting",
+        "event": {
+          "kind": "session_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1999,
+        "state": "starting"
+      },
+      {
+        "at": 2000,
+        "state": "starting"
+      }
+    ],
+    "counts": {
+      "sessions": 1
+    }
+  },
+  {
+    "name": "process_start_floor",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "starting",
+        "event": {
+          "kind": "process_up",
+          "source": "process",
+          "confidence": "inferred"
+        }
+      },
+      {
+        "at": 100,
+        "state": "starting",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1999,
+        "state": "starting"
+      },
+      {
+        "at": 2000,
+        "state": "working"
+      }
+    ],
+    "counts": {
+      "sessions": 1
+    }
+  },
+  {
+    "name": "new_turn_has_no_start_floor",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "working"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "start_then_work",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "starting",
+        "event": {
+          "kind": "session_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      }
+    ],
+    "counts": {
+      "sessions": 1
+    }
+  },
+  {
+    "name": "claude_stop",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 3000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "turn_end"
+        ]
+      }
+    ],
+    "counts": {
+      "turns": 1,
+      "working_seconds": 3
+    }
+  },
+  {
+    "name": "claude_interrupt_without_stop",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "registry",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 4000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_interrupted",
+          "source": "registry",
+          "confidence": "inferred"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {
+      "turns": 0,
+      "interrupted_turns": 1,
+      "working_seconds": 4
+    }
+  },
+  {
+    "name": "codex_abort",
+    "tool": "codex",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 4000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_interrupted",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {
+      "interrupted_turns": 1
+    }
+  },
+  {
+    "name": "codex_interrupt",
+    "tool": "codex",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 4000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_interrupted",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {
+      "turns": 0
+    }
+  },
+  {
+    "name": "ask_user_question",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_answer",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "question",
+        "moments": [
+          "needs_you"
+        ]
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "tool_end",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "answered"
+        ]
+      }
+    ],
+    "counts": {
+      "needs_you": 1,
+      "quick_answers": 1
+    }
+  },
+  {
+    "name": "permission",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_permission",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "permission",
+        "moments": [
+          "needs_you"
+        ]
+      }
+    ],
+    "counts": {
+      "needs_you": 1
+    }
+  },
+  {
+    "name": "permission_denied_resumes",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_permission",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "permission"
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "answered",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "answered"
+        ]
+      }
+    ],
+    "counts": {
+      "quick_answers": 1
+    }
+  },
+  {
+    "name": "new_prompt_answers",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_answer",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "question"
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "answered"
+        ]
+      }
+    ],
+    "counts": {
+      "quick_answers": 1
+    }
+  },
+  {
+    "name": "quick_answer_59999",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_answer",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "question"
+      },
+      {
+        "at": 60999,
+        "state": "working",
+        "event": {
+          "kind": "answered",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      }
+    ],
+    "counts": {
+      "quick_answers": 1
+    }
+  },
+  {
+    "name": "quick_answer_60000",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_answer",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "question"
+      },
+      {
+        "at": 61000,
+        "state": "working",
+        "event": {
+          "kind": "answered",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      }
+    ],
+    "counts": {
+      "quick_answers": 1
+    }
+  },
+  {
+    "name": "slow_answer_60001",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_answer",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "question"
+      },
+      {
+        "at": 61001,
+        "state": "working",
+        "event": {
+          "kind": "answered",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      }
+    ],
+    "counts": {
+      "quick_answers": 0
+    }
+  },
+  {
+    "name": "duplicate_permission_one_episode",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_permission",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "permission"
+      },
+      {
+        "at": 2000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_permission",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "permission",
+        "moments": []
+      }
+    ],
+    "counts": {
+      "needs_you": 1
+    }
+  },
+  {
+    "name": "duplicate_answer_no_reward",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "working",
+        "event": {
+          "kind": "answered",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {
+      "quick_answers": 0
+    }
+  },
+  {
+    "name": "question_turn_complete",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_answer",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "question"
+      },
+      {
+        "at": 2000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "turn_end"
+        ]
+      }
+    ],
+    "counts": {
+      "turns": 1,
+      "quick_answers": 0
+    }
+  },
+  {
+    "name": "permission_interrupted",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_permission",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "permission"
+      },
+      {
+        "at": 2000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_interrupted",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {
+      "turns": 0,
+      "interrupted_turns": 1
+    }
+  },
+  {
+    "name": "ninety_second_timeout_boundary",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 89999,
+        "state": "working"
+      },
+      {
+        "at": 90000,
+        "state": "your_turn",
+        "expected_confidence": "inferred",
+        "moments": []
+      }
+    ],
+    "counts": {
+      "turns": 0,
+      "working_seconds": 90
+    }
+  },
+  {
+    "name": "activity_extends_timeout",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 80000,
+        "state": "working",
+        "event": {
+          "kind": "heartbeat",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 169999,
+        "state": "working"
+      },
+      {
+        "at": 170000,
+        "state": "your_turn"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "registry_busy_assertion",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "registry",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 90000,
+        "state": "working"
+      },
+      {
+        "at": 1200000,
+        "state": "working"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "open_codex_twenty_min",
+    "tool": "codex",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 90000,
+        "state": "working"
+      },
+      {
+        "at": 1199999,
+        "state": "working"
+      },
+      {
+        "at": 1200000,
+        "state": "unknown",
+        "expected_confidence": "inferred"
+      }
+    ],
+    "counts": {
+      "turns": 0
+    }
+  },
+  {
+    "name": "codex_heartbeat_keeps_open_fresh",
+    "tool": "codex",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1100000,
+        "state": "working",
+        "event": {
+          "kind": "heartbeat",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1200000,
+        "state": "working"
+      },
+      {
+        "at": 2300000,
+        "state": "unknown"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "codex_complete_clears_open",
+    "tool": "codex",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 5000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 605000,
+        "state": "idle"
+      }
+    ],
+    "counts": {
+      "turns": 1
+    }
+  },
+  {
+    "name": "error_and_recovery",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "error",
+        "event": {
+          "kind": "error",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "error"
+        ]
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "recovered"
+        ]
+      }
+    ],
+    "counts": {
+      "errors": 1,
+      "recovered": 1
+    }
+  },
+  {
+    "name": "error_idle_ten_min",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "error",
+        "event": {
+          "kind": "error",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 599999,
+        "state": "error"
+      },
+      {
+        "at": 600000,
+        "state": "idle"
+      }
+    ],
+    "counts": {
+      "errors": 1
+    }
+  },
+  {
+    "name": "error_recovery_after_idle",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "error",
+        "event": {
+          "kind": "error",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 600000,
+        "state": "idle"
+      },
+      {
+        "at": 610000,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "recovered"
+        ]
+      }
+    ],
+    "counts": {
+      "recovered": 1
+    }
+  },
+  {
+    "name": "duplicate_error_one_episode",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "error",
+        "event": {
+          "kind": "error",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "error",
+        "event": {
+          "kind": "error",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {
+      "errors": 1
+    }
+  },
+  {
+    "name": "rate_limit_needs_fresh_signal",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "limited",
+        "event": {
+          "kind": "limit_hit",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reset": 10000,
+        "moments": [
+          "limit_hit"
+        ]
+      },
+      {
+        "at": 69999,
+        "state": "limited"
+      },
+      {
+        "at": 70000,
+        "state": "limited",
+        "moments": []
+      },
+      {
+        "at": 71000,
+        "state": "limited",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      },
+      {
+        "at": 72000,
+        "state": "working",
+        "event": {
+          "kind": "heartbeat",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "limit_reset"
+        ]
+      }
+    ],
+    "counts": {
+      "limit_hits": 1,
+      "errors": 0
+    }
+  },
+  {
+    "name": "rate_limit_unknown_reset",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "limited",
+        "event": {
+          "kind": "limit_hit",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reset": null
+      },
+      {
+        "at": 600000,
+        "state": "limited"
+      }
+    ],
+    "counts": {
+      "limit_hits": 1
+    }
+  },
+  {
+    "name": "limit_resume_new_turn",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "limited",
+        "event": {
+          "kind": "limit_hit",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reset": null
+      },
+      {
+        "at": 1000,
+        "state": "limited",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "tool_end",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "limit_reset"
+        ]
+      }
+    ],
+    "counts": {
+      "recovered": 0
+    }
+  },
+  {
+    "name": "limit_retry_still_limited",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "limited",
+        "event": {
+          "kind": "limit_hit",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reset": null,
+        "moments": [
+          "limit_hit"
+        ]
+      },
+      {
+        "at": 1000,
+        "state": "limited",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      },
+      {
+        "at": 2000,
+        "state": "limited",
+        "event": {
+          "kind": "limit_hit",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reset": null,
+        "moments": []
+      }
+    ],
+    "counts": {
+      "limit_hits": 1,
+      "turns": 0
+    }
+  },
+  {
+    "name": "limit_retry_completes",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "limited",
+        "event": {
+          "kind": "limit_hit",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reset": null
+      },
+      {
+        "at": 1000,
+        "state": "limited",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      },
+      {
+        "at": 4000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": [
+          "limit_reset",
+          "turn_end"
+        ]
+      }
+    ],
+    "counts": {
+      "limit_hits": 1,
+      "turns": 1
+    }
+  },
+  {
+    "name": "duplicate_limit_no_double_count",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "limited",
+        "event": {
+          "kind": "limit_hit",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reset": 10000
+      },
+      {
+        "at": 1000,
+        "state": "limited",
+        "event": {
+          "kind": "limit_hit",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reset": 10000,
+        "moments": []
+      }
+    ],
+    "counts": {
+      "limit_hits": 1
+    }
+  },
+  {
+    "name": "your_turn_idle_boundary",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 600999,
+        "state": "your_turn"
+      },
+      {
+        "at": 601000,
+        "state": "idle"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "new_turn_prevents_idle",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 599000,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 601000,
+        "state": "working"
+      }
+    ],
+    "counts": {
+      "turns": 1
+    }
+  },
+  {
+    "name": "session_end_immediate",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "ended",
+        "event": {
+          "kind": "session_end",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "process_gone_sixty_quiet",
+    "tool": "codex",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "working",
+        "event": {
+          "kind": "process_down",
+          "source": "process",
+          "confidence": "inferred"
+        }
+      },
+      {
+        "at": 60999,
+        "state": "working"
+      },
+      {
+        "at": 61000,
+        "state": "ended"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "activity_after_process_gone",
+    "tool": "opencode",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "working",
+        "event": {
+          "kind": "process_down",
+          "source": "process",
+          "confidence": "inferred"
+        }
+      },
+      {
+        "at": 50000,
+        "state": "working",
+        "event": {
+          "kind": "heartbeat",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 61000,
+        "state": "working"
+      },
+      {
+        "at": 110000,
+        "state": "ended"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "live_process_thirty_quiet",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "starting",
+        "event": {
+          "kind": "process_up",
+          "source": "process",
+          "confidence": "inferred"
+        }
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "registry",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1802000,
+        "state": "idle",
+        "expected_confidence": "inferred"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "no_process_thirty_quiet",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1800000,
+        "state": "ended"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "heartbeat_infers_agy_work",
+    "tool": "antigravity",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "heartbeat",
+          "source": "log",
+          "confidence": "inferred"
+        }
+      },
+      {
+        "at": 3000,
+        "state": "working",
+        "event": {
+          "kind": "heartbeat",
+          "source": "log",
+          "confidence": "inferred"
+        }
+      },
+      {
+        "at": 93000,
+        "state": "your_turn",
+        "expected_confidence": "inferred"
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "startup_fresh_work",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "registry",
+          "confidence": "exact"
+        },
+        "rebuild": true,
+        "age": 5000,
+        "moments": []
+      }
+    ],
+    "counts": {
+      "sessions": 0,
+      "turns": 0
+    }
+  },
+  {
+    "name": "startup_stale_registry_with_process",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "idle",
+        "event": {
+          "kind": "turn_start",
+          "source": "registry",
+          "confidence": "exact"
+        },
+        "rebuild": true,
+        "age": 600001,
+        "alive": true,
+        "moments": []
+      }
+    ],
+    "counts": {
+      "sessions": 0
+    }
+  },
+  {
+    "name": "startup_stale_log_no_process",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "unknown",
+        "event": {
+          "kind": "turn_start",
+          "source": "log",
+          "confidence": "exact"
+        },
+        "rebuild": true,
+        "age": 600001,
+        "moments": []
+      }
+    ],
+    "counts": {
+      "turns": 0
+    }
+  },
+  {
+    "name": "startup_exact_ten_min_not_stale",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "registry",
+          "confidence": "exact"
+        },
+        "rebuild": true,
+        "age": 600000,
+        "moments": []
+      }
+    ],
+    "counts": {}
+  },
+  {
+    "name": "startup_old_permission_never_alerts",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "unknown",
+        "event": {
+          "kind": "needs_permission",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "rebuild": true,
+        "age": 600001,
+        "moments": []
+      }
+    ],
+    "counts": {
+      "needs_you": 0
+    }
+  },
+  {
+    "name": "two_turns",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 3000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      }
+    ],
+    "counts": {
+      "turns": 2,
+      "working_seconds": 2
+    }
+  },
+  {
+    "name": "repeated_busy_is_one_turn",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "registry",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "registry",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 2000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "registry",
+          "confidence": "exact"
+        }
+      }
+    ],
+    "counts": {
+      "turns": 1,
+      "working_seconds": 2
+    }
+  },
+  {
+    "name": "idle_prompt_only_confirms",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 50000,
+        "state": "your_turn",
+        "event": {
+          "kind": "heartbeat",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "notification": "idle_prompt"
+      },
+      {
+        "at": 601000,
+        "state": "idle"
+      }
+    ],
+    "counts": {
+      "turns": 1
+    }
+  },
+  {
+    "name": "no_needs_you_from_log",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "log",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 6000,
+        "state": "working",
+        "event": {
+          "kind": "needs_permission",
+          "source": "log",
+          "confidence": "exact"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {
+      "needs_you": 0
+    }
+  },
+  {
+    "name": "no_needs_you_from_process",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "process",
+          "confidence": "inferred"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "working",
+        "event": {
+          "kind": "needs_answer",
+          "source": "process",
+          "confidence": "inferred"
+        },
+        "moments": []
+      }
+    ],
+    "counts": {
+      "needs_you": 0
+    }
+  },
+  {
+    "name": "subagent_turn_is_separate",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "child": true
+      },
+      {
+        "at": 1000,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "child": true,
+        "moments": [
+          "turn_end"
+        ]
+      }
+    ],
+    "counts": {
+      "turns": 0,
+      "subagent_turns": 1,
+      "working_seconds": 0
+    }
+  },
+  {
+    "name": "startup_completion_no_earnings",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "your_turn",
+        "event": {
+          "kind": "turn_end",
+          "source": "log",
+          "confidence": "exact"
+        },
+        "rebuild": true,
+        "age": 5000,
+        "moments": []
+      }
+    ],
+    "counts": {
+      "turns": 0
+    }
+  },
+  {
+    "name": "new_permission_episode_counts",
+    "tool": "claude",
+    "steps": [
+      {
+        "at": 0,
+        "state": "working",
+        "event": {
+          "kind": "turn_start",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 1000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_permission",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "permission"
+      },
+      {
+        "at": 2000,
+        "state": "working",
+        "event": {
+          "kind": "answered",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      },
+      {
+        "at": 3000,
+        "state": "needs_you",
+        "event": {
+          "kind": "needs_answer",
+          "source": "hook",
+          "confidence": "exact"
+        },
+        "reason": "question"
+      },
+      {
+        "at": 4000,
+        "state": "working",
+        "event": {
+          "kind": "answered",
+          "source": "hook",
+          "confidence": "exact"
+        }
+      }
+    ],
+    "counts": {
+      "needs_you": 2,
+      "quick_answers": 2
+    }
+  }
+]

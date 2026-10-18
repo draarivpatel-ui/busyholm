@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "seed": 20261012,
+  "as_of_day": "2026-10-12",
+  "tier": "camp",
+  "resources": {
+    "planks": 4.5,
+    "stone": 0,
+    "seeds": 2
+  },
+  "earned": {
+    "planks": 12,
+    "stone": 1,
+    "seeds": 3
+  },
+  "structures": [
+    {
+      "id": "campfire",
+      "status": "complete",
+      "stage": 3,
+      "progress": 1,
+      "completed_day": "2026-10-03"
+    },
+    {
+      "id": "tent",
+      "status": "complete",
+      "stage": 3,
+      "progress": 1,
+      "completed_day": "2026-10-03"
+    },
+    {
+      "id": "noticeboard",
+      "status": "complete",
+      "stage": 3,
+      "progress": 1,
+      "completed_day": "2026-10-04"
+    },
+    {
+      "id": "workshop_1",
+      "variant": "claude",
+      "status": "building",
+      "stage": 2,
+      "progress": 0.5
+    },
+    {
+      "id": "well",
+      "status": "planned",
+      "stage": 0,
+      "progress": 0
+    }
+  ],
+  "decorations": [
+    {
+      "id": "deco_0",
+      "slot": 0,
+      "shown": true
+    },
+    {
+      "id": "deco_1",
+      "slot": 1,
+      "shown": false
+    },
+    {
+      "id": "deco_2",
+      "slot": 2,
+      "shown": true
+    },
+    {
+      "id": "deco_3",
+      "slot": 3,
+      "shown": false
+    },
+    {
+      "id": "deco_4",
+      "slot": 4,
+      "shown": true
+    },
+    {
+      "id": "deco_5",
+      "slot": 5,
+      "shown": false
+    },
+    {
+      "id": "deco_6",
+      "slot": 6,
+      "shown": true
+    },
+    {
+      "id": "deco_7",
+      "slot": 7,
+      "shown": false
+    },
+    {
+      "id": "deco_8",
+      "slot": 8,
+      "shown": true
+    },
+    {
+      "id": "deco_9",
+      "slot": 9,
+      "shown": false
+    },
+    {
+      "id": "deco_10",
+      "slot": 10,
+      "shown": true
+    },
+    {
+      "id": "deco_11",
+      "slot": 11,
+      "shown": false
+    },
+    {
+      "id": "deco_12",
+      "slot": 12,
+      "shown": true
+    },
+    {
+      "id": "deco_13",
+      "slot": 13,
+      "shown": false
+    },
+    {
+      "id": "deco_14",
+      "slot": 14,
+      "shown": true
+    },
+    {
+      "id": "deco_15",
+      "slot": 15,
+      "shown": false
+    },
+    {
+      "id": "deco_16",
+      "slot": 16,
+      "shown": true
+    },
+    {
+      "id": "deco_17",
+      "slot": 17,
+      "shown": false
+    },
+    {
+      "id": "deco_18",
+      "slot": 18,
+      "shown": true
+    },
+    {
+      "id": "deco_19",
+      "slot": 19,
+      "shown": false
+    },
+    {
+      "id": "deco_20",
+      "slot": 20,
+      "shown": true
+    },
+    {
+      "id": "deco_21",
+      "slot": 21,
+      "shown": false
+    },
+    {
+      "id": "deco_22",
+      "slot": 22,
+      "shown": true
+    },
+    {
+      "id": "deco_23",
+      "slot": 23,
+      "shown": false
+    },
+    {
+      "id": "deco_24",
+      "slot": 24,
+      "shown": true
+    },
+    {
+      "id": "deco_25",
+      "slot": 25,
+      "shown": false
+    },
+    {
+      "id": "deco_26",
+      "slot": 26,
+      "shown": true
+    },
+    {
+      "id": "deco_27",
+      "slot": 27,
+      "shown": false
+    },
+    {
+      "id": "deco_28",
+      "slot": 28,
+      "shown": true
+    },
+    {
+      "id": "deco_29",
+      "slot": 29,
+      "shown": false
+    },
+    {
+      "id": "deco_30",
+      "slot": 30,
+      "shown": true
+    },
+    {
+      "id": "deco_31",
+      "slot": 31,
+      "shown": false
+    },
+    {
+      "id": "deco_32",
+      "slot": 32,
+      "shown": true
+    },
+    {
+      "id": "deco_33",
+      "slot": 33,
+      "shown": false
+    },
+    {
+      "id": "deco_34",
+      "slot": 34,
+      "shown": true
+    },
+    {
+      "id": "deco_35",
+      "slot": 35,
+      "shown": false
+    },
+    {
+      "id": "deco_36",
+      "slot": 36,
+      "shown": true
+    },
+    {
+      "id": "deco_37",
+      "slot": 37,
+      "shown": false
+    },
+    {
+      "id": "deco_38",
+      "slot": 38,
+      "shown": true
+    },
+    {
+      "id": "deco_39",
+      "slot": 39,
+      "shown": false
+    },
+    {
+      "id": "deco_40",
+      "slot": 40,
+      "shown": true
+    },
+    {
+      "id": "deco_41",
+      "slot": 41,
+      "shown": false
+    },
+    {
+      "id": "deco_42",
+      "slot": 42,
+      "shown": true
+    },
+    {
+      "id": "deco_43",
+      "slot": 43,
+      "shown": false
+    },
+    {
+      "id": "deco_44",
+      "slot": 44,
+      "shown": true
+    },
+    {
+      "id": "deco_45",
+      "slot": 45,
+      "shown": false
+    },
+    {
+      "id": "deco_46",
+      "slot": 46,
+      "shown": true
+    },
+    {
+      "id": "deco_47",
+      "slot": 47,
+      "shown": false
+    },
+    {
+      "id": "deco_48",
+      "slot": 48,
+      "shown": true
+    },
+    {
+      "id": "deco_49",
+      "slot": 49,
+      "shown": false
+    },
+    {
+      "id": "deco_50",
+      "slot": 50,
+      "shown": true
+    },
+    {
+      "id": "deco_51",
+      "slot": 51,
+      "shown": false
+    },
+    {
+      "id": "deco_52",
+      "slot": 52,
+      "shown": true
+    },
+    {
+      "id": "deco_53",
+      "slot": 53,
+      "shown": false
+    },
+    {
+      "id": "deco_54",
+      "slot": 54,
+      "shown": true
+    },
+    {
+      "id": "deco_55",
+      "slot": 55,
+      "shown": false
+    },
+    {
+      "id": "deco_56",
+      "slot": 56,
+      "shown": true
+    },
+    {
+      "id": "deco_57",
+      "slot": 57,
+      "shown": false
+    },
+    {
+      "id": "deco_58",
+      "slot": 58,
+      "shown": true
+    },
+    {
+      "id": "deco_59",
+      "slot": 59,
+      "shown": false
+    },
+    {
+      "id": "deco_60",
+      "slot": 60,
+      "shown": true
+    },
+    {
+      "id": "deco_61",
+      "slot": 61,
+      "shown": false
+    },
+    {
+      "id": "deco_62",
+      "slot": 62,
+      "shown": true
+    },
+    {
+      "id": "deco_63",
+      "slot": 63,
+      "shown": false
+    },
+    {
+      "id": "deco_64",
+      "slot": 64,
+      "shown": true
+    }
+  ],
+  "milestones": [],
+  "stats": {
+    "lifetime_turns": 42,
+    "active_days": 5,
+    "streak_days": 3,
+    "tools_seen": [
+      "claude"
+    ]
+  },
+  "founders_stone": null,
+  "demo_capped": false
+}

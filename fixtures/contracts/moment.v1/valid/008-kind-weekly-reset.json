@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "kind": "weekly_reset",
+  "t": 1791806400000,
+  "provider": "claude"
+}

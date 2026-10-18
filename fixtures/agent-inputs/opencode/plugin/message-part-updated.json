@@ -1,0 +1,12 @@
+{
+  "type": "message.part.updated",
+  "properties": {
+    "part": {
+      "id": "bca1a700-0000-4000-8000-00000000008a",
+      "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+      "messageID": "bca1a700-0000-4000-8000-00000000008b",
+      "type": "text",
+      "text": "BHCANARY_opencode_text_1"
+    }
+  }
+}

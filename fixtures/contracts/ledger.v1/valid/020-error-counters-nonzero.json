@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "seed": 20261012,
+  "founded_day": "2026-10-07",
+  "hooks_first_connected_day": "2026-10-08",
+  "days": {
+    "2026-10-11": {
+      "claude": {
+        "turns": 12,
+        "interrupted_turns": 1,
+        "sessions": 2,
+        "working_seconds": 3600,
+        "needs_you": 2,
+        "errors": 4,
+        "recovered": 2,
+        "limit_hits": 3,
+        "subagent_turns": 0
+      }
+    }
+  },
+  "backfill": null
+}

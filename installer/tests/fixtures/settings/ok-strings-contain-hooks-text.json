@@ -1,0 +1,8 @@
+{
+  "note": "text \"hooks\": { inside a string }{ still a string",
+  "brackets": "[{ ]} [[ }} {{",
+  "quoted": "she said \"hi\" and left",
+  "escapedBackslash": "C:\\Users\\x",
+  "unicodeEscape": "\u00e9t\u00e9",
+  "hooksCopy": "\"hooks\": {\"Stop\": []}"
+}

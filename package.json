@@ -1,0 +1,28 @@
+{
+  "name": "busyholm",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Busyholm monorepo: TypeScript workspaces (contracts, world, ui).",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "workspaces": [
+    "contracts/ts",
+    "world",
+    "ui"
+  ],
+  "scripts": {
+    "test": "tsc -p contracts/ts && node --test \"contracts/ts/test/*.test.ts\" \"tools/privacy/test/*.test.mjs\"",
+    "privacy:check": "node tools/privacy/check.mjs",
+    "fixtures:generate": "node tools/fixtures/generate.mjs",
+    "typecheck": "tsc -p contracts/ts",
+    "lint:dashes": "python3 tools/verify/run.py dash",
+    "test:wp06": "node --test collector-wp06/plugin/test/"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}

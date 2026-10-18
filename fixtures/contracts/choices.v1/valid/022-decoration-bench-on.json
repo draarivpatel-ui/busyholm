@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1791460800000,
+      "day": "2026-10-08",
+      "kind": "decoration",
+      "decoration": "bench",
+      "on": true
+    }
+  ]
+}

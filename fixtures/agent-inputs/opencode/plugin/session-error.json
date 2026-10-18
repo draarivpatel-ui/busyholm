@@ -1,0 +1,12 @@
+{
+  "type": "session.error",
+  "properties": {
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "error": {
+      "name": "UnknownError",
+      "data": {
+        "message": "BHCANARY_opencode_message_1"
+      }
+    }
+  }
+}

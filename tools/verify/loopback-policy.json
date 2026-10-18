@@ -1,0 +1,10 @@
+{
+  "collector/src/receiver.rs": {
+    "sha256": "7291c6807626f33dcd37a6d80a3ed369149ca2e206790a4c7cb8ae532c754286",
+    "reason": "literal IPv4 localhost tiny_http receiver"
+  },
+  "shim/src/net.rs": {
+    "sha256": "ca25af568bfc3f206d2b66cf8bb9ab6abb6fdf822a6da1c4ada6871c4063de98",
+    "reason": "literal IPv4 localhost TCP client, bounded timeout"
+  }
+}

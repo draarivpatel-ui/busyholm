@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "seed": 20261012,
+  "founded_day": "2026-10-07",
+  "hooks_first_connected_day": "2026-10-08",
+  "days": {
+    "2026-10-08": {
+      "claude": {
+        "turns": 12,
+        "interrupted_turns": 1,
+        "sessions": 2,
+        "working_seconds": 3600,
+        "needs_you": 2,
+        "errors": 0,
+        "recovered": 0,
+        "limit_hits": 0,
+        "subagent_turns": 0
+      }
+    }
+  },
+  "backfill": {
+    "imported_at": 1789214400000,
+    "days": {
+      "2026-09-02": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-03": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-04": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-05": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-06": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-07": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-08": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-09": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-10": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-11": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-12": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-13": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-14": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-15": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-16": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-17": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-18": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-19": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-20": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-21": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-22": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-23": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-24": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-25": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-26": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-27": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-28": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-29": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-09-30": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-10-01": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      },
+      "2026-10-02": {
+        "claude": {
+          "turns": 12,
+          "interrupted_turns": 1,
+          "sessions": 2,
+          "working_seconds": 3600,
+          "needs_you": 2,
+          "errors": 0,
+          "recovered": 0,
+          "limit_hits": 0,
+          "subagent_turns": 0
+        }
+      }
+    }
+  }
+}

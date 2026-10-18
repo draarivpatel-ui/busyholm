@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "agent": "claude",
+  "instance": "2bc96fdf6398c8a01838dec3a2e1c9a7",
+  "parent": null,
+  "root_id": "6f1c0a2e-1b2c-4d3e-8f9a-0b1c2d3e4f5a",
+  "account_id": null,
+  "session_id": "2bc96fdf6398c8a01838dec3a2e1c9a7",
+  "turn_id": null,
+  "request_id": null,
+  "host": "cli",
+  "kind": "tool_end",
+  "source": "hook",
+  "confidence": "exact",
+  "t": 1791806400000,
+  "detail": {
+    "activity": "shell"
+  }
+}

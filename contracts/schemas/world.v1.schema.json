@@ -1,0 +1,513 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/world.v1.schema.json",
+  "title": "World v1",
+  "description": "The output of the pure function world = grow(seed, ledger, choices) (SPEC 4.5, WP-08), read by the renderer, the noticeboard, the popover and the replay. Never saved: it is always re-derived. This contract fixes the shape only; every cost, curve and threshold lives in WP-08's economy config. Season and time of day are not here: the renderer takes them from the clock and the usage limits. The keyword x-unique-by lists item keys that must be unique across an array (see contracts/CHANGES.md).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "seed",
+    "as_of_day",
+    "tier",
+    "resources",
+    "earned",
+    "structures",
+    "decorations",
+    "milestones",
+    "stats",
+    "founders_stone",
+    "demo_capped"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "as_of_day": {
+      "$ref": "#/$defs/day",
+      "description": "The last local day the ledger and choices were folded through."
+    },
+    "tier": {
+      "enum": [
+        "camp",
+        "hamlet",
+        "village"
+      ],
+      "description": "camp under 6 progression structures, hamlet at 6, village at all 12 (SPEC 4.5)."
+    },
+    "resources": {
+      "$ref": "#/$defs/resources",
+      "description": "Balances available to spend now."
+    },
+    "earned": {
+      "$ref": "#/$defs/resources",
+      "description": "Lifetime totals earned, including the founding crate and the capped backfill."
+    },
+    "structures": {
+      "type": "array",
+      "maxItems": 16,
+      "description": "In the effective build order. Structures not yet started are listed with status planned.",
+      "items": {
+        "$ref": "#/$defs/structure"
+      },
+      "x-unique-by": [
+        [
+          "id"
+        ]
+      ]
+    },
+    "decorations": {
+      "type": "array",
+      "maxItems": 64,
+      "description": "Owned decorations, each with its seeded slot; shown false means put away.",
+      "items": {
+        "$ref": "#/$defs/decoration"
+      },
+      "x-unique-by": [
+        [
+          "id"
+        ],
+        [
+          "slot"
+        ]
+      ]
+    },
+    "milestones": {
+      "type": "array",
+      "maxItems": 7,
+      "items": {
+        "$ref": "#/$defs/milestoneReached"
+      },
+      "x-unique-by": [
+        [
+          "id"
+        ]
+      ]
+    },
+    "stats": {
+      "$ref": "#/$defs/stats"
+    },
+    "founders_stone": {
+      "description": "Engraved historical counts from the backfill; null when there was no backfill.",
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/foundersStone"
+        }
+      ]
+    },
+    "demo_capped": {
+      "type": "boolean",
+      "description": "True when the Steam demo cap stopped building; counts keep accruing in the ledger."
+    }
+  },
+  "$defs": {
+    "day": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "description": "A local calendar day, YYYY-MM-DD."
+    },
+    "tool": {
+      "enum": [
+        "claude",
+        "codex",
+        "opencode",
+        "antigravity",
+        "gemini",
+        "cursor",
+        "aider",
+        "other"
+      ]
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000000,
+      "description": "Resources may be fractional (planks earn 0.5 each past turn 20)."
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "planks",
+        "stone",
+        "seeds"
+      ],
+      "properties": {
+        "planks": {
+          "$ref": "#/$defs/amount"
+        },
+        "stone": {
+          "$ref": "#/$defs/amount"
+        },
+        "seeds": {
+          "$ref": "#/$defs/amount"
+        }
+      }
+    },
+    "structureId": {
+      "enum": [
+        "campfire",
+        "tent",
+        "bell_post",
+        "noticeboard",
+        "workshop_1",
+        "well",
+        "cottage_1",
+        "garden_plots",
+        "crossing",
+        "watermill",
+        "workshop_2",
+        "cottage_2",
+        "bell_tower",
+        "bakery",
+        "market_hall",
+        "founders_stone"
+      ],
+      "description": "Structure slots (SPEC 4.5). The 12 progression structures are noticeboard through market_hall; campfire and tent are free on day 1; bell_post arrives with the hooks; founders_stone comes from the history backfill."
+    },
+    "structure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "status",
+        "stage",
+        "progress"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/structureId"
+        },
+        "variant": {
+          "enum": [
+            "claude",
+            "codex",
+            "opencode",
+            "antigravity",
+            "gemini",
+            "cursor",
+            "aider",
+            "other",
+            "guest_house",
+            "footbridge",
+            "jetty"
+          ],
+          "description": "workshop_1: the tool whose workshop it is (the renderer maps tool to species to workshop art, so species changes in settings never touch grow()). workshop_2: a tool or guest_house. crossing: footbridge or jetty. No other structure has a variant. Omitted while undecided."
+        },
+        "status": {
+          "enum": [
+            "planned",
+            "waiting",
+            "building",
+            "complete"
+          ],
+          "description": "planned: not started; waiting: affordable but held by an extra condition (skipped, not blocking); building: in progress; complete."
+        },
+        "stage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3,
+          "description": "Visible build stage; 3 exactly when complete."
+        },
+        "progress": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Fraction of the cost delivered; 1 exactly when complete."
+        },
+        "waiting_for": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "active_days"
+          ],
+          "properties": {
+            "active_days": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 3650,
+              "description": "Active days still needed."
+            }
+          },
+          "description": "Present exactly when status is waiting. The only extra condition is a number of active days; quick answers never gate anything (SPEC Revision 1, item 6)."
+        },
+        "completed_day": {
+          "$ref": "#/$defs/day",
+          "description": "Present exactly when status is complete."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "completed_day"
+            ],
+            "properties": {
+              "stage": {
+                "const": 3
+              },
+              "progress": {
+                "const": 1
+              }
+            }
+          },
+          "else": {
+            "not": {
+              "required": [
+                "completed_day"
+              ]
+            },
+            "properties": {
+              "stage": {
+                "maximum": 2
+              },
+              "progress": {
+                "exclusiveMaximum": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "waiting"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "waiting_for"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "waiting_for"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "id": {
+                "const": "workshop_1"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "variant": {
+                "enum": [
+                  "claude",
+                  "codex",
+                  "opencode",
+                  "antigravity",
+                  "gemini",
+                  "cursor",
+                  "aider",
+                  "other"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "id": {
+                "const": "workshop_2"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "variant": {
+                "enum": [
+                  "claude",
+                  "codex",
+                  "opencode",
+                  "antigravity",
+                  "gemini",
+                  "cursor",
+                  "aider",
+                  "other",
+                  "guest_house"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "id": {
+                "const": "crossing"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "variant": {
+                "enum": [
+                  "footbridge",
+                  "jetty"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "id": {
+                "not": {
+                  "enum": [
+                    "workshop_1",
+                    "workshop_2",
+                    "crossing"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "variant"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "decoration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "slot",
+        "shown"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{1,31}$",
+          "description": "Decoration id from the economy config (WP-08 owns the catalogue)."
+        },
+        "slot": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255,
+          "description": "Seeded decoration slot within the decoration zones."
+        },
+        "shown": {
+          "type": "boolean"
+        }
+      }
+    },
+    "milestoneReached": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "day"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "first_turn",
+            "first_answer",
+            "first_subagent",
+            "two_tools_day",
+            "turns_100",
+            "streak_7",
+            "turns_1000"
+          ]
+        },
+        "day": {
+          "$ref": "#/$defs/day"
+        }
+      }
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000000
+    },
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lifetime_turns",
+        "active_days",
+        "streak_days",
+        "tools_seen"
+      ],
+      "properties": {
+        "lifetime_turns": {
+          "$ref": "#/$defs/count"
+        },
+        "active_days": {
+          "$ref": "#/$defs/count"
+        },
+        "streak_days": {
+          "$ref": "#/$defs/count",
+          "description": "Current streak as of as_of_day (up to 2 rest days per calendar week do not break it)."
+        },
+        "tools_seen": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/tool"
+          }
+        }
+      }
+    },
+    "foundersStone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "days",
+        "turns",
+        "sessions",
+        "working_hours"
+      ],
+      "properties": {
+        "days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        },
+        "turns": {
+          "$ref": "#/$defs/count"
+        },
+        "sessions": {
+          "$ref": "#/$defs/count"
+        },
+        "working_hours": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000
+        }
+      }
+    }
+  }
+}

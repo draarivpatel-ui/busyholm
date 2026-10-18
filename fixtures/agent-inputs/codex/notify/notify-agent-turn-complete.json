@@ -1,0 +1,10 @@
+{
+  "type": "agent-turn-complete",
+  "thread-id": "bca1a700-0000-4000-8000-00000000007d",
+  "turn-id": "bca1a700-0000-4000-8000-00000000007e",
+  "cwd": "/Users/someone/code/BHCANARY_codex_cwd_19",
+  "input-messages": [
+    "BHCANARY_codex_input_messages_1"
+  ],
+  "last-assistant-message": "BHCANARY_codex_last_assistant_message_3"
+}

@@ -1,0 +1,13 @@
+{
+  "session_id": "bca1a700-0000-4000-8000-000000000001",
+  "prompt_id": "bca1a700-0000-4000-8000-00000000002f",
+  "transcript_path": "/Users/someone/.claude/projects/BHCANARY_claude_transcript_path_36/bca1a700-0000-4000-8000-000000000001.jsonl",
+  "cwd": "/Users/someone/code/BHCANARY_claude_cwd_36",
+  "permission_mode": "default",
+  "hook_event_name": "PreCompact",
+  "effort": {
+    "level": "high"
+  },
+  "trigger": "auto",
+  "custom_instructions": "BHCANARY_claude_custom_instructions_1"
+}

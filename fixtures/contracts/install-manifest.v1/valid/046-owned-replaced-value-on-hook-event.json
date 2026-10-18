@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "claude-hooks",
+      "tool": "claude",
+      "target": "claude_hooks",
+      "path": "/Users/alex/.claude/settings.json",
+      "action": "edit_span",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": true,
+        "sha256": "41d46e8ee17c3ea21256e5e144229363905fbd76e65034433835d4a95d973975",
+        "bytes": 2048
+      },
+      "after": {
+        "sha256": "46dbfb3c881d7028188a43021fe52e0e43f8f5b6f81f12b420a947cf1dcaad16",
+        "bytes": 2310
+      },
+      "owned": [
+        {
+          "event": "Stop",
+          "pointer": "/hooks/Stop/0",
+          "sha256": "f79a12f5eed6a97489a8780cd5507cfa76abacf5a7429487162f2999f251842a",
+          "replaced_sha256": "5f249d469918afa1dfd94bbb6896de841b8010e0a9c18ea858d05a089b74caa8"
+        }
+      ]
+    }
+  ]
+}

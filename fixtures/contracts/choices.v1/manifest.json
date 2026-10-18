@@ -1,0 +1,287 @@
+{
+  "contract": "choices",
+  "schema": "contracts/schemas/choices.v1.schema.json",
+  "valid": {
+    "001-empty-log.json": {
+      "note": "An empty log means the default build order and no decorations toggled."
+    },
+    "002-order-only-noticeboard.json": {
+      "note": "A build order that lists only noticeboard, the rest keeping their default order."
+    },
+    "003-order-only-workshop-1.json": {
+      "note": "A build order that lists only workshop_1, the rest keeping their default order."
+    },
+    "004-order-only-well.json": {
+      "note": "A build order that lists only well, the rest keeping their default order."
+    },
+    "005-order-only-cottage-1.json": {
+      "note": "A build order that lists only cottage_1, the rest keeping their default order."
+    },
+    "006-order-only-garden-plots.json": {
+      "note": "A build order that lists only garden_plots, the rest keeping their default order."
+    },
+    "007-order-only-crossing.json": {
+      "note": "A build order that lists only crossing, the rest keeping their default order."
+    },
+    "008-order-only-watermill.json": {
+      "note": "A build order that lists only watermill, the rest keeping their default order."
+    },
+    "009-order-only-workshop-2.json": {
+      "note": "A build order that lists only workshop_2, the rest keeping their default order."
+    },
+    "010-order-only-cottage-2.json": {
+      "note": "A build order that lists only cottage_2, the rest keeping their default order."
+    },
+    "011-order-only-bell-tower.json": {
+      "note": "A build order that lists only bell_tower, the rest keeping their default order."
+    },
+    "012-order-only-bakery.json": {
+      "note": "A build order that lists only bakery, the rest keeping their default order."
+    },
+    "013-order-only-market-hall.json": {
+      "note": "A build order that lists only market_hall, the rest keeping their default order."
+    },
+    "014-build-order-all-twelve.json": {
+      "note": "A build order that lists all 12 progression structures."
+    },
+    "015-build-order-reversed.json": {
+      "note": "All 12 progression structures in the reverse of the default order."
+    },
+    "016-build-order-eleven.json": {
+      "note": "A build order of 11 structures, with one left to its default place."
+    },
+    "017-build-order-two.json": {
+      "note": "A build order of two structures."
+    },
+    "018-order-partial-keeps-default.json": {
+      "note": "Three listed structures, with the rest keeping their default order after them."
+    },
+    "019-full-order-with-decoration.json": {
+      "note": "A complete build order followed by a decoration placed the same day."
+    },
+    "020-decoration-on.json": {
+      "note": "A decoration placed on the ground."
+    },
+    "021-decoration-put-away.json": {
+      "note": "A decoration put away."
+    },
+    "022-decoration-bench-on.json": {
+      "note": "A bench decoration placed four days before the reference day."
+    },
+    "023-decoration-tree-off.json": {
+      "note": "A tree decoration put away six days before the reference day."
+    },
+    "024-decoration-id-min-length.json": {
+      "note": "A two-character decoration id, the shortest legal."
+    },
+    "025-decoration-id-max-length.json": {
+      "note": "A 32-character decoration id, the longest legal."
+    },
+    "026-decoration-id-digits-underscores.json": {
+      "note": "A decoration id with a digit and an underscore."
+    },
+    "027-decoration-id-trailing-underscore.json": {
+      "note": "A decoration id ending in an underscore is still a valid slug."
+    },
+    "028-decoration-toggle-on-then-off.json": {
+      "note": "The same decoration placed and then put away."
+    },
+    "029-decoration-put-away-then-placed.json": {
+      "note": "A decoration placed, put away, then placed again."
+    },
+    "030-mixed-log.json": {
+      "note": "A build order, a decoration placed, a decoration put away and a second build order."
+    },
+    "031-order-and-decoration-same-day.json": {
+      "note": "A build order and a decoration made on the same day."
+    },
+    "032-two-build-orders.json": {
+      "note": "Two build orders in sequence, where the later one is the one in force."
+    },
+    "033-same-time-two-entries.json": {
+      "note": "Two entries with the same t and day, kept in log order."
+    },
+    "034-entry-time-at-min.json": {
+      "note": "A build order whose t is the legal minimum timestamp."
+    },
+    "035-entry-time-at-max.json": {
+      "note": "A decoration whose t is the legal maximum timestamp."
+    },
+    "036-day-year-boundaries.json": {
+      "note": "Entries made on 2026-01-01 and 2026-12-31."
+    },
+    "037-long-log-of-fifty.json": {
+      "note": "Fifty entries alternating decorations and build orders."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-root-string.json": {
+      "note": "The root must be an object, not a string.",
+      "path": ""
+    },
+    "004-missing-schema-version.json": {
+      "note": "schema_version is required.",
+      "path": ""
+    },
+    "005-missing-privacy.json": {
+      "note": "privacy is required.",
+      "path": ""
+    },
+    "006-missing-log.json": {
+      "note": "log is required, even when empty.",
+      "path": ""
+    },
+    "007-schema-version-2.json": {
+      "note": "schema_version must be the constant 1.",
+      "path": "/schema_version"
+    },
+    "008-root-extra-field.json": {
+      "note": "Unknown top-level fields are rejected.",
+      "path": ""
+    },
+    "009-privacy-contains-text-true.json": {
+      "note": "privacy.containsText must be false.",
+      "path": "/privacy/containsText"
+    },
+    "010-privacy-missing-contains-text.json": {
+      "note": "privacy.containsText is required.",
+      "path": "/privacy"
+    },
+    "011-privacy-extra-field.json": {
+      "note": "privacy is closed, so a project field is rejected.",
+      "path": "/privacy"
+    },
+    "012-log-not-array.json": {
+      "note": "log must be an array of entries.",
+      "path": "/log"
+    },
+    "013-entry-not-object.json": {
+      "note": "Each log entry must be an object.",
+      "path": "/log/0"
+    },
+    "014-entry-wrong-kind.json": {
+      "note": "kind must be build_order or decoration.",
+      "path": "/log/0/kind"
+    },
+    "015-entry-kind-missing.json": {
+      "note": "kind is required on every entry.",
+      "path": "/log/0"
+    },
+    "016-entry-missing-t.json": {
+      "note": "t is required on every entry.",
+      "path": "/log/0"
+    },
+    "017-entry-missing-day.json": {
+      "note": "day is required on every entry.",
+      "path": "/log/0"
+    },
+    "018-entry-t-in-seconds.json": {
+      "note": "t in seconds is below the millisecond range.",
+      "path": "/log/0/t"
+    },
+    "019-entry-t-fractional.json": {
+      "note": "t must be a whole number of milliseconds.",
+      "path": "/log/0/t"
+    },
+    "020-entry-t-string.json": {
+      "note": "t must be an integer, not an ISO string.",
+      "path": "/log/0/t"
+    },
+    "021-entry-day-unpadded.json": {
+      "note": "day must be YYYY-MM-DD, so 2026-1-5 is rejected.",
+      "path": "/log/0/day"
+    },
+    "022-entry-day-today.json": {
+      "note": "day must be a calendar date, not the word today.",
+      "path": "/log/0/day"
+    },
+    "023-entry-day-month-13.json": {
+      "note": "day with month 13 breaks the day pattern.",
+      "path": "/log/0/day"
+    },
+    "024-entry-extra-field.json": {
+      "note": "Entries are closed, so an extra note field is rejected.",
+      "path": "/log/0"
+    },
+    "025-build-order-with-decoration-fields.json": {
+      "note": "A build_order entry may not carry decoration fields.",
+      "path": "/log/0"
+    },
+    "026-decoration-with-order.json": {
+      "note": "A decoration entry may not carry an order.",
+      "path": "/log/1"
+    },
+    "027-order-with-duplicates.json": {
+      "note": "The order must not repeat a structure.",
+      "path": "/log/0/order"
+    },
+    "028-order-with-campfire.json": {
+      "note": "campfire is not a progression structure, so it cannot be ordered.",
+      "path": "/log/0/order/1"
+    },
+    "029-order-with-founders-stone.json": {
+      "note": "founders_stone comes from the backfill and cannot be ordered.",
+      "path": "/log/0/order/0"
+    },
+    "030-order-of-thirteen.json": {
+      "note": "An order of 13 exceeds the 12 maximum; the repeated entry also breaks uniqueness at the same path, because only 12 distinct structures exist.",
+      "path": "/log/0/order"
+    },
+    "031-order-empty.json": {
+      "note": "An order needs at least one structure.",
+      "path": "/log/0/order"
+    },
+    "032-order-item-number.json": {
+      "note": "Order items are structure ids, not numbers.",
+      "path": "/log/0/order/0"
+    },
+    "033-order-not-array.json": {
+      "note": "order must be an array.",
+      "path": "/log/0/order"
+    },
+    "034-decoration-uppercase.json": {
+      "note": "Decoration ids are lowercase slugs.",
+      "path": "/log/1/decoration"
+    },
+    "035-decoration-too-short.json": {
+      "note": "A decoration id needs at least two characters.",
+      "path": "/log/1/decoration"
+    },
+    "036-decoration-leading-digit.json": {
+      "note": "A decoration id must start with a letter.",
+      "path": "/log/1/decoration"
+    },
+    "037-decoration-too-long.json": {
+      "note": "A decoration id may be at most 32 characters.",
+      "path": "/log/1/decoration"
+    },
+    "038-decoration-hyphen.json": {
+      "note": "Decoration ids use underscores, not hyphens.",
+      "path": "/log/1/decoration"
+    },
+    "039-decoration-on-not-boolean.json": {
+      "note": "on must be a boolean.",
+      "path": "/log/1/on"
+    },
+    "040-decoration-missing-on.json": {
+      "note": "A decoration entry needs on.",
+      "path": "/log/1"
+    },
+    "041-decoration-missing-id.json": {
+      "note": "A decoration entry needs its decoration id.",
+      "path": "/log/1"
+    },
+    "042-second-entry-t-in-seconds.json": {
+      "note": "An error in the second entry is reported at its own index.",
+      "path": "/log/1/t"
+    }
+  }
+}

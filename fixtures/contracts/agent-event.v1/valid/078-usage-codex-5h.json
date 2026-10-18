@@ -1,0 +1,23 @@
+{
+  "v": 1,
+  "agent": "codex",
+  "instance": "2bc96fdf6398c8a01838dec3a2e1c9a7",
+  "parent": null,
+  "root_id": "1cef6db41044f552cd6c91d2060b7477",
+  "account_id": null,
+  "session_id": "2bc96fdf6398c8a01838dec3a2e1c9a7",
+  "turn_id": null,
+  "request_id": null,
+  "host": "cli",
+  "kind": "usage_sample",
+  "source": "hook",
+  "confidence": "exact",
+  "t": 1791806400000,
+  "usage": {
+    "provider": "codex",
+    "window": "5h",
+    "used_pct": 42.5,
+    "resets_at": 1791813600000,
+    "observed_at": 1791806340000
+  }
+}

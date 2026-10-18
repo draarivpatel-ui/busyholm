@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "t": 1791806400000,
+  "demo": false,
+  "agents": [
+    {
+      "id": "e57dba886b1ea265f5dc0d5e42642641",
+      "tool": "claude",
+      "host": "cli",
+      "ordinal": 1,
+      "parent": null,
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "session_id": "9bba8798fac4cb0ddf1648c68bd3afb2",
+      "turn_id": "b601e355567c25eb5cbb699b1b117ba2",
+      "request_id": null,
+      "state": "working",
+      "confidence": "exact",
+      "since": 1791806280000,
+      "started_at": 1791802800000,
+      "activity": "shell"
+    }
+  ],
+  "tools": [
+    {
+      "tool": "claude",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    }
+  ],
+  "limits": [
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "2f7339c66415277e5b58670b67b979a9",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    }
+  ],
+  "attention": {
+    "needs_you": 0,
+    "oldest_since": null
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "kind": "milestone",
+  "t": 1791806400000,
+  "milestone": "first_turn",
+  "agent": "ad3226769d04da2686514cea325f41fc",
+  "tool": "claude"
+}

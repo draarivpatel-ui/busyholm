@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "opencode-plugin",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm.js",
+      "action": "edit_span",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": true,
+        "sha256": "dc149370c6fdaea8f94eb8a2864674c4b6c9b57715f249d6dfd4ac8ab395cdd2",
+        "bytes": 2048
+      },
+      "after": {
+        "sha256": "419e22797b01f31568f2c9b9e68c4d4bd2182f1b3f276cf193bd38a2bcddd1fd",
+        "bytes": 2310
+      }
+    }
+  ]
+}

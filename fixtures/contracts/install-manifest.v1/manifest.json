@@ -1,0 +1,418 @@
+{
+  "contract": "installManifest",
+  "schema": "contracts/schemas/install-manifest.v1.schema.json",
+  "valid": {
+    "001-empty-manifest.json": {
+      "note": "No owner_tag and no entries: the state before anything was installed."
+    },
+    "002-claude-hooks-edit-span.json": {
+      "note": "Claude hooks inserted into settings.json by an edit_span with a backup."
+    },
+    "003-claude-hooks-create-file.json": {
+      "note": "Claude hooks written to a settings file the installer created."
+    },
+    "004-claude-statusline-edit-span.json": {
+      "note": "The Claude status line wrap, a separate consent edited into the same settings.json."
+    },
+    "005-codex-hooks-edit-span-pending.json": {
+      "note": "Codex hooks edited into an existing file and waiting for review in /hooks."
+    },
+    "006-codex-hooks-edit-span-installed.json": {
+      "note": "Codex hooks edited into an existing file and already trusted."
+    },
+    "007-codex-hooks-create-file-pending.json": {
+      "note": "Codex hooks in a file the installer created, waiting for review."
+    },
+    "008-codex-hooks-create-file-installed.json": {
+      "note": "Codex hooks in a file the installer created, already trusted."
+    },
+    "009-opencode-plugin-create-file.json": {
+      "note": "The OpenCode plugin file created by the installer."
+    },
+    "010-gemini-hooks-edit-span.json": {
+      "note": "Gemini hooks inserted into an existing settings file."
+    },
+    "011-gemini-hooks-create-file.json": {
+      "note": "Gemini hooks in a settings file the installer created."
+    },
+    "012-cursor-hooks-edit-span.json": {
+      "note": "Cursor hooks inserted into an existing hooks file."
+    },
+    "013-cursor-hooks-create-file.json": {
+      "note": "Cursor hooks in a hooks file the installer created."
+    },
+    "014-shim-binary-create-file.json": {
+      "note": "The shared shim binary, which has no tool and no owned list."
+    },
+    "015-shim-binary-windows-path.json": {
+      "note": "The shim binary at a Windows drive path, with no tool."
+    },
+    "016-windows-drive-claude-hooks.json": {
+      "note": "Claude hooks in settings.json at a Windows drive path."
+    },
+    "017-windows-drive-opencode-plugin.json": {
+      "note": "The OpenCode plugin file at a Windows drive path."
+    },
+    "018-app-version-1-2-3-beta-1.json": {
+      "note": "A pre-release app version."
+    },
+    "019-app-version-two-digit-parts.json": {
+      "note": "A version with two-digit parts."
+    },
+    "020-app-version-rc-prerelease.json": {
+      "note": "A release-candidate version."
+    },
+    "021-before-bytes-zero.json": {
+      "note": "An existing file that was empty before the install."
+    },
+    "022-before-bytes-max.json": {
+      "note": "An existing file at the 256 MiB size limit."
+    },
+    "023-after-bytes-zero.json": {
+      "note": "A file whose size after the install is 0 bytes."
+    },
+    "024-after-bytes-max.json": {
+      "note": "A file at the 256 MiB size limit after the install."
+    },
+    "025-installed-at-minimum.json": {
+      "note": "installed_at at the legal minimum (2000-01-01)."
+    },
+    "026-installed-at-maximum.json": {
+      "note": "installed_at at the legal maximum (2100-01-01)."
+    },
+    "027-owned-64-items.json": {
+      "note": "An entry with the maximum of 64 owned items."
+    },
+    "028-sixty-four-entries.json": {
+      "note": "The maximum of 64 entries."
+    },
+    "029-claude-hooks-and-statusline-same-file.json": {
+      "note": "Two separate consents edit the same settings.json and both are listed."
+    },
+    "030-mixed-realistic-manifest.json": {
+      "note": "A realistic set: Claude hooks, Codex pending review, the OpenCode plugin and the shim."
+    },
+    "031-id-min-length.json": {
+      "note": "An entry id of the minimum two characters."
+    },
+    "032-id-max-length.json": {
+      "note": "An entry id of the maximum 48 characters."
+    },
+    "033-path-1024-chars.json": {
+      "note": "An absolute path of exactly 1024 characters."
+    },
+    "034-path-non-ascii-spaces.json": {
+      "note": "A POSIX path with spaces and non-ASCII letters in the user folder."
+    },
+    "035-owned-pointer-root-slash.json": {
+      "note": "An owned pointer of just a slash, which is valid RFC 6901 syntax."
+    },
+    "036-owned-pointer-escaped-segment.json": {
+      "note": "An owned pointer with an escaped slash segment (~1)."
+    },
+    "037-owned-pointer-256-chars.json": {
+      "note": "An owned pointer of exactly 256 characters."
+    },
+    "038-owner-tag-16-chars-alt.json": {
+      "note": "An owner_tag of exactly 16 lowercase characters, the shortest legal length."
+    },
+    "039-owner-tag-digits-only.json": {
+      "note": "An owner_tag made only of digits, which the pattern allows."
+    },
+    "040-owner-tag-32-chars.json": {
+      "note": "An owner_tag of exactly 32 characters, the longest legal length."
+    },
+    "041-owned-statusline-wrap-replaced-sha256.json": {
+      "note": "The statusLine wrap: an owned item with a null event that replaced an existing value."
+    },
+    "042-codex-hooks-create-file-two-owned.json": {
+      "note": "Codex hooks in a created file with two owned items for two different events."
+    },
+    "043-owned-two-items-claude-hooks.json": {
+      "note": "Claude hooks with two owned items in one entry, one per hook event."
+    },
+    "044-owned-event-max-length.json": {
+      "note": "An owned event of the maximum 64 characters."
+    },
+    "045-owned-event-with-dot.json": {
+      "note": "An owned event name containing a dot, which the pattern allows."
+    },
+    "046-owned-replaced-value-on-hook-event.json": {
+      "note": "An owned hook item that also replaced an earlier value, so replaced_sha256 is set on a named event."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-leftover-receiver-field.json": {
+      "note": "The receiver field was removed in r1, so a leftover receiver is an unknown root field.",
+      "path": ""
+    },
+    "004-missing-app-version.json": {
+      "note": "app_version is required.",
+      "path": ""
+    },
+    "005-missing-entries.json": {
+      "note": "entries is required (an empty array when nothing is installed).",
+      "path": ""
+    },
+    "006-missing-owner-tag.json": {
+      "note": "owner_tag is required, and null is allowed only with an empty entries array.",
+      "path": ""
+    },
+    "007-unknown-root-field.json": {
+      "note": "An unknown top-level field is rejected.",
+      "path": ""
+    },
+    "008-schema-version-2.json": {
+      "note": "schema_version must be 1 for this contract.",
+      "path": "/schema_version"
+    },
+    "009-owner-tag-null-with-entries.json": {
+      "note": "owner_tag may be null only while entries is empty.",
+      "path": "/owner_tag"
+    },
+    "010-owner-tag-uppercase.json": {
+      "note": "owner_tag must be lowercase letters and digits.",
+      "path": "/owner_tag"
+    },
+    "011-owner-tag-15-chars.json": {
+      "note": "owner_tag of 15 characters is below the minimum of 16.",
+      "path": "/owner_tag"
+    },
+    "012-owner-tag-33-chars.json": {
+      "note": "owner_tag of 33 characters is above the maximum of 32.",
+      "path": "/owner_tag"
+    },
+    "013-owner-tag-with-dash.json": {
+      "note": "owner_tag may not contain a dash.",
+      "path": "/owner_tag"
+    },
+    "014-app-version-v-prefix.json": {
+      "note": "app_version has no leading v.",
+      "path": "/app_version"
+    },
+    "015-app-version-two-parts.json": {
+      "note": "app_version needs three numeric parts.",
+      "path": "/app_version"
+    },
+    "016-app-version-over-32-chars.json": {
+      "note": "app_version over 32 characters is rejected.",
+      "path": "/app_version"
+    },
+    "017-entry-id-uppercase.json": {
+      "note": "An entry id must be lowercase.",
+      "path": "/entries/0/id"
+    },
+    "018-entry-id-leading-digit.json": {
+      "note": "An entry id must start with a letter.",
+      "path": "/entries/0/id"
+    },
+    "019-entry-id-one-char.json": {
+      "note": "An entry id needs at least two characters.",
+      "path": "/entries/0/id"
+    },
+    "020-entry-id-49-chars.json": {
+      "note": "An entry id over 48 characters is rejected.",
+      "path": "/entries/0/id"
+    },
+    "021-unknown-target.json": {
+      "note": "target must be one of the defined targets.",
+      "path": "/entries/0/target"
+    },
+    "022-tool-other.json": {
+      "note": "The tool other is not allowed in this contract.",
+      "path": "/entries/0/tool"
+    },
+    "023-tool-unknown-name.json": {
+      "note": "The tool copilot is not a known agent.",
+      "path": "/entries/0/tool"
+    },
+    "024-claude-hooks-with-codex.json": {
+      "note": "claude_hooks must serve the claude tool.",
+      "path": "/entries/0/tool"
+    },
+    "025-shim-binary-with-tool.json": {
+      "note": "shim_binary must have a null tool because several agents share it.",
+      "path": "/entries/0/tool"
+    },
+    "026-non-shim-null-tool.json": {
+      "note": "A non-shim target must name its tool, not null.",
+      "path": "/entries/0/tool"
+    },
+    "027-opencode-plugin-edit-span.json": {
+      "note": "opencode_plugin must be create_file, not edit_span.",
+      "path": "/entries/0/action"
+    },
+    "028-shim-binary-edit-span.json": {
+      "note": "shim_binary must be create_file, not edit_span.",
+      "path": "/entries/0/action"
+    },
+    "029-claude-hooks-without-owned.json": {
+      "note": "A claude_hooks entry must list its owned items, and this one does not.",
+      "path": "/entries/0"
+    },
+    "030-codex-hooks-create-file-without-owned.json": {
+      "note": "A codex_hooks entry must list its owned items even when the file was created.",
+      "path": "/entries/0"
+    },
+    "031-opencode-plugin-with-owned.json": {
+      "note": "opencode_plugin is a whole file Busyholm owns, so it may not carry owned.",
+      "path": "/entries/0"
+    },
+    "032-shim-binary-with-owned.json": {
+      "note": "shim_binary is a whole file Busyholm owns, so it may not carry owned.",
+      "path": "/entries/0"
+    },
+    "033-owned-empty-array.json": {
+      "note": "An owned list may not be empty, since a config entry always lists at least one item.",
+      "path": "/entries/0/owned"
+    },
+    "034-owned-missing-replaced-sha256.json": {
+      "note": "An owned item must always carry replaced_sha256, null or a hash.",
+      "path": "/entries/0/owned/0"
+    },
+    "035-owned-item-unknown-key.json": {
+      "note": "An owned item is a closed object, so a note key is rejected.",
+      "path": "/entries/0/owned/0"
+    },
+    "036-owned-event-with-space.json": {
+      "note": "An owned event must match the identifier pattern, so a space is rejected.",
+      "path": "/entries/0/owned/0/event"
+    },
+    "037-leftover-edits-field.json": {
+      "note": "The edits field was replaced by owned in r1, so a leftover edits key is an unknown entry field.",
+      "path": "/entries/0"
+    },
+    "038-owned-over-64.json": {
+      "note": "An owned list may hold at most 64 items.",
+      "path": "/entries/0/owned"
+    },
+    "039-owned-pointer-no-leading-slash.json": {
+      "note": "An owned pointer must start with a slash.",
+      "path": "/entries/0/owned/0/pointer"
+    },
+    "040-owned-pointer-257-chars.json": {
+      "note": "An owned pointer over 256 characters is rejected.",
+      "path": "/entries/0/owned/0/pointer"
+    },
+    "041-owned-sha256-uppercase.json": {
+      "note": "An owned sha256 must be lowercase hex.",
+      "path": "/entries/0/owned/0/sha256"
+    },
+    "042-create-file-before-existed-true.json": {
+      "note": "A create_file needs before.existed false.",
+      "path": "/entries/0/before"
+    },
+    "043-edit-span-before-existed-false.json": {
+      "note": "An edit_span needs before.existed true.",
+      "path": "/entries/0/before"
+    },
+    "044-before-existed-true-sha256-null.json": {
+      "note": "A file that existed needs its sha256.",
+      "path": "/entries/0/before/sha256"
+    },
+    "045-before-existed-false-sha256-set.json": {
+      "note": "A file that did not exist has a null sha256.",
+      "path": "/entries/0/before/sha256"
+    },
+    "046-before-existed-false-bytes-set.json": {
+      "note": "A file that did not exist has null bytes.",
+      "path": "/entries/0/before/bytes"
+    },
+    "047-pending-review-on-claude.json": {
+      "note": "pending_review is only for Codex hooks.",
+      "path": "/entries/0/state"
+    },
+    "048-codex-state-failed.json": {
+      "note": "The state must be installed or pending_review.",
+      "path": "/entries/0/state"
+    },
+    "049-path-relative.json": {
+      "note": "A path must be absolute, so a relative path is rejected.",
+      "path": "/entries/0/path"
+    },
+    "050-path-unc.json": {
+      "note": "UNC paths are rejected on purpose.",
+      "path": "/entries/0/path"
+    },
+    "051-path-control-char.json": {
+      "note": "A path may not contain a control character.",
+      "path": "/entries/0/path"
+    },
+    "052-path-over-1024-chars.json": {
+      "note": "A path over 1024 characters is rejected.",
+      "path": "/entries/0/path"
+    },
+    "053-path-drive-forward-slash.json": {
+      "note": "A Windows drive path must use a backslash after the drive letter.",
+      "path": "/entries/0/path"
+    },
+    "054-after-sha256-uppercase.json": {
+      "note": "A sha256 must be lowercase hex.",
+      "path": "/entries/0/after/sha256"
+    },
+    "055-after-sha256-63-chars.json": {
+      "note": "A sha256 must be exactly 64 characters.",
+      "path": "/entries/0/after/sha256"
+    },
+    "056-before-sha256-63-chars.json": {
+      "note": "A before sha256 must be exactly 64 characters.",
+      "path": "/entries/0/before/sha256"
+    },
+    "057-after-missing.json": {
+      "note": "after is required.",
+      "path": "/entries/0"
+    },
+    "058-after-bytes-negative.json": {
+      "note": "A size in bytes may not be negative.",
+      "path": "/entries/0/after/bytes"
+    },
+    "059-installed-at-seconds.json": {
+      "note": "installed_at in seconds is below the millisecond range.",
+      "path": "/entries/0/installed_at"
+    },
+    "060-installed-at-above-max.json": {
+      "note": "installed_at above 2100-01-01 is rejected.",
+      "path": "/entries/0/installed_at"
+    },
+    "061-installed-at-iso-string.json": {
+      "note": "installed_at must be an integer, not an ISO string.",
+      "path": "/entries/0/installed_at"
+    },
+    "062-entries-65.json": {
+      "note": "At most 64 entries.",
+      "path": "/entries"
+    },
+    "063-duplicate-entry-id.json": {
+      "note": "Entry ids are unique across the array.",
+      "path": "/entries/1"
+    },
+    "064-duplicate-target-path.json": {
+      "note": "The same target and path may not appear twice.",
+      "path": "/entries/1"
+    },
+    "065-entry-unknown-field.json": {
+      "note": "An unknown field in an entry (a note) is rejected.",
+      "path": "/entries/0"
+    },
+    "066-entry-missing-before.json": {
+      "note": "before is required.",
+      "path": "/entries/0"
+    },
+    "067-entry-state-pending.json": {
+      "note": "The state must be installed or pending_review, so the value pending is rejected.",
+      "path": "/entries/0/state"
+    },
+    "068-entry-action-delete.json": {
+      "note": "The action must be edit_span or create_file.",
+      "path": "/entries/0/action"
+    }
+  }
+}

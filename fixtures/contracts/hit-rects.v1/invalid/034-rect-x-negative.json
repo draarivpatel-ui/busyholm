@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "t": 1791806400000,
+  "surface": "strip",
+  "viewport": {
+    "w": 1280,
+    "h": 160
+  },
+  "scale": 2,
+  "rects": [
+    {
+      "x": -1,
+      "y": 40,
+      "w": 96,
+      "h": 96,
+      "kind": "card",
+      "agent": "e97d85195bb0101b27edee45411590b1"
+    }
+  ]
+}

@@ -1,0 +1,667 @@
+[
+  {
+    "path": "claude/hooks/session-start-startup.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude SessionStart hook body, source startup."
+  },
+  {
+    "path": "claude/hooks/session-start-resume.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude SessionStart hook body, source resume."
+  },
+  {
+    "path": "claude/hooks/session-end-clear.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude SessionEnd hook body, reason clear."
+  },
+  {
+    "path": "claude/hooks/session-end-logout.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude SessionEnd hook body, reason logout."
+  },
+  {
+    "path": "claude/hooks/session-end-prompt-input-exit.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude SessionEnd hook body, reason prompt_input_exit."
+  },
+  {
+    "path": "claude/hooks/session-end-other.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude SessionEnd hook body, reason other."
+  },
+  {
+    "path": "claude/hooks/user-prompt-submit.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude UserPromptSubmit hook body carrying the prompt text."
+  },
+  {
+    "path": "claude/hooks/pre-tool-use-bash.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PreToolUse for Bash with a command in tool_input."
+  },
+  {
+    "path": "claude/hooks/pre-tool-use-edit.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PreToolUse for Edit with file_path and edit strings in tool_input."
+  },
+  {
+    "path": "claude/hooks/pre-tool-use-ask-user-question.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PreToolUse for AskUserQuestion, the needs-an-answer signal."
+  },
+  {
+    "path": "claude/hooks/post-tool-use-bash.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PostToolUse for Bash with tool_response output."
+  },
+  {
+    "path": "claude/hooks/post-tool-use-edit.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PostToolUse for Edit with the changed file path and strings."
+  },
+  {
+    "path": "claude/hooks/post-tool-use-webfetch.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PostToolUse for WebFetch with the fetched result text."
+  },
+  {
+    "path": "claude/hooks/post-tool-use-task.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PostToolUse for the Task (subagent launch) tool."
+  },
+  {
+    "path": "claude/hooks/post-tool-use-failure.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PostToolUseFailure with an error string."
+  },
+  {
+    "path": "claude/hooks/permission-request-bash.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PermissionRequest for Bash with permission_suggestions."
+  },
+  {
+    "path": "claude/hooks/permission-request-edit.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PermissionRequest for Edit with permission_suggestions."
+  },
+  {
+    "path": "claude/hooks/permission-denied.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PermissionDenied with the tool input and a reason."
+  },
+  {
+    "path": "claude/hooks/notification-permission-prompt.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Notification hook body, notification_type permission_prompt, with message and title text."
+  },
+  {
+    "path": "claude/hooks/notification-elicitation-dialog.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Notification hook body, notification_type elicitation_dialog, with message and title text."
+  },
+  {
+    "path": "claude/hooks/notification-elicitation-url-dialog.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Notification hook body, notification_type elicitation_url_dialog, with message and title text."
+  },
+  {
+    "path": "claude/hooks/notification-agent-needs-input.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Notification hook body, notification_type agent_needs_input, with message and title text."
+  },
+  {
+    "path": "claude/hooks/notification-elicitation-response.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Notification hook body, notification_type elicitation_response, with message and title text."
+  },
+  {
+    "path": "claude/hooks/notification-elicitation-complete.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Notification hook body, notification_type elicitation_complete, with message and title text."
+  },
+  {
+    "path": "claude/hooks/notification-idle-prompt.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Notification hook body, notification_type idle_prompt, with message and title text."
+  },
+  {
+    "path": "claude/hooks/notification-quota-auto-resume-fired.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Notification hook body, notification_type quota_auto_resume_fired, with message and title text."
+  },
+  {
+    "path": "claude/hooks/stop.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude Stop hook body with last_assistant_message."
+  },
+  {
+    "path": "claude/hooks/stop-failure-rate-limit.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude StopFailure hook body, error rate_limit."
+  },
+  {
+    "path": "claude/hooks/stop-failure-overloaded.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude StopFailure hook body, error overloaded."
+  },
+  {
+    "path": "claude/hooks/stop-failure-server-error.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude StopFailure hook body, error server_error."
+  },
+  {
+    "path": "claude/hooks/stop-failure-authentication-failed.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude StopFailure hook body, error authentication_failed."
+  },
+  {
+    "path": "claude/hooks/subagent-start.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude SubagentStart: agent_id is the child, session_id is the parent session."
+  },
+  {
+    "path": "claude/hooks/subagent-stop.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude SubagentStop with the child transcript path and its last message."
+  },
+  {
+    "path": "claude/hooks/post-tool-use-in-subagent.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PostToolUse fired inside a subagent: agent_id and agent_type are set, so it is a child."
+  },
+  {
+    "path": "claude/hooks/pre-compact.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PreCompact with custom instructions text."
+  },
+  {
+    "path": "claude/hooks/post-compact.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude PostCompact with the compaction summary text."
+  },
+  {
+    "path": "claude/hooks/task-created.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude TaskCreated with a task field and subject text."
+  },
+  {
+    "path": "claude/hooks/task-completed.json",
+    "agent": "claude",
+    "source": "hooks",
+    "format": "json",
+    "about": "Claude TaskCompleted with a task field and subject text."
+  },
+  {
+    "path": "claude/statusline/statusline-both-windows.json",
+    "agent": "claude",
+    "source": "statusline",
+    "format": "json",
+    "about": "Claude status line stdin JSON with five_hour and seven_day rate_limits."
+  },
+  {
+    "path": "claude/statusline/statusline-five-hour-only.json",
+    "agent": "claude",
+    "source": "statusline",
+    "format": "json",
+    "about": "Claude status line stdin JSON with only the five_hour window present."
+  },
+  {
+    "path": "claude/statusline/statusline-no-rate-limits.json",
+    "agent": "claude",
+    "source": "statusline",
+    "format": "json",
+    "about": "Claude status line stdin JSON with no rate_limits key (before the first API response)."
+  },
+  {
+    "path": "claude/registry/registry-busy.json",
+    "agent": "claude",
+    "source": "registry",
+    "format": "json",
+    "about": "Claude sessions/<pid>.json for a busy terminal session."
+  },
+  {
+    "path": "claude/registry/registry-idle.json",
+    "agent": "claude",
+    "source": "registry",
+    "format": "json",
+    "about": "Claude sessions/<pid>.json for an idle terminal session."
+  },
+  {
+    "path": "claude/registry/registry-waiting.json",
+    "agent": "claude",
+    "source": "registry",
+    "format": "json",
+    "about": "Claude sessions/<pid>.json with status waiting (a Binary-only value, waitingFor is Unverified)."
+  },
+  {
+    "path": "claude/registry/registry-desktop.json",
+    "agent": "claude",
+    "source": "registry",
+    "format": "json",
+    "about": "Claude sessions/<pid>.json for a Desktop-hosted idle session with host ids."
+  },
+  {
+    "path": "claude/transcript/transcript-main.jsonl",
+    "agent": "claude",
+    "source": "transcript",
+    "format": "jsonl",
+    "about": "Claude transcript: human prompt, tool_use, tool_result with toolUseResult, end_turn, titles, summary and cost-state."
+  },
+  {
+    "path": "claude/transcript/transcript-api-errors.jsonl",
+    "agent": "claude",
+    "source": "transcript",
+    "format": "jsonl",
+    "about": "Claude transcript: system api_error records (early retry and retries exhausted) and a synthetic isApiErrorMessage assistant record."
+  },
+  {
+    "path": "claude/transcript/transcript-quota-limit.jsonl",
+    "agent": "claude",
+    "source": "transcript",
+    "format": "jsonl",
+    "about": "Claude transcript: an assistant record with quotaLimits status rejected for the five_hour window."
+  },
+  {
+    "path": "claude/transcript/transcript-u2028.jsonl",
+    "agent": "claude",
+    "source": "transcript",
+    "format": "jsonl",
+    "about": "Claude transcript whose first line holds a raw U+2028 inside a JSON string: split on byte 0x0A only."
+  },
+  {
+    "path": "claude/transcript/transcript-truncated-tail.jsonl",
+    "agent": "claude",
+    "source": "transcript",
+    "format": "jsonl",
+    "about": "Claude transcript whose last line is cut mid-record with no trailing newline (a partial write)."
+  },
+  {
+    "path": "codex/hooks/session-start.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex SessionStart hook body."
+  },
+  {
+    "path": "codex/hooks/session-end.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex SessionEnd hook body."
+  },
+  {
+    "path": "codex/hooks/user-prompt-submit.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex UserPromptSubmit hook body carrying the prompt."
+  },
+  {
+    "path": "codex/hooks/pre-tool-use.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex PreToolUse for a shell command."
+  },
+  {
+    "path": "codex/hooks/permission-request.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex PermissionRequest with tool_input."
+  },
+  {
+    "path": "codex/hooks/post-tool-use.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex PostToolUse for apply_patch with tool_response."
+  },
+  {
+    "path": "codex/hooks/pre-compact.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex PreCompact hook body."
+  },
+  {
+    "path": "codex/hooks/post-compact.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex PostCompact hook body."
+  },
+  {
+    "path": "codex/hooks/subagent-start.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex SubagentStart (field names for the child are a guess): agent_id is the child, session_id the parent."
+  },
+  {
+    "path": "codex/hooks/subagent-stop.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex SubagentStop (field names for the child are a guess) with the child's last message."
+  },
+  {
+    "path": "codex/hooks/stop.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex Stop hook body with last_assistant_message."
+  },
+  {
+    "path": "codex/hooks/interrupt.json",
+    "agent": "codex",
+    "source": "hooks",
+    "format": "json",
+    "about": "Codex Interrupt hook body (the user pressed Esc)."
+  },
+  {
+    "path": "codex/rollout/rollout-complete-turn.jsonl",
+    "agent": "codex",
+    "source": "rollout",
+    "format": "jsonl",
+    "about": "Codex rollout: a full turn with every item type, a null-primary token_count followed by a good one, and task_complete."
+  },
+  {
+    "path": "codex/rollout/rollout-aborted-turn.jsonl",
+    "agent": "codex",
+    "source": "rollout",
+    "format": "jsonl",
+    "about": "Codex rollout: a failed CommandExecution, turn_aborted (interrupted), and an unknown envelope type for drift testing."
+  },
+  {
+    "path": "codex/notify/notify-agent-turn-complete.json",
+    "agent": "codex",
+    "source": "notify",
+    "format": "json",
+    "about": "The JSON argument Codex passes to a notify program. Busyholm never installs notify; this documents the fields to drop."
+  },
+  {
+    "path": "opencode/plugin/session-created.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode session.created event with a session info object."
+  },
+  {
+    "path": "opencode/plugin/session-created-subagent.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode session.created for a subagent session: info.parentID links to the main session id."
+  },
+  {
+    "path": "opencode/plugin/session-status-busy.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode session.status event, status busy."
+  },
+  {
+    "path": "opencode/plugin/session-idle.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode session.idle event."
+  },
+  {
+    "path": "opencode/plugin/session-error.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode session.error event with an error message."
+  },
+  {
+    "path": "opencode/plugin/session-updated.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode session.updated event with the session title (info.title and a session_title field)."
+  },
+  {
+    "path": "opencode/plugin/tool-execute-before.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode tool.execute.before with the tool args."
+  },
+  {
+    "path": "opencode/plugin/tool-execute-after.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode tool.execute.after with args and the tool output."
+  },
+  {
+    "path": "opencode/plugin/permission-asked.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode permission.asked with title, metadata and pattern (payload shape undocumented, guessed from the older Permission type)."
+  },
+  {
+    "path": "opencode/plugin/permission-replied.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode permission.replied event."
+  },
+  {
+    "path": "opencode/plugin/message-part-updated.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode message.part.updated with a text part."
+  },
+  {
+    "path": "opencode/plugin/file-edited.json",
+    "agent": "opencode",
+    "source": "plugin",
+    "format": "json",
+    "about": "OpenCode file.edited event with a file path."
+  },
+  {
+    "path": "antigravity/log/cli.log",
+    "agent": "antigravity",
+    "source": "log",
+    "format": "log",
+    "about": "Antigravity cli.log in glog style: request lines about 3 s apart plus one line that carries a prompt marker."
+  },
+  {
+    "path": "gemini/hooks/before-agent.json",
+    "agent": "gemini",
+    "source": "hooks",
+    "format": "json",
+    "about": "Gemini CLI BeforeAgent hook body with the prompt."
+  },
+  {
+    "path": "gemini/hooks/after-agent.json",
+    "agent": "gemini",
+    "source": "hooks",
+    "format": "json",
+    "about": "Gemini CLI AfterAgent hook body with prompt and prompt_response."
+  },
+  {
+    "path": "gemini/hooks/notification.json",
+    "agent": "gemini",
+    "source": "hooks",
+    "format": "json",
+    "about": "Gemini CLI Notification hook body with a message."
+  },
+  {
+    "path": "gemini/hooks/after-tool.json",
+    "agent": "gemini",
+    "source": "hooks",
+    "format": "json",
+    "about": "Gemini CLI AfterTool hook body; tool_output is a synthetic field the research doc lists as possible."
+  },
+  {
+    "path": "cursor/hooks/before-submit-prompt.json",
+    "agent": "cursor",
+    "source": "hooks",
+    "format": "json",
+    "about": "Cursor beforeSubmitPrompt hook body with prompt and user_email."
+  },
+  {
+    "path": "cursor/hooks/after-shell-execution.json",
+    "agent": "cursor",
+    "source": "hooks",
+    "format": "json",
+    "about": "Cursor afterShellExecution hook body with command and output."
+  },
+  {
+    "path": "cursor/hooks/after-agent-response.json",
+    "agent": "cursor",
+    "source": "hooks",
+    "format": "json",
+    "about": "Cursor afterAgentResponse hook body with the reply text."
+  },
+  {
+    "path": "cursor/hooks/stop-completed.json",
+    "agent": "cursor",
+    "source": "hooks",
+    "format": "json",
+    "about": "Cursor stop hook body, status completed."
+  },
+  {
+    "path": "cursor/hooks/stop-aborted.json",
+    "agent": "cursor",
+    "source": "hooks",
+    "format": "json",
+    "about": "Cursor stop hook body, status aborted."
+  },
+  {
+    "path": "never-open/claude/.credentials.json",
+    "agent": "claude",
+    "source": "never-open",
+    "format": "json",
+    "about": "Stand-in for Claude's credential file. An adapter must never open it."
+  },
+  {
+    "path": "never-open/codex/auth.json",
+    "agent": "codex",
+    "source": "never-open",
+    "format": "json",
+    "about": "Stand-in for Codex auth.json. An adapter must never open it."
+  },
+  {
+    "path": "never-open/antigravity/antigravity-oauth-token",
+    "agent": "antigravity",
+    "source": "never-open",
+    "format": "text",
+    "about": "Stand-in for the Antigravity OAuth token file. An adapter must never open it."
+  },
+  {
+    "path": "never-open/keys/session.key",
+    "agent": "claude",
+    "source": "never-open",
+    "format": "text",
+    "about": "Stand-in for a Claude <pid>.<hash>.key registry sibling. Any *.key file must never be opened."
+  },
+  {
+    "path": "never-open/codex/history.jsonl",
+    "agent": "codex",
+    "source": "never-open",
+    "format": "jsonl",
+    "about": "Stand-in for Codex history.jsonl (prompt history). An adapter must never open it."
+  },
+  {
+    "path": "never-open/claude/tool-results/result-1.txt",
+    "agent": "claude",
+    "source": "never-open",
+    "format": "text",
+    "about": "Stand-in for a spilled Claude tool result. Anything under tool-results/ must never be opened."
+  },
+  {
+    "path": "never-open/opencode/credential.json",
+    "agent": "opencode",
+    "source": "never-open",
+    "format": "json",
+    "about": "Stand-in for the OpenCode credential table export. An adapter must never open it."
+  },
+  {
+    "path": "never-open/codex/logs_2.sqlite.txt",
+    "agent": "codex",
+    "source": "never-open",
+    "format": "text",
+    "about": "Text stand-in for Codex logs_2.sqlite (tracing log bodies are content). An adapter must never open it."
+  }
+]

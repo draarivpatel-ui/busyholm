@@ -1,0 +1,17 @@
+{
+  "theme": "dark",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/local/bin/x.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+
+  }
+}

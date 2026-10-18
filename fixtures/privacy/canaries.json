@@ -1,0 +1,10 @@
+{
+  "about": "Privacy canary needles (SPEC 5.7 rule 10). Agent-side input fixtures carry a canary in every content field: text fields hold a marker that starts with marker_prefix (then _<agent>_<field>_<n>), and raw id fields (session ids, thread ids, agent ids) hold a UUID that starts with id_prefix. None of these bytes may ever appear in any output. tools/privacy/check.mjs searches for every needle below, case-insensitively, as raw bytes, UTF-16LE, UTF-16BE, hex and base64 (all 3 alignments, standard and URL-safe alphabets), in file names and file contents.",
+  "marker_prefix": "BHCANARY",
+  "id_prefix": "bca1a700-0000-4000-8000-",
+  "needles": [
+    { "name": "text-marker", "value": "BHCANARY" },
+    { "name": "raw-id", "value": "bca1a700-0000-4000-8000-" },
+    { "name": "raw-id-without-dashes", "value": "bca1a700000040008000" }
+  ]
+}

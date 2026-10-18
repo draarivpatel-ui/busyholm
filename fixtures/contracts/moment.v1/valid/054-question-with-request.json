@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "kind": "needs_you",
+  "t": 1791806400001,
+  "agent": "574477e499ff9f123bb6e1bc8fb8e56d",
+  "tool": "codex",
+  "reason": "question",
+  "request_id": "ddcddad2129e89c74d07a9fafa35d74b"
+}

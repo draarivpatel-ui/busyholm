@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/hit-rects.v1.schema.json",
+  "title": "HitRects v1",
+  "description": "Sent by the strip webview to the core when interactive objects move (SPEC 6.2, 6.3). The core makes the strip click-through everywhere except inside these rectangles (cursor polling against them on macOS and Windows, an input shape on Linux). The core needs geometry only; kind and agent are optional diagnostics. Each message replaces the previous set entirely; an empty rects list makes the whole strip click-through.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "t", "surface", "viewport", "scale", "rects"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "t": { "$ref": "#/$defs/ms" },
+    "surface": { "enum": ["strip"], "description": "Only the strip is partly click-through in v0.1; ambient and popover capture all input." },
+    "viewport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["w", "h"],
+      "description": "The webview's content size in logical (CSS) pixels when the rects were measured.",
+      "properties": {
+        "w": { "$ref": "#/$defs/extent" },
+        "h": { "$ref": "#/$defs/extent" }
+      }
+    },
+    "scale": { "type": "number", "minimum": 0.5, "maximum": 8, "description": "The webview's devicePixelRatio, so the core can detect a scale mismatch with its window." },
+    "rects": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "$ref": "#/$defs/rect" }
+    }
+  },
+  "$defs": {
+    "ms": {
+      "type": "integer",
+      "minimum": 946684800000,
+      "maximum": 4102444800000,
+      "description": "Milliseconds since the Unix epoch (UTC), always an integer. The range (2000-01-01 to 2100-01-01) rejects a seconds value passed by mistake."
+    },
+    "coord": { "type": "number", "minimum": 0, "maximum": 16384 },
+    "extent": { "type": "number", "exclusiveMinimum": 0, "maximum": 16384 },
+    "instance": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$",
+      "description": "Salted hash of a session or thread id, never the raw id: 32 lowercase hex characters. A raw UUID cannot match this pattern."
+    },
+    "rect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "w", "h"],
+      "description": "Logical (CSS) pixels, origin at the top-left of the webview content area. Producers keep each rect inside the viewport.",
+      "properties": {
+        "x": { "$ref": "#/$defs/coord" },
+        "y": { "$ref": "#/$defs/coord" },
+        "w": { "$ref": "#/$defs/extent" },
+        "h": { "$ref": "#/$defs/extent" },
+        "kind": { "enum": ["resident", "building", "bell", "card", "ui", "other"] },
+        "agent": { "$ref": "#/$defs/instance", "description": "Snapshot agent id when the rect is a resident or its card." }
+      }
+    }
+  }
+}

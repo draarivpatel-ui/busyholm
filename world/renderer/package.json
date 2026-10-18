@@ -1,0 +1,15 @@
+{
+  "name": "@busyholm/renderer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Busyholm WP-10: world renderer and resident animation (strip and ambient), frame governor, HitRects publisher.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node --test \"test/*.test.ts\"",
+    "test:browser": "node tools/build.mjs && node tools/browser-tests.mjs",
+    "capture": "node tools/build.mjs && node tools/capture.mjs",
+    "typecheck": "tsc --noEmit -p ."
+  }
+}

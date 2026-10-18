@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1791720300000,
+      "day": "2026-10-11",
+      "kind": "build_order",
+      "order": [
+        "cottage_1"
+      ]
+    },
+    {
+      "t": 1791720600000,
+      "day": "2026-10-11",
+      "kind": "decoration",
+      "decoration": "lamp",
+      "on": true
+    }
+  ]
+}

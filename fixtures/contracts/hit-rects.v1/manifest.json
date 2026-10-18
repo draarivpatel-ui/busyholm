@@ -1,0 +1,309 @@
+{
+  "contract": "hitRects",
+  "schema": "contracts/schemas/hit-rects.v1.schema.json",
+  "valid": {
+    "001-empty-rects.json": {
+      "note": "An empty rects list makes the whole strip click-through."
+    },
+    "002-kind-resident.json": {
+      "note": "One resident rect with no agent."
+    },
+    "003-kind-building.json": {
+      "note": "One building rect with no agent."
+    },
+    "004-kind-bell.json": {
+      "note": "One bell rect with no agent."
+    },
+    "005-kind-card.json": {
+      "note": "One card rect with no agent."
+    },
+    "006-kind-ui.json": {
+      "note": "One ui rect with no agent."
+    },
+    "007-kind-other.json": {
+      "note": "One other rect with no agent."
+    },
+    "008-kind-resident-with-agent.json": {
+      "note": "One resident rect carrying a salted agent id."
+    },
+    "009-kind-building-with-agent.json": {
+      "note": "One building rect carrying a salted agent id."
+    },
+    "010-kind-bell-with-agent.json": {
+      "note": "One bell rect carrying a salted agent id."
+    },
+    "011-kind-card-with-agent.json": {
+      "note": "One card rect carrying a salted agent id."
+    },
+    "012-kind-ui-with-agent.json": {
+      "note": "One ui rect carrying a salted agent id."
+    },
+    "013-kind-other-with-agent.json": {
+      "note": "One other rect carrying a salted agent id."
+    },
+    "014-agent-without-kind.json": {
+      "note": "A rect with an agent id but no kind."
+    },
+    "015-geometry-only.json": {
+      "note": "A rect with geometry only and no diagnostics."
+    },
+    "016-count-1.json": {
+      "note": "1 rect in one message."
+    },
+    "017-count-2.json": {
+      "note": "2 rects in one message."
+    },
+    "018-count-8.json": {
+      "note": "8 rects in one message."
+    },
+    "019-count-32.json": {
+      "note": "32 rects in one message."
+    },
+    "020-count-63.json": {
+      "note": "63 rects in one message."
+    },
+    "021-count-64.json": {
+      "note": "64 rects in one message."
+    },
+    "022-viewport-min-extent.json": {
+      "note": "A viewport extent just above zero with an empty rects list."
+    },
+    "023-viewport-max-extent.json": {
+      "note": "A viewport at the 16384 pixel maximum with a rect in its far corner."
+    },
+    "024-viewport-fractional.json": {
+      "note": "A viewport with fractional logical pixel sizes."
+    },
+    "025-rect-origin.json": {
+      "note": "A rect at the origin of the content area."
+    },
+    "026-rect-full-viewport.json": {
+      "note": "A rect covering the whole viewport."
+    },
+    "027-rect-tiny-extent.json": {
+      "note": "A rect with a width just above zero."
+    },
+    "028-rect-max-extent.json": {
+      "note": "A rect whose width is the 16384 maximum, in a viewport of the same width."
+    },
+    "029-rect-coord-max.json": {
+      "note": "x at the 16384 coordinate maximum; the rect sits past the viewport edge, which only the producer invariant forbids."
+    },
+    "030-rect-fractional-geometry.json": {
+      "note": "Fractional logical pixel geometry is allowed."
+    },
+    "031-scale-half.json": {
+      "note": "devicePixelRatio at the 0.5 minimum."
+    },
+    "032-scale-eight.json": {
+      "note": "devicePixelRatio at the 8 maximum."
+    },
+    "033-scale-1.json": {
+      "note": "devicePixelRatio of 1."
+    },
+    "034-scale-1-25.json": {
+      "note": "devicePixelRatio of 1.25."
+    },
+    "035-scale-1-5.json": {
+      "note": "devicePixelRatio of 1.5."
+    },
+    "036-scale-3.json": {
+      "note": "devicePixelRatio of 3."
+    },
+    "037-t-at-min.json": {
+      "note": "t at the minimum legal timestamp."
+    },
+    "038-t-at-max.json": {
+      "note": "t at the maximum legal timestamp."
+    },
+    "039-mixed-kinds-and-agents.json": {
+      "note": "Several rects of different kinds, some with agents, in one message."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-root-string.json": {
+      "note": "The root must be an object, not a string.",
+      "path": ""
+    },
+    "004-missing-schema-version.json": {
+      "note": "schema_version is required.",
+      "path": ""
+    },
+    "005-missing-t.json": {
+      "note": "t is required.",
+      "path": ""
+    },
+    "006-missing-surface.json": {
+      "note": "surface is required.",
+      "path": ""
+    },
+    "007-missing-viewport.json": {
+      "note": "viewport is required.",
+      "path": ""
+    },
+    "008-missing-scale.json": {
+      "note": "scale is required.",
+      "path": ""
+    },
+    "009-missing-rects.json": {
+      "note": "rects is required, even when empty.",
+      "path": ""
+    },
+    "010-schema-version-two.json": {
+      "note": "schema_version must be the constant 1.",
+      "path": "/schema_version"
+    },
+    "011-t-in-seconds.json": {
+      "note": "t in seconds is below the millisecond range.",
+      "path": "/t"
+    },
+    "012-t-below-min.json": {
+      "note": "t is one millisecond before 2000-01-01.",
+      "path": "/t"
+    },
+    "013-t-above-max.json": {
+      "note": "t is one millisecond after 2100-01-01.",
+      "path": "/t"
+    },
+    "014-t-string.json": {
+      "note": "t must be an integer, not an ISO timestamp string.",
+      "path": "/t"
+    },
+    "015-extra-top-level-field.json": {
+      "note": "An unknown top-level field is rejected by the closed object.",
+      "path": ""
+    },
+    "016-surface-ambient.json": {
+      "note": "Only the strip is partly click-through in v0.1, so ambient is rejected.",
+      "path": "/surface"
+    },
+    "017-surface-popover.json": {
+      "note": "Only the strip is partly click-through in v0.1, so popover is rejected.",
+      "path": "/surface"
+    },
+    "018-viewport-missing-w.json": {
+      "note": "viewport requires both w and h.",
+      "path": "/viewport"
+    },
+    "019-viewport-missing-h.json": {
+      "note": "viewport requires both w and h.",
+      "path": "/viewport"
+    },
+    "020-viewport-extra-dpi.json": {
+      "note": "viewport is a closed object; device pixel ratio belongs in scale.",
+      "path": "/viewport"
+    },
+    "021-viewport-w-zero.json": {
+      "note": "A viewport extent must be above zero.",
+      "path": "/viewport/w"
+    },
+    "022-viewport-h-negative.json": {
+      "note": "A viewport extent must be above zero.",
+      "path": "/viewport/h"
+    },
+    "023-viewport-w-over-max.json": {
+      "note": "A viewport extent is at most 16384.",
+      "path": "/viewport/w"
+    },
+    "024-viewport-h-string.json": {
+      "note": "A viewport extent must be a number, not a string.",
+      "path": "/viewport/h"
+    },
+    "025-viewport-w-null.json": {
+      "note": "A viewport extent is required and cannot be null.",
+      "path": "/viewport/w"
+    },
+    "026-scale-below-min.json": {
+      "note": "scale is at least 0.5.",
+      "path": "/scale"
+    },
+    "027-scale-above-max.json": {
+      "note": "scale is at most 8.",
+      "path": "/scale"
+    },
+    "028-scale-string.json": {
+      "note": "scale must be a number, not a string.",
+      "path": "/scale"
+    },
+    "029-rects-object.json": {
+      "note": "rects must be an array.",
+      "path": "/rects"
+    },
+    "030-rects-null.json": {
+      "note": "rects is always present as an array, never null.",
+      "path": "/rects"
+    },
+    "031-rects-65.json": {
+      "note": "At most 64 rects per message.",
+      "path": "/rects"
+    },
+    "032-rect-missing-h.json": {
+      "note": "A rect requires x, y, w and h.",
+      "path": "/rects/0"
+    },
+    "033-rect-missing-x.json": {
+      "note": "A rect requires x, y, w and h.",
+      "path": "/rects/0"
+    },
+    "034-rect-x-negative.json": {
+      "note": "A rect x coordinate is at least 0.",
+      "path": "/rects/0/x"
+    },
+    "035-rect-x-over-max.json": {
+      "note": "A rect x coordinate is at most 16384.",
+      "path": "/rects/0/x"
+    },
+    "036-rect-y-string.json": {
+      "note": "A rect y coordinate must be a number.",
+      "path": "/rects/0/y"
+    },
+    "037-rect-w-zero.json": {
+      "note": "A rect width must be above zero.",
+      "path": "/rects/0/w"
+    },
+    "038-rect-h-negative.json": {
+      "note": "A rect height must be above zero.",
+      "path": "/rects/0/h"
+    },
+    "039-rect-kind-unknown.json": {
+      "note": "rect kind must be one of the six kinds.",
+      "path": "/rects/0/kind"
+    },
+    "040-rect-kind-null.json": {
+      "note": "rect kind is omitted when unknown, never null.",
+      "path": "/rects/0/kind"
+    },
+    "041-rect-agent-raw-uuid.json": {
+      "note": "A rect agent is a salted id, never a raw UUID.",
+      "path": "/rects/0/agent"
+    },
+    "042-rect-agent-uppercase.json": {
+      "note": "A rect agent id must be lowercase hex.",
+      "path": "/rects/0/agent"
+    },
+    "043-rect-agent-null.json": {
+      "note": "A rect agent is omitted when unknown, never null.",
+      "path": "/rects/0/agent"
+    },
+    "044-rect-unknown-field.json": {
+      "note": "A rect carries geometry and two diagnostics only, so a label is rejected.",
+      "path": "/rects/0"
+    },
+    "045-rect-null-item.json": {
+      "note": "Each rect must be an object, not null.",
+      "path": "/rects/0"
+    },
+    "046-third-rect-zero-width.json": {
+      "note": "The third rect has a zero width, so the error points at index 2.",
+      "path": "/rects/2/w"
+    }
+  }
+}

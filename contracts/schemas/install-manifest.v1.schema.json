@@ -1,0 +1,480 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/install-manifest.v1.schema.json",
+  "title": "InstallManifest v1",
+  "description": "install-manifest.json in the app data folder (SPEC 6.8, WP-07): every file the installer created or edited, and exactly which entries inside it Busyholm owns. Written only by the core, atomically. Local only and never exported: unlike every other contract it holds absolute paths of agent config files (which include the account's user name). It never holds a project path. Disconnect removes only owned entries, found by owner_tag and hash; it never restores a whole-file backup over a file that changed after install (SPEC Revision 1). The keyword x-unique-by lists item keys that must be unique across an array (see contracts/CHANGES.md).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "app_version",
+    "owner_tag",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "app_version": {
+      "type": "string",
+      "maxLength": 32,
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-[0-9A-Za-z.]+)?$",
+      "description": "Busyholm version that last wrote the manifest (semver)."
+    },
+    "owner_tag": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z0-9]{16,32}$"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Random per-install tag written into every owned hook entry (for example as a shim argument), so ownership is checked by content, not by position. null only while entries is empty."
+    },
+    "entries": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "$ref": "#/$defs/entry"
+      },
+      "x-unique-by": [
+        [
+          "id"
+        ],
+        [
+          "target",
+          "path"
+        ]
+      ]
+    }
+  },
+  "$defs": {
+    "ms": {
+      "type": "integer",
+      "minimum": 946684800000,
+      "maximum": 4102444800000,
+      "description": "Milliseconds since the Unix epoch (UTC), always an integer. The range (2000-01-01 to 2100-01-01) rejects a seconds value passed by mistake."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "bytes": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 268435456
+    },
+    "absPath": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 1024,
+      "pattern": "^(/|[A-Za-z]:\\\\)[^\\u0000-\\u001F\\u007F]*$",
+      "description": "Absolute path: POSIX (/...) or Windows drive (C:\\...)."
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "tool",
+        "target",
+        "path",
+        "action",
+        "state",
+        "installed_at",
+        "before",
+        "after"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{1,47}$"
+        },
+        "tool": {
+          "anyOf": [
+            {
+              "enum": [
+                "claude",
+                "codex",
+                "opencode",
+                "antigravity",
+                "gemini",
+                "cursor",
+                "aider"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The agent this entry serves; null exactly for shim_binary, which several agents share."
+        },
+        "target": {
+          "enum": [
+            "claude_hooks",
+            "claude_statusline",
+            "codex_hooks",
+            "opencode_plugin",
+            "shim_binary",
+            "gemini_hooks",
+            "cursor_hooks"
+          ],
+          "description": "What the entry is for. claude_hooks and claude_statusline are separate consents even though both edit ~/.claude/settings.json."
+        },
+        "path": {
+          "$ref": "#/$defs/absPath"
+        },
+        "action": {
+          "enum": [
+            "edit_span",
+            "create_file"
+          ],
+          "description": "edit_span: entries added to an existing file. create_file: a file the installer created. Either way, hook files list their owned entries, because the user or another tool may add entries later."
+        },
+        "state": {
+          "enum": [
+            "installed",
+            "pending_review"
+          ],
+          "description": "pending_review: written but not yet trusted inside the agent (Codex /hooks)."
+        },
+        "installed_at": {
+          "$ref": "#/$defs/ms"
+        },
+        "before": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "existed",
+            "sha256",
+            "bytes"
+          ],
+          "description": "The file before the install, kept for diagnostics and manual recovery. When it existed, its exact bytes are kept at <app data>/backups/install/<sha256>.bak. Disconnect never restores this over a file that changed after install.",
+          "properties": {
+            "existed": {
+              "type": "boolean"
+            },
+            "sha256": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bytes": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/bytes"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "if": {
+            "properties": {
+              "existed": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "sha256": {
+                "type": "string"
+              },
+              "bytes": {
+                "type": "integer"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "sha256": {
+                "type": "null"
+              },
+              "bytes": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        "after": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sha256",
+            "bytes"
+          ],
+          "description": "The file right after the install. A created file is deleted on disconnect only if it still has exactly these bytes; otherwise only the owned entries are removed.",
+          "properties": {
+            "sha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "bytes": {
+              "$ref": "#/$defs/bytes"
+            }
+          }
+        },
+        "owned": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "description": "Present exactly for config files that hold entries (all targets except opencode_plugin and shim_binary, which are whole files Busyholm owns): one item per entry Busyholm inserted or replaced. Disconnect removes exactly these entries (and puts back a replaced value), and nothing else.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "event",
+              "pointer",
+              "sha256",
+              "replaced_sha256"
+            ],
+            "properties": {
+              "event": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_.]{0,63}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "The hook event the entry is for (for example PermissionRequest); null for a non-hook value such as statusLine."
+              },
+              "pointer": {
+                "type": "string",
+                "maxLength": 256,
+                "pattern": "^(/[^/]*)+$",
+                "description": "RFC 6901 JSON Pointer to the entry as of install time (a hint; entries are found by owner_tag and sha256)."
+              },
+              "sha256": {
+                "$ref": "#/$defs/sha256",
+                "description": "Hash of the inserted value's exact text."
+              },
+              "replaced_sha256": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/sha256"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "When the entry replaced an existing value (the statusLine wrap), the hash of that value's exact text, which is kept at <app data>/backups/install/<sha256>.bak and put back on disconnect; otherwise null."
+              }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "edit_span"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "before": {
+                "properties": {
+                  "existed": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "before": {
+                "properties": {
+                  "existed": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "description": "Config files list their owned entries; whole files Busyholm owns do not.",
+          "if": {
+            "properties": {
+              "target": {
+                "enum": [
+                  "opencode_plugin",
+                  "shim_binary"
+                ]
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "owned"
+              ]
+            }
+          },
+          "else": {
+            "required": [
+              "owned"
+            ]
+          }
+        },
+        {
+          "description": "Only Codex hooks wait for an in-agent review.",
+          "if": {
+            "properties": {
+              "target": {
+                "const": "codex_hooks"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "state": {
+                "const": "installed"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "target": {
+                "enum": [
+                  "claude_hooks",
+                  "claude_statusline"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tool": {
+                "const": "claude"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "target": {
+                "const": "codex_hooks"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tool": {
+                "const": "codex"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "target": {
+                "const": "opencode_plugin"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tool": {
+                "const": "opencode"
+              },
+              "action": {
+                "const": "create_file"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "target": {
+                "const": "gemini_hooks"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tool": {
+                "const": "gemini"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "target": {
+                "const": "cursor_hooks"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tool": {
+                "const": "cursor"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "target": {
+                "const": "shim_binary"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "action": {
+                "const": "create_file"
+              },
+              "tool": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "tool": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "if": {
+    "properties": {
+      "entries": {
+        "minItems": 1
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "owner_tag": {
+        "type": "string"
+      }
+    }
+  }
+}

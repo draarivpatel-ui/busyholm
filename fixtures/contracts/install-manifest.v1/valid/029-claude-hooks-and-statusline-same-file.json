@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "claude-hooks",
+      "tool": "claude",
+      "target": "claude_hooks",
+      "path": "/Users/alex/.claude/settings.json",
+      "action": "edit_span",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": true,
+        "sha256": "7efd3c0e971a07e733759485b1aff48aa4e18f70ac2430cdc8fdde2d70d95081",
+        "bytes": 2048
+      },
+      "after": {
+        "sha256": "0b3928443650b158dd74c01557e31b0ca7b49ed982ac61b975fc6e8de330bf43",
+        "bytes": 2310
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "358747fce2fdf8692847993a1a7754876fe9eeff109f703415abf43704bf4b54",
+          "replaced_sha256": null
+        }
+      ]
+    },
+    {
+      "id": "claude-statusline",
+      "tool": "claude",
+      "target": "claude_statusline",
+      "path": "/Users/alex/.claude/settings.json",
+      "action": "edit_span",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": true,
+        "sha256": "f66c40e056c916ae4a68853a1e91d75b747c829f2bf986f60f9bb4c9b0aad79e",
+        "bytes": 2048
+      },
+      "after": {
+        "sha256": "56281f1b743cfe7d7c29ca53ae23cfa003f9fb22587e61efbc3c475059939bdc",
+        "bytes": 2310
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "522605a3ac50a97bd7ef500e52aedfffcef9a219ecab74eae5eecf78bdc10acb",
+          "replaced_sha256": null
+        }
+      ]
+    }
+  ]
+}

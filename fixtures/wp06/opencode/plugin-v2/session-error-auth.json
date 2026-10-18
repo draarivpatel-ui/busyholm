@@ -1,0 +1,7 @@
+{
+  "type": "session.error",
+  "properties": {
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "error": { "name": "ProviderAuthError", "data": { "providerID": "BHCANARY_opencode_provider_1", "message": "BHCANARY_opencode_message_3" } }
+  }
+}

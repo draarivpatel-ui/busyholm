@@ -1,0 +1,60 @@
+# Contract, privacy-kit and Rust workspace tests.
+# Runs npm test (TypeScript validators, type-check, privacy kit) and cargo test (Rust crates against
+# the same fixtures), and checks that privacy:check fails a planted canary.
+# Only macOS is enabled: it is the platform the tests were run on. Add ubuntu-latest or
+# windows-latest to the matrix once those runs have been verified.
+
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Set up Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install pinned npm dependencies
+        run: npm ci
+
+      - name: npm test (contracts, type-check, privacy kit)
+        run: npm test
+
+      - name: cargo test (Rust crates against the shared fixtures)
+        run: cargo test --workspace --locked
+
+      - name: privacy:check passes the contract fixtures and fails a planted canary
+        run: |
+          npm run privacy:check -- fixtures/contracts
+          mkdir -p "$RUNNER_TEMP/leak"
+          printf 'BHCANARY_ci_planted_1\n' > "$RUNNER_TEMP/leak/out.log"
+          rc=0
+          npm run privacy:check -- "$RUNNER_TEMP/leak" || rc=$?
+          if [ "$rc" -ne 1 ]; then
+            echo "expected exit 1 (leak found) for a planted canary, got $rc" >&2
+            exit 1
+          fi

@@ -1,0 +1,178 @@
+{
+  "schema_version": 2,
+  "t": 1791806400000,
+  "demo": false,
+  "agents": [
+    {
+      "id": "e57dba886b1ea265f5dc0d5e42642641",
+      "tool": "claude",
+      "host": "cli",
+      "ordinal": 1,
+      "parent": null,
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "account_id": "2f7339c66415277e5b58670b67b979a9",
+      "session_id": "9bba8798fac4cb0ddf1648c68bd3afb2",
+      "turn_id": "b601e355567c25eb5cbb699b1b117ba2",
+      "request_id": null,
+      "state": "working",
+      "confidence": "exact",
+      "since": 1791806280000,
+      "started_at": 1791802800000,
+      "activity": "shell"
+    }
+  ],
+  "tools": [
+    {
+      "tool": "claude",
+      "root_id": "d581ae5b772dceff68c4ab71cef6138b",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "b3a6d77b170aaeefc70ae14a73248eba",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "928fd8e3da5cc943182c5f74a320f791",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "cfcb1880740e54eb5453bed913f5a96d",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "5cdfaf6ef7ce08c274f0243fca31dfaf",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "5f45c1e5c77df47d76c3f6c37e4315d9",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "b572a35f26bd08f342f13d99204d224a",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "6df310cf2e2ce5d85a31815dd5a6f2e8",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "1c14170add236ac52f351d0c2449baa3",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "1fd00ac37d87038151637c608810ae3f",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "80d849123b1f8971e5a6bfee9539c64b",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "c1e947e60d8840302e4721a2b318a5ab",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "21c10990521744afdb81d9bfcf62f0a5",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "d3edb6eafd852923a18fafa4d728c764",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "da79bf784f14b666f22367b95caaed20",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "5ca52b4087ea125c88eb0ef3fd3f8649",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "b4c323edc46215e73391d3d78873cc8e",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    }
+  ],
+  "limits": [
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "2f7339c66415277e5b58670b67b979a9",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    }
+  ],
+  "attention": {
+    "needs_you": 0,
+    "oldest_since": null
+  }
+}

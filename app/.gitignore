@@ -1,0 +1,6 @@
+# generated frontend (scripts/assemble-frontend.mjs) and local test output
+dist/
+tests/macos/tools/bin/
+tests/out/
+src-tauri/gen/
+src-tauri/binaries/

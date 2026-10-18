@@ -1,0 +1,9 @@
+{
+  "session_id": "bca1a700-0000-4000-8000-00000000005b",
+  "transcript_path": "/Users/someone/.codex/sessions/BHCANARY_codex_transcript_path_8/rollout-2026-10-12T12-00-00-bca1a700-0000-4000-8000-00000000005b.jsonl",
+  "cwd": "/Users/someone/code/BHCANARY_codex_cwd_8",
+  "hook_event_name": "PostCompact",
+  "model": "gpt-6.1",
+  "turn_id": "bca1a700-0000-4000-8000-000000000066",
+  "trigger": "auto"
+}

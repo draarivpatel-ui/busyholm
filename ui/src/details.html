@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Busyholm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="ui/base.css">
+<link rel="stylesheet" href="ui/components.css">
+<link rel="stylesheet" href="ui/details.css">
+</head>
+<body class="details">
+<header class="d-head">
+  <div class="d-title">
+    <h1 class="wordmark" id="d-title">Busyholm</h1>
+    <span id="demo-badge" class="demo-badge" hidden>Demo</span>
+  </div>
+  <div class="d-tools">
+    <button type="button" class="btn" id="btn-strip" aria-pressed="true"></button>
+    <button type="button" class="btn" id="btn-ambient"></button>
+    <button type="button" class="btn" id="btn-settings"></button>
+  </div>
+</header>
+<main id="d-main" aria-labelledby="d-title">
+  <p class="d-note" id="strip-note" hidden></p>
+  <p class="d-attention" id="attention" role="status" aria-live="polite"></p>
+  <section class="section" aria-labelledby="agents-h">
+    <h2 class="caption" id="agents-h"><span>Agents</span><span class="aside" id="agents-aside"></span></h2>
+    <p class="d-hint" id="agents-hint">Use the arrow keys to move between agents.</p>
+    <ul class="agent-list d-agents" id="agent-list" aria-labelledby="agents-h" aria-describedby="agents-hint"></ul>
+  </section>
+  <section class="section" aria-labelledby="limits-h" id="limits-section" hidden>
+    <h2 class="caption" id="limits-h"><span>Usage</span><span class="aside">Per account; never combined</span></h2>
+    <div class="limit-grid" id="limit-grid"></div>
+  </section>
+  <section class="section" aria-labelledby="holm-h" id="holm-section" hidden>
+    <h2 class="caption" id="holm-h"><span>On the holm</span><span class="aside" id="holm-aside"></span></h2>
+    <div class="holm" id="holm"></div>
+  </section>
+  <section class="section" aria-labelledby="cov-h" id="cov-section" hidden>
+    <h2 class="caption" id="cov-h"><span>Alerts</span><span class="aside" id="cov-aside"></span></h2>
+    <ul class="cov-list" id="cov-list"></ul>
+  </section>
+  <section class="section" aria-labelledby="log-h">
+    <h2 class="caption" id="log-h"><span>Recently</span><span class="aside">Since this window opened</span></h2>
+    <ol class="log" id="log"></ol>
+  </section>
+</main>
+<script type="module" src="ui/details.js"></script>
+</body>
+</html>

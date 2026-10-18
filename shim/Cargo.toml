@@ -1,0 +1,30 @@
+[package]
+name = "busyholm-shim"
+description = "busyholm-hook: forwards allowlisted hook fields to the local receiver; always exits 0 with empty output (WP-07)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+name = "busyholm_shim"
+path = "src/lib.rs"
+
+[[bin]]
+name = "busyholm-hook"
+path = "src/main.rs"
+
+[dependencies]
+serde_json = "1"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[dev-dependencies]
+busyholm-installer = { path = "../installer" }
+tempfile = "3"
+busyholm-contracts.workspace = true
+busyholm-collector = { path = "../collector" }
+busyholm-collector-claude = { path = "../collector-claude" }
+busyholm-sidecar = { path = "../sidecar" }

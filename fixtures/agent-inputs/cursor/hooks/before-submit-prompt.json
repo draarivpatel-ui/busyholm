@@ -1,0 +1,13 @@
+{
+  "conversation_id": "bca1a700-0000-4000-8000-00000000008d",
+  "generation_id": "bca1a700-0000-4000-8000-00000000008e",
+  "model": "auto",
+  "hook_event_name": "beforeSubmitPrompt",
+  "workspace_roots": [
+    "/Users/someone/code/BHCANARY_cursor_cwd_1"
+  ],
+  "user_email": "BHCANARY_cursor_user_email_1",
+  "transcript_path": "/Users/someone/.cursor/projects/BHCANARY_cursor_transcript_path_1/bca1a700-0000-4000-8000-00000000008d.jsonl",
+  "prompt": "BHCANARY_cursor_prompt_1",
+  "attachments": []
+}

@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1791720000000,
+      "day": "2026-10-11",
+      "kind": "decoration",
+      "decoration": "lamp_0",
+      "on": true
+    },
+    {
+      "t": 1791633660000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791547320000,
+      "day": "2026-10-09",
+      "kind": "decoration",
+      "decoration": "lamp_2",
+      "on": false
+    },
+    {
+      "t": 1791633780000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791374640000,
+      "day": "2026-10-07",
+      "kind": "decoration",
+      "decoration": "lamp_4",
+      "on": true
+    },
+    {
+      "t": 1791633900000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791633960000,
+      "day": "2026-10-10",
+      "kind": "decoration",
+      "decoration": "lamp_6",
+      "on": false
+    },
+    {
+      "t": 1791634020000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791461280000,
+      "day": "2026-10-08",
+      "kind": "decoration",
+      "decoration": "lamp_8",
+      "on": true
+    },
+    {
+      "t": 1791634140000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791720600000,
+      "day": "2026-10-11",
+      "kind": "decoration",
+      "decoration": "lamp_10",
+      "on": false
+    },
+    {
+      "t": 1791634260000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791547920000,
+      "day": "2026-10-09",
+      "kind": "decoration",
+      "decoration": "lamp_12",
+      "on": true
+    },
+    {
+      "t": 1791634380000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791375240000,
+      "day": "2026-10-07",
+      "kind": "decoration",
+      "decoration": "lamp_14",
+      "on": false
+    },
+    {
+      "t": 1791634500000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791634560000,
+      "day": "2026-10-10",
+      "kind": "decoration",
+      "decoration": "lamp_16",
+      "on": true
+    },
+    {
+      "t": 1791634620000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791461880000,
+      "day": "2026-10-08",
+      "kind": "decoration",
+      "decoration": "lamp_18",
+      "on": false
+    },
+    {
+      "t": 1791634740000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791721200000,
+      "day": "2026-10-11",
+      "kind": "decoration",
+      "decoration": "lamp_20",
+      "on": true
+    },
+    {
+      "t": 1791634860000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791548520000,
+      "day": "2026-10-09",
+      "kind": "decoration",
+      "decoration": "lamp_22",
+      "on": false
+    },
+    {
+      "t": 1791634980000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791375840000,
+      "day": "2026-10-07",
+      "kind": "decoration",
+      "decoration": "lamp_24",
+      "on": true
+    },
+    {
+      "t": 1791635100000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791635160000,
+      "day": "2026-10-10",
+      "kind": "decoration",
+      "decoration": "lamp_26",
+      "on": false
+    },
+    {
+      "t": 1791635220000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791462480000,
+      "day": "2026-10-08",
+      "kind": "decoration",
+      "decoration": "lamp_28",
+      "on": true
+    },
+    {
+      "t": 1791635340000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791721800000,
+      "day": "2026-10-11",
+      "kind": "decoration",
+      "decoration": "lamp_30",
+      "on": false
+    },
+    {
+      "t": 1791635460000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791549120000,
+      "day": "2026-10-09",
+      "kind": "decoration",
+      "decoration": "lamp_32",
+      "on": true
+    },
+    {
+      "t": 1791635580000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791376440000,
+      "day": "2026-10-07",
+      "kind": "decoration",
+      "decoration": "lamp_34",
+      "on": false
+    },
+    {
+      "t": 1791635700000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791635760000,
+      "day": "2026-10-10",
+      "kind": "decoration",
+      "decoration": "lamp_36",
+      "on": true
+    },
+    {
+      "t": 1791635820000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791463080000,
+      "day": "2026-10-08",
+      "kind": "decoration",
+      "decoration": "lamp_38",
+      "on": false
+    },
+    {
+      "t": 1791635940000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791722400000,
+      "day": "2026-10-11",
+      "kind": "decoration",
+      "decoration": "lamp_40",
+      "on": true
+    },
+    {
+      "t": 1791636060000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791549720000,
+      "day": "2026-10-09",
+      "kind": "decoration",
+      "decoration": "lamp_42",
+      "on": false
+    },
+    {
+      "t": 1791636180000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791377040000,
+      "day": "2026-10-07",
+      "kind": "decoration",
+      "decoration": "lamp_44",
+      "on": true
+    },
+    {
+      "t": 1791636300000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791636360000,
+      "day": "2026-10-10",
+      "kind": "decoration",
+      "decoration": "lamp_46",
+      "on": false
+    },
+    {
+      "t": 1791636420000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    },
+    {
+      "t": 1791463680000,
+      "day": "2026-10-08",
+      "kind": "decoration",
+      "decoration": "lamp_48",
+      "on": true
+    },
+    {
+      "t": 1791636540000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "noticeboard",
+        "well"
+      ]
+    }
+  ]
+}

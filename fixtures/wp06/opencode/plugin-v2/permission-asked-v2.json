@@ -1,0 +1,13 @@
+{
+  "id": "evt-1",
+  "type": "permission.asked",
+  "properties": {
+    "id": "bca1a700-0000-4000-8000-0000000000a1",
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "permission": "bash",
+    "patterns": ["BHCANARY_opencode_pattern_2"],
+    "metadata": { "command": "BHCANARY_opencode_command_4" },
+    "always": ["BHCANARY_opencode_always_1"],
+    "tool": { "messageID": "bca1a700-0000-4000-8000-0000000000a2", "callID": "bca1a700-0000-4000-8000-0000000000a3" }
+  }
+}

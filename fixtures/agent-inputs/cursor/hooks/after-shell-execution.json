@@ -1,0 +1,14 @@
+{
+  "conversation_id": "bca1a700-0000-4000-8000-00000000008d",
+  "generation_id": "bca1a700-0000-4000-8000-00000000008f",
+  "model": "auto",
+  "hook_event_name": "afterShellExecution",
+  "workspace_roots": [
+    "/Users/someone/code/BHCANARY_cursor_cwd_2"
+  ],
+  "user_email": "BHCANARY_cursor_user_email_2",
+  "transcript_path": "/Users/someone/.cursor/projects/BHCANARY_cursor_transcript_path_2/bca1a700-0000-4000-8000-00000000008d.jsonl",
+  "command": "BHCANARY_cursor_command_1",
+  "output": "BHCANARY_cursor_output_1",
+  "duration": 1200
+}

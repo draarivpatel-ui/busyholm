@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "t": 1791806400000,
+  "demo": false,
+  "agents": [
+    {
+      "id": "a2941edbba15f8cd99a78333ac73af79",
+      "tool": "codex",
+      "host": "cli",
+      "ordinal": 1,
+      "parent": null,
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "account_id": "2f7339c66415277e5b58670b67b979a9",
+      "session_id": "9bba8798fac4cb0ddf1648c68bd3afb2",
+      "turn_id": "b601e355567c25eb5cbb699b1b117ba2",
+      "request_id": null,
+      "state": "working",
+      "confidence": "exact",
+      "since": 1791806280000,
+      "started_at": 1791802800000
+    }
+  ],
+  "tools": [
+    {
+      "tool": "codex",
+      "root_id": "9cd7e2002bed5a5fbb449b15f6ba2af8",
+      "presence": "present",
+      "hooks": "missing",
+      "coverage": "degraded",
+      "coverage_reason": "hooks_missing"
+    }
+  ],
+  "limits": [],
+  "attention": {
+    "needs_you": 0,
+    "oldest_since": null
+  }
+}

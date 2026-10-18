@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "http",
+            "url": "http://localhost:9/x",
+            "timeout": 2
+          }
+        ]
+      }
+    ]
+  }
+}

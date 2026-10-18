@@ -1,0 +1,8 @@
+{
+  "type": "question.replied",
+  "properties": {
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "requestID": "bca1a700-0000-4000-8000-0000000000b1",
+    "answers": [["BHCANARY_opencode_answer_1"]]
+  }
+}

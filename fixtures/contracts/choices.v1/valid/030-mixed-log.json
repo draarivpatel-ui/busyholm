@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1791374400000,
+      "day": "2026-10-07",
+      "kind": "build_order",
+      "order": [
+        "well",
+        "noticeboard"
+      ]
+    },
+    {
+      "t": 1791460800000,
+      "day": "2026-10-08",
+      "kind": "decoration",
+      "decoration": "flower_box",
+      "on": true
+    },
+    {
+      "t": 1791547200000,
+      "day": "2026-10-09",
+      "kind": "decoration",
+      "decoration": "flower_box",
+      "on": false
+    },
+    {
+      "t": 1791720000000,
+      "day": "2026-10-11",
+      "kind": "build_order",
+      "order": [
+        "market_hall"
+      ]
+    }
+  ]
+}

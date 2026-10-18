@@ -1,0 +1,320 @@
+{
+  "schema_version": 2,
+  "t": 1791806400000,
+  "demo": false,
+  "agents": [
+    {
+      "id": "e57dba886b1ea265f5dc0d5e42642641",
+      "tool": "claude",
+      "host": "cli",
+      "ordinal": 1,
+      "parent": null,
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "account_id": "2f7339c66415277e5b58670b67b979a9",
+      "session_id": "9bba8798fac4cb0ddf1648c68bd3afb2",
+      "turn_id": "b601e355567c25eb5cbb699b1b117ba2",
+      "request_id": null,
+      "state": "working",
+      "confidence": "exact",
+      "since": 1791806280000,
+      "started_at": 1791802800000,
+      "activity": "shell"
+    }
+  ],
+  "tools": [
+    {
+      "tool": "claude",
+      "root_id": "f47f1973b45dbcaef6d35c94569e44ce",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "b27434ac3930f2c980e8ee4df671f40c",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "f3fa0464fed148d537e7ad62ab06bc7b",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "97981f68f5bf26058b95540a3f97bf39",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "776267124eb1daae53d48bd6b6e1a583",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "780f0959ddc5aa379de3e7b533fbb946",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "4a3d8e3b8340bbe2f831108d9f3ffcab",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "10485eecf2507419830681870e9ee21f",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "54a7bba0ba095b37688324f4dda33131",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "e8b73637228a3730e18df47c322b5e06",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "409416d00768ffbe6df94159552f32af",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "017d4ad042b3ab13ffb648ecfd4b9147",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "c7ae6cf525158b2750cb4a6d05b6abed",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "76d01c5f4c77bfbeae240eb81913d93a",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "783c82f3ec9582e6d2c87c1e5d44a1f9",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    },
+    {
+      "tool": "claude",
+      "root_id": "121967c3785c5d0ea6af8ee3635a9055",
+      "presence": "present",
+      "hooks": "installed",
+      "coverage": "verified",
+      "coverage_reason": null
+    }
+  ],
+  "limits": [
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "030e81caa26ae2b291f7d878e3c3294a",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "weekly",
+      "account_id": "11096f22e132827c71ae31f507b4b2cc",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "f2fb6d7325d238b9fcdc5d5cdad1ec5f",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "weekly",
+      "account_id": "ba97e5e867a9028c392fcf406cb0f588",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "f89a813500360ce09fc568fb8cea5bac",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "weekly",
+      "account_id": "ef48889bb6c4c3baede4149ee5235198",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "987137f14f0ff3f116acd76cb06ab483",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "weekly",
+      "account_id": "abb1c24a41b46d8d8c45c327caadeabc",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "ad8ccf9506cad16a389942c26d1d9b8c",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "weekly",
+      "account_id": "0cdece8ed3a3ab4dc0376abeb8510146",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "1494928dba7adff0ac7a9c0dc36e8d65",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "weekly",
+      "account_id": "b37c7cded3621fe77d3dbe183e37f9c5",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "89a824374a7f81c58be210c665578ba5",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "weekly",
+      "account_id": "4ffd3e82328fa388600ae43d763e4791",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "5h",
+      "account_id": "3aeaac322c52a7c10548c333ecc78e97",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    },
+    {
+      "provider": "claude",
+      "window": "weekly",
+      "account_id": "118efeda92e91831a15e622402b2822a",
+      "root_id": "5c96dbc2661405adf9ab0e86e0eef50b",
+      "used_pct": 42.5,
+      "resets_at": 1791813600000,
+      "observed_at": 1791806340000,
+      "stale": false
+    }
+  ],
+  "attention": {
+    "needs_you": 0,
+    "oldest_since": null
+  }
+}

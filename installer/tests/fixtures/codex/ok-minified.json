@@ -1,0 +1,1 @@
+{"description":"min","hooks":{"Stop":[{"hooks":[{"type":"command","command":"/usr/local/bin/codex-stop.sh"}]}]}}

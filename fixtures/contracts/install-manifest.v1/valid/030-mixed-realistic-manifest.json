@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "claude-hooks",
+      "tool": "claude",
+      "target": "claude_hooks",
+      "path": "/Users/alex/.claude/settings.json",
+      "action": "edit_span",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": true,
+        "sha256": "89d4e6d0d0e23c02074ec55356a6bc6e30cab3d6a21eb9b90aa13177247def55",
+        "bytes": 2048
+      },
+      "after": {
+        "sha256": "5c20590ae1984a4d28dd02d5b6021a70738886bdb78bce7ec4e8d5bc6a459983",
+        "bytes": 2310
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "26174e709d369d196cde0c685bd0caa55e7c0601029ca985d8ac5c02b7636445",
+          "replaced_sha256": null
+        }
+      ]
+    },
+    {
+      "id": "codex-hooks",
+      "tool": "codex",
+      "target": "codex_hooks",
+      "path": "/Users/alex/.codex/hooks.json",
+      "action": "create_file",
+      "state": "pending_review",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "f703ce16620bea344f072858845f4bae7bab6be2c3e44d6644dd35cd155db7ac",
+        "bytes": 640
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "166d56919a3241d5593ea9bc360ea4796ef55ce78307a398016843980c4dcb45",
+          "replaced_sha256": null
+        }
+      ]
+    },
+    {
+      "id": "opencode-plugin",
+      "tool": "opencode",
+      "target": "opencode_plugin",
+      "path": "/Users/alex/.config/opencode/plugin/busyholm.js",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "a859c81d68bb40316aa91ec92202d081a32e8e424ea6859492ae0a7b1f05aee0",
+        "bytes": 640
+      }
+    },
+    {
+      "id": "shim",
+      "tool": null,
+      "target": "shim_binary",
+      "path": "/usr/local/bin/busyholm-shim",
+      "action": "create_file",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "after": {
+        "sha256": "e1de3dc56aa7cea24982289bae62dce1be02b2ea4cc1d6d7f80d97ca859e0801",
+        "bytes": 640
+      }
+    }
+  ]
+}

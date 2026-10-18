@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "saved_at": 1791806400000,
+  "alerts": [
+    {
+      "agent": "4d590fbb6332e9867748d57e85b9d528",
+      "tool": "claude",
+      "host": "sdk",
+      "root_id": "cdcde71f98700e8c73c34bf998bca59b",
+      "account_id": "6c2d7687f7e6ed4d121bbb965ed6858f",
+      "session_id": "ec9ba14ddde3d5724aa5d1c35bc60b26",
+      "request_id": "c68c718ed9ff428ef82bec41571f1562",
+      "reason": "permission",
+      "since": 1791806280000,
+      "last_confirmed_at": 1791806340000
+    }
+  ]
+}

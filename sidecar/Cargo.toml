@@ -1,0 +1,24 @@
+[package]
+name = "busyholm-sidecar"
+description = "Busyholm live collector: the WP-03 service wired to the Claude (WP-04) and Codex (WP-05) adapters through an AdapterRouter."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+name = "sidecar"
+
+[[bin]]
+name = "busyholm-sidecar"
+path = "src/main.rs"
+
+[dependencies]
+busyholm-collector = { path = "../collector" }
+busyholm-collector-claude = { path = "../collector-claude" }
+collector-codex = { path = "../collector-codex" }
+# The process scanner only (no OpenCode SQLite poll, so no bundled C library in the app).
+busyholm-collector-wp06 = { path = "../collector-wp06", default-features = false }
+chrono = { version = "=0.4.42", default-features = false, features = ["clock", "std"] }
+serde_json = "1"

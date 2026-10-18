@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "app_version": "0.1.0",
+  "owner_tag": "k3m9p2q7r4t8v5w1",
+  "entries": [
+    {
+      "id": "claude-statusline",
+      "tool": "claude",
+      "target": "claude_statusline",
+      "path": "/Users/alex/.claude/settings.json",
+      "action": "edit_span",
+      "state": "installed",
+      "installed_at": 1791806400000,
+      "before": {
+        "existed": true,
+        "sha256": "59eda2c6b9a99dd9cc36737279f85ade11680bbda948cef7363acfe1b9e8942c",
+        "bytes": 2048
+      },
+      "after": {
+        "sha256": "3ce91890081218fbac40d47c645b2a42a808cfa51676ee5c702f5a9de20c6b17",
+        "bytes": 2310
+      },
+      "owned": [
+        {
+          "event": "SessionStart",
+          "pointer": "/hooks/SessionStart/0",
+          "sha256": "7121ccc89abec9fc2aa597ee962b1b43d227c2b5217629a0ecaca0e32c495a1f",
+          "replaced_sha256": null
+        }
+      ]
+    }
+  ]
+}

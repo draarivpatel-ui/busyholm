@@ -1,0 +1,751 @@
+{
+  "contract": "agentEvent",
+  "schema": "contracts/schemas/agent-event.v1.schema.json",
+  "valid": {
+    "001-kind-session-start.json": {
+      "note": "A minimal session-start event with only the companion field that kind allows."
+    },
+    "002-kind-session-end.json": {
+      "note": "A minimal session-end event with only the companion field that kind allows."
+    },
+    "003-kind-turn-start.json": {
+      "note": "A minimal turn-start event with only the companion field that kind allows."
+    },
+    "004-kind-tool-end.json": {
+      "note": "A minimal tool-end event with only the companion field that kind allows."
+    },
+    "005-kind-needs-permission.json": {
+      "note": "A minimal needs-permission event with only the companion field that kind allows."
+    },
+    "006-kind-needs-answer.json": {
+      "note": "A minimal needs-answer event with only the companion field that kind allows."
+    },
+    "007-kind-answered.json": {
+      "note": "A minimal answered event with only the companion field that kind allows."
+    },
+    "008-kind-turn-end.json": {
+      "note": "A minimal turn-end event with only the companion field that kind allows."
+    },
+    "009-kind-turn-interrupted.json": {
+      "note": "A minimal turn-interrupted event with only the companion field that kind allows."
+    },
+    "010-kind-error.json": {
+      "note": "A minimal error event with only the companion field that kind allows."
+    },
+    "011-kind-limit-hit.json": {
+      "note": "A minimal limit-hit event with only the companion field that kind allows."
+    },
+    "012-kind-usage-sample.json": {
+      "note": "A minimal usage-sample event with only the companion field that kind allows."
+    },
+    "013-kind-process-up.json": {
+      "note": "A minimal process-up event with only the companion field that kind allows."
+    },
+    "014-kind-process-down.json": {
+      "note": "A minimal process-down event with only the companion field that kind allows."
+    },
+    "015-kind-heartbeat.json": {
+      "note": "A minimal heartbeat event with only the companion field that kind allows."
+    },
+    "016-end-reason-clear.json": {
+      "note": "session_end with detail.end_reason clear."
+    },
+    "017-end-reason-resume.json": {
+      "note": "session_end with detail.end_reason resume."
+    },
+    "018-end-reason-logout.json": {
+      "note": "session_end with detail.end_reason logout."
+    },
+    "019-end-reason-exit.json": {
+      "note": "session_end with detail.end_reason exit."
+    },
+    "020-end-reason-process-gone.json": {
+      "note": "session_end with detail.end_reason process_gone."
+    },
+    "021-end-reason-other.json": {
+      "note": "session_end with detail.end_reason other."
+    },
+    "022-activity-shell.json": {
+      "note": "tool_end with activity shell, derived from the tool name."
+    },
+    "023-activity-edit.json": {
+      "note": "tool_end with activity edit, derived from the tool name."
+    },
+    "024-activity-read.json": {
+      "note": "tool_end with activity read, derived from the tool name."
+    },
+    "025-activity-web.json": {
+      "note": "tool_end with activity web, derived from the tool name."
+    },
+    "026-activity-delegate.json": {
+      "note": "tool_end with activity delegate, derived from the tool name."
+    },
+    "027-activity-other.json": {
+      "note": "tool_end with activity other, derived from the tool name."
+    },
+    "028-heartbeat-activity-edit.json": {
+      "note": "heartbeat with an activity, the PreToolUse stand-in from CHANGES item 7."
+    },
+    "029-heartbeat-activity-delegate.json": {
+      "note": "heartbeat announcing a subagent launch as delegate activity."
+    },
+    "030-notification-permission-prompt.json": {
+      "note": "The permission_prompt notification carried on a needs-permission event."
+    },
+    "031-notification-elicitation-dialog.json": {
+      "note": "The elicitation_dialog notification carried on a needs-answer event."
+    },
+    "032-notification-elicitation-url-dialog.json": {
+      "note": "The elicitation_url_dialog notification carried on a needs-answer event."
+    },
+    "033-notification-agent-needs-input.json": {
+      "note": "The agent_needs_input notification carried on a needs-answer event."
+    },
+    "034-notification-elicitation-response.json": {
+      "note": "The elicitation_response notification carried on a answered event."
+    },
+    "035-notification-elicitation-complete.json": {
+      "note": "The elicitation_complete notification carried on a answered event."
+    },
+    "036-notification-idle-prompt.json": {
+      "note": "The idle_prompt notification carried on a heartbeat event."
+    },
+    "037-notification-quota-auto-resume-fired.json": {
+      "note": "The quota_auto_resume_fired notification carried on a turn-start event."
+    },
+    "038-notification-quota-auto-resume-stale.json": {
+      "note": "The quota_auto_resume_stale notification carried on a process-up event."
+    },
+    "039-notification-quota-auto-resume-disabled.json": {
+      "note": "The quota_auto_resume_disabled notification carried on a heartbeat event."
+    },
+    "040-notification-other.json": {
+      "note": "The other notification carried on a session-start event."
+    },
+    "041-tool-end-activity-and-notification.json": {
+      "note": "tool_end carries both an activity and a notification, two keys at once."
+    },
+    "042-error-class-overloaded.json": {
+      "note": "An error event with detail.error_class overloaded."
+    },
+    "043-error-class-server-error.json": {
+      "note": "An error event with detail.error_class server_error."
+    },
+    "044-error-class-network.json": {
+      "note": "An error event with detail.error_class network."
+    },
+    "045-error-class-auth.json": {
+      "note": "An error event with detail.error_class auth."
+    },
+    "046-error-class-billing.json": {
+      "note": "An error event with detail.error_class billing."
+    },
+    "047-error-class-invalid-request.json": {
+      "note": "An error event with detail.error_class invalid_request."
+    },
+    "048-error-class-model-not-found.json": {
+      "note": "An error event with detail.error_class model_not_found."
+    },
+    "049-error-class-max-output-tokens.json": {
+      "note": "An error event with detail.error_class max_output_tokens."
+    },
+    "050-error-class-unknown.json": {
+      "note": "An error event with detail.error_class unknown."
+    },
+    "051-stop-reason-end-turn.json": {
+      "note": "A turn-end event with detail.stop_reason end_turn."
+    },
+    "052-stop-reason-interrupted.json": {
+      "note": "A turn-interrupted event with detail.stop_reason interrupted."
+    },
+    "053-stop-reason-max-tokens.json": {
+      "note": "A turn-end event with detail.stop_reason max_tokens."
+    },
+    "054-stop-reason-refusal.json": {
+      "note": "A turn-end event with detail.stop_reason refusal."
+    },
+    "055-stop-reason-other.json": {
+      "note": "A turn-interrupted event with detail.stop_reason other."
+    },
+    "056-tool-claude.json": {
+      "note": "A session_start from the claude agent."
+    },
+    "057-tool-codex.json": {
+      "note": "A session_start from the codex agent."
+    },
+    "058-tool-opencode.json": {
+      "note": "A session_start from the opencode agent."
+    },
+    "059-tool-antigravity.json": {
+      "note": "A session_start from the antigravity agent."
+    },
+    "060-tool-gemini.json": {
+      "note": "A session_start from the gemini agent."
+    },
+    "061-tool-cursor.json": {
+      "note": "A session_start from the cursor agent."
+    },
+    "062-tool-aider.json": {
+      "note": "A session_start from the aider agent."
+    },
+    "063-tool-other.json": {
+      "note": "A session_start from the other agent."
+    },
+    "064-host-cli.json": {
+      "note": "A turn_start hosted in cli, from a codex agent."
+    },
+    "065-host-desktop.json": {
+      "note": "A turn_start hosted in desktop, from a codex agent."
+    },
+    "066-host-vscode.json": {
+      "note": "A turn_start hosted in vscode, from a codex agent."
+    },
+    "067-host-sdk.json": {
+      "note": "A turn_start hosted in sdk, from a codex agent."
+    },
+    "068-host-ide.json": {
+      "note": "A turn_start hosted in ide, from a codex agent."
+    },
+    "069-host-other.json": {
+      "note": "A turn_start hosted in other, from a codex agent."
+    },
+    "070-source-hook.json": {
+      "note": "An aider turn_start observed through the hook source."
+    },
+    "071-source-registry.json": {
+      "note": "An aider turn_start observed through the registry source."
+    },
+    "072-source-log.json": {
+      "note": "An aider turn_start observed through the log source."
+    },
+    "073-source-process.json": {
+      "note": "An aider turn_start observed through the process source."
+    },
+    "074-source-plugin.json": {
+      "note": "An aider turn_start observed through the plugin source."
+    },
+    "075-source-poll.json": {
+      "note": "An aider turn_start observed through the poll source."
+    },
+    "076-confidence-exact.json": {
+      "note": "An exact confidence on a gemini heartbeat from the process source."
+    },
+    "077-confidence-inferred.json": {
+      "note": "An inferred confidence on a gemini heartbeat from the process source."
+    },
+    "078-usage-codex-5h.json": {
+      "note": "A codex usage_sample for the 5h window with provider codex."
+    },
+    "079-usage-claude-weekly.json": {
+      "note": "A claude usage_sample for the weekly window."
+    },
+    "080-usage-codex-weekly.json": {
+      "note": "A codex usage_sample for the weekly window at 7 percent."
+    },
+    "081-usage-used-pct-zero.json": {
+      "note": "used_pct at the 0 minimum."
+    },
+    "082-usage-used-pct-hundred.json": {
+      "note": "used_pct at the 100 maximum."
+    },
+    "083-usage-resets-at-min.json": {
+      "note": "usage resets_at at the minimum legal timestamp."
+    },
+    "084-usage-resets-at-max.json": {
+      "note": "usage resets_at at the maximum legal timestamp."
+    },
+    "085-usage-observed-at-min.json": {
+      "note": "usage observed_at at the minimum legal timestamp."
+    },
+    "086-usage-with-tokens-delta.json": {
+      "note": "A usage_sample that also carries a tokens_delta."
+    },
+    "087-limit-claude-weekly.json": {
+      "note": "A claude limit_hit on the weekly window."
+    },
+    "088-limit-claude-unknown-reset-null.json": {
+      "note": "A claude limit_hit with window unknown and resets_at null, as StopFailure rate_limit gives."
+    },
+    "089-limit-codex-5h.json": {
+      "note": "A codex limit_hit on the 5h window."
+    },
+    "090-limit-codex-weekly.json": {
+      "note": "A codex limit_hit on the weekly window."
+    },
+    "091-limit-codex-unknown-window.json": {
+      "note": "A codex limit_hit with window unknown but a known reset time."
+    },
+    "092-limit-codex-reset-null.json": {
+      "note": "A codex limit_hit on the 5h window with the reset time unknown."
+    },
+    "093-limit-resets-at-min.json": {
+      "note": "limit resets_at at the minimum legal timestamp."
+    },
+    "094-limit-resets-at-max.json": {
+      "note": "limit resets_at at the maximum legal timestamp."
+    },
+    "095-et-present.json": {
+      "note": "et is present because the source states a time."
+    },
+    "096-et-at-min.json": {
+      "note": "et at the minimum legal timestamp."
+    },
+    "097-et-at-max.json": {
+      "note": "et at the maximum legal timestamp."
+    },
+    "098-tokens-delta-zero.json": {
+      "note": "tokens_delta at the 0 minimum."
+    },
+    "099-tokens-delta-max.json": {
+      "note": "tokens_delta at the 1000000000 maximum."
+    },
+    "100-tokens-delta-typical.json": {
+      "note": "tokens_delta with a typical sample size."
+    },
+    "101-t-at-min.json": {
+      "note": "t at the minimum legal timestamp."
+    },
+    "102-t-at-max.json": {
+      "note": "t at the maximum legal timestamp."
+    },
+    "103-subagent-codex-parent.json": {
+      "note": "A codex subagent names its parent session instance, and its session_id is that parent's session."
+    },
+    "104-subagent-claude-parent.json": {
+      "note": "A claude subagent with a parent instance and a tool_end activity."
+    },
+    "105-usage-on-claude-session.json": {
+      "note": "A claude session reporting a usage sample for its own provider."
+    },
+    "106-request-needs-permission-with-id.json": {
+      "note": "needs_permission carries the salted id of the permission request."
+    },
+    "107-request-needs-answer-with-id.json": {
+      "note": "needs_answer carries the salted id of the open question."
+    },
+    "108-request-answered-with-id.json": {
+      "note": "answered closes the request and carries the same salted request id."
+    },
+    "109-request-tool-end-with-id.json": {
+      "note": "tool_end carries the salted tool use id as its request id."
+    },
+    "110-request-id-null-on-codex-permission.json": {
+      "note": "A codex needs_permission whose source did not supply a request id, so request_id is null."
+    },
+    "111-account-id-set.json": {
+      "note": "A turn_start carrying the salted provider account id."
+    },
+    "112-session-id-null-process-up.json": {
+      "note": "process_up before the session id is known, so session_id is null."
+    },
+    "113-turn-id-set.json": {
+      "note": "A turn_start carrying the salted id of the turn it starts."
+    },
+    "114-turn-id-set-on-turn-end.json": {
+      "note": "A turn_end with the same salted turn id, so the collector can match it to its start."
+    },
+    "115-root-id-second-connector.json": {
+      "note": "A heartbeat from a second connector: the same agent with a different root_id."
+    },
+    "116-usage-sample-with-account-id.json": {
+      "note": "A usage_sample whose limits are kept under the salted account id."
+    },
+    "117-usage-sample-without-account-id.json": {
+      "note": "A weekly claude usage_sample from a source that does not name the account."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-root-string.json": {
+      "note": "The root must be an object, not a string.",
+      "path": ""
+    },
+    "004-missing-v.json": {
+      "note": "v is required.",
+      "path": ""
+    },
+    "005-missing-agent.json": {
+      "note": "agent is required.",
+      "path": ""
+    },
+    "006-missing-instance.json": {
+      "note": "instance is required.",
+      "path": ""
+    },
+    "007-missing-parent.json": {
+      "note": "parent is required and is null when there is no parent.",
+      "path": ""
+    },
+    "008-missing-host.json": {
+      "note": "host is required.",
+      "path": ""
+    },
+    "009-missing-kind.json": {
+      "note": "kind is required.",
+      "path": ""
+    },
+    "010-missing-source.json": {
+      "note": "source is required.",
+      "path": ""
+    },
+    "011-missing-confidence.json": {
+      "note": "confidence is required.",
+      "path": ""
+    },
+    "012-missing-t.json": {
+      "note": "t is required.",
+      "path": ""
+    },
+    "013-leak-prompt.json": {
+      "note": "The raw prompt field is an unknown property and is rejected.",
+      "path": ""
+    },
+    "014-leak-tool-input.json": {
+      "note": "The raw tool_input field is an unknown property and is rejected.",
+      "path": ""
+    },
+    "015-leak-message.json": {
+      "note": "The raw message field is an unknown property and is rejected.",
+      "path": ""
+    },
+    "016-leak-cwd.json": {
+      "note": "The raw cwd field is an unknown property and is rejected.",
+      "path": ""
+    },
+    "017-leak-transcript-path.json": {
+      "note": "The raw transcript_path field is an unknown property and is rejected.",
+      "path": ""
+    },
+    "018-leak-last-assistant-message.json": {
+      "note": "The raw last_assistant_message field is an unknown property and is rejected.",
+      "path": ""
+    },
+    "019-unknown-top-level-field.json": {
+      "note": "An unknown top-level field is rejected by the closed object.",
+      "path": ""
+    },
+    "020-instance-raw-uuid.json": {
+      "note": "A raw UUID session id cannot match the salted 32 hex shape.",
+      "path": "/instance"
+    },
+    "021-instance-uppercase-hex.json": {
+      "note": "Instance hex must be lowercase.",
+      "path": "/instance"
+    },
+    "022-instance-too-short.json": {
+      "note": "Instance must be exactly 32 characters.",
+      "path": "/instance"
+    },
+    "023-instance-not-hex.json": {
+      "note": "Instance characters must be hexadecimal.",
+      "path": "/instance"
+    },
+    "024-parent-raw-uuid.json": {
+      "note": "A subagent parent must also be a salted id, never a raw UUID.",
+      "path": "/parent"
+    },
+    "025-version-two.json": {
+      "note": "v must be the constant 1.",
+      "path": "/v"
+    },
+    "026-version-string.json": {
+      "note": "v must be the integer 1, not a string.",
+      "path": "/v"
+    },
+    "027-agent-unknown-tool.json": {
+      "note": "agent must be one of the known tools.",
+      "path": "/agent"
+    },
+    "028-host-unknown.json": {
+      "note": "host must be one of the known hosts.",
+      "path": "/host"
+    },
+    "029-kind-tool-start.json": {
+      "note": "tool_start is not a kind in v0.1 (CHANGES item 7).",
+      "path": "/kind"
+    },
+    "030-source-unknown.json": {
+      "note": "source must be one of the six sources.",
+      "path": "/source"
+    },
+    "031-confidence-unknown.json": {
+      "note": "confidence is exact or inferred.",
+      "path": "/confidence"
+    },
+    "032-detail-activity-unknown.json": {
+      "note": "activity must be a closed value; the tool name Bash is not one.",
+      "path": "/detail/activity"
+    },
+    "033-detail-error-class-rate-limit.json": {
+      "note": "rate_limit is a limit_hit, not an error_class (CHANGES item 5).",
+      "path": "/detail/error_class"
+    },
+    "034-detail-notification-unknown.json": {
+      "note": "notification must be one of the listed notification types.",
+      "path": "/detail/notification"
+    },
+    "035-detail-stop-reason-unknown.json": {
+      "note": "stop_reason must be one of the five closed values.",
+      "path": "/detail/stop_reason"
+    },
+    "036-detail-end-reason-unknown.json": {
+      "note": "end_reason must be one of the six closed values.",
+      "path": "/detail/end_reason"
+    },
+    "037-detail-unknown-key.json": {
+      "note": "detail has no free-text key, so an unknown key is rejected.",
+      "path": "/detail"
+    },
+    "038-detail-empty.json": {
+      "note": "detail is omitted rather than sent empty.",
+      "path": "/detail"
+    },
+    "039-detail-null.json": {
+      "note": "detail is omitted, never null.",
+      "path": "/detail"
+    },
+    "040-detail-activity-on-turn-start.json": {
+      "note": "activity is only allowed on tool_end and heartbeat.",
+      "path": "/detail"
+    },
+    "041-detail-error-class-on-tool-end.json": {
+      "note": "error_class is only allowed on error.",
+      "path": "/detail"
+    },
+    "042-detail-stop-reason-on-error.json": {
+      "note": "stop_reason is only allowed on turn_end and turn_interrupted.",
+      "path": "/detail"
+    },
+    "043-detail-end-reason-on-turn-end.json": {
+      "note": "end_reason is only allowed on session_end.",
+      "path": "/detail"
+    },
+    "044-t-in-seconds.json": {
+      "note": "t in seconds is below the millisecond range.",
+      "path": "/t"
+    },
+    "045-t-below-min.json": {
+      "note": "t is one millisecond before 2000-01-01.",
+      "path": "/t"
+    },
+    "046-t-above-max.json": {
+      "note": "t is one millisecond after 2100-01-01.",
+      "path": "/t"
+    },
+    "047-t-iso-string.json": {
+      "note": "t must be an integer, not an ISO timestamp string.",
+      "path": "/t"
+    },
+    "048-et-in-seconds.json": {
+      "note": "et in seconds is below the millisecond range.",
+      "path": "/et"
+    },
+    "049-et-null.json": {
+      "note": "et is omitted when the source states no time, never null.",
+      "path": "/et"
+    },
+    "050-et-above-max.json": {
+      "note": "et is one millisecond after 2100-01-01.",
+      "path": "/et"
+    },
+    "051-usage-sample-without-usage.json": {
+      "note": "A usage_sample must carry usage.",
+      "path": ""
+    },
+    "052-usage-on-heartbeat.json": {
+      "note": "usage is only allowed on usage_sample.",
+      "path": ""
+    },
+    "053-usage-null-on-usage-sample.json": {
+      "note": "usage is omitted or present, never null.",
+      "path": "/usage"
+    },
+    "054-limit-hit-without-limit.json": {
+      "note": "A limit_hit must carry limit.",
+      "path": ""
+    },
+    "055-limit-on-error.json": {
+      "note": "limit is only allowed on limit_hit.",
+      "path": ""
+    },
+    "056-limit-null-on-limit-hit.json": {
+      "note": "limit is omitted or present, never null.",
+      "path": "/limit"
+    },
+    "057-usage-provider-not-agent.json": {
+      "note": "A claude agent's usage provider must be claude.",
+      "path": "/usage/provider"
+    },
+    "058-limit-provider-not-agent.json": {
+      "note": "A codex agent's limit provider must be codex.",
+      "path": "/limit/provider"
+    },
+    "059-usage-on-opencode.json": {
+      "note": "usage is only reported by claude and codex in v0.1.",
+      "path": ""
+    },
+    "060-limit-on-gemini.json": {
+      "note": "limit is only reported by claude and codex in v0.1.",
+      "path": ""
+    },
+    "061-usage-on-other-agent.json": {
+      "note": "The catch-all other agent carries no usage.",
+      "path": ""
+    },
+    "062-usage-missing-provider.json": {
+      "note": "usage.provider is required.",
+      "path": "/usage"
+    },
+    "063-usage-missing-window.json": {
+      "note": "usage.window is required.",
+      "path": "/usage"
+    },
+    "064-usage-missing-used-pct.json": {
+      "note": "usage.used_pct is required.",
+      "path": "/usage"
+    },
+    "065-usage-missing-resets-at.json": {
+      "note": "usage.resets_at is required.",
+      "path": "/usage"
+    },
+    "066-usage-missing-observed-at.json": {
+      "note": "usage.observed_at is required.",
+      "path": "/usage"
+    },
+    "067-usage-extra-field.json": {
+      "note": "usage is a closed object with no extra fields.",
+      "path": "/usage"
+    },
+    "068-usage-window-unknown.json": {
+      "note": "usage windows are 5h or weekly; unknown is only for limits.",
+      "path": "/usage/window"
+    },
+    "069-usage-used-pct-over.json": {
+      "note": "used_pct is at most 100.",
+      "path": "/usage/used_pct"
+    },
+    "070-usage-used-pct-negative.json": {
+      "note": "used_pct is at least 0.",
+      "path": "/usage/used_pct"
+    },
+    "071-usage-resets-at-seconds.json": {
+      "note": "usage resets_at in seconds is rejected (CHANGES item 1).",
+      "path": "/usage/resets_at"
+    },
+    "072-usage-observed-at-below-min.json": {
+      "note": "usage observed_at below the millisecond range.",
+      "path": "/usage/observed_at"
+    },
+    "073-limit-missing-provider.json": {
+      "note": "limit.provider is required.",
+      "path": "/limit"
+    },
+    "074-limit-missing-window.json": {
+      "note": "limit.window is required.",
+      "path": "/limit"
+    },
+    "075-limit-missing-resets-at.json": {
+      "note": "limit.resets_at is required even though it may be null.",
+      "path": "/limit"
+    },
+    "076-limit-window-five-hours.json": {
+      "note": "limit windows are spelled 5h, weekly or unknown.",
+      "path": "/limit/window"
+    },
+    "077-limit-resets-at-seconds.json": {
+      "note": "limit resets_at in seconds is rejected.",
+      "path": "/limit/resets_at"
+    },
+    "078-limit-extra-field.json": {
+      "note": "limit is a closed object with no extra fields.",
+      "path": "/limit"
+    },
+    "079-tokens-delta-negative.json": {
+      "note": "tokens_delta is at least 0.",
+      "path": "/tokens_delta"
+    },
+    "080-tokens-delta-over-max.json": {
+      "note": "tokens_delta is at most 1000000000.",
+      "path": "/tokens_delta"
+    },
+    "081-tokens-delta-fraction.json": {
+      "note": "tokens_delta must be an integer, not 2.5.",
+      "path": "/tokens_delta"
+    },
+    "082-tokens-delta-null.json": {
+      "note": "tokens_delta is omitted, never null.",
+      "path": "/tokens_delta"
+    },
+    "083-tokens-delta-string.json": {
+      "note": "tokens_delta must be a number, not a string.",
+      "path": "/tokens_delta"
+    },
+    "084-root-id-missing.json": {
+      "note": "root_id is required.",
+      "path": ""
+    },
+    "085-root-id-null.json": {
+      "note": "root_id is never null: every event names the connector that produced it.",
+      "path": "/root_id"
+    },
+    "086-root-id-raw-uuid.json": {
+      "note": "root_id must be a salted hash, so a raw UUID is rejected.",
+      "path": "/root_id"
+    },
+    "087-root-id-uppercase.json": {
+      "note": "root_id must be lowercase hex.",
+      "path": "/root_id"
+    },
+    "088-account-id-missing.json": {
+      "note": "account_id is required even though it may be null.",
+      "path": ""
+    },
+    "089-account-id-raw-uuid.json": {
+      "note": "account_id must be a salted hash, never the raw provider account id.",
+      "path": "/account_id"
+    },
+    "090-session-id-missing.json": {
+      "note": "session_id is required even though it may be null.",
+      "path": ""
+    },
+    "091-session-id-raw-uuid.json": {
+      "note": "A raw UUID session id is rejected because session_id is a salted hash.",
+      "path": "/session_id"
+    },
+    "092-turn-id-missing.json": {
+      "note": "turn_id is required even though it may be null.",
+      "path": ""
+    },
+    "093-turn-id-uppercase.json": {
+      "note": "turn_id must be lowercase hex.",
+      "path": "/turn_id"
+    },
+    "094-request-id-missing.json": {
+      "note": "request_id is required even though it is null on most kinds.",
+      "path": ""
+    },
+    "095-request-id-raw-uuid.json": {
+      "note": "request_id must be a salted hash, so a raw tool use id is rejected.",
+      "path": "/request_id"
+    },
+    "096-request-id-on-turn-start.json": {
+      "note": "request_id is only allowed on the four request kinds, and this turn_start sets it.",
+      "path": "/request_id"
+    },
+    "097-request-id-on-turn-end.json": {
+      "note": "request_id is only allowed on the four request kinds, and this turn_end sets it.",
+      "path": "/request_id"
+    },
+    "098-request-id-on-heartbeat.json": {
+      "note": "request_id is only allowed on the four request kinds, and this heartbeat sets it.",
+      "path": "/request_id"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/choices.v1.schema.json",
+  "title": "Choices v1",
+  "description": "choices.json in the app data folder (SPEC 6.8): the user's timestamped build-order and decoration choices, the third input of world = grow(seed, ledger, choices). Added by WP-01 because the spec names the file but not its shape (see contracts/CHANGES.md). An append-only log so the weekly replay is exact: the state at any moment is the fold of entries up to it. Written only by the core, atomically.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "privacy", "log"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["containsText"],
+      "properties": { "containsText": { "const": false } }
+    },
+    "log": {
+      "type": "array",
+      "maxItems": 10000,
+      "description": "Oldest first. An empty log means the default build order (SPEC 4.5 table order) and no decorations toggled.",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "ms": {
+      "type": "integer",
+      "minimum": 946684800000,
+      "maximum": 4102444800000,
+      "description": "Milliseconds since the Unix epoch (UTC), always an integer. The range (2000-01-01 to 2100-01-01) rejects a seconds value passed by mistake."
+    },
+    "day": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "description": "A local calendar day, YYYY-MM-DD."
+    },
+    "progressionStructure": {
+      "enum": [
+        "noticeboard", "workshop_1", "well", "cottage_1", "garden_plots", "crossing", "watermill",
+        "workshop_2", "cottage_2", "bell_tower", "bakery", "market_hall"
+      ]
+    },
+    "decoration": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,31}$",
+      "description": "Decoration id from the economy config (WP-08 owns the catalogue of 24)."
+    },
+    "entry": {
+      "type": "object",
+      "required": ["t", "day", "kind"],
+      "properties": {
+        "t": { "$ref": "#/$defs/ms" },
+        "day": { "$ref": "#/$defs/day", "description": "Local day when the choice was made, so grow() never needs a time zone." },
+        "kind": { "enum": ["build_order", "decoration"] }
+      },
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "required": ["order"],
+          "properties": {
+            "t": true,
+            "day": true,
+            "kind": { "const": "build_order" },
+            "order": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 12,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/progressionStructure" },
+              "description": "The user's priority order. Structures not listed keep their default order after the listed ones."
+            }
+          }
+        },
+        {
+          "additionalProperties": false,
+          "required": ["decoration", "on"],
+          "properties": {
+            "t": true,
+            "day": true,
+            "kind": { "const": "decoration" },
+            "decoration": { "$ref": "#/$defs/decoration" },
+            "on": { "type": "boolean", "description": "true to place it (buying it if not yet owned), false to put it away." }
+          }
+        }
+      ]
+    }
+  }
+}

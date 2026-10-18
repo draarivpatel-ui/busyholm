@@ -1,0 +1,417 @@
+{
+  "contract": "moment",
+  "schema": "contracts/schemas/moment.v1.schema.json",
+  "valid": {
+    "001-kind-turn-end.json": {
+      "note": "A turn-end moment with only the fields that kind requires."
+    },
+    "002-kind-needs-you.json": {
+      "note": "A needs-you moment with only the fields that kind requires."
+    },
+    "003-kind-answered.json": {
+      "note": "A answered moment with only the fields that kind requires."
+    },
+    "004-kind-error.json": {
+      "note": "A error moment with only the fields that kind requires."
+    },
+    "005-kind-recovered.json": {
+      "note": "A recovered moment with only the fields that kind requires."
+    },
+    "006-kind-limit-hit.json": {
+      "note": "A limit-hit moment with only the fields that kind requires."
+    },
+    "007-kind-limit-reset.json": {
+      "note": "A limit-reset moment with only the fields that kind requires."
+    },
+    "008-kind-weekly-reset.json": {
+      "note": "A weekly-reset moment with only the fields that kind requires."
+    },
+    "009-turn-end-with-turn-ms.json": {
+      "note": "turn_end carries turn_ms so the long-turn notification can fire."
+    },
+    "010-turn-ms-zero.json": {
+      "note": "turn_ms at the 0 minimum."
+    },
+    "011-turn-ms-week-max.json": {
+      "note": "turn_ms at the 604800000 maximum (one week)."
+    },
+    "012-turn-ms-just-over-two-minutes.json": {
+      "note": "turn_ms just past the two minute long-turn threshold."
+    },
+    "013-needs-you-permission.json": {
+      "note": "needs_you with reason permission from claude."
+    },
+    "014-tool-claude-turn-end.json": {
+      "note": "A turn_end from the claude tool with its own agent id."
+    },
+    "015-tool-codex-turn-end.json": {
+      "note": "A turn_end from the codex tool with its own agent id."
+    },
+    "016-tool-opencode-turn-end.json": {
+      "note": "A turn_end from the opencode tool with its own agent id."
+    },
+    "017-tool-antigravity-turn-end.json": {
+      "note": "A turn_end from the antigravity tool with its own agent id."
+    },
+    "018-tool-gemini-turn-end.json": {
+      "note": "A turn_end from the gemini tool with its own agent id."
+    },
+    "019-tool-cursor-turn-end.json": {
+      "note": "A turn_end from the cursor tool with its own agent id."
+    },
+    "020-tool-aider-turn-end.json": {
+      "note": "A turn_end from the aider tool with its own agent id."
+    },
+    "021-tool-other-turn-end.json": {
+      "note": "A turn_end from the other tool with its own agent id."
+    },
+    "022-limit-hit-codex.json": {
+      "note": "limit_hit for provider codex with no agent or tool."
+    },
+    "023-limit-hit-with-agent.json": {
+      "note": "limit_hit may name its agent and tool when the source knows them."
+    },
+    "024-limit-reset-claude.json": {
+      "note": "limit_reset for provider claude."
+    },
+    "025-weekly-reset-codex.json": {
+      "note": "weekly_reset for provider codex."
+    },
+    "026-structure-campfire.json": {
+      "note": "build_complete for campfire at stage 1."
+    },
+    "027-structure-tent.json": {
+      "note": "build_complete for tent at stage 2."
+    },
+    "028-structure-bell-post.json": {
+      "note": "build_complete for bell-post at stage 3."
+    },
+    "029-structure-noticeboard.json": {
+      "note": "build_complete for noticeboard at stage 1."
+    },
+    "030-structure-workshop-1.json": {
+      "note": "build_complete for workshop-1 at stage 2."
+    },
+    "031-structure-well.json": {
+      "note": "build_complete for well at stage 3."
+    },
+    "032-structure-cottage-1.json": {
+      "note": "build_complete for cottage-1 at stage 1."
+    },
+    "033-structure-garden-plots.json": {
+      "note": "build_complete for garden-plots at stage 2."
+    },
+    "034-structure-crossing.json": {
+      "note": "build_complete for crossing at stage 3."
+    },
+    "035-structure-watermill.json": {
+      "note": "build_complete for watermill at stage 1."
+    },
+    "036-structure-workshop-2.json": {
+      "note": "build_complete for workshop-2 at stage 2."
+    },
+    "037-structure-cottage-2.json": {
+      "note": "build_complete for cottage-2 at stage 3."
+    },
+    "038-structure-bell-tower.json": {
+      "note": "build_complete for bell-tower at stage 1."
+    },
+    "039-structure-bakery.json": {
+      "note": "build_complete for bakery at stage 2."
+    },
+    "040-structure-market-hall.json": {
+      "note": "build_complete for market-hall at stage 3."
+    },
+    "041-structure-founders-stone.json": {
+      "note": "build_complete for founders-stone at stage 1."
+    },
+    "042-milestone-first-turn.json": {
+      "note": "The first-turn milestone as an island moment with no agent."
+    },
+    "043-milestone-first-answer.json": {
+      "note": "The first-answer milestone as an island moment with no agent."
+    },
+    "044-milestone-first-subagent.json": {
+      "note": "The first-subagent milestone as an island moment with no agent."
+    },
+    "045-milestone-two-tools-day.json": {
+      "note": "The two-tools-day milestone as an island moment with no agent."
+    },
+    "046-milestone-turns-100.json": {
+      "note": "The turns-100 milestone as an island moment with no agent."
+    },
+    "047-milestone-streak-7.json": {
+      "note": "The streak-7 milestone as an island moment with no agent."
+    },
+    "048-milestone-turns-1000.json": {
+      "note": "The turns-1000 milestone as an island moment with no agent."
+    },
+    "049-turn-end-at-min-time.json": {
+      "note": "turn_end at the minimum legal timestamp."
+    },
+    "050-turn-end-at-max-time.json": {
+      "note": "turn_end at the maximum legal timestamp."
+    },
+    "051-build-complete-finished-stage-three.json": {
+      "note": "build_complete at stage 3, meaning the structure is finished."
+    },
+    "052-milestone-at-min-time.json": {
+      "note": "A milestone at the minimum legal timestamp."
+    },
+    "053-needs-you-with-request.json": {
+      "note": "needs_you keyed by its request id, so it notifies once per request."
+    },
+    "054-question-with-request.json": {
+      "note": "A question alert keyed by its request id."
+    },
+    "055-answered-with-request.json": {
+      "note": "answered names the request it closes, so its notification is withdrawn."
+    }
+  },
+  "invalid": {
+    "001-root-array.json": {
+      "note": "The root must be an object, not an array.",
+      "path": ""
+    },
+    "002-root-null.json": {
+      "note": "The root must be an object, not null.",
+      "path": ""
+    },
+    "003-root-string.json": {
+      "note": "The root must be an object, not a string.",
+      "path": ""
+    },
+    "004-missing-schema-version.json": {
+      "note": "schema_version is required.",
+      "path": ""
+    },
+    "005-missing-kind.json": {
+      "note": "kind is required.",
+      "path": ""
+    },
+    "006-missing-t.json": {
+      "note": "t is required.",
+      "path": ""
+    },
+    "007-schema-version-two.json": {
+      "note": "schema_version must be the constant 1.",
+      "path": "/schema_version"
+    },
+    "008-schema-version-string.json": {
+      "note": "schema_version must be the integer 1, not a string.",
+      "path": "/schema_version"
+    },
+    "009-kind-finished.json": {
+      "note": "finished is not a moment kind (it is a state transition elsewhere).",
+      "path": "/kind"
+    },
+    "010-kind-hyphenated.json": {
+      "note": "Kinds use underscores, so turn-end is unknown.",
+      "path": "/kind"
+    },
+    "011-t-in-seconds.json": {
+      "note": "t in seconds is below the millisecond range.",
+      "path": "/t"
+    },
+    "012-t-below-min.json": {
+      "note": "t is one millisecond before 2000-01-01.",
+      "path": "/t"
+    },
+    "013-t-above-max.json": {
+      "note": "t is one millisecond after 2100-01-01.",
+      "path": "/t"
+    },
+    "014-unknown-text-field.json": {
+      "note": "Moments carry no free text, so an unknown text field is rejected.",
+      "path": ""
+    },
+    "015-leaked-prompt.json": {
+      "note": "A raw prompt field is an unknown property and is rejected.",
+      "path": ""
+    },
+    "016-turn-end-missing-agent-and-tool.json": {
+      "note": "turn_end must name its agent and tool.",
+      "path": ""
+    },
+    "017-limit-hit-tool-without-agent.json": {
+      "note": "tool without agent is rejected by dependentRequired.",
+      "path": ""
+    },
+    "018-limit-hit-agent-without-tool.json": {
+      "note": "agent without tool is rejected by dependentRequired.",
+      "path": ""
+    },
+    "019-agent-raw-uuid.json": {
+      "note": "agent is a salted id, never a raw session UUID.",
+      "path": "/agent"
+    },
+    "020-agent-uppercase-hex.json": {
+      "note": "agent hex must be lowercase.",
+      "path": "/agent"
+    },
+    "021-agent-null.json": {
+      "note": "agent is present as a string or absent, never null.",
+      "path": "/agent"
+    },
+    "022-tool-unknown.json": {
+      "note": "tool must be one of the known tools.",
+      "path": "/tool"
+    },
+    "023-tool-null.json": {
+      "note": "tool is present as a string or absent, never null.",
+      "path": "/tool"
+    },
+    "024-agent-on-milestone.json": {
+      "note": "Island moments are not tied to an agent.",
+      "path": ""
+    },
+    "025-agent-on-build-complete.json": {
+      "note": "build_complete is an island moment and names no agent.",
+      "path": ""
+    },
+    "026-agent-on-limit-reset.json": {
+      "note": "limit_reset is an island moment and names no agent.",
+      "path": ""
+    },
+    "027-agent-on-weekly-reset.json": {
+      "note": "weekly_reset is an island moment and names no agent.",
+      "path": ""
+    },
+    "028-needs-you-missing-reason.json": {
+      "note": "needs_you requires a reason.",
+      "path": ""
+    },
+    "029-reason-unknown.json": {
+      "note": "reason is permission or question.",
+      "path": "/reason"
+    },
+    "030-reason-null.json": {
+      "note": "reason is omitted when it does not apply, never null.",
+      "path": "/reason"
+    },
+    "031-reason-on-turn-end.json": {
+      "note": "reason is only allowed on needs_you.",
+      "path": ""
+    },
+    "032-turn-ms-on-needs-you.json": {
+      "note": "turn_ms is only allowed on turn_end.",
+      "path": ""
+    },
+    "033-turn-ms-negative.json": {
+      "note": "turn_ms is at least 0.",
+      "path": "/turn_ms"
+    },
+    "034-turn-ms-over-week.json": {
+      "note": "turn_ms is at most 604800000.",
+      "path": "/turn_ms"
+    },
+    "035-turn-ms-fraction.json": {
+      "note": "turn_ms must be an integer, not 1.5.",
+      "path": "/turn_ms"
+    },
+    "036-turn-ms-null.json": {
+      "note": "turn_ms is omitted when unknown, never null.",
+      "path": "/turn_ms"
+    },
+    "037-provider-missing-limit-hit.json": {
+      "note": "limit_hit requires a provider.",
+      "path": ""
+    },
+    "038-provider-missing-weekly-reset.json": {
+      "note": "weekly_reset requires a provider.",
+      "path": ""
+    },
+    "039-provider-on-turn-end.json": {
+      "note": "provider is only allowed on the limit kinds.",
+      "path": ""
+    },
+    "040-provider-unknown-limit-reset.json": {
+      "note": "provider must be claude or codex.",
+      "path": "/provider"
+    },
+    "041-provider-null-limit-hit.json": {
+      "note": "provider is required and cannot be null.",
+      "path": "/provider"
+    },
+    "042-build-complete-missing-structure.json": {
+      "note": "build_complete requires a structure.",
+      "path": ""
+    },
+    "043-build-complete-missing-stage.json": {
+      "note": "build_complete requires a stage.",
+      "path": ""
+    },
+    "044-structure-unknown.json": {
+      "note": "structure must be a known structure slot.",
+      "path": "/structure"
+    },
+    "045-structure-null.json": {
+      "note": "structure cannot be null on build_complete.",
+      "path": "/structure"
+    },
+    "046-structure-on-milestone.json": {
+      "note": "structure is only allowed on build_complete.",
+      "path": ""
+    },
+    "047-structure-on-turn-end.json": {
+      "note": "structure is only allowed on build_complete.",
+      "path": ""
+    },
+    "048-stage-zero.json": {
+      "note": "stage is at least 1.",
+      "path": "/stage"
+    },
+    "049-stage-four.json": {
+      "note": "stage is at most 3.",
+      "path": "/stage"
+    },
+    "050-stage-null.json": {
+      "note": "stage cannot be null on build_complete.",
+      "path": "/stage"
+    },
+    "051-stage-string.json": {
+      "note": "stage must be an integer, not a string.",
+      "path": "/stage"
+    },
+    "052-stage-on-turn-end.json": {
+      "note": "stage is only allowed on build_complete.",
+      "path": ""
+    },
+    "053-milestone-missing.json": {
+      "note": "milestone kind requires a milestone id.",
+      "path": ""
+    },
+    "054-milestone-unknown.json": {
+      "note": "milestone must be one of the seven milestone ids.",
+      "path": "/milestone"
+    },
+    "055-milestone-null.json": {
+      "note": "milestone cannot be null on the milestone kind.",
+      "path": "/milestone"
+    },
+    "056-milestone-on-turn-end.json": {
+      "note": "milestone is only allowed on the milestone kind.",
+      "path": ""
+    },
+    "057-request-on-turn-end.json": {
+      "note": "request_id is only allowed on needs_you and answered.",
+      "path": ""
+    },
+    "058-request-on-error.json": {
+      "note": "request_id is only allowed on needs_you and answered.",
+      "path": ""
+    },
+    "059-request-on-limit-hit.json": {
+      "note": "request_id is only allowed on needs_you and answered.",
+      "path": ""
+    },
+    "060-request-null.json": {
+      "note": "request_id is omitted when unknown, never null.",
+      "path": "/request_id"
+    },
+    "061-request-raw-uuid.json": {
+      "note": "request_id is a salted hash, never a raw id.",
+      "path": "/request_id"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "seed": 20261012,
+  "as_of_day": "2026-10-12",
+  "tier": "camp",
+  "resources": {
+    "planks": 4.5,
+    "stone": 0,
+    "seeds": 2
+  },
+  "earned": {
+    "planks": 12,
+    "stone": 1,
+    "seeds": 3
+  },
+  "structures": [
+    {
+      "id": "campfire",
+      "status": "complete",
+      "stage": 3,
+      "progress": 1,
+      "completed_day": "2026-10-03"
+    },
+    {
+      "id": "tent",
+      "status": "complete",
+      "stage": 3,
+      "progress": 1,
+      "completed_day": "2026-10-03"
+    },
+    {
+      "id": "noticeboard",
+      "status": "complete",
+      "stage": 3,
+      "progress": 1,
+      "completed_day": "2026-10-04"
+    },
+    {
+      "id": "workshop_1",
+      "variant": "claude",
+      "status": "building",
+      "stage": 2,
+      "progress": 0.5
+    },
+    {
+      "id": "shed",
+      "status": "planned",
+      "stage": 0,
+      "progress": 0
+    }
+  ],
+  "decorations": [],
+  "milestones": [],
+  "stats": {
+    "lifetime_turns": 42,
+    "active_days": 5,
+    "streak_days": 3,
+    "tools_seen": [
+      "claude"
+    ]
+  },
+  "founders_stone": null,
+  "demo_capped": false
+}

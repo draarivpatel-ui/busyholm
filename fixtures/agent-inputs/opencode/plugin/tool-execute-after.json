@@ -1,0 +1,19 @@
+{
+  "type": "tool.execute.after",
+  "input": {
+    "tool": "bash",
+    "sessionID": "bca1a700-0000-4000-8000-00000000007f",
+    "callID": "bca1a700-0000-4000-8000-000000000085",
+    "args": {
+      "command": "BHCANARY_opencode_command_2"
+    }
+  },
+  "output": {
+    "title": "BHCANARY_opencode_title_5",
+    "output": "BHCANARY_opencode_output_1",
+    "metadata": {
+      "exit": 0,
+      "description": "BHCANARY_opencode_description_2"
+    }
+  }
+}

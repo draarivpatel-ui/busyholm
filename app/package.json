@@ -1,0 +1,23 @@
+{
+  "name": "@busyholm/app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Busyholm Tauri v2 shell (WP-02). Its own npm project, not a root workspace, so the shared tests never need the Tauri CLI.",
+  "license": "MIT",
+  "scripts": {
+    "tauri": "tauri",
+    "assemble": "node scripts/assemble-frontend.mjs",
+    "dev": "tauri dev",
+    "build": "node scripts/build-release.mjs",
+    "build:app": "node scripts/build-release.mjs --bundles app",
+    "build:win-x64": "node scripts/build-release.mjs --cross-windows --target x86_64-pc-windows-msvc",
+    "build:win-arm64": "node scripts/build-release.mjs --cross-windows --target aarch64-pc-windows-msvc",
+    "test:rust": "cd src-tauri && cargo test",
+    "test:macos": "bash tests/macos/run-acceptance.sh",
+    "test:scripts": "node --test \"scripts/test/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.2"
+  }
+}

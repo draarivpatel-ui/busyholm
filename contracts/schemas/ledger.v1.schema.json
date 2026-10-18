@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://busyholm.invalid/contracts/ledger.v1.schema.json",
+  "title": "Ledger v1",
+  "description": "ledger.json and demo-ledger.json in the app data folder (SPEC 6.8). Counts only: raw per-day, per-tool counters that grow() turns into resources, so tuning the economy never needs a data migration. Written only by the core, atomically (temp file then rename), flushed at most every 30 s and on quit. The app refuses a file without privacy.containsText false. Never holds a project name, path, id or any text.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "privacy",
+    "seed",
+    "founded_day",
+    "hooks_first_connected_day",
+    "days",
+    "backfill"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "privacy": {
+      "$ref": "#/$defs/privacy"
+    },
+    "seed": {
+      "$ref": "#/$defs/seed"
+    },
+    "founded_day": {
+      "$ref": "#/$defs/day",
+      "description": "Local day of first launch: the founding crate arrives on it."
+    },
+    "hooks_first_connected_day": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/day"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Local day the first agent's hooks were connected (the bell post arrives then); null until it happens. Not derivable from counts, so it is stored."
+    },
+    "days": {
+      "$ref": "#/$defs/days"
+    },
+    "day_totals": {
+      "$ref": "#/$defs/dayTotals"
+    },
+    "backfill": {
+      "description": "The opt-in history import (SPEC 4.5), kept apart from live days so grow() can cap what it awards and engrave the Founders' Stone. null when never imported.",
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "imported_at",
+            "days"
+          ],
+          "properties": {
+            "imported_at": {
+              "$ref": "#/$defs/ms"
+            },
+            "days": {
+              "$ref": "#/$defs/days",
+              "type": "object",
+              "maxProperties": 31
+            }
+          }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "ms": {
+      "type": "integer",
+      "minimum": 946684800000,
+      "maximum": 4102444800000,
+      "description": "Milliseconds since the Unix epoch (UTC), always an integer. The range (2000-01-01 to 2100-01-01) rejects a seconds value passed by mistake."
+    },
+    "day": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "description": "A local calendar day, YYYY-MM-DD."
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "description": "World seed, an unsigned 32-bit integer (safe in JavaScript numbers)."
+    },
+    "tool": {
+      "enum": [
+        "claude",
+        "codex",
+        "opencode",
+        "antigravity",
+        "gemini",
+        "cursor",
+        "aider",
+        "other"
+      ]
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "containsText"
+      ],
+      "properties": {
+        "containsText": {
+          "const": false
+        }
+      }
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "days": {
+      "type": "object",
+      "description": "Keyed by local day. A day appears only once something was counted on it.",
+      "maxProperties": 40000,
+      "propertyNames": {
+        "$ref": "#/$defs/day"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/dayTools"
+      }
+    },
+    "dayTotals": {
+      "type": "object",
+      "description": "Optional. Keyed by local day (same rule as days). Per day, the wall-clock seconds during which at least one main session of ANY tool was working: the union across tools, so Claude Code and Codex working side by side are not summed. When absent the ledger is exactly the older v1 shape and grow() sums the per-tool working_seconds. Independent of days: no cross-field rule, because rounding remainders make exact relations unsafe.",
+      "maxProperties": 40000,
+      "propertyNames": {
+        "$ref": "#/$defs/day"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/dayTotal"
+      }
+    },
+    "dayTotal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "working_seconds"
+      ],
+      "properties": {
+        "working_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 90000,
+          "description": "Wall-clock seconds with at least one main session of any tool working; the cap allows a 25-hour daylight-saving day."
+        }
+      }
+    },
+    "dayTools": {
+      "type": "object",
+      "description": "Keyed by tool; at least one tool per listed day.",
+      "minProperties": 1,
+      "propertyNames": {
+        "$ref": "#/$defs/tool"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/counts"
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "turns",
+        "interrupted_turns",
+        "sessions",
+        "working_seconds",
+        "needs_you",
+        "errors",
+        "recovered",
+        "limit_hits",
+        "subagent_turns"
+      ],
+      "properties": {
+        "turns": {
+          "$ref": "#/$defs/count",
+          "description": "Completed main-session turns (turn_end)."
+        },
+        "interrupted_turns": {
+          "$ref": "#/$defs/count"
+        },
+        "sessions": {
+          "$ref": "#/$defs/count",
+          "description": "Main sessions started."
+        },
+        "working_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 90000,
+          "description": "Wall-clock seconds during which at least one main session of this tool was working. Concurrent sessions are NOT summed (SPEC Revision 1, item 6); the cap allows a 25-hour daylight-saving day."
+        },
+        "needs_you": {
+          "$ref": "#/$defs/count",
+          "description": "needs_you episodes. Informational only: nothing in grow() may reward or gate on answering (SPEC Revision 1, item 6)."
+        },
+        "errors": {
+          "$ref": "#/$defs/count"
+        },
+        "recovered": {
+          "$ref": "#/$defs/count",
+          "description": "Turns started after an error."
+        },
+        "limit_hits": {
+          "$ref": "#/$defs/count"
+        },
+        "subagent_turns": {
+          "$ref": "#/$defs/count"
+        }
+      }
+    }
+  }
+}

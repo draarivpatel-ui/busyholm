@@ -1,0 +1,23 @@
+{
+  "pid": 41003,
+  "sessionId": "bca1a700-0000-4000-8000-00000000003a",
+  "cwd": "/Users/someone/code/BHCANARY_claude_cwd_51",
+  "startedAt": 1791805800000,
+  "procStart": "Mon Oct 12 11:50:00 2026",
+  "version": "2.1.296",
+  "peerProtocol": 1,
+  "peerFeatures": [],
+  "kind": "interactive",
+  "entrypoint": "cli",
+  "pidDomain": "local",
+  "messagingSocketPath": "/tmp/BHCANARY_claude_socket_3/claude-41003.sock",
+  "name": "BHCANARY_claude_name_3",
+  "nameSource": "ai",
+  "nameSince": 1791805860000,
+  "status": "waiting",
+  "statusUpdatedAt": 1791806370000,
+  "updatedAt": 1791806370000,
+  "ownerAccountUuid": "BHCANARY_claude_ownerAccountUuid_3",
+  "ownerOrganizationUuid": "BHCANARY_claude_ownerOrganizationUuid_3",
+  "waitingFor": "permission"
+}

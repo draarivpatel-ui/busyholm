@@ -1,0 +1,57 @@
+/* Tray popover (WP-11): the Relay tray widget ported to Snapshot v2 and the Holm. */
+
+html, body { height: 100%; overflow: hidden; }
+body.popover { background: var(--surface-solid); font-size: 12.5px; }
+/* In a transparent window with native vibrancy the page tints the material instead of covering it. */
+html.glass body.popover { background: transparent; }
+html.glass .pop { background: var(--surface-glass); border-radius: var(--radius-window); box-shadow: inset 0 0 0 1px var(--hairline); }
+html.wallpaper body.popover { background: linear-gradient(160deg, #c9d8c4, #e9d7b8 55%, #d7b38f); padding: 0; }
+html.wallpaper[data-theme="dark"] body.popover { background: linear-gradient(160deg, #1c2a33, #2c2a3d 55%, #3c2e33); }
+
+.pop { position: relative; height: 100%; display: flex; flex-direction: column; overflow: hidden; isolation: isolate; }
+
+/* Header: a quiet papercut horizon behind the wordmark */
+.pop-head { position: relative; flex: none; padding: 12px 14px 10px; }
+.hills { position: absolute; inset: 0 0 auto 0; height: 74px; z-index: -1; pointer-events: none; overflow: hidden; }
+.hills svg { display: block; width: 100%; height: 100%; }
+.hills .sky { fill: url(#bh-sky); }
+.hills .l1 { fill: var(--far-hills); opacity: .55; }
+.hills .l2 { fill: var(--mid-hills); opacity: .5; }
+.hills .l3 { fill: var(--meadow); opacity: .42; }
+.hills .river { fill: var(--river-light); opacity: .7; }
+.hills .fade { fill: url(#bh-fade); }
+.hills .layer { filter: drop-shadow(0 -1px 0 rgba(43, 42, 51, .08)); }
+[data-theme="dark"] .hills .l1, [data-theme="dark"] .hills .l2, [data-theme="dark"] .hills .l3 { opacity: .3; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hills .l1, :root:not([data-theme="light"]) .hills .l2, :root:not([data-theme="light"]) .hills .l3 { opacity: .3; } }
+
+.head-row { display: flex; align-items: center; gap: 8px; min-height: 28px; }
+.head-row .wordmark { margin: 0; font-size: 19px; line-height: 1; color: var(--text); }
+.head-row .spacer { flex: 1; }
+.head-summary { display: flex; align-items: baseline; gap: 6px; margin: 8px 0 0; min-height: 26px; }
+.head-summary .count { font-size: 22px; font-weight: 600; letter-spacing: -.6px; line-height: 1; }
+.head-summary .count-text { color: var(--text-secondary); font-size: 12px; }
+.attention {
+  margin-left: auto; align-self: center; display: inline-flex; align-items: center; gap: 5px; height: 24px; padding: 0 9px 0 7px;
+  border-radius: 12px; font-size: 12px; font-weight: 650; white-space: nowrap;
+  color: var(--alert-ink); background: var(--alert-wash); box-shadow: inset 0 0 0 1px var(--alert-line);
+}
+.attention .icon { width: 13px; height: 13px; stroke-width: 2; }
+.attention[data-none="true"] { color: var(--text-secondary); background: var(--surface-sunken); box-shadow: inset 0 0 0 1px var(--hairline); font-weight: 550; }
+
+/* The scroll body */
+.pop-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 8px 6px; scrollbar-width: thin; scrollbar-color: var(--hairline-strong) transparent; }
+.pop-body::-webkit-scrollbar { width: 6px; }
+.pop-body::-webkit-scrollbar-thumb { background: var(--hairline-strong); border-radius: 3px; }
+/* Footer quick actions */
+.pop-foot { flex: none; display: flex; align-items: center; gap: 4px; padding: 7px 8px 8px; border-top: 1px solid var(--hairline); }
+.pop-foot .spacer { flex: 1; }
+.foot-btn { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; font-size: 12px; font-weight: 550; color: var(--text-secondary); }
+.foot-btn:hover { background: var(--hover); color: var(--text); }
+.foot-btn:active { background: var(--press); }
+.foot-btn .icon { width: 15px; height: 15px; }
+.foot-btn[aria-pressed="true"] { color: var(--accent); }
+
+.toggle-state { margin-left: 2px; padding: 1px 6px; border-radius: 6px; font-size: 10.5px; font-weight: 650; background: var(--surface-sunken); box-shadow: inset 0 0 0 1px var(--hairline); color: var(--text-secondary); }
+.foot-btn[aria-pressed="true"] { color: var(--text-secondary); }
+.foot-btn[aria-pressed="true"] .toggle-state { color: var(--accent); background: var(--accent-wash); box-shadow: inset 0 0 0 1px var(--accent-line); }
+.pop-body:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; border-radius: 6px; }

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "privacy": {
+    "containsText": false
+  },
+  "log": [
+    {
+      "t": 1791288000000,
+      "day": "2026-10-06",
+      "kind": "build_order",
+      "order": [
+        "bakery"
+      ]
+    },
+    {
+      "t": 1791633600000,
+      "day": "2026-10-10",
+      "kind": "build_order",
+      "order": [
+        "bell_tower",
+        "bakery"
+      ]
+    }
+  ]
+}

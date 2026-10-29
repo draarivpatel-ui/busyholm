@@ -240,3 +240,27 @@ fn the_record_restores_verified_with_the_connector_offline_and_ignores_another_o
     c3.restore_coverage(record).unwrap();
     assert_eq!(tool(&c3,Tool::Claude,3).coverage,Coverage::Unsupported);
 }
+
+#[test]
+fn disconnecting_the_hooks_ends_their_alert_and_a_stale_session_cannot_raise_a_new_one() {
+    use collector::{CollectorOutput,contracts::{moment::MomentKind,snapshot::AgentState}};
+    let state=|c:&Collector|c.snapshot().agents[0].state;
+    let alerts=|out:Vec<CollectorOutput>|out.iter().filter(|o|matches!(o,CollectorOutput::Moment(m) if m.kind==MomentKind::NeedsYou)).count();
+    let (clock,mut c)=setup();
+    c.set_hooks(Tool::Claude,HooksStatus::Installed);
+    c.ingest(event("claude","turn_start","hook",1,3,BASE)).unwrap();
+    clock.advance(1000);
+    assert_eq!(alerts(c.ingest(event("claude","needs_permission","hook",1,3,clock.now_ms())).unwrap()),1);
+    assert_eq!(state(&c),AgentState::NeedsYou);
+    // The disconnect dialog promises the bell and flag stop: the open alert ends with the hooks.
+    c.set_hooks(Tool::Claude,HooksStatus::Missing);
+    assert_ne!(state(&c),AgentState::NeedsYou);
+    // A session started before the disconnect still has its hooks loaded; it cannot raise a new alert.
+    clock.advance(1000);
+    assert_eq!(alerts(c.ingest(event("claude","needs_answer","hook",1,3,clock.now_ms())).unwrap()),0);
+    assert_ne!(state(&c),AgentState::NeedsYou);
+    // Connected again, alerts work again.
+    c.set_hooks(Tool::Claude,HooksStatus::Installed);
+    clock.advance(1000);
+    assert_eq!(alerts(c.ingest(event("claude","needs_answer","hook",1,3,clock.now_ms())).unwrap()),1);
+}

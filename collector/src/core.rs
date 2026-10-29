@@ -282,6 +282,8 @@ impl Collector {
         let request_key=e.request_id.as_ref().map(|r|(e.root_id.clone(),e.instance.clone(),r.clone()));
         if request_key.as_ref().is_some_and(|k|self.answered.contains_key(k))&&matches!(e.kind,E::NeedsPermission|E::NeedsAnswer|E::Answered|E::ToolEnd) {self.rejected+=1;return Ok(self.emit(Vec::new()));}
         let mut moments=Vec::new();
+        // A session started before a disconnect still has the hooks loaded; they no longer raise alerts.
+        let hooks_gone=matches!(self.told.get(&e.agent),Some(HooksStatus::Missing|HooksStatus::Unsupported));
         let i=self.instances.get_mut(&e.instance).unwrap();
         i.last_signal=mono;
         if e.kind==E::ProcessUp {i.alive=Some(true);i.gone_at=None;}
@@ -348,7 +350,7 @@ impl Collector {
                 if i.view.state==S::Working {i.view.activity=e.detail.as_ref().and_then(|d|d.activity).or(i.view.activity);}
             }
             E::NeedsPermission|E::NeedsAnswer=> {
-                if matches!(e.source,EventSource::Hook|EventSource::Plugin)&&e.confidence==Confidence::Exact
+                if matches!(e.source,EventSource::Hook|EventSource::Plugin)&&e.confidence==Confidence::Exact&&!hooks_gone
                     && (matches!(i.view.state,S::Working|S::Starting|S::Unknown|S::NeedsYou)) {
                     let reason=if e.kind==E::NeedsPermission{NeedsYouReason::Permission}else{NeedsYouReason::Question};
                     let same=i.view.state==S::NeedsYou&&i.view.request_id==e.request_id;
@@ -451,6 +453,11 @@ impl Collector {
         for ev in self.evidence.iter_mut().filter(|(k,_)|k.0==tool).map(|(_,e)|e) {
             if matches!(status,HooksStatus::Missing|HooksStatus::Unsupported) {ev.verified_at=None;ev.hooked=false;ev.last_hook=None;ev.candidates.clear();ev.misses=0;}
             else if status==HooksStatus::Installed&&previous!=Some(HooksStatus::Installed) {ev.candidates.clear();ev.misses=0;}
+        }
+        // Disconnecting ends this tool's open alerts with the hooks that raised them (the bell and flag stop).
+        if matches!(status,HooksStatus::Missing|HooksStatus::Unsupported) {
+            let (wall,mono)=(self.clock.now_ms(),self.clock.monotonic_ms());
+            for i in self.instances.values_mut().filter(|i|i.view.tool==tool&&i.view.state==S::NeedsYou) {i.state(S::Working,wall,mono,Confidence::Inferred);}
         }
         self.refresh_coverage();self.dirty=true;
     }

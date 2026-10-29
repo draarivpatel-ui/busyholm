@@ -151,8 +151,14 @@ impl Dedup {
             }
             EventKind::TurnEnd => {
                 let id = ev.turn_id.clone();
+                // The Stop hook after the transcript's copy of the same turn still goes out: the collector may
+                // have refused that copy (a hook spoke moments before), and its own completion dedup keeps a
+                // turn it already counted from counting twice.
+                let hook_after_log = ev.source == EventSource::Hook
+                    && st.last_end.as_ref().is_some_and(|(last_id, last_src, _, generation)| *last_src == EventSource::Log
+                        && *generation == st.turn_generation && (last_id.is_none() || id.is_none() || *last_id == id));
                 if let Some(id) = &id {
-                    if st.seen_end_turns.contains(id) {
+                    if st.seen_end_turns.contains(id) && !hook_after_log {
                         self.stats.turn_dupes += 1;
                         return false;
                     }
@@ -160,7 +166,7 @@ impl Dedup {
                 if let Some((last_id, last_src, last_t, generation)) = &st.last_end {
                     let unkeyed = last_id.is_none() || id.is_none();
                     if *generation == st.turn_generation && unkeyed && *last_src != ev.source
-                        && now.abs_diff(*last_t) <= UNKEYED_WINDOW_MS {
+                        && now.abs_diff(*last_t) <= UNKEYED_WINDOW_MS && !hook_after_log {
                         self.stats.turn_dupes += 1;
                         return false;
                     }

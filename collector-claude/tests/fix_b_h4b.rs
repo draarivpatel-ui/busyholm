@@ -27,6 +27,11 @@ fn h4b_a_previous_unkeyed_end_cannot_suppress_the_next_turns_log_end() {
         assert!(!d.has_open_turn(&new_end.instance));
         let mut copy = new_end.clone();
         copy.source = old_end.source;
+        if copy.source == EventSource::Hook {
+            // A Stop hook after the transcript's copy goes out once; the collector dedups it by turn id
+            // (tests/turn_end_order.rs).
+            assert!(d.admit(&copy));
+        }
         assert!(!d.admit(&copy), "keyed duplicate protection remains intact");
     }
 }

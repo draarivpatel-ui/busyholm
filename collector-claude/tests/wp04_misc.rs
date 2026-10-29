@@ -336,8 +336,16 @@ fn hook_and_log_copies_of_a_turn_give_one_turn_end_in_either_order() {
         let l = log_turn_end(Some("P1"), NOW + 80);
         let (a, b) = if hook_first { (h, l) } else { (l, h) };
         assert!(d.admit(&a), "first copy passes");
-        assert!(!d.admit(&b), "second copy is dropped (hook_first={hook_first})");
-        assert_eq!(d.stats.turn_dupes, 1);
+        if hook_first {
+            assert!(!d.admit(&b), "the transcript copy after the hook is dropped");
+            assert_eq!(d.stats.turn_dupes, 1);
+        } else {
+            // The collector may have refused the transcript copy, so the hook copy goes out too; the collector
+            // counts the turn once either way (tests/turn_end_order.rs).
+            assert!(d.admit(&b), "the hook copy after the transcript passes");
+            assert!(!d.admit(&b), "a second hook copy is dropped");
+            assert_eq!(d.stats.turn_dupes, 1);
+        }
     }
 }
 

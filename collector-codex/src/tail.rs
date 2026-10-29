@@ -10,6 +10,9 @@ pub(crate) const MAX_LINE: usize = 1_048_576;
 const READ_BUDGET: usize = MAX_LINE + 65_536;
 const RECORD_BUDGET: usize = 128;
 const BACKFILL: u64 = 65_536;
+/// A rollout last written this long ago is history: the startup scan skips it, and a file attached later drops
+/// records this old instead of replaying them as new work.
+pub(crate) const RECENT_MS: u64 = 600_000;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 struct FileIdentity { device: u64, file: u64 }
@@ -27,6 +30,7 @@ pub struct RolloutTailer {
     path: PathBuf,
     checkpoint: TailCheckpoint,
     recent: bool,
+    live_only: bool,
     pub(crate) needs_more: bool,
 }
 
@@ -38,7 +42,7 @@ impl RolloutTailer {
         if fs::symlink_metadata(&path).is_ok_and(|metadata| !metadata.is_file()) {
             return Err(AdapterError::InvalidPayload);
         }
-        Ok(Self { path, checkpoint: TailCheckpoint::default(), recent: false, needs_more: false })
+        Ok(Self { path, checkpoint: TailCheckpoint::default(), recent: false, live_only: false, needs_more: false })
     }
 
     pub fn resume(path: impl AsRef<Path>, checkpoint: TailCheckpoint) -> Result<Self, AdapterError> {
@@ -50,6 +54,12 @@ impl RolloutTailer {
 
     pub(crate) fn recent(path: &Path) -> Result<Self, AdapterError> {
         let mut tailer = Self::new(path)?; tailer.recent = true; Ok(tailer)
+    }
+
+    /// A file first seen after startup (new, resumed or long idle): its recent tail, without records older than
+    /// `RECENT_MS`.
+    pub(crate) fn live(path: &Path) -> Result<Self, AdapterError> {
+        let mut tailer = Self::recent(path)?; tailer.live_only = true; Ok(tailer)
     }
 
     pub fn checkpoint(&self) -> TailCheckpoint { self.checkpoint.clone() }
@@ -122,6 +132,10 @@ impl RolloutTailer {
         // An incomplete allowed-size last line is re-read after the next append.
         // Oversized lines retain only the skip flag and byte offset across calls.
         self.needs_more |= consumed == READ_BUDGET && self.checkpoint.offset > start;
+        if self.live_only {
+            let now = ctx.now_ms();
+            events.retain(|e| e.et.is_none_or(|et| now.saturating_sub(et) <= RECENT_MS));
+        }
         Ok(events)
     }
 }

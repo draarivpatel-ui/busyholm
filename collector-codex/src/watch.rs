@@ -3,7 +3,7 @@ use std::{collections::{BTreeMap, BTreeSet, VecDeque}, fs::{self, ReadDir}, path
 use collector::{AdapterContext, AdapterError};
 use collector::contracts::AgentEvent;
 use notify::{Config, Event, EventKind, RecommendedWatcher, RecursiveMode, Watcher};
-use crate::{CodexAdapter, RolloutTailer, tail::{absolute, reject_symlinks, rollout_name}};
+use crate::{CodexAdapter, RolloutTailer, tail::{absolute, reject_symlinks, rollout_name, RECENT_MS}};
 
 const MAX_NOTICES: usize = 64;
 const MAX_ENTRIES: usize = 128;
@@ -25,6 +25,8 @@ pub(crate) struct RolloutWatch {
     queued: BTreeSet<PathBuf>,
     scans: VecDeque<DirectoryScan>,
     last_scan: Instant,
+    /// Startup history is drained: files attached from now on are live work only.
+    started: bool,
 }
 
 impl RolloutWatch {
@@ -43,7 +45,7 @@ impl RolloutWatch {
         let entries = fs::read_dir(&root).map_err(|_| AdapterError::Io)?;
         let scans = VecDeque::from([DirectoryScan { path: root.clone(), depth: 0, entries: Some(entries), recent: true }]);
         Ok(Self { root, _watcher: watcher, notices, dropped, tails: BTreeMap::new(), ready: VecDeque::new(),
-            queued: BTreeSet::new(), scans, last_scan: Instant::now() })
+            queued: BTreeSet::new(), scans, last_scan: Instant::now(), started: false })
     }
 
     fn queue(&mut self, path: PathBuf) {
@@ -52,7 +54,8 @@ impl RolloutWatch {
 
     fn add_file(&mut self, path: PathBuf, recent: bool) {
         if !self.tails.contains_key(&path) {
-            let tailer = if recent { RolloutTailer::recent(&path) } else { RolloutTailer::new(&path) };
+            // After startup even a file met through a notice may be an old session resumed: never read it from byte 0.
+            let tailer = if self.started { RolloutTailer::live(&path) } else if recent { RolloutTailer::recent(&path) } else { RolloutTailer::new(&path) };
             let Ok(tailer) = tailer else { return; };
             self.tails.insert(path.clone(), tailer);
         }
@@ -91,7 +94,7 @@ impl RolloutWatch {
                 if recent {
                     let age = metadata.modified().ok().and_then(|at| at.duration_since(std::time::UNIX_EPOCH).ok())
                         .map(|at| ctx.now_ms().saturating_sub(at.as_millis() as u64)).unwrap_or(0);
-                    if age > 600_000 { continue; }
+                    if age > RECENT_MS { continue; }
                 }
                 self.add_file(entry.path(), recent);
             }
@@ -107,6 +110,7 @@ impl RolloutWatch {
             if self.ready.is_empty() && self.scans.is_empty() { break; }
             events.extend(self.poll(adapter, ctx)?);
         }
+        self.started = true;
         Ok(events)
     }
 

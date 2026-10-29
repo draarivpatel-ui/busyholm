@@ -90,9 +90,11 @@ cargo test --workspace --locked            # Rust crates against the same fixtur
 node app/scripts/assemble-frontend.mjs     # builds app/dist, which the app shell compiles in (placeholders are fine)
 (cd app/src-tauri && cargo test)           # app shell logic (needs the WebKit build dependencies)
 (cd world/grow && npm test)                # progression engine
-(cd world/renderer && npm test)            # renderer, headless in virtual time
+(cd world/renderer && npm test)            # renderer, headless in virtual time (one test needs Playwright, below)
 python3 tools/verify/run.py self-test      # negative controls for the verification harness
 ```
+
+One renderer test drives headless Chrome and fails with "Playwright not found" until `playwright-core` is available. Install `playwright-core` 1.64.0 or set `PLAYWRIGHT_PATH` to a `playwright-core` package directory (see [`tools/lib/playwright.mjs`](tools/lib/playwright.mjs)).
 
 ## Privacy
 

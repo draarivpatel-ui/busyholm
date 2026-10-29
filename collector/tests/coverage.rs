@@ -264,3 +264,27 @@ fn disconnecting_the_hooks_ends_their_alert_and_a_stale_session_cannot_raise_a_n
     clock.advance(1000);
     assert_eq!(alerts(c.ingest(event("claude","needs_answer","hook",1,3,clock.now_ms())).unwrap()),1);
 }
+
+#[test]
+fn an_agent_still_blocked_after_the_disconnect_earns_no_working_time_until_it_moves_again() {
+    use collector::contracts::snapshot::AgentState;
+    let state=|c:&Collector|c.snapshot().agents[0].state;
+    let worked=|c:&Collector|c.ledger().days.values().filter_map(|d|d.get(&Tool::Claude)).map(|t|t.working_seconds).sum::<u32>();
+    let (clock,mut c)=setup();
+    c.set_hooks(Tool::Claude,HooksStatus::Installed);
+    c.ingest(event("claude","turn_start","hook",1,3,BASE)).unwrap();
+    clock.advance(1000);
+    c.ingest(event("claude","needs_permission","hook",1,3,clock.now_ms())).unwrap();
+    let before=worked(&c);
+    c.set_hooks(Tool::Claude,HooksStatus::Missing);
+    assert_ne!(state(&c),AgentState::Working,"no evidence it resumed");
+    // Still waiting on the user: a minute passes with no activity.
+    clock.advance(60_000);c.tick();
+    assert_eq!(worked(&c),before,"no working time while it may still be blocked");
+    assert_ne!(state(&c),AgentState::Working);
+    // New activity resumes the work accounting.
+    c.ingest(event("claude","turn_start","log",1,3,clock.now_ms())).unwrap();
+    assert_eq!(state(&c),AgentState::Working);
+    clock.advance(10_000);c.tick();
+    assert_eq!(worked(&c),before+10);
+}

@@ -454,10 +454,11 @@ impl Collector {
             if matches!(status,HooksStatus::Missing|HooksStatus::Unsupported) {ev.verified_at=None;ev.hooked=false;ev.last_hook=None;ev.candidates.clear();ev.misses=0;}
             else if status==HooksStatus::Installed&&previous!=Some(HooksStatus::Installed) {ev.candidates.clear();ev.misses=0;}
         }
-        // Disconnecting ends this tool's open alerts with the hooks that raised them (the bell and flag stop).
+        // Disconnecting ends this tool's open alerts with the hooks that raised them (the bell and flag stop). The agent
+        // may still be blocked, so it is not working until new activity says so.
         if matches!(status,HooksStatus::Missing|HooksStatus::Unsupported) {
             let (wall,mono)=(self.clock.now_ms(),self.clock.monotonic_ms());
-            for i in self.instances.values_mut().filter(|i|i.view.tool==tool&&i.view.state==S::NeedsYou) {i.state(S::Working,wall,mono,Confidence::Inferred);}
+            for i in self.instances.values_mut().filter(|i|i.view.tool==tool&&i.view.state==S::NeedsYou) {i.state(S::Unknown,wall,mono,Confidence::Inferred);}
         }
         self.refresh_coverage();self.dirty=true;
     }

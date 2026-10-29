@@ -171,6 +171,21 @@ fn created_file_that_changed_later_keeps_the_users_part() {
 }
 
 #[test]
+fn user_keys_added_between_two_consents_survive_disconnect_all() {
+    // The status line entry inherits "we created this file" from the hooks entry, but its recorded result
+    // already holds the user's key: disconnect all must remove our parts only, not delete the file.
+    let sb = sandbox();
+    sb.install(&[Component::ClaudeHooks]);
+    let mut v = parse(&sb.read_settings());
+    v["model"] = serde_json::json!("claude-opus-5");
+    std::fs::write(sb.settings(), serde_json::to_string_pretty(&v).unwrap()).unwrap();
+    sb.install(&[Component::ClaudeStatusline]);
+    sb.disconnect(&[]);
+    assert!(sb.settings().exists(), "the user's settings were deleted");
+    assert_eq!(parse(&sb.read_settings()), serde_json::json!({"model": "claude-opus-5"}));
+}
+
+#[test]
 fn claude_config_dir_is_respected() {
     use busyholm_installer::Layout;
     let home = std::path::Path::new("/home/someone");

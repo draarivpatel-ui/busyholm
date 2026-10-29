@@ -822,17 +822,13 @@ impl Installer {
         let Some(old) = fsio::read_regular(path)? else {
             return Ok(Outcome::Dropped(Some(format!("{} is already gone", path.display()))));
         };
-        let old_sha = fsio::sha256_hex(&old);
         // the entry that came first describes the file as the user had it
         let mut ordered: Vec<&ManifestEntry> = entries.iter().collect();
         ordered.sort_by_key(|e| e.installed_at);
         let earliest = ordered[0];
+        // A file we created is deleted only when removing our entries leaves it empty (below): a later entry's
+        // recorded hash can already include keys the user added between two consents.
         let created_by_us = earliest.action == InstallAction::CreateFile;
-
-        if created_by_us && all_selected && entries.iter().any(|e| e.after.sha256 == old_sha) {
-            let diff = diff::whole(&path_string(path), Some(&String::from_utf8_lossy(&old)), None);
-            return Ok(Outcome::Plan(FilePlan { path: path.to_path_buf(), target: earliest.target, diff, allowed: vec![], edits: vec![], new: None, note: Some("created by Busyholm and unchanged since: deleted".into()), old: Some(old), mode: 0o644, backups: vec![], manifest_after: self.empty_manifest() }, Vec::new()));
-        }
 
         let text = match String::from_utf8(old.clone()) {
             Ok(t) => t,

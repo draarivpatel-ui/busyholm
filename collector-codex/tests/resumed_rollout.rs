@@ -61,3 +61,31 @@ fn an_old_rollout_that_wakes_up_reports_only_its_new_turn() {
     let count = |kind: EventKind| seen.iter().filter(|e| e.kind == kind).count();
     assert_eq!((count(EventKind::TurnStart), count(EventKind::TurnEnd)), (1, 1), "only the new turn");
 }
+
+#[test]
+fn a_new_rollout_already_past_the_backfill_window_is_read_from_its_start() {
+    let scratch = Scratch::new(); let root = scratch.0.join("sessions");
+    let date = root.join("2026/10/12"); fs::create_dir_all(&date).unwrap();
+    let mut adapter = CodexAdapter::watch(&root).unwrap();
+    assert!(adapter.rebuild(&ctx()).unwrap().is_empty(), "no sessions yet");
+    // A session started after Busyholm, already over 64 KiB when first seen: its early turn and the open turn count.
+    let now = now_ms();
+    let mut records = vec![envelope("session_meta", json!({"id":"SYNTHETIC-NEW-SESSION", "source":"cli"}), now)];
+    records.extend(turn(now));
+    for _ in 0..80 { records.push(envelope("turn_context", json!({"pad": "x".repeat(1_000)}), now)); }
+    records.push(envelope("event_msg", json!({"type":"task_started"}), now));
+    // Written outside the watched folder and moved in, so the whole file is there before the first poll.
+    let staging = scratch.0.join("rollout-new.jsonl"); append(&staging, &records);
+    assert!(fs::metadata(&staging).unwrap().len() > 65_536);
+    fs::rename(&staging, date.join("rollout-new.jsonl")).unwrap();
+    let start = Instant::now(); let mut seen: Vec<AgentEvent> = Vec::new();
+    while start.elapsed() < Duration::from_secs(5) && seen.iter().filter(|e| e.kind == EventKind::TurnStart).count() < 2 {
+        seen.extend(adapter.poll(&ctx()).unwrap());
+        std::thread::sleep(Duration::from_millis(20));
+    }
+    std::thread::sleep(Duration::from_millis(2_200));
+    seen.extend(adapter.poll(&ctx()).unwrap());
+    let count = |kind: EventKind| seen.iter().filter(|e| e.kind == kind).count();
+    assert_eq!((count(EventKind::SessionStart), count(EventKind::TurnStart), count(EventKind::TurnEnd)), (1, 2, 1),
+        "the whole new session, from its first line");
+}

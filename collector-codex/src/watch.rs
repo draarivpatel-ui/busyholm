@@ -54,7 +54,7 @@ impl RolloutWatch {
 
     fn add_file(&mut self, path: PathBuf, recent: bool) {
         if !self.tails.contains_key(&path) {
-            // After startup even a file met through a notice may be an old session resumed: never read it from byte 0.
+            // After startup even a file met through a notice may be an old session resumed: only a new one is read from byte 0.
             let tailer = if self.started { RolloutTailer::live(&path) } else if recent { RolloutTailer::recent(&path) } else { RolloutTailer::new(&path) };
             let Ok(tailer) = tailer else { return; };
             self.tails.insert(path.clone(), tailer);

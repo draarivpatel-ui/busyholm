@@ -56,8 +56,8 @@ impl RolloutTailer {
         let mut tailer = Self::new(path)?; tailer.recent = true; Ok(tailer)
     }
 
-    /// A file first seen after startup (new, resumed or long idle): its recent tail, without records older than
-    /// `RECENT_MS`.
+    /// A file first seen after startup (new, resumed or long idle), without records older than `RECENT_MS`: all of it
+    /// when its session began within `RECENT_MS`, else its recent tail.
     pub(crate) fn live(path: &Path) -> Result<Self, AdapterError> {
         let mut tailer = Self::recent(path)?; tailer.live_only = true; Ok(tailer)
     }
@@ -80,11 +80,17 @@ impl RolloutTailer {
         if self.recent {
             // Recover the session hash from the bounded header before the recent tail.
             let header = read_header(&mut file)?;
+            let mut fresh = false;
             if let Some((line, end)) = header {
-                events.extend(adapter.decode_record(&mut self.checkpoint.stream, &line, ctx)?);
+                let mapped = adapter.decode_record(&mut self.checkpoint.stream, &line, ctx)?;
+                // A file met after startup whose session began recently is a new session: read all of it. Only an
+                // old session resumed skips its history.
+                let now = ctx.now_ms();
+                fresh = self.live_only && mapped.iter().any(|e| e.et.is_some_and(|et| now.saturating_sub(et) <= RECENT_MS));
+                events.extend(mapped);
                 self.checkpoint.offset = end;
             }
-            if metadata.len() > BACKFILL && metadata.len() - BACKFILL > self.checkpoint.offset {
+            if !fresh && metadata.len() > BACKFILL && metadata.len() - BACKFILL > self.checkpoint.offset {
                 let start = metadata.len() - BACKFILL;
                 self.checkpoint.offset = next_newline(&mut file, start, metadata.len())?;
             }

@@ -87,6 +87,7 @@ Code comments cite sections of an original design spec (written as "SPEC x.y") t
 npm test                                   # contract fixtures, type-check, privacy canary self-tests
 cargo test --workspace --locked            # Rust crates against the same fixtures and their own suites
 (cd collector-codex && cargo test)         # separate workspace
+node app/scripts/assemble-frontend.mjs     # builds app/dist, which the app shell compiles in (placeholders are fine)
 (cd app/src-tauri && cargo test)           # app shell logic (needs the WebKit build dependencies)
 (cd world/grow && npm test)                # progression engine
 (cd world/renderer && npm test)            # renderer, headless in virtual time

@@ -703,18 +703,19 @@ function buildSky() {
 }
 
 function buildSound() {
-  return [
-    group(
-      switchRow("sound.bell", "Ring the bell when an agent needs you", "A short chime, so you can look away."),
-      rangeRow("sound.volume", "Volume", "How loud the bell is.", { min: 0, max: 1, step: 0.05, format: (v) => Math.round(v * 100) + "%", round: (v) => Math.round(v * 100) / 100 }),
-      switchRow("sound.quiet_hours", "Quiet hours", "No bell between the two times below.", {
-        read: (s) => !!s.sound.quiet_hours,
-        write: (d, on) => (d.sound.quiet_hours = on ? { start: "22:00", end: "07:00" } : null),
-      }),
-      timeRow("sound.quiet_hours.start", "Quiet hours start", "Local time."),
-      timeRow("sound.quiet_hours.end", "Quiet hours end", "Can be earlier than the start, to run past midnight."),
-    ),
+  const rows = [
+    switchRow("sound.bell", "Ring the bell when an agent needs you", "A short chime, so you can look away."),
+    rangeRow("sound.volume", "Volume", "How loud the bell is.", { min: 0, max: 1, step: 0.05, format: (v) => Math.round(v * 100) + "%", round: (v) => Math.round(v * 100) / 100 }),
+    switchRow("sound.quiet_hours", "Quiet hours", "No bell between the two times below.", {
+      read: (s) => !!s.sound.quiet_hours,
+      write: (d, on) => (d.sound.quiet_hours = on ? { start: "22:00", end: "07:00" } : null),
+    }),
+    timeRow("sound.quiet_hours.start", "Quiet hours start", "Local time."),
+    timeRow("sound.quiet_hours.end", "Quiet hours end", "Can be earlier than the start, to run past midnight."),
   ];
+  // Nothing plays these yet, so they are shown but cannot be changed.
+  for (const r of rows) for (const c of r.querySelectorAll("input, select, button")) c.disabled = true;
+  return [note("The bell is visual for now. Busyholm plays no sound in this version, so these settings have no effect yet."), group(...rows)];
 }
 
 function buildNotifications() {

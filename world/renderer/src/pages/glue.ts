@@ -78,7 +78,11 @@ export function startPage(surface: 'strip' | 'ambient'): { r: Renderer; now: () 
     skyMode: settings?.sky?.mode ?? 'usage_and_clock',
     species: settings?.agents?.species ?? {},
     date: demo ? () => new Date(BASE_DATE + virt) : undefined,
-    onHitRects: surface === 'strip' ? (msg) => void invoke('bh_hit_rects', { msg }) : undefined,
+    // This page does not handle resident or bell clicks yet, so it does not claim them: a published rect makes the
+    // shell take clicks meant for the windows under the strip.
+    onHitRects: surface === 'strip'
+      ? (msg) => void invoke('bh_hit_rects', { msg: { ...msg, rects: msg.rects.filter((r) => r.kind !== 'resident' && r.kind !== 'bell') } })
+      : undefined,
     extraHitBoxes: fixed ? () => [{ x: width / 2 - 20, y: height - 64, w: 40, h: 40, kind: 'other' }] : undefined,
   };
   const r = createRenderer(opts);

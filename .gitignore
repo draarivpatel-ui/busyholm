@@ -5,6 +5,8 @@ node_modules/
 target/
 dist/
 *.log
+# a synthetic fixture the Antigravity adapter tests read
+!fixtures/agent-inputs/antigravity/log/cli.log
 
 # TypeScript fixture type-check scratch output
 contracts/ts/.typecheck/

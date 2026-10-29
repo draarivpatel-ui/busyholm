@@ -1,0 +1,12 @@
+I1012 12:00:00.481120 4242 server.go:41] language server ready
+I1012 12:00:03.124267 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:06.125078 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:09.125889 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:12.126700 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:13.250000 4242 cli.go:310] submitted prompt BHCANARY_antigravity_prompt_1 for /Users/someone/code/BHCANARY_antigravity_cwd_1
+I1012 12:00:15.127511 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:18.128322 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:21.129133 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:24.129944 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:27.130755 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate
+I1012 12:00:30.131566 4242 http_helpers.go:88] URL: https://example.invalid/v1/models:streamGenerate

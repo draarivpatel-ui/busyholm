@@ -62,8 +62,8 @@ More detail on the shell, its command-line flags and per-OS behaviour is in [`ap
 ### Try the world without the app
 
 ```sh
-cd world/demo && node tools/run-demo.mjs      # prints a deterministic demo state as JSON
-cd world/art && npm run build                 # builds gallery.html, open it straight from disk
+(cd world/demo && node tools/run-demo.mjs)    # prints a deterministic demo state as JSON
+(cd world/art && npm run build)               # builds gallery.html, open it straight from disk
 ```
 
 ## Repository layout

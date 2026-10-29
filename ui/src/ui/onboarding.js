@@ -228,18 +228,28 @@ async function finish() {
   else location.href = "settings.html?noredirect=1";
 }
 
-// Strip placement saves at once (the whole Settings object), so the strip moves while you look.
-async function saveStrip(mut) {
-  const next = JSON.parse(JSON.stringify(settings));
-  mut(next);
-  const r = await core.setSettings(next);
-  if (r.ok) {
-    settings = r.settings;
-    setError("ob-strip-error", "");
-  } else {
-    setError("ob-strip-error", r.error);
-  }
-  syncStrip();
+// Strip placement saves at once (the whole Settings object), so the strip moves while you look. Saves run one
+// after another, each built from the last accepted settings, so a quick second change cannot undo the first.
+let stripQueue = Promise.resolve();
+function saveStrip(mut) {
+  stripQueue = stripQueue.then(async () => {
+    const next = JSON.parse(JSON.stringify(settings));
+    mut(next);
+    let r;
+    try {
+      r = await core.setSettings(next);
+    } catch (e) {
+      r = { ok: false, error: "Busyholm could not save this setting." };
+    }
+    if (r && r.ok) {
+      settings = r.settings;
+      setError("ob-strip-error", "");
+    } else {
+      setError("ob-strip-error", (r && r.error) || "Busyholm could not save this setting.");
+    }
+    syncStrip();
+  });
+  return stripQueue;
 }
 
 function syncStrip() {

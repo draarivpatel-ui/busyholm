@@ -359,6 +359,8 @@ impl Collector {
                 }
             }
             E::Answered|E::ToolEnd=> {
+                // An open turn moved to Unknown by a hooks disconnect (it may have been blocked) resumes on its result.
+                if i.view.state==S::Unknown&&i.turn_started.is_some() {i.state(S::Working,wall,mono,e.confidence);}
                 if i.view.state==S::Working {i.view.activity=e.detail.as_ref().and_then(|d|d.activity).or(i.view.activity);}
             }
             E::TurnInterrupted if i.view.state==S::Limited=> {i.turn_started=None;i.codex_open=false;}
@@ -366,7 +368,7 @@ impl Collector {
                 // A turn whose 90 s of silence was inferred as finished may still end for real later (a long tool).
                 let late_end=i.view.state==S::YourTurn&&i.view.confidence==Confidence::Inferred&&e.kind==E::TurnEnd&&i.codex_open==false;
                 if late_end&&(e.turn_id.is_none()||i.view.turn_id.is_none()||e.turn_id==i.view.turn_id) {i.view.state=S::Working;}
-                if matches!(i.view.state,S::Working|S::NeedsYou|S::Starting) {
+                if matches!(i.view.state,S::Working|S::NeedsYou|S::Starting)||(i.view.state==S::Unknown&&i.turn_started.is_some()) {
                     // The request this turn was waiting on is over with it; a late copy must not raise it again.
                     if i.view.state==S::NeedsYou {if let Some(r)=i.view.request_id.as_ref() {self.answered.insert((e.root_id.clone(),e.instance.clone(),r.clone()),mono);}}
                     if e.turn_id.is_some()&&i.view.turn_id.is_some()&&e.turn_id!=i.view.turn_id {self.rejected+=1;return Ok(self.emit(moments));}

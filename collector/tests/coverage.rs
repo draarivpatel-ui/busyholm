@@ -288,3 +288,45 @@ fn an_agent_still_blocked_after_the_disconnect_earns_no_working_time_until_it_mo
     clock.advance(10_000);c.tick();
     assert_eq!(worked(&c),before+10);
 }
+
+#[test]
+fn a_turn_left_open_by_the_disconnect_resumes_on_its_tool_result_and_its_end_is_counted() {
+    use collector::contracts::snapshot::AgentState;
+    let state=|c:&Collector|c.snapshot().agents[0].state;
+    let worked=|c:&Collector|c.ledger().days.values().filter_map(|d|d.get(&Tool::Claude)).map(|t|t.working_seconds).sum::<u32>();
+    let turns=|c:&Collector|c.ledger().days.values().filter_map(|d|d.get(&Tool::Claude)).map(|t|t.turns).sum::<u32>();
+    let (clock,mut c)=setup();
+    c.set_hooks(Tool::Claude,HooksStatus::Installed);
+    c.ingest(event("claude","turn_start","hook",1,3,BASE)).unwrap();
+    clock.advance(1000);
+    c.ingest(event("claude","needs_permission","hook",1,3,clock.now_ms())).unwrap();
+    let (before,turns_before)=(worked(&c),turns(&c));
+    c.set_hooks(Tool::Claude,HooksStatus::Missing);
+    // The user answers 20 s later: the tool's result is the first new activity.
+    clock.advance(20_000);
+    c.ingest(event("claude","tool_end","hook",1,3,clock.now_ms())).unwrap();
+    assert_eq!(state(&c),AgentState::Working,"the tool result shows it moved again");
+    assert_eq!(worked(&c),before,"the blocked stretch earns nothing");
+    clock.advance(10_000);
+    c.ingest(event("claude","turn_end","hook",1,3,clock.now_ms())).unwrap();
+    assert_eq!(state(&c),AgentState::YourTurn);
+    assert_eq!(turns(&c),turns_before+1,"the finished turn is counted");
+    assert_eq!(worked(&c),before+10,"working time only from the tool result to the end");
+}
+
+#[test]
+fn a_turn_left_open_by_the_disconnect_that_ends_with_no_tool_result_is_still_counted() {
+    use collector::contracts::snapshot::AgentState;
+    let turns=|c:&Collector|c.ledger().days.values().filter_map(|d|d.get(&Tool::Claude)).map(|t|t.turns).sum::<u32>();
+    let (clock,mut c)=setup();
+    c.set_hooks(Tool::Claude,HooksStatus::Installed);
+    c.ingest(event("claude","turn_start","hook",1,3,BASE)).unwrap();
+    clock.advance(1000);
+    c.ingest(event("claude","needs_answer","hook",1,3,clock.now_ms())).unwrap();
+    let before=turns(&c);
+    c.set_hooks(Tool::Claude,HooksStatus::Missing);
+    clock.advance(5000);
+    c.ingest(event("claude","turn_end","hook",1,3,clock.now_ms())).unwrap();
+    assert_eq!(c.snapshot().agents[0].state,AgentState::YourTurn);
+    assert_eq!(turns(&c),before+1);
+}

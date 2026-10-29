@@ -396,6 +396,25 @@ fn an_unrelated_tool_finishing_does_not_answer_a_pending_request() {
 }
 
 #[test]
+fn an_exact_hook_after_an_inferred_registry_wait_still_raises_the_alert() {
+    // The registry's waiting status is inferred and never raises an alert in the collector, so the exact
+    // hook for the same request must not be dropped as its duplicate.
+    for (name, kind) in [("PermissionRequest", EventKind::NeedsPermission), ("Notification", EventKind::NeedsPermission)] {
+        let mut d = Dedup::new();
+        let exact = hook(name, json!({"tool_use_id":"tu-1","notification_type":"permission_prompt"}), NOW + 500).remove(0);
+        assert_eq!(exact.kind, kind);
+        let mut registry = exact.clone();
+        registry.source = busyholm_contracts::agent_event::EventSource::Registry;
+        registry.confidence = busyholm_contracts::common::Confidence::Inferred;
+        registry.request_id = None;
+        registry.detail = None;
+        assert!(d.admit(&registry));
+        assert!(d.admit(&exact), "{name}: the exact hook is the alert");
+        assert!(!d.admit(&exact), "{name}: a second exact copy is still a duplicate");
+    }
+}
+
+#[test]
 fn open_turn_tracking_follows_all_sources() {
     let mut d = Dedup::new();
     let inst = test_id("s-1");

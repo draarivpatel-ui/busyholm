@@ -8,7 +8,7 @@ use std::collections::{HashMap, VecDeque};
 use collector::{Clock, SystemClock};
 
 use busyholm_contracts::agent_event::{EventKind, EventSource, Notification};
-use busyholm_contracts::common::InstanceId;
+use busyholm_contracts::common::{Confidence, InstanceId};
 
 use crate::PendingEvent;
 
@@ -40,6 +40,8 @@ struct Req {
     kind: ReqKind,
     id: Option<String>,
     answered_at: Option<u64>,
+    /// Only inferred copies so far (the registry's waiting status): the collector raised no alert from them.
+    inferred: bool,
 }
 
 #[derive(Default)]
@@ -190,6 +192,7 @@ impl Dedup {
             EventKind::NeedsPermission | EventKind::NeedsAnswer => {
                 let kind = if ev.kind == EventKind::NeedsPermission { ReqKind::Permission } else { ReqKind::Question };
                 let weak = is_fallback_notification(ev);
+                let inferred = ev.confidence != Confidence::Exact;
                 if ev.request_id.as_ref().is_some_and(|id| st.answered_requests.contains(id)) {
                     self.stats.late_notifications += 1;
                     return false;
@@ -205,10 +208,15 @@ impl Dedup {
                             if r.id.is_none() {
                                 r.id = ev.request_id.clone(); // a hook identity upgrades a fallback alert
                             }
-                            self.stats.request_dupes += 1;
-                            return false;
+                            // An exact copy after inferred ones is the first that can raise the alert.
+                            if !r.inferred || inferred {
+                                self.stats.request_dupes += 1;
+                                return false;
+                            }
+                            r.inferred = false;
+                        } else {
+                            *r = Req { kind, id: ev.request_id.clone(), answered_at: None, inferred };
                         }
-                        *r = Req { kind, id: ev.request_id.clone(), answered_at: None };
                     }
                     Some(r) => {
                         if weak && ev.request_id.is_none()
@@ -216,9 +224,9 @@ impl Dedup {
                             self.stats.late_notifications += 1;
                             return false;
                         }
-                        *r = Req { kind, id: ev.request_id.clone(), answered_at: None };
+                        *r = Req { kind, id: ev.request_id.clone(), answered_at: None, inferred };
                     }
-                    None => st.reqs.push(Req { kind, id: ev.request_id.clone(), answered_at: None }),
+                    None => st.reqs.push(Req { kind, id: ev.request_id.clone(), answered_at: None, inferred }),
                 }
                 st.open_turn = true;
             }

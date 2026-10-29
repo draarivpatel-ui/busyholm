@@ -223,6 +223,8 @@ function back() {
 }
 
 async function finish() {
+  // A strip change still saving must land before the window closes.
+  await stripQueue.catch(() => {});
   await core.onboardingDone();
   if (core.hasCore()) await core.close();
   else location.href = "settings.html?noredirect=1";

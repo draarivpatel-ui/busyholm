@@ -1,6 +1,6 @@
 {
   "name": "@busyholm/app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Busyholm Tauri v2 shell (WP-02). Its own npm project, not a root workspace, so the shared tests never need the Tauri CLI.",

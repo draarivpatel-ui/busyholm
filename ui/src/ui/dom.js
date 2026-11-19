@@ -57,12 +57,6 @@ export function svg(viewBox, className) {
   return s;
 }
 
-export function svgEl(name, attrs) {
-  const e = document.createElementNS(SVG_NS, name);
-  for (const [k, v] of Object.entries(attrs || {})) e.setAttribute(k, String(v));
-  return e;
-}
-
 /** Announce text to screen readers through a shared polite live region. */
 export function announce(text, assertive) {
   const id = assertive ? "bh-live-assertive" : "bh-live-polite";

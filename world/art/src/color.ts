@@ -38,11 +38,6 @@ export function css(c: RGB, alpha = 1): string {
   return alpha >= 1 ? `rgb(${r} ${g} ${b})` : `rgb(${r} ${g} ${b} / ${Math.max(0, alpha).toFixed(3)})`;
 }
 
-/** CSS string of a token, optionally with alpha. */
-export function tcss(name: Token, alpha = 1): string {
-  return alpha >= 1 ? PAL[name] : css(tok(name), alpha);
-}
-
 // sRGB <-> linear
 const toLin = (c: number) => {
   const s = c / 255;

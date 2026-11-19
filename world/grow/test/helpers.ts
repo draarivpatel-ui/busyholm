@@ -2,14 +2,9 @@
 import { createHash } from "node:crypto";
 import { validate } from "@busyholm/contracts";
 import type { World } from "@busyholm/contracts";
-import { canonicalJson } from "../src/canonical.ts";
 
 export function sha256(text: string): string {
   return createHash("sha256").update(text).digest("hex");
-}
-
-export function worldHash(world: World): string {
-  return sha256(canonicalJson(world));
 }
 
 /** Throws with the first schema issue if the world is not a valid World v1. */

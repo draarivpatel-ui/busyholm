@@ -38,11 +38,6 @@ export function monthOf(n: number): number {
   return civilFromDays(n).m;
 }
 
-/** Day number of the UTC calendar day containing an epoch-millisecond instant. */
-export function utcDayNumberOfMs(ms: number): number {
-  return Math.floor(ms / 86_400_000);
-}
-
 function pad(v: number, width: number): string {
   let s = String(v);
   while (s.length < width) s = "0" + s;

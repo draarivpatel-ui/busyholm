@@ -17,7 +17,7 @@ pub mod j;
 pub mod ops;
 pub mod span;
 
-use busyholm_contracts::common::{Tool, Version};
+use busyholm_contracts::common::Version;
 use busyholm_contracts::install_manifest::{After, Before as ManifestBefore, InstallAction, InstallState, InstallTarget, InstallTool, ManifestEntry, OwnedEntry};
 pub use busyholm_contracts::install_manifest::InstallManifest;
 use busyholm_contracts::Validate;
@@ -1471,9 +1471,6 @@ fn verify_removal(path: &Path, old_text: &str, new_text: &str, tag: &str, hooks_
     }
     Ok(())
 }
-
-#[allow(dead_code)]
-fn _tool_type_check(_: Tool, _: BTreeSet<u8>) {}
 
 fn is_real_dir(path: &Path) -> bool {
     std::fs::symlink_metadata(path).is_ok_and(|m| m.file_type().is_dir())

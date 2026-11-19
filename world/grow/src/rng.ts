@@ -22,11 +22,6 @@ export function mixSeed(seed: number, salt: number): number {
   return (h ^ (h >>> 16)) >>> 0;
 }
 
-/** Uniform integer in [0, n) from a uint32 source (n at most 2^32). Modulo bias is irrelevant here. */
-export function nextInt(next: () => number, n: number): number {
-  return next() % n;
-}
-
 /** Fisher-Yates shuffle of a copy, driven by the given source. */
 export function shuffled<T>(items: readonly T[], next: () => number): T[] {
   const out = items.slice();

@@ -14,13 +14,6 @@ export function hash(...xs: number[]): number {
   return h >>> 0;
 }
 
-/** Hash a string to a seed. */
-export function seedOf(s: string): number {
-  let h = 0x811c9dc5;
-  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 0x01000193);
-  return h >>> 0;
-}
-
 /** Mulberry32 PRNG, returns floats in [0, 1). */
 export function rng(seed: number): () => number {
   let a = seed >>> 0;

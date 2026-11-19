@@ -7,7 +7,6 @@ import { CANON_W } from './layout.ts';
 
 export const STRIP_H = 112;
 export const GROUND_Y = 82;
-export const STRUCTURE_BASE_Y = 80;
 
 export const AMBIENT_DEFAULTS: AmbientParams = {
   worldScale: 4.6,
@@ -64,9 +63,4 @@ export function mapX(xf: ViewXf, x: number): number {
 /** Canonical point to CSS px; camX is the ambient camera's left edge in units. */
 export function toCss(xf: ViewXf, x: number, y: number, camX = 0): [number, number] {
   return [(mapX(xf, x) - camX) * xf.s, (y - xf.y0) * xf.s];
-}
-
-/** Visible width in canonical units (for the ambient camera). */
-export function visibleUnits(xf: ViewXf): number {
-  return xf.W;
 }

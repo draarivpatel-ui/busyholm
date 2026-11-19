@@ -48,13 +48,3 @@ export function shadowFor(sky: SkySample): ShadowParams {
     side,
   };
 }
-
-/** Per-layer depth gaps (how far each paper layer floats in front of the one behind it). */
-export const LAYER_GAP = {
-  farHills: 1.2,
-  midHills: 1.0,
-  river: 0.5,
-  bank: 1.4,
-  village: 2.2,
-  reeds: 1.6,
-} as const;

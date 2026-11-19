@@ -305,11 +305,6 @@ export function drawClouds(F: Frame, t = 0): void {
 
 // ---------------------------------------------------------------- terrain stack
 
-export interface TerrainOpts {
-  /** extra drawing on top of the bank (contact shadows etc.) */
-  onBank?: (P: Paper) => void;
-}
-
 export function drawTerrainBack(F: Frame): void {
   const L = (P: Paper) => ({ P, W: F.W + F.camX + 20, seed: F.seed, season: F.season });
   if (F.view.kind === 'ambient') {

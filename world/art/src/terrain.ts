@@ -6,7 +6,7 @@
 import { SIZES } from './tokens.ts';
 import { Paper, type Pt, type Fill, blob, ellipse, rect } from './paper.ts';
 import { fbm1, rng, range, hash } from './rng.ts';
-import { tok, mix, type RGB } from './color.ts';
+import { tok, mix } from './color.ts';
 
 export type Season = 'autumn' | 'winter';
 
@@ -386,8 +386,4 @@ export function drawReeds(L: LayerCtx, H = SIZES.stripHeight): void {
     x += range(r, 26, 90);
   }
   P.grain(-10, H - 20, W + 20, 24);
-}
-
-export function hazeColor(a: RGB, b: RGB, t: number): RGB {
-  return mix(a, b, t);
 }

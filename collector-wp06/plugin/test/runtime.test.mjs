@@ -1,6 +1,6 @@
 // FIX-C (review r1 M7, M8, M9): bounded asynchronous runtime refresh, explicit HTTP status
 // handling with a bounded recovery policy, and no redirects off loopback.
-// Run with: node --test collector-wp06/plugin/test/
+// Run with: npm run test:wp06
 import test from "node:test";
 import assert from "node:assert/strict";
 import { mkdtempSync, writeFileSync, readFileSync } from "node:fs";

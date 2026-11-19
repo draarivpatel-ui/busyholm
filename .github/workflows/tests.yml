@@ -44,6 +44,9 @@ jobs:
       - name: npm test (contracts, type-check, privacy kit)
         run: npm test
 
+      - name: npm run test:wp06 (OpenCode plugin simulated run)
+        run: npm run test:wp06
+
       - name: cargo test (Rust crates against the shared fixtures)
         run: cargo test --workspace --locked
 

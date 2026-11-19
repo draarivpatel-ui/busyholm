@@ -51,5 +51,5 @@ What the plugin never reads into the posted object: prompts, replies, tool argum
 ## Tests
 
 - `cargo test -p busyholm-collector-wp06` (Rust, includes a real-process timing test that takes about 10 s and a Node end-to-end test through the real receiver; skips Node tests if `node` is missing).
-- `npm run test:wp06` (plugin simulated run, 13 tests; also passes under `bun test`, OpenCode's runtime).
+- `npm run test:wp06` (plugin simulated run, 22 tests; also passes under `bun test`, OpenCode's runtime).
 - Optional smoke runs against real data, printing only counts and timings: `BUSYHOLM_REAL_OPENCODE_DB=... cargo test -p busyholm-collector-wp06 -- --ignored real_database`, `BUSYHOLM_REAL_AGY_ROOT=... ... real_agy`.

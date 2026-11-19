@@ -97,7 +97,6 @@ version = "0.1.1"
 dependencies = [
  "busyholm-contracts",
  "getrandom 0.2.16",
- "serde",
  "serde_json",
  "sha2",
  "tempfile",

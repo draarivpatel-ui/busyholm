@@ -1,5 +1,5 @@
 // WP-06 acceptance test 1: in a simulated OpenCode run the plugin posts only allowlisted
-// fields. Run with: node --test collector-wp06/plugin/test/
+// fields. Run with: npm run test:wp06
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";

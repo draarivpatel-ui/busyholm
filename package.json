@@ -19,7 +19,7 @@
     "fixtures:generate": "node tools/fixtures/generate.mjs",
     "typecheck": "tsc -p contracts/ts",
     "lint:dashes": "python3 tools/verify/run.py dash",
-    "test:wp06": "node --test collector-wp06/plugin/test/"
+    "test:wp06": "node --test \"collector-wp06/plugin/test/*.test.mjs\""
   },
   "devDependencies": {
     "@types/node": "24.19.2",
